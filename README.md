@@ -5,10 +5,11 @@
     * [gRPC](#grpc)
     * [GraphQL](#graphql)
 * [Design Patterns](#design-patterns)
+    * Ambassador pattern
+    * Anti-corruption Layer pattern
     * [Backends for Frontends](#backends-for-frontends)
     <!-- * [Gateway Routing](#gateway-routing) -->
     * Gatekeeper pattern
-    * Anti-corruption Layer pattern
     * Sequential Convoy pattern
     * [Strangler Fig pattern](#strangler-fig-pattern)
 
@@ -16,9 +17,10 @@
     * Monolithic
     * Microservices
     * [Serverless](#serverless)
-* [Databases - SQL vs NoSQL](#databases---sql-vs-nosql)
-    * Relational
-    * Non-relational
+* [Databases](#databases)
+    * [Relational vs Non-relational](#relational-vs-non-relational)
+    * SQL
+    * NoSQL
         * Key-value pair
         * Document-oriented
         * Column-oriented
@@ -29,6 +31,8 @@
     * OAuth
 * MISC
     * Distributed & CAP
+    * Kubernetes
+        * vs Docker Swarm
 
 ## APIs
 
@@ -55,15 +59,14 @@
 * Create one backend per user interface. Fine-tune the behavior and performance of each backend to best match the needs of different clients.
 
 #### Benefits
-* The overall system could become less complex than a generic backend trying to satisfy all different types of clients.
-* Each interface team has increased flexibility to prioritize features and autonomy to control their own backend.
-* Potentially increase reliability. Malfunction of desktop backend service might not affect the availability of mobile backend service.
-* Can optimize performance for a specific client's constraints and functionality.
+* **Less Complexity -** The overall system could become less complex than a generic backend trying to satisfy all different types of clients.
+* **Feature Selection Flexibility -** Each interface team has increased flexibility to prioritize features and autonomy to control their own backend.
+* **Reliability Increase -** Malfunction of desktop backend service might not affect the availability of mobile backend service.
+* **Performance optimization -** for a specific client's constraints and functionality.
 
 #### Issues and Considerations
-* Code duplication across services is highly likely.
-* If different clients mostly make the same requests, building the new backends can create more technical debt, so just a single backend will suffice.
-* The new frontend-focused backend services should only contain client specific logics, and general business logics should be managed elsewhere.
+* **Over-engineering -** Just a single backend will suffice if different clients mostly make the same requests. Building the new backends can create more technical debt.
+* **Code Duplication -** Code duplication across services is highly likely without a proper planning. The new frontend-focused backend services should only contain client specific logics, and general business logics should be managed elsewhere.
 
 
 ### Gateway Routing
@@ -123,23 +126,27 @@
 * Migrating a monolithic application to microservices application in a single operation introduces transformation risk and business disruption. It is extremely hard or even impossible to add new features while the app is being refactored.
 
 #### Solution
-* Migrate a monolithic application to a microservices architecture incrementally
+* Incrementally migrate a monolithic application to a microservices architecture.
 
 #### Benefits
-* The features in the monolith are replaced by microservices gradually, and users are able to use the newly migrated features progressively. End users are minimally impacted during the transformation.
-* The monolithic application can be decommissioned safely when all features are moved out to the new system.
+* **Minimal End Users Impact -** The features in the monolith are replaced by microservices gradually, and users are able to use the newly migrated features progressively. The monolithic application can be decommissioned safely when all features are moved out to the new system.
 
 #### Issues and Considerations
-* 
+* **Request Interception -** The request needs to be interceptable. A proxy layer intercepts the requests that go to the monolithic application and routes them to either the legacy system or the new system.
+* **Single Point of Failure -** The above proxy layer can become a single point of failure or a performance bottleneck.
+* **Data Consistency & Redundancy -** The monolithic system can have a data store and the new microservice can own a new data store as well. Sharing data between these stores can cause data redundancy and eventual consistency.
+* **Complete refactoring -** For small applications, it might be more efficient to rewrite the whole application in microservices architecture instead of incrementally migrating it.
 
-## Databases - SQL vs NoSQL
+## Databases
 
-### Relational
+### Relational vs Non-relational
+
+### SQL
 
 * ACID - Atomicity, Consistency, Isolation, and Durability.
     * Most relational DBMS are ACID compliant
 
-### Non-relational
+### NoSQL
 
 #### Key-value pair
 #### Document-oriented
