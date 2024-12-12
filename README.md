@@ -1,6 +1,6 @@
 # WIP. Study notes of backend development concepts.
 
-* Learning concepts to get better at selecting the right tools for the job.
+* Learning concepts to get better at selecting the right tools for the job. There is no silver bullet
 
 # Table of Contents
 * [APIs](#apis)
@@ -18,9 +18,10 @@
 
 * Architectural Patterns
     * [Monolithic](#monolithic)
+        * [Modular Monolith](#modular-monolith)
+        * [Distributed Monolith](#distributed-monolith)
     * Distributed System
         * CAP theorem
-    * Distributed Monolith
     * Microservices
     * [Serverless](#serverless)
 
@@ -190,27 +191,43 @@
 # Architectural Patterns
 
 ## Monolithic
-* 
+* A traditional software development approach. A single codebase containing all the functionality that is deployed as a single unit.
+* A good choice for a small team and application with little complexity. Consider refactoring into microservices if:
+    * it becomes too complex.
+    * performance is a problem even after scaling horizontally with load-balancing & database sharding.
 
-* Pros
-    * 
+### Modular Monolith
 
-* Cons
-    * 
+* **Improved cohesion:** Monolith divided into distinct modules with specific functionality. Each module will be independent and isolated so each module can be owned by a single team. This supports the separation of concerns, leading to a cleaner and organized codebase.
+
+* **Middle ground of monolithic & microservices.** Provides some advantages of microservices without the complexity of distributed systems. Could serve as the foundation step of microservices. Each module could be an independent microservices candidate in the future.
+
+* **Loose coupling:** A module is never completely independent, but dependencies with other modules should be minimal to enable teams to replace/modify modules without impacting others. To promote loose coupling, data isolation should be achieved by following options:
+
+    - Separate table
+    - Separate schema
+    - Separate database
+    - Different persistence
+
+#### vs Microservices
+
+* **Simple deployment, but no flexibility.** Deployment is the biggest difference. Modular monolith is deployed as a single unit whereas microservices allow independent deployments & scalability.
+* **No tech stack flexibility.** Different technology stacks per service is possible for microservices.
+* **Less latency between features:** Communication between modules occurs in-process, so no network latency or data serialization/deserialization overhead.
+
+### Distributed Monolith
+* **Antipattern.** Has the complexity of microservices without the benefits of microservices.
+* Some signs of this problem:
+    - Tightly coupled microservices.
+    - The deployment of one service causes downtime for other services.
+    - Services are overly chatty.
 
 ## Distributed System
 ### CAP theorem
 
-## Distributed Monolith
-
 ## Microservices
-* 
 
-* Pros
-    * 
 
-* Cons
-    * 
 
 ## Serverless
 
