@@ -3,27 +3,13 @@
 * Learning concepts to get better at selecting the right tools for the job. There is no silver bullet
 
 # Table of Contents
-* [APIs](#apis)
+* [Communication](#communication)
+    * Synchronous vs Asynchronous
     * [gRPC](#grpc)
     * [GraphQL](#graphql)
-
-* [Design Patterns](#design-patterns)
-    * Ambassador pattern
-    * Anti-corruption Layer pattern
-    * [Backends for Frontends](#backends-for-frontends)
-    <!-- * [Gateway Routing](#gateway-routing) -->
-    * Gatekeeper pattern
-    * Sequential Convoy pattern
-    * [Strangler Fig pattern](#strangler-fig-pattern)
-
-* Architectural Patterns
-    * [Monolithic](#monolithic)
-        * [Modular Monolith](#modular-monolith)
-        * [Distributed Monolith](#distributed-monolith)
-    * Distributed System
-        * CAP theorem
-    * Microservices
-    * [Serverless](#serverless)
+    * Message Broker
+        * Kafka
+        * RabbitMQ
 
 * [Databases](#databases)
     * [SQL vs NoSQL](#sql-vs-nosql)
@@ -36,13 +22,30 @@
         * Graph-based
         * Time series
 
+* Architectural Patterns
+    * [Monolithic](#monolithic)
+        * [Modular Monolith](#modular-monolith)
+        * [Distributed Monolith](#distributed-monolith)
+    * Distributed System
+        * Consistency Patterns
+        * [CAP theorem](#cap-theorem)
+        * PACELC theorem
+    * Microservices
+    * [Serverless](#serverless)
+
+* [Design Patterns](#design-patterns)
+    * Ambassador pattern
+    * Anti-corruption Layer pattern
+    * [Backends for Frontends](#backends-for-frontends)
+    <!-- * [Gateway Routing](#gateway-routing) -->
+    * Gatekeeper pattern
+    * Sequential Convoy pattern
+    * [Strangler Fig pattern](#strangler-fig-pattern)
+
 * Tools
     * Microservices Orchestration
         * Kubernetes
             * vs Docker Swarm
-    * Message Queue Systems
-        * Kafka
-        * RabbitMQ
 
 * To-Do
     * Cloud
@@ -57,7 +60,9 @@
 
 ---
 
-# APIs
+# Communication
+
+## Synchronous vs Asynchronous
 
 ## gRPC
 
@@ -70,97 +75,6 @@
 * GraphQL schema file `*.graphqls` contains all information about what a client can potentially do with a GraphQL API.
 * A single endpoint can be used to receive requests with GraphQL queries.
 * As clients can request exact data wanted, could be used to avoid REST API's over-fetching & under-fetching problems.
-
----
-
-# Design Patterns
-
-## Backends for Frontends
-
-### Problem context
-* Desktop & mobile clients can have different data requirements. One backend service being used for both desktop & mobile can become a bottleneck in the development process.
-
-### Solution
-* Create one backend per user interface. Fine-tune the behavior and performance of each backend to best match the needs of different clients.
-
-### Benefits
-* **Less Complexity -** The overall system could become less complex than a generic backend trying to satisfy all different types of clients.
-* **Feature Selection Flexibility -** Each interface team has increased flexibility to prioritize features and autonomy to control their own backend.
-* **Reliability Increase -** Malfunction of desktop backend service might not affect the availability of mobile backend service.
-* **Performance optimization -** Custom optimization for a specific client's constraints and functionality.
-
-### Issues and Considerations
-* **Over-engineering -** Just a single backend will suffice if different clients mostly make the same requests. Building the new backends can create more technical debt.
-* **Code Duplication -** Code duplication across services is highly likely without a proper planning. The new frontend-focused backend services should only contain client specific logics, and general business logics should be managed elsewhere.
-
-
-## Gateway Routing
-### Problem context
-* 
-
-### Solution
-* 
-
-### Benefits
-* 
-
-### Issues and Considerations
-* 
-
-## Gatekeeper pattern
-### Problem context
-* 
-
-### Solution
-* 
-
-### Benefits
-* 
-
-### Issues and Considerations
-* 
-
-## Anti-corruption Layer pattern
-### Problem context
-* 
-
-### Solution
-* 
-
-### Benefits
-* 
-
-### Issues and Considerations
-* 
-
-## Sequential Convoy pattern
-### Problem context
-* 
-
-### Solution
-* 
-
-### Benefits
-* 
-
-### Issues and Considerations
-* 
-
-## Strangler Fig pattern
-### Problem context
-* Migrating a monolithic application to microservices application in a single operation introduces transformation risk and business disruption. It is extremely hard or even impossible to add new features while the app is being refactored.
-
-### Solution
-* Incrementally migrate a monolithic application to a microservices architecture.
-
-### Benefits
-* **Minimal End Users Impact -** The features in the monolith are replaced by microservices gradually, and users are able to use the newly migrated features progressively. The monolithic application can be decommissioned safely when all features are moved out to the new system.
-
-### Issues and Considerations
-* **Request Interception -** The request needs to be interceptable. A proxy layer intercepts the requests that go to the monolithic application and routes them to either the legacy system or the new system.
-* **Single Point of Failure -** The above proxy layer can become a single point of failure or a performance bottleneck.
-* **Data synchronization -** Data consistency & redundancy issues can happen from the monolithic system having a data store and the new microservice having it's own data store as well. Sharing or updating data will likely require a synchronizing agent between the two stores for eventual consistency.
-* **Complete refactoring -** For small applications, it might be more efficient to rewrite the whole application in microservices architecture instead of incrementally migrating it.
 
 ---
 
@@ -217,13 +131,39 @@
 
 ### Distributed Monolith
 * **Antipattern.** Has the complexity of microservices without the benefits of microservices.
+* Low coupling is crucial to get benefits of microservices. Not how small or how many services are there.
 * Some signs of this problem:
     - Tightly coupled microservices.
     - The deployment of one service causes downtime for other services.
     - Services are overly chatty.
 
 ## Distributed System
+
+### Consistency Patterns
+
+#### Strong Consistency
+* All nodes have the same data at all times
+
+#### Eventual Consistency
+* Temporarily inconsistent across nodes but guarantees that all nodes will eventually converge to a consistent state
+
 ### CAP theorem
+* A distributed system can prioritize only two of three desired characteristics — consistency, availability, and partition tolerance.
+* The theorem really is about prioritizing consistency or availability. Partitions from a break in communication between nodes are inevitable. So can have CP and AP, but not CA.
+* **Limitations:** Important to note that these properties are continuous spectrum and not strictly binary, so possible to have some levels of each property. The CAP theorem simplifies the complex trade-offs in distributed systems. 
+
+    * **Consistency**
+
+        **All nodes have the same data** at the same time. No divergence in the data observed by different nodes in the system.
+
+    * **Availability**
+
+        **Every request to the system receives a response** even if it is not the most recent data.
+
+    * **Partition tolerance**
+
+        **The system continues to operate from partitions** caused by break in communication between nodes.
+
 
 ## Microservices
 
@@ -238,3 +178,94 @@
   vs
 
   Increase developer productivity and reduce operational costs.
+
+---
+
+# Design Patterns
+
+## Backends for Frontends
+
+### Problem context
+* Desktop & mobile clients can have different data requirements. One backend service being used for both desktop & mobile can become a bottleneck in the development process.
+
+### Solution
+* Create one backend per user interface. Fine-tune the behavior and performance of each backend to best match the needs of different clients.
+
+### Benefits
+* **Less Complexity -** The overall system could become less complex than a generic backend trying to satisfy all different types of clients.
+* **Feature Selection Flexibility -** Each interface team has increased flexibility to prioritize features and autonomy to control their own backend.
+* **Reliability Increase -** Malfunction of desktop backend service might not affect the availability of mobile backend service.
+* **Performance optimization -** Custom optimization for a specific client's constraints and functionality.
+
+### Issues and Considerations
+* **Over-engineering -** Just a single backend will suffice if different clients mostly make the same requests. Building the new backends can create more technical debt.
+* **Code Duplication -** Code duplication across services is highly likely without a proper planning. The new frontend-focused backend services should only contain client specific logics, and general business logics should be managed elsewhere.
+
+
+<!-- ## Gateway Routing
+### Problem context
+* 
+
+### Solution
+* 
+
+### Benefits
+* 
+
+### Issues and Considerations
+* 
+
+## Gatekeeper pattern
+### Problem context
+* 
+
+### Solution
+* 
+
+### Benefits
+* 
+
+### Issues and Considerations
+* 
+
+## Anti-corruption Layer pattern
+### Problem context
+* 
+
+### Solution
+* 
+
+### Benefits
+* 
+
+### Issues and Considerations
+* 
+
+## Sequential Convoy pattern
+### Problem context
+* 
+
+### Solution
+* 
+
+### Benefits
+* 
+
+### Issues and Considerations
+*  -->
+
+## Strangler Fig pattern
+### Problem context
+* Migrating a monolithic application to microservices application in a single operation introduces transformation risk and business disruption. It is extremely hard or even impossible to add new features while the app is being refactored.
+
+### Solution
+* Incrementally migrate a monolithic application to a microservices architecture.
+
+### Benefits
+* **Minimal End Users Impact -** The features in the monolith are replaced by microservices gradually, and users are able to use the newly migrated features progressively. The monolithic application can be decommissioned safely when all features are moved out to the new system.
+
+### Issues and Considerations
+* **Request Interception -** The request needs to be interceptable. A proxy layer intercepts the requests that go to the monolithic application and routes them to either the legacy system or the new system.
+* **Single Point of Failure -** The above proxy layer can become a single point of failure or a performance bottleneck.
+* **Data synchronization -** Data consistency & redundancy issues can happen from the monolithic system having a data store and the new microservice having it's own data store as well. Sharing or updating data will likely require a synchronizing agent between the two stores for eventual consistency.
+* **Complete refactoring -** For small applications, it might be more efficient to rewrite the whole application in microservices architecture instead of incrementally migrating it.
