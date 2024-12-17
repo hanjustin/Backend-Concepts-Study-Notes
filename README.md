@@ -14,7 +14,6 @@
 * [Databases](#databases)
     * [SQL vs NoSQL](#sql-vs-nosql)
     * Relational
-        
     * Non-relational
         * Key-value pair
         * Document-oriented
@@ -23,14 +22,17 @@
         * Time series
 
 * Architectural Patterns
+    * Distributed System
+        * [CAP theorem](#cap-theorem)
+        * [PACELC theorem](#pacelc-theorem)
+        * Scaling Patterns
+            * Vertical vs Horizontal
+            * Load Balancing
+        * Consistency Patterns
+    * Microservices
     * [Monolithic](#monolithic)
         * [Modular Monolith](#modular-monolith)
         * [Distributed Monolith](#distributed-monolith)
-    * Distributed System
-        * Consistency Patterns
-        * [CAP theorem](#cap-theorem)
-        * PACELC theorem
-    * Microservices
     * [Serverless](#serverless)
 
 * [Design Patterns](#design-patterns)
@@ -104,6 +106,47 @@
 
 # Architectural Patterns
 
+## Distributed System
+
+### CAP theorem
+* A distributed system can prioritize only two of three desired characteristics — consistency, availability, and partition tolerance.
+* The theorem really is about prioritizing consistency or availability. Partitions from a break in communication between nodes are inevitable. So can have CP and AP, but not CA.
+* **Limitations:** Important to note that these properties are continuous spectrum and not strictly binary, so possible to have some levels of each property. The CAP theorem simplifies the complex trade-offs in distributed systems. 
+
+    * **Consistency**
+
+        **All nodes have the same data** at the same time. No divergence in the data observed by different nodes in the system.
+
+    * **Availability**
+
+        **Every request to the system receives a response** even if it is not the most recent data.
+
+    * **Partition tolerance**
+
+        **The system continues to operate from partitions** caused by break in communication between nodes.
+
+### PACELC theorem
+
+* Extension of CAP theorem. Theorem stating to consider Latency vs Consistency tradeoff when there is no partition.
+* Acronym for: In the event of a Partition(**P**), choose Availability (**A**) or Consistency (**C**); Else (**E**) if no Partition, choose Latency (**L**) or Consistency (**C**)
+
+### Scaling Patterns
+
+#### Vertical vs Horizontal
+
+#### Load Balancing
+
+### Consistency Patterns
+
+#### Strong Consistency
+* All nodes have the same data at all times
+
+#### Eventual Consistency
+* Temporarily inconsistent across nodes but guarantees that all nodes will eventually converge to a consistent state
+
+
+## Microservices
+
 ## Monolithic
 * A traditional software development approach. A single codebase containing all the functionality that is deployed as a single unit.
 * A good choice for a small team and application with little complexity. Consider refactoring into microservices if:
@@ -136,38 +179,6 @@
     - Tightly coupled microservices.
     - The deployment of one service causes downtime for other services.
     - Services are overly chatty.
-
-## Distributed System
-
-### Consistency Patterns
-
-#### Strong Consistency
-* All nodes have the same data at all times
-
-#### Eventual Consistency
-* Temporarily inconsistent across nodes but guarantees that all nodes will eventually converge to a consistent state
-
-### CAP theorem
-* A distributed system can prioritize only two of three desired characteristics — consistency, availability, and partition tolerance.
-* The theorem really is about prioritizing consistency or availability. Partitions from a break in communication between nodes are inevitable. So can have CP and AP, but not CA.
-* **Limitations:** Important to note that these properties are continuous spectrum and not strictly binary, so possible to have some levels of each property. The CAP theorem simplifies the complex trade-offs in distributed systems. 
-
-    * **Consistency**
-
-        **All nodes have the same data** at the same time. No divergence in the data observed by different nodes in the system.
-
-    * **Availability**
-
-        **Every request to the system receives a response** even if it is not the most recent data.
-
-    * **Partition tolerance**
-
-        **The system continues to operate from partitions** caused by break in communication between nodes.
-
-
-## Microservices
-
-
 
 ## Serverless
 
