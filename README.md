@@ -25,8 +25,8 @@
     * Distributed System
         * [CAP theorem](#cap-theorem)
         * [PACELC theorem](#pacelc-theorem)
-        * Scaling Patterns
-            * Vertical vs Horizontal
+        * [Scaling Patterns](#scaling-patterns)
+            * [Vertical vs Horizontal](#vertical-vs-horizontal)
             * Load Balancing
         * Consistency Patterns
     * Microservices
@@ -133,6 +133,14 @@
 ### Scaling Patterns
 
 #### Vertical vs Horizontal
+
+|                  | Vertical Scaling  | Horizontal Scaling |
+| ---------------- | ----------------- | ------------------ |
+| **Description**  | Increase CPU, RAM. Scale up/down | Increase number of nodes. Scale in/out |
+| **Cost**         | Low initial cost. Exponentially increasing cost | High initial cost. Optimal over time |
+| **Complexity & Maintenance** | Lower  | Higher. Need to add load balancing and extra configuration.  |
+| **Limitation**   | Bounded by capacity of one machine. | Bounded by time, expertise, and effort. |
+| **Availability**  | Single point of failure  | Improved from increased number of nodes  |
 
 #### Load Balancing
 
