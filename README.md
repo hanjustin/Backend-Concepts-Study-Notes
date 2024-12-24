@@ -13,6 +13,12 @@
 
 * [Databases](#databases)
     * [SQL vs NoSQL](#sql-vs-nosql)
+    * [ACID vs BASE transaction](#acid-vs-base-transaction)
+        * [ACID](#acid)
+            * [Write Ahead Logging](#write-ahead-logging)
+            * [Locking](#locking)
+            * [Multi-versioning](#multi-versioning)
+        * [BASE](#base)
     * Relational
     * Non-relational
         * Key-value pair
@@ -84,13 +90,36 @@
 
 ## SQL vs NoSQL
 
-## Relational
+## ACID vs BASE transaction
 
-* ACID - Most relational DBMS are ACID compliant:
-    * **Atomicity:** All transactions must succeed or fail completely as a unit. A transaction cannot be partially complete.
-    * **Consistency:**
-    * **Isolation:**
-    * **Durability:**
+* **Transaction:** A single unit of work. A sequence of one or more database operations treated as a single, indivisible unit. Must complete a transaction fully for the database to remain consistent.
+
+|                  |       ACID        |        BASE        |
+| ---------------- | ----------------- | ------------------ |
+| **Priority**     | Consistency over availability | Availability & scalability over consistency |
+| **Use cases**    | Financial & healthcare databases for high data integrity & data accuracy. | Social media platforms for high availability |
+
+### ACID
+* **Atomicity:** All transactions must succeed or fail completely as a unit. A transaction cannot be partially complete. Ensure data integrity and consistency by either committing all changes or rolling them back if an error occurs.
+* **Consistency:** A transaction will keep data integrity by only making changes adhering to predefined constraints, rules, and relationships.
+* **Isolation:** Each transaction is executed in isolation from other transactions, ensuring no interference.
+* **Durability:** Changes from a committed transaction are permanent and won’t be lost.
+
+#### Write Ahead Logging
+All modifications are written to a log before they are applied. Allow transactions to be reconstructed from the log in case of a crash.
+
+#### Locking
+A transaction will mark the relevant data as locked, so other transactions will have to wait for the data access. This can create delays when other transactions need to access the affected data.
+
+#### Multi-versioning
+For writing, deleting, or updating transactions, creating multiple versions of the data for ACID compliance.
+
+### BASE
+* **Basically available:** High availability by distributing data across different nodes.
+* **Soft state:** Intermediate states can exist before a consistent state. Data consistency handled by developers.
+* **Eventually consistent:** Given enough time, all nodes will have the same data eventually.
+
+## Relational
 
 ## Non-relational
 
