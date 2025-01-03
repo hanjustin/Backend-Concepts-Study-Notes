@@ -1,4 +1,4 @@
-# WIP. Study notes of backend development concepts.
+# WIP. <br>VERY basic study notes of backend concepts.
 
 * Learning concepts to get better at selecting the right tools for the job. There is no silver bullet
 
@@ -12,12 +12,16 @@
         * RabbitMQ
 
 * [Databases](#databases)
-    * [SQL vs NoSQL](#sql-vs-nosql)
+    * SQL vs NoSQL
     * [ACID vs BASE transaction](#acid-vs-base-transaction)
         * [ACID](#acid)
-            * [Write Ahead Logging](#write-ahead-logging)
-            * [Locking](#locking)
-            * [Multi-versioning](#multi-versioning)
+            * [Isolation Levels vs Read Phenomena](#isolation-levels-vs-read-phenomena)
+            * Compliance Strategies
+                * [Write Ahead Logging](#write-ahead-logging)
+                * [Checkpointing](#checkpointing)
+                * [Shadow Paging](#shadow-paging)
+                * [Locking](#locking)
+                * [Multi-versioning](#multi-versioning)
         * [BASE](#base)
     * Relational
     * Non-relational
@@ -105,13 +109,68 @@
 * **Isolation:** Each transaction is executed in isolation from other transactions, ensuring no interference.
 * **Durability:** Changes from a committed transaction are permanent and won’t be lost.
 
-#### Write Ahead Logging
+#### Isolation Levels vs Read Phenomena
+A trade-off of consistency vs performance. Higher isolation level reduces the number of concurrency effects, but increases the chances that one transaction will block another.
+
+<table>
+    <tr>
+        <th>Read <u>Phenomena→</u><br>Isolation LVL↓</th>
+        <th>Dirty read</th>
+        <th>Non-repeatable read</th>
+        <th>Phantom read</th>
+    </tr>
+    <tr>
+        <td><b>Serializable</b></td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><b>Repeatable read</b></td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><b>Read committed</b></td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><b>Read uncommitted</b></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+</table>
+
+##### Read Phenomena
+* <b>Dirty read: </b><br>Reading data not yet commited by another transaction.
+* <b>Non-repeatable read: </b><br>Reading the same row twice returns different values because another transaction commited the row modification.
+* <b>Phantom read: </b><br>Different results from the same two queries because another transaction commited a row insertion or deletion..
+
+##### Isolation Levels
+* <b>Read uncommitted: </b><br>Can read uncommited changes. The highest performance but the lowest isolation level.
+* <b>Read committed: </b><br>Only allow commited data read.
+* <b>Repeatable read: </b><br>Any data read during the transaction remains unchanged, even if other transactions commit changes to the data. Read and write locks acquired until the end of the transaction.
+* <b>Serializable: </b><br>Execute the transaction as if it were the only transaction in the system. In addition to read and write locks, range locks acquired when using `WHERE` range clause to prevent a phantom read. The highest isolation level to prevent all anomalies.
+
+#### Compliance Strategies
+
+##### Write Ahead Logging
 All modifications are written to a log before they are applied. Allow transactions to be reconstructed from the log in case of a crash.
 
-#### Locking
+##### Checkpointing
+Process of saving changes in the buffer cache memory to the disk to create a checkpoint. Also uses transaction logs since the last checkpoint for a quick recovery in the event of a system crash.
+
+##### Shadow paging
+Creating a copy of the database’s page table and making all changes to the new page. Then, the new page table replaces the old one.
+
+##### Locking
 A transaction will mark the relevant data as locked, so other transactions will have to wait for the data access. This can create delays when other transactions need to access the affected data.
 
-#### Multi-versioning
+##### Multi-versioning
 For writing, deleting, or updating transactions, creating multiple versions of the data for ACID compliance.
 
 ### BASE
