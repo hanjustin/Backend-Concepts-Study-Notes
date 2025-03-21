@@ -3,13 +3,21 @@
 * Learning concepts to get better at selecting the right tools for the job. There is no silver bullet
 
 # Table of Contents
-* [Communication](#communication)
-    * Synchronous vs Asynchronous
+* Communication
+    <!-- * Synchronous vs Asynchronous -->
     * [gRPC](#grpc)
     * [GraphQL](#graphql)
-    * Message Broker
-        * Kafka
-        * RabbitMQ
+    * [Kafka](#kafka)
+        * **Fundamentals**
+            * **Concepts**
+                * [Partition leader](#partition-leader)
+                * [Consumer group](#consumer-group)
+                * [Cluster coordinator - Zookeeper or KRaft](#cluster-coordinator---zookeeper-or-kraft)
+                * [Schema registry](#schema-registry)
+                * [Data retention period](#data-retention-period)
+            * [**Terminologies**](#terminologies-kafka)
+                * Producer, Consumer, Broker, Cluster, Message, Topic, Partitions, Offset, Connectors
+    <!-- * RabbitMQ -->
 
 * [Databases](#databases)
     * SQL vs NoSQL
@@ -23,13 +31,13 @@
                 * [Locking](#locking)
                 * [Multi-versioning](#multi-versioning)
         * [BASE](#base)
-    * Relational
+    <!-- * Relational
     * Non-relational
         * Key-value pair
         * Document-oriented
         * Column-oriented
         * Graph-based
-        * Time series
+        * Time series -->
 
 * Architectural Patterns
     * Distributed System
@@ -37,29 +45,29 @@
         * [PACELC theorem](#pacelc-theorem)
         * [Scaling Patterns](#scaling-patterns)
             * [Vertical vs Horizontal](#vertical-vs-horizontal)
-            * Load Balancing
-        * Consistency Patterns
-    * Microservices
+            <!-- * Load Balancing -->
+        <!-- * Consistency Patterns -->
+    <!-- * Microservices -->
     * [Monolithic](#monolithic)
         * [Modular Monolith](#modular-monolith)
         * [Distributed Monolith](#distributed-monolith)
     * [Serverless](#serverless)
 
 * [Design Patterns](#design-patterns)
-    * Ambassador pattern
-    * Anti-corruption Layer pattern
+    <!-- * Ambassador pattern
+    * Anti-corruption Layer pattern -->
     * [Backends for Frontends](#backends-for-frontends)
     <!-- * [Gateway Routing](#gateway-routing) -->
-    * Gatekeeper pattern
-    * Sequential Convoy pattern
+    <!-- * Gatekeeper pattern
+    * Sequential Convoy pattern -->
     * [Strangler Fig pattern](#strangler-fig-pattern)
 
 * Tools
-    * Microservices Orchestration
+    <!-- * Microservices Orchestration
         * Kubernetes
-            * vs Docker Swarm
+            * vs Docker Swarm -->
 
-* To-Do
+<!-- * To-Do
     * Cloud
     * Authentication
         * JWT
@@ -68,7 +76,7 @@
         * vs Client-side rendering
         * vs Single-page app
         * SEO
-    * Monorepo vs Polyrepo Code Management
+    * Monorepo vs Polyrepo Code Management -->
 
 ---
 
@@ -87,6 +95,41 @@
 * GraphQL schema file `*.graphqls` contains all information about what a client can potentially do with a GraphQL API.
 * A single endpoint can be used to receive requests with GraphQL queries.
 * As clients can request exact data wanted, could be used to avoid REST API's over-fetching & under-fetching problems.
+
+## Kafka
+* Like a post office between a sender and receiver(s). Allows real-time data streaming and processing.
+* Often used as a message broker, allowing different software systems to communicate by sending (producing) and receiving (consuming) messages.
+* Can be used as a pub-sub and queue based messaging system.
+
+### Fundamentals
+#### Concepts
+##### Partition leader
+Every partition has exactly one partition leader which handles all the read/write requests of that partition. Every partition replica resides on a different broker. Every partition follower is reading messages from the partition leader (acts like a kind of consumer) and does not serve any consumers of that partition (only the partition leader serves read/writes). When a partition leader shuts down for any reason (e.g a broker shuts down), one of it's in-sync partition followers becomes the new leader.
+
+##### Consumer group
+Consumers within a group share responsibility for processing messages. One consumer can get many partitions, but no two consumers within a group will be subscribed to the same partition to prevent the two consumers receiving the same message.
+
+##### Cluster coordinator - Zookeeper or KRaft
+Centralized service for managing metadata and coordination of distributed systems.
+Used to keep track of active brokers. Each Kafka partition has a leader broker and ZooKeeper facilates the election of the leader. Newer Kafka uses KRaft.
+
+##### Schema registry
+Data schema is needed for data serialization and deserialization. When the schema is expected to change, you must update the registry which resides in a cluster for consumers and producers to find out what schema a given message follows.
+
+##### Data retention period
+Other message queue programs delete messages after consumption. Kafka has a configurable messages retention period.
+
+<h4 id="terminologies-kafka">Terminologies</h4>
+
+* **Producer:** Services that publish/write to messages to Kafka
+* **Consumer:** Susbscribe to read/process the messages sent to Kafka
+* **Broker:** A single Kafka server that stores messages and manages distributing messages to cosumers.
+* **Cluster:** A group of interconnected brokers that work together to manage the data streams entering and leaving a Kafka system.
+* **Message:** Records the fact something happened. Also called "record" or "event". Read or write is done in the form of messages. It has a format of key/value pair & header data (meta data of topics & partitions).
+* **Topic:** Categorization used to group messagess. Based on the requirements, define topics like schema for databases. Producers send to a topic, while consumers subscribe to topics.
+* **Partitions:** For more throughput, topics are broken into several partitions, which is how a single topic can span across multiple brokers. Similar to RDBMS sharding for scaling.
+* **Offset:** A unique integer identifier assigned to each message within a specific partition, representing its position within that partition's log, and is used to track the progress of consumers.
+* **Connectors:** Used to connect to external systems such as databases, key-value stores, search indexes, and file systems to move data in/from Kafka.
 
 ---
 
@@ -148,7 +191,7 @@ A trade-off of consistency vs performance. Higher isolation level reduces the nu
 ##### Read Phenomena
 * <b>Dirty read: </b><br>Reading data not yet commited by another transaction.
 * <b>Non-repeatable read: </b><br>Reading the same row twice returns different values because another transaction commited the row modification.
-* <b>Phantom read: </b><br>Different results from the same two queries because another transaction commited a row insertion or deletion..
+* <b>Phantom read: </b><br>Different results from the same two queries because another transaction commited a row insertion or deletion.
 
 ##### Isolation Levels
 * <b>Read uncommitted: </b><br>Can read uncommited changes. The highest performance but the lowest isolation level.
