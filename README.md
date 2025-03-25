@@ -1,25 +1,72 @@
+
 # WIP. <br>VERY basic study notes of backend concepts.
 
 * Learning concepts to get better at selecting the right tools for the job. There is no silver bullet
 
 # Table of Contents
-* Communication
-    <!-- * Synchronous vs Asynchronous -->
-    * [gRPC](#grpc)
-    * [GraphQL](#graphql)
-    * [Kafka](#kafka)
-        * **Fundamentals**
-            * **Concepts**
-                * [Partition leader](#partition-leader)
-                * [Consumer group](#consumer-group)
-                * [Cluster coordinator - Zookeeper or KRaft](#cluster-coordinator---zookeeper-or-kraft)
-                * [Schema registry](#schema-registry)
-                * [Data retention period](#data-retention-period)
-            * [**Terminologies**](#terminologies-kafka)
-                * Producer, Consumer, Broker, Cluster, Message, Topic, Partitions, Offset, Connectors
-    <!-- * RabbitMQ -->
+<!-- * Synchronous vs Asynchronous -->
+<!-- * RabbitMQ -->
+<ul>
+    <li><b>Communication</b></li>
+        <ul>
+            <li><a href="#grpc">gRPC</a></li>
+            <li><a href="#graphql">GraphQL</a></li>
+            <li><details><summary>Kafka (Click)</summary>
+                <ul>
+                    <li><b>Fundamentals</b></li>
+                        <ul>
+                            <li><b>Concepts</b></li>
+                                <ul><ul><ul><ul>
+                                    <li><a href="#partition-leader">Partition leader</a></li>
+                                    <li><a href="#consumer-group">Consumer group</a></li>
+                                    <li><a href="#cluster-coordinator---zookeeper-or-kraft">Cluster coordinator - Zookeeper or KRaft</a></li>
+                                    <li><a href="#schema-registry">Schema registry</a></li>
+                                    <li><a href="#data-retention-period">Data retention period</a></li>
+                                </ul></ul></ul></ul>
+                        </ul>
+                    <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
+                        <ul><ul><ul><ul><ul>
+                            <li>Producer, Consumer, Broker, Cluster, Message, Topic, Partitions, Offset, Connectors</li>
+                        </ul></ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
+        </ul>
+    <li><b>Databases</b></li>
+        <ul>
+            <li><details><summary>Redis</summary>
+                <ul>
+                    <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><a href="#key-features-redis"><b>Key Features</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>RAM In-memory Datastore</li>
+                                    <li>Data Structure Store</li>
+                                    <li>Atomic Operations</li>
+                                    <li>Pub/sub</li>
+                                    <li>Optional Persistence</li>
+                                </ul></ul></ul></ul>
+                            <!-- <li><a href="#concepts-redis"><b>Concepts</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>Eviction Policies</li>
+                                </ul></ul></ul></ul> -->
+                        </ul>
+                    <li><a href="#use-cases-redis"><b>Use Cases</b></a></li>
+                        <ul><ul><ul><ul><ul>
+                            <li>Caching</li>
+                            <li>Session Store</li>
+                            <li>Rate Limiting</li>
+                            <li>Real-Time Analytics</li>
+                            <li>Event-Driven Message Queues</li>
+                            <li>Location-Based Services</li>
+                        </ul></ul></ul></ul></ul>
+                </ul>
+                </details>
+            </li>
+        </ul>
+</ul>
 
-* [Databases](#databases)
+* **Databases - Fundamentals**
     * SQL vs NoSQL
     * [ACID vs BASE transaction](#acid-vs-base-transaction)
         * [ACID](#acid)
@@ -133,7 +180,7 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 
 ---
 
-# Databases
+# Databases - Fundamentals
 
 ## SQL vs NoSQL
 
@@ -232,6 +279,35 @@ For writing, deleting, or updating transactions, creating multiple versions of t
 ### Column-oriented
 ### Graph-based
 ### Time series
+
+# Databases
+## Redis
+<h3 id="fundamentals-redis">Fundamentals</h3>
+Redis (REmote DIctionary Server) is a data structure server. It is a key-value in-memory store commonly used for caching as it leverages the speed of memory to complement other DBMS with data persistence, but Redis can persist data as well if needed.
+
+<h4 id="key-features-redis">Key Features</h4>
+
+* **RAM In-memory Datastore:** Fast data access speed for storing in RAM instead of storing on disk.
+* **Data Structure Store:** Can use native data types to store data. i.e. `String`, `HashMap`, `List`, `Set`
+* **Atomic Operations:** Supports transactions to execute and rollback a group of commands. Redis also uses single-threaded architecture.
+* **Pub/sub:** A push-based model. Available messages are popped instantly to consumers. Does not guarantee ordered delivery.
+* **Optional Persistence:** Compromise a bit on speed for disk-based durability. Use `Append-only file (AOF)` or `Snapshot` mode.
+
+<!-- <h4 id="concepts-redis">Concepts</h4>
+
+* **Eviction Policies:**
+    * **TTL (Time-to-Live):** 
+    * **LRU (Least Recently Used):** Removes the least recently accessed items.
+    * **LFU (Least Frequently Used):** Removes items based on access frequency. -->
+
+<h3 id="use-cases-redis">Use Cases</h3>
+
+* **Caching:** Reducing database loads by storing frequently accessed data in memory.
+* **Session Store:** Manage user sessions and authentication tokens, reducing overhead on DBMS.
+* **Rate Limiting:** Use `EXPIRE` feature to limit number of requests to a particular service in a given time period.
+* **Real-Time Analytics:** Fast read/write operations using in-memory data store.
+* **Event-Driven Message Queues:** Act as a broker for real-time message delivery with its Pub/Sub features.
+* **Location-Based Services:** Geospatial data structure can be used for storing and querying location data.
 
 ---
 
