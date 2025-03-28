@@ -1,7 +1,8 @@
 
 # WIP. <br>VERY basic study notes of backend concepts.
 
-* Learning concepts to get better at selecting the right tools for the job. There is no silver bullet
+* Learning fundamental concepts & terminologies to get basic understanding of backend engineering to expedite the onboarding process.
+* Not at the level to easily apply the concepts and evaluate the tradeoffs.
 
 # Table of Contents
 <!-- * Synchronous vs Asynchronous -->
@@ -61,12 +62,36 @@
                             <li>Location-Based Services</li>
                         </ul></ul></ul></ul></ul>
                 </ul>
-                </details>
+            </details>
+            </li>
+            <li><details><summary>MongoDB</summary>
+                <ul>
+                    <li><a href="#fundamentals-mongodb"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><a href="#key-features-mongodb"><b>Key Features</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>Optional Schema</li>
+                                    <li>Aggregation Pipelines</li>
+                                </ul></ul></ul></ul>
+                        </ul>
+                    <li><a href="#terminologies-mongodb"><b>Terminologies</b></a></li>
+                        <ul><ul><ul><ul><ul>
+                            <li>Collection, Document, BSON, mongosh</li>
+                        </ul></ul></ul></ul></ul>
+                </ul>
+            </details>
             </li>
         </ul>
 </ul>
 
 * **Databases - Fundamentals**
+    * Relational
+    <!-- * Non-relational
+        * Key-value pair
+        * Document-oriented
+        * Column-oriented
+        * Graph-based
+        * Time series -->
     * SQL vs NoSQL
     * [ACID vs BASE transaction](#acid-vs-base-transaction)
         * [ACID](#acid)
@@ -78,13 +103,6 @@
                 * [Locking](#locking)
                 * [Multi-versioning](#multi-versioning)
         * [BASE](#base)
-    <!-- * Relational
-    * Non-relational
-        * Key-value pair
-        * Document-oriented
-        * Column-oriented
-        * Graph-based
-        * Time series -->
 
 * Architectural Patterns
     * Distributed System
@@ -180,7 +198,72 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 
 ---
 
+# Databases
+## Redis
+<h3 id="fundamentals-redis">Fundamentals</h3>
+Redis (REmote DIctionary Server) is a data structure server. It is a key-value in-memory store commonly used for caching as it leverages the speed of memory to complement other DBMS with data persistence, but Redis can persist data as well if needed.
+
+<h4 id="key-features-redis">Key Features</h4>
+
+* **RAM In-memory Datastore:** Fast data access speed for storing in RAM instead of storing on disk.
+* **Data Structure Store:** Can use native data types to store data. i.e. `String`, `HashMap`, `List`, `Set`
+* **Atomic Operations:** Supports transactions to execute and rollback a group of commands. Redis also uses single-threaded architecture.
+* **Pub/sub:** A push-based model. Available messages are popped instantly to consumers. Does not guarantee ordered delivery.
+* **Optional Persistence:** Compromise a bit on speed for disk-based durability. Use `Append-only file (AOF)` or `Snapshot` mode.
+
+<!-- <h4 id="concepts-redis">Concepts</h4>
+
+* **Eviction Policies:**
+    * **TTL (Time-to-Live):** 
+    * **LRU (Least Recently Used):** Removes the least recently accessed items.
+    * **LFU (Least Frequently Used):** Removes items based on access frequency. -->
+
+<h3 id="use-cases-redis">Use Cases</h3>
+
+* **Caching:** Reducing database loads by storing frequently accessed data in memory.
+* **Session Store:** Manage user sessions and authentication tokens, reducing overhead on DBMS.
+* **Rate Limiting:** Use `EXPIRE` feature to limit number of requests to a particular service in a given time period.
+* **Real-Time Analytics:** Fast read/write operations using in-memory data store.
+* **Event-Driven Message Queues:** Act as a broker for real-time message delivery with its Pub/Sub features.
+* **Location-Based Services:** Geospatial data structure can be used for storing and querying location data.
+
+## MongoDB
+<h3 id="fundamentals-mongodb">Fundamentals</h3>
+NoSQL database storing data in a JSON-like format.
+
+<h4 id="key-features-mongodb">Key Features</h4>
+
+* **Optional Schema:** Often known as a schema-less db, but a schema can be added to a collection if needed.
+* **Aggregation Pipelines:** Similar to SQL's `GROUP BY`. Select and process multiple documents to get computed results. Operations such as filtering, grouping, and sorting are used to create a data analysis pipeline.
+
+<h4 id="terminologies-mongodb">Terminologies</h4>
+
+* **Collection:** A group of documents. Similar to a table in RDBMS.
+* **Document:** JSON-like basic unit of data. Will have a unique ID `_id`field and uses `BSON` format.
+* **`BSON`:** The binary representation of JSON primarily used for data storage.
+* **`mongosh`:** MongoDB Shell is a CLI to connect and interact with MongoDB databases.
+
+---
+
 # Databases - Fundamentals
+## Relational
+### Fundamentals
+#### Terminologies
+* **Entity:** What we store. (Like object class)
+* **Attribute:** Things about the entity (Like object property)
+* **DBMS:** Database Management System. Allow Filter/search data using query
+* **Query:** Filter/search on data
+* **SQL:** Data Manipulation Language DML, Data Define Language, DDL
+
+<!-- ## Non-relational
+
+* A master-replica architecture
+
+### Key-value pair
+### Document-oriented
+### Column-oriented
+### Graph-based
+### Time series -->
 
 ## SQL vs NoSQL
 
@@ -267,47 +350,6 @@ For writing, deleting, or updating transactions, creating multiple versions of t
 * **Basically available:** High availability by distributing data across different nodes.
 * **Soft state:** Intermediate states can exist before a consistent state. Data consistency handled by developers.
 * **Eventually consistent:** Given enough time, all nodes will have the same data eventually.
-
-## Relational
-
-## Non-relational
-
-* A master-replica architecture
-
-### Key-value pair
-### Document-oriented
-### Column-oriented
-### Graph-based
-### Time series
-
-# Databases
-## Redis
-<h3 id="fundamentals-redis">Fundamentals</h3>
-Redis (REmote DIctionary Server) is a data structure server. It is a key-value in-memory store commonly used for caching as it leverages the speed of memory to complement other DBMS with data persistence, but Redis can persist data as well if needed.
-
-<h4 id="key-features-redis">Key Features</h4>
-
-* **RAM In-memory Datastore:** Fast data access speed for storing in RAM instead of storing on disk.
-* **Data Structure Store:** Can use native data types to store data. i.e. `String`, `HashMap`, `List`, `Set`
-* **Atomic Operations:** Supports transactions to execute and rollback a group of commands. Redis also uses single-threaded architecture.
-* **Pub/sub:** A push-based model. Available messages are popped instantly to consumers. Does not guarantee ordered delivery.
-* **Optional Persistence:** Compromise a bit on speed for disk-based durability. Use `Append-only file (AOF)` or `Snapshot` mode.
-
-<!-- <h4 id="concepts-redis">Concepts</h4>
-
-* **Eviction Policies:**
-    * **TTL (Time-to-Live):** 
-    * **LRU (Least Recently Used):** Removes the least recently accessed items.
-    * **LFU (Least Frequently Used):** Removes items based on access frequency. -->
-
-<h3 id="use-cases-redis">Use Cases</h3>
-
-* **Caching:** Reducing database loads by storing frequently accessed data in memory.
-* **Session Store:** Manage user sessions and authentication tokens, reducing overhead on DBMS.
-* **Rate Limiting:** Use `EXPIRE` feature to limit number of requests to a particular service in a given time period.
-* **Real-Time Analytics:** Fast read/write operations using in-memory data store.
-* **Event-Driven Message Queues:** Act as a broker for real-time message delivery with its Pub/Sub features.
-* **Location-Based Services:** Geospatial data structure can be used for storing and querying location data.
 
 ---
 
