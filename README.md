@@ -24,17 +24,42 @@
                                     <li><a href="#schema-registry">Schema registry</a></li>
                                     <li><a href="#data-retention-period">Data retention period</a></li>
                                 </ul></ul></ul></ul>
+                            <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>Producer, Consumer, Broker, Cluster, Message, Topic, Partitions, Offset, Connectors</li>
+                                </ul></ul></ul></ul>
                         </ul>
-                    <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
-                        <ul><ul><ul><ul><ul>
-                            <li>Producer, Consumer, Broker, Cluster, Message, Topic, Partitions, Offset, Connectors</li>
-                        </ul></ul></ul></ul></ul>
                 </ul>
             </details>
             </li>
         </ul>
     <li><b>Databases</b></li>
         <ul>
+            <li><details><summary>PostgreSQL</summary>
+                <ul>
+                    <li><a href="#fundamentals-postgresql"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><a href="#concepts-postgresql"><b>Concepts</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>Table Inheritance</li>
+                                    <li>User-defined Data Types</li>
+                                    <li>Concept3 - WIP</li>
+                                </ul></ul></ul></ul>
+                            <li><a href="#terminologies-postgresql"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>Aggregate & window functions, Term2, Term3 - WIP</li>
+                                </ul></ul></ul></ul>
+                        </ul>
+                    <li><a href="#tools-postgresql"><b>Tools</b></a></li>
+                        <ul><ul><ul><ul><ul>
+                            <li>psql, pgAdmin</li>
+                        </ul></ul></ul></ul></ul>
+                    <li><b>SQL Syntax</b></li>
+                                <ul><ul><ul><ul><ul>
+                                </ul></ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
             <li><details><summary>Redis</summary>
                 <ul>
                     <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
@@ -72,12 +97,13 @@
                                 <ul><ul><ul><ul>
                                     <li>Optional Schema</li>
                                     <li>Aggregation Pipelines</li>
+                                    <li>Relationship options: Embed vs. Reference</li>
+                                </ul></ul></ul></ul>
+                            <li><a href="#terminologies-mongodb"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>Collection, Document, BSON, mongosh</li>
                                 </ul></ul></ul></ul>
                         </ul>
-                    <li><a href="#terminologies-mongodb"><b>Terminologies</b></a></li>
-                        <ul><ul><ul><ul><ul>
-                            <li>Collection, Document, BSON, mongosh</li>
-                        </ul></ul></ul></ul></ul>
                 </ul>
             </details>
             </li>
@@ -199,6 +225,54 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 ---
 
 # Databases
+## PostgreSQL
+<h3 id="fundamentals-postgresql">Fundamentals</h3>
+
+* Object-Relational Database Management System (ORDBMS) that combines traditional RDBMS with object-oriented concepts such as inheritance.
+* Supports both relational (SQL) and non-relational (JSON) queries.
+
+<h4 id="concepts-postgresql">Concepts</h4>
+
+* **Table Inheritance:** Inherits all columns from parent table.
+    * **Big limitation:** Constraints are **not** inherited. Indexes (including unique constraints) and foreign key constraints don't work with inheritance.
+        * i.e. For tables Parent, Child (which inherits Parent), and Foo, and Foo having a foreign key on Parent.id, then adding a row to Child, and trying to insert a row into Foo, referencing Child's ID will fail, even though that ID is in the Parent table. The foreign keys only work on the direct table it references as it'll only find rows in that table exactly.
+* **User-defined Data Types:** In addition to the native data types, custom data types can be created using `CREATE DOMAIN` or `CREATE TYPE`.
+
+<h4 id="terminologies-postgresql">Terminologies</h4>
+
+* **Aggregate function:** Perform a calculation on a set of rows and return a single row
+* **Window function:** Perform a calculation on a set of rows and return multiple rows.
+
+<h3 id="tools-postgresql">Tools</h3>
+
+* **psql:** CLI tool to enter SQL queries or commands to PostgreSQL database. Commands start with backslash `\`.
+* **pgAdmin:** GUI tool to manage PostgreSQL database.
+
+<h3 id="syntax-postgresql">SQL Syntax</h3>
+
+#### CREATE TABLE
+```sql
+CREATE TABLE my_table (
+  my_column VARCHAR(255),
+  my_number INT
+);
+```
+
+#### INSERT INTO
+```sql
+INSERT INTO my_table(my_column, my_number)
+VALUES
+  ('Hello World', 123),
+  ('Another Row', 456);
+```
+
+* **Dollar-Quoted String Constants:** Can use `$Tag$It's working$Tag$` instead of `'It''s working'`. For better readability, dollar signs can be used to avoid double single quotes. The tag is optional, but can be used to provide additional context like `$uuid$ext_data$uuid$`. Nesting constants with different tags is also possible.
+
+```sql
+-- casting
+`value::target_type`
+```
+
 ## Redis
 <h3 id="fundamentals-redis">Fundamentals</h3>
 Redis (REmote DIctionary Server) is a data structure server. It is a key-value in-memory store commonly used for caching as it leverages the speed of memory to complement other DBMS with data persistence, but Redis can persist data as well if needed.
@@ -235,6 +309,9 @@ NoSQL database storing data in a JSON-like format.
 
 * **Optional Schema:** Often known as a schema-less db, but a schema can be added to a collection if needed.
 * **Aggregation Pipelines:** Similar to SQL's `GROUP BY`. Select and process multiple documents to get computed results. Operations such as filtering, grouping, and sorting are used to create a data analysis pipeline.
+* **Relationship options: Embed vs. Reference:**
+    * **Embed:** Store related data in the same document (faster reads).
+    * **Reference:** Store ObjectIDs to avoid redundancy (normalized like RDBMS).
 
 <h4 id="terminologies-mongodb">Terminologies</h4>
 
@@ -248,12 +325,23 @@ NoSQL database storing data in a JSON-like format.
 # Databases - Fundamentals
 ## Relational
 ### Fundamentals
+
+* **Key:** What makes the row unique and separates from other rows. Key is a 'type of index'. Key should be:
+    * Unique
+    * Never changing
+    * Never `Null`
+    
+* **Natural Key:** Unique identifier not artificially generated. i.e. email in User table. No need to have a separate col for keys.
+
 #### Terminologies
 * **Entity:** What we store. (Like object class)
 * **Attribute:** Things about the entity (Like object property)
 * **DBMS:** Database Management System. Allow Filter/search data using query
 * **Query:** Filter/search on data
 * **SQL:** Data Manipulation Language DML, Data Define Language, DDL
+
+
+
 
 <!-- ## Non-relational
 
