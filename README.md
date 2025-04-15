@@ -54,8 +54,32 @@
                         <ul><ul><ul><ul><ul>
                             <li>psql, pgAdmin</li>
                         </ul></ul></ul></ul></ul>
-                    <li><b>SQL Syntax</b></li>
+                    <li><a href="#sql-syntax"><b>SQL Syntax</b></a></li>
                                 <ul><ul><ul><ul><ul>
+                                    <li><b>Database Management</b></li>
+                                        <ul>
+                                            <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li>
+                                        </ul>
+                                    <li><b>Data CRUD Operations</b></li>
+                                        <ul>
+                                            <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li>
+                                        </ul>
+                                    <li><b>Aggregate Queries</b></li>
+                                        <ul>
+                                            <li><code>MIN</code>, <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>GROUP BY</code></li>
+                                        </ul>
+                                    <li><b>Transaction Management</b></li>
+                                        <ul>
+                                            <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
+                                        </ul>
+                                    <li><b>User Access Control</b></li>
+                                        <ul>
+                                            <li><code>ROLE</code>, <code>GRANT</code>, <code>REVOKE</code></li>
+                                        </ul>
+                                    <li><b>Misc</b></li>
+                                        <ul>
+                                            <li><code>XXX</code>, <code>XXX</code>, <code>XXX</code></li>
+                                        </ul>
                                 </ul></ul></ul></ul></ul>
                 </ul>
             </details>
@@ -248,30 +272,103 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 * **psql:** CLI tool to enter SQL queries or commands to PostgreSQL database. Commands start with backslash `\`.
 * **pgAdmin:** GUI tool to manage PostgreSQL database.
 
-<h3 id="syntax-postgresql">SQL Syntax</h3>
+<h3 id="sql-syntax">SQL Syntax</h3>
 
-#### CREATE TABLE
+#### Database Management
+* Define and modify database structure
+
 ```sql
 CREATE TABLE my_table (
   my_column VARCHAR(255),
   my_number INT
 );
+
+ALTER TABLE my_table
+ALTER COLUMN my_column TYPE VARCHAR(44);
+
+ALTER TABLE my_table
+ADD new_col VARCHAR(255);
+
+TRUNCATE TABLE my_table;
+
+DROP TABLE my_table;
 ```
 
-#### INSERT INTO
+#### Data CRUD Operations
+* Retrieve and manage data
+
 ```sql
-INSERT INTO my_table(my_column, my_number)
-VALUES
-  ('Hello World', 123),
-  ('Another Row', 456);
+-- Create
+INSERT INTO my_table (col1, col2, col3)
+VALUES('value1', 'value2', 'value3');
+
+-- Read
+SELECT * FROM my_table;
+
+SELECT col1, col2, col3 AS new_col3_name
+FROM my_table
+WHERE col1 = 'My Condition';
+
+-- Update
+UPDATE my_table
+SET col1 = 'New Value';
+WHERE col1 = 'Old Value';
+
+-- Delete
+DELETE FROM my_table
+WHERE col1 = 'My Condition';
 ```
 
-* **Dollar-Quoted String Constants:** Can use `$Tag$It's working$Tag$` instead of `'It''s working'`. For better readability, dollar signs can be used to avoid double single quotes. The tag is optional, but can be used to provide additional context like `$uuid$ext_data$uuid$`. Nesting constants with different tags is also possible.
+#### Aggregate Queries
+
+```sql
+SELECT
+  MIN(price),
+  SUM(price),
+  AVG(price),
+  COUNT(DISTINCT price)
+FROM my_products_table
+GROUP BY category;
+```
+
+#### Transaction Management
+* To ensure data integrity and consistency
+
+```sql
+-- Transaction inserting values 1 and 3, but not 2.
+BEGIN;
+  INSERT INTO my_table VALUES (1);
+
+  SAVEPOINT my_savepoint;
+  INSERT INTO my_table VALUES (2);
+  ROLLBACK TO SAVEPOINT my_savepoint;
+
+  INSERT INTO my_table VALUES (3);
+COMMIT;
+```
+
+#### User Access Control
+* Manage permissions & rights to control access to data
+
+```sql
+CREATE ROLE my_role
+PASSWORD '1234';
+
+GRANT SELECT, UPDATE ON my_table
+TO my_role;
+
+REVOKE UPDATE ON my_table
+FROM my_role;
+```
+
+#### Misc
 
 ```sql
 -- casting
 `value::target_type`
 ```
+
+* **Dollar-Quoted String Constants:** Can use `$Tag$It's working$Tag$` instead of `'It''s working'`. For better readability, dollar signs can be used to avoid double single quotes. The tag is optional, but can be used to provide additional context like `$uuid$ext_data$uuid$`. Nesting constants with different tags is also possible.
 
 ## Redis
 <h3 id="fundamentals-redis">Fundamentals</h3>
@@ -337,9 +434,6 @@ NoSQL database storing data in a JSON-like format.
 * **Entity:** What we store. (Like object class)
 * **Attribute:** Things about the entity (Like object property)
 * **DBMS:** Database Management System. Allow Filter/search data using query
-* **Query:** Filter/search on data
-* **SQL:** Data Manipulation Language DML, Data Define Language, DDL
-
 
 
 
