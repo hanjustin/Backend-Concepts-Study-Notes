@@ -64,21 +64,32 @@
                                         <ul>
                                             <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li>
                                         </ul>
+                                    <li><b>Data Integrity Protection</b></li>
+                                        <ul>
+                                            <li><b>Constraint</b></li>
+                                                <ul>
+                                                    <li><code>PRIMARY KEY</code>, <code>REFERENCES</code>, <code>CHECK</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, <code>ON DELETE</code></li>
+                                                </ul>
+                                            <li><b>Transaction Management</b></li>
+                                                <ul>
+                                                    <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
+                                                </ul>
+                                            <li><b>Trigger</b></li>
+                                                <ul>
+                                                    <li><code>CREATE TRIGGER</code>, <code>CREATE FUNCTION</code>, <code>BEFORE/AFTER event</code>, <code>$$string_constant$$</code></li>
+                                                </ul>
+                                        </ul>
                                     <li><b>Aggregate Queries</b></li>
                                         <ul>
                                             <li><code>MIN</code>, <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>GROUP BY</code></li>
-                                        </ul>
-                                    <li><b>Transaction Management</b></li>
-                                        <ul>
-                                            <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
                                         </ul>
                                     <li><b>User Access Control</b></li>
                                         <ul>
                                             <li><code>ROLE</code>, <code>GRANT</code>, <code>REVOKE</code></li>
                                         </ul>
-                                    <li><b>Misc</b></li>
+                                    <li><b>Join</b></li>
                                         <ul>
-                                            <li><code>XXX</code>, <code>XXX</code>, <code>XXX</code></li>
+                                            <li><code>JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code></li>
                                         </ul>
                                 </ul></ul></ul></ul></ul>
                 </ul>
@@ -319,20 +330,23 @@ DELETE FROM my_table
 WHERE col1 = 'My Condition';
 ```
 
-#### Aggregate Queries
-
+#### Data Integrity Protection
+##### Constraint
 ```sql
-SELECT
-  MIN(price),
-  SUM(price),
-  AVG(price),
-  COUNT(DISTINCT price)
-FROM my_products_table
-GROUP BY category;
+CREATE TABLE my_user (
+  user_id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT UNIQUE,
+  age INT DEFAULT -1,
+  CONSTRAINT age_check CHECK (age BETWEEN 0 AND 100)
+);
+
+CREATE TABLE my_child (
+  parent_id INT NOT NULL REFERENCES my_user(user_id) ON DELETE CASCADE
+);
 ```
 
-#### Transaction Management
-* To ensure data integrity and consistency
+##### Transaction Management
 
 ```sql
 -- Transaction inserting values 1 and 3, but not 2.
@@ -345,6 +359,58 @@ BEGIN;
 
   INSERT INTO my_table VALUES (3);
 COMMIT;
+```
+
+##### Trigger
+
+```sql
+CREATE TRIGGER my_trigger
+  AFTER INSERT ON my_table
+  FOR EACH ROW
+  EXECUTE FUNCTION my_trigger_function();
+
+-- Prevent negative values
+CREATE OR REPLACE FUNCTION my_trigger_function()
+RETURNS TRIGGER
+AS
+$$
+BEGIN
+  IF NEW.my_number < 0
+  THEN
+    RAISE EXCEPTION 'Number can''t be negative';
+  END IF;
+  RETURN NULL;
+END;
+$$
+LANGUAGE plpgsql;
+
+-- Return row count * argument value
+-- Learned trigger function must be declared
+-- no args and return type of trigger
+CREATE OR REPLACE FUNCTION my_first_function(my_multiplier_param INT)
+RETURNS INT
+AS
+$$
+DECLARE
+  my_int INT;
+BEGIN
+  SELECT COUNT(*) INTO my_int FROM my_table;
+  RETURN my_int * my_multiplier_param;
+END;
+$$
+LANGUAGE plpgsql;
+```
+
+#### Aggregate Queries
+
+```sql
+SELECT
+  MIN(price),
+  SUM(price),
+  AVG(price),
+  COUNT(DISTINCT price)
+FROM my_products_table
+GROUP BY category;
 ```
 
 #### User Access Control
