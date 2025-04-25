@@ -26,7 +26,17 @@
                                 </ul></ul></ul></ul>
                             <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
-                                    <li>Producer, Consumer, Broker, Cluster, Message, Topic, Partitions, Offset, Connectors</li>
+                                    <li>
+                                        <b><ins>P</ins></b>roducer,
+                                        <b><ins>C</ins></b>onsumer,
+                                        <b><ins>B</ins></b>roker,
+                                        <b><ins>C</ins></b>luster,
+                                        <b><ins>M</ins></b>essage,
+                                        <b><ins>T</ins></b>opic,
+                                        <b><ins>P</ins></b>artitions,
+                                        <b><ins>O</ins></b>ffset,
+                                        <b><ins>C</ins></b>onnectors
+                                    </li>
                                 </ul></ul></ul></ul>
                         </ul>
                 </ul>
@@ -47,12 +57,19 @@
                                 </ul></ul></ul></ul>
                             <li><a href="#terminologies-postgresql"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
-                                    <li>Aggregate & window functions, Term2, Term3 - WIP</li>
+                                    <li>
+                                        <b><ins>P</ins></b>rimary key,
+                                        <b><ins>C</ins></b>omposite primary key,
+                                        <b><ins>F</ins></b>oreign key,
+                                        <b><ins>V</ins></b>iew,
+                                        <b><ins>M</ins></b>aterialized view,
+                                        <b><ins>A</ins></b>ggregate & window functions
+                                    </li>
                                 </ul></ul></ul></ul>
                         </ul>
                     <li><a href="#tools-postgresql"><b>Tools</b></a></li>
                         <ul><ul><ul><ul><ul>
-                            <li>psql, pgAdmin</li>
+                            <li><b>p</b>sql, <b>p</b>gAdmin</li>
                         </ul></ul></ul></ul></ul>
                     <li><a href="#sql-syntax"><b>SQL Syntax</b></a></li>
                                 <ul><ul><ul><ul><ul>
@@ -95,6 +112,24 @@
                 </ul>
             </details>
             </li>
+            <!-- <li><details><summary>Cassandra</summary>
+                <ul>
+                    <li><a href="#fundamentals-cassandra"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><a href="#concepts-cassandra"><b>Concepts</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>TO DO - Empty</li>
+                                    <li>TO DO - Empty</li>
+                                </ul></ul></ul></ul>
+                            <li><a href="#terminologies-cassandra"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>TO DO - Empty</li>
+                                    <li>TO DO - Empty</li>
+                                </ul></ul></ul></ul>
+                        </ul>
+                </ul>
+            </details>
+            </li> -->
             <li><details><summary>Redis</summary>
                 <ul>
                     <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
@@ -146,24 +181,27 @@
 </ul>
 
 * **Databases - Fundamentals**
-    * Relational
+    <!-- * **[Indexes](#indexes)** -->
+    * **[Normalization](#normalization)**
+        * 1NF, 2NF, 3NF, 4NF, 5NF
+    * **Relational**
     <!-- * Non-relational
         * Key-value pair
         * Document-oriented
         * Column-oriented
         * Graph-based
         * Time series -->
-    * SQL vs NoSQL
-    * [ACID vs BASE transaction](#acid-vs-base-transaction)
-        * [ACID](#acid)
-            * [Isolation Levels vs Read Phenomena](#isolation-levels-vs-read-phenomena)
-            * Compliance Strategies
-                * [Write Ahead Logging](#write-ahead-logging)
-                * [Checkpointing](#checkpointing)
-                * [Shadow Paging](#shadow-paging)
-                * [Locking](#locking)
-                * [Multi-versioning](#multi-versioning)
-        * [BASE](#base)
+    * **SQL vs NoSQL**
+    * **[ACID vs BASE transaction](#acid-vs-base-transaction)**
+        * **[ACID](#acid)**
+            * **[Isolation Levels vs Read Phenomena](#isolation-levels-vs-read-phenomena)**
+            * **[Compliance Strategies](#compliance-strategies)**
+                * <b><ins>W</ins></b>rite-ahead logging,
+                <b><ins>C</ins></b>heckpointing,
+                <b><ins>S</ins></b>hadow paging,
+                <b><ins>L</ins></b>ocking,
+                <b><ins>M</ins></b>ulti-versioning
+        * **[BASE](#base)**
 
 * Architectural Patterns
     * Distributed System
@@ -275,6 +313,11 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 
 <h4 id="terminologies-postgresql">Terminologies</h4>
 
+* **Primary key:**
+* **Composite primary key:**
+* **Foreign key:** Create relationship by referencing the primary key in another table.
+* **View:**
+* **Materialized view:**
 * **Aggregate function:** Perform a calculation on a set of rows and return a single row
 * **Window function:** Perform a calculation on a set of rows and return multiple rows.
 
@@ -436,6 +479,16 @@ FROM my_role;
 
 * **Dollar-Quoted String Constants:** Can use `$Tag$It's working$Tag$` instead of `'It''s working'`. For better readability, dollar signs can be used to avoid double single quotes. The tag is optional, but can be used to provide additional context like `$uuid$ext_data$uuid$`. Nesting constants with different tags is also possible.
 
+## Cassandra
+<h3 id="fundamentals-cassandra">Fundamentals</h3>
+
+<h4 id="concepts-cassandra">Concepts</h4>
+
+<h4 id="terminologies-cassandra">Terminologies</h4>
+
+* **CQL:** SQL like query language for Cassandra.
+* **Term2:** Term2
+
 ## Redis
 <h3 id="fundamentals-redis">Fundamentals</h3>
 Redis (REmote DIctionary Server) is a data structure server. It is a key-value in-memory store commonly used for caching as it leverages the speed of memory to complement other DBMS with data persistence, but Redis can persist data as well if needed.
@@ -486,8 +539,34 @@ NoSQL database storing data in a JSON-like format.
 ---
 
 # Databases - Fundamentals
+
+## Indexes
+Speeds up data retrieval at the cost of additional storage, more RAM usage, and slower inserts/updates/deletes.
+
+by creating a pointer to data.
+
+They are created on columns that are frequently searched or used in queries.
+
+## Normalization
+Data organization to improve data integrity by breaking down tables into smaller ones to minimize data redundancy.
+
+
+<h3>1NF - First normal form</h3>
+Using row to convey information, not having primary key field, or mixing data types in a column violates 1NF.
+Storing a repeating group of data items on a single row violates 1NF.
+
+### 2NF
+Each non-key attribute must depend on the entire primary key.
+
+### 3NF
+Every attribute in a table should depend on the key, the whole key, and nothing but the key.
+
+### 4NF
+### 5NF
+
+### vs Denormalization
+
 ## Relational
-### Fundamentals
 
 * **Key:** What makes the row unique and separates from other rows. Key is a 'type of index'. Key should be:
     * Unique
@@ -535,7 +614,7 @@ A trade-off of consistency vs performance. Higher isolation level reduces the nu
 
 <table>
     <tr>
-        <th>Read <u>Phenomena→</u><br>Isolation LVL↓</th>
+        <th>Read <ins>Phenomena→</ins><br>Isolation LVL↓</th>
         <th>Dirty read</th>
         <th>Non-repeatable read</th>
         <th>Phantom read</th>
