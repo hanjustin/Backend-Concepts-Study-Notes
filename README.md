@@ -63,6 +63,7 @@
                                         <b><ins>F</ins></b>oreign key,
                                         <b><ins>V</ins></b>iew,
                                         <b><ins>M</ins></b>aterialized view,
+                                        <b><ins>S</ins></b>tored procedure,
                                         <b><ins>A</ins></b>ggregate & window functions
                                     </li>
                                 </ul></ul></ul></ul>
@@ -183,7 +184,8 @@
 * **Databases - Fundamentals**
     <!-- * **[Indexes](#indexes)** -->
     * **[Normalization](#normalization)**
-        * 1NF, 2NF, 3NF, 4NF, 5NF
+        * 1NF, 2NF, 3NF
+        * vs Denormalization
     * **Relational**
     <!-- * Non-relational
         * Key-value pair
@@ -313,12 +315,13 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 
 <h4 id="terminologies-postgresql">Terminologies</h4>
 
-* **Primary key:**
-* **Composite primary key:**
+* **Primary key:** A column that uniquely identifies each row.
+* **Composite primary key:** A combination of columns that uniquely identifies each row.
 * **Foreign key:** Create relationship by referencing the primary key in another table.
-* **View:**
-* **Materialized view:**
-* **Aggregate function:** Perform a calculation on a set of rows and return a single row
+* **View:** Stored query.
+* **Materialized view:** Precomputed query that periodically updates cached results for faster read.
+* **Stored procedure:** Functions that can accept parameters.
+* **Aggregate function:** Perform a calculation on a set of rows and return a single row.
 * **Window function:** Perform a calculation on a set of rows and return multiple rows.
 
 <h3 id="tools-postgresql">Tools</h3>
@@ -548,23 +551,21 @@ by creating a pointer to data.
 They are created on columns that are frequently searched or used in queries.
 
 ## Normalization
-Data organization to improve data integrity by breaking down tables into smaller ones to minimize data redundancy.
+Data organization to minimize data redundancy and improve data integrity by breaking down tables into smaller tables for easier database maintenance. Increasing normalization level improves data integrity, but it is not common to go above 3NF.
 
+* **1NF - First normal form:**
+    * Each row is uniquely identifiable with a primary key.
+    * Each column represents unique characteristic or attribute type of the entity. i.e. For table `Product`, instead of having `Vendor1`, `Vendor2`, `Vendor3` and so on to list vendors for a product, only one `Vendor` column should be used.
+    * Each cell holds a single, indivisible piece of data. i.e. Full name `John Doe` in `Name` column should be broken down into `John` and `Doe` to get saved in `First name` and `Last name` columns respectively.
 
-<h3>1NF - First normal form</h3>
-Using row to convey information, not having primary key field, or mixing data types in a column violates 1NF.
-Storing a repeating group of data items on a single row violates 1NF.
+* **2NF:**
+Columns must be dependent on the entire primary key.
 
-### 2NF
-Each non-key attribute must depend on the entire primary key.
-
-### 3NF
-Every attribute in a table should depend on the key, the whole key, and nothing but the key.
-
-### 4NF
-### 5NF
+* **3NF:**
+Columns must be **ONLY** dependent on the entire primary key, so columns should be independent of each other. Columns affected by a non-primary key column needs to be moved to a different table.
 
 ### vs Denormalization
+In certain read-heavy applications, denormalization could be more suitable when performance and query speed are more critical than data integrity.
 
 ## Relational
 
