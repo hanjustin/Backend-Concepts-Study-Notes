@@ -43,6 +43,62 @@
             </details>
             </li>
         </ul>
+    <li><b>Tools</b></li>
+        <ul>
+            <li><details><summary>Kubernetes</summary>
+                <ul>
+                    <li><a href="#fundamentals-kubernetes"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><a href="#key-features-kubernetes"><b>Key Features</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>
+                                        <b><ins>C</ins></b>ontainer orchestration,
+                                        <b><ins>S</ins></b>ervice discovery,
+                                        <b><ins>L</ins></b>oad balancing,
+                                        <b><ins>S</ins></b>elf-healing
+                                    </li>
+                                </ul></ul></ul></ul>
+                            <li><a href="#concepts-kubernetes"><b>Concepts</b></a></li>
+                                <ul>
+                                    <li><b>Architecture</b></li>
+                                        <ul><ul><ul>
+                                            <li><b>Master node</b></li>
+                                                <ul>
+                                                    <li>
+                                                        <b><ins>e</ins></b>tcd,
+                                                        <b><ins>A</ins></b>PI server,
+                                                        <b><ins>S</ins></b>cheduler,
+                                                        <b><ins>C</ins></b>ontroller manager
+                                                    </li>
+                                                </ul>
+                                            <li><b>Worker node</b></li>
+                                                <ul>
+                                                    <li>
+                                                        <b><ins>C</ins></b>ontainer runtime,
+                                                        <b><ins>K</ins></b>ubelet,
+                                                        <b><ins>K</ins></b>ube-proxy
+                                                    </li>
+                                                </ul>
+                                        </ul></ul></ul>
+                                    <li>Concept2 - WIP</li>
+                                </ul>
+                            <li><a href="#terminologies-kubernetes"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>
+                                        WIP
+                                    </li>
+                                </ul></ul></ul></ul>
+                        </ul>
+                    <li><b>Tools</b></li>
+                        <ul><ul><ul><ul><ul>
+                            <li><b>m</b>inikube,
+                            <b>k</b>ubectl,
+                            <b>H</b>elm</li>
+                        </ul></ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
+        </ul>
     <li><b>Databases</b></li>
         <ul>
             <li><details><summary>PostgreSQL</summary>
@@ -205,8 +261,8 @@
                 <b><ins>M</ins></b>ulti-versioning
         * **[BASE](#base)**
 
-* Architectural Patterns
-    * Distributed System
+* **Architectural Patterns**
+    * **Distributed System**
         * [CAP theorem](#cap-theorem)
         * [PACELC theorem](#pacelc-theorem)
         * [Scaling Patterns](#scaling-patterns)
@@ -219,7 +275,7 @@
         * [Distributed Monolith](#distributed-monolith)
     * [Serverless](#serverless)
 
-* [Design Patterns](#design-patterns)
+* **[Design Patterns](#design-patterns)**
     <!-- * Ambassador pattern
     * Anti-corruption Layer pattern -->
     * [Backends for Frontends](#backends-for-frontends)
@@ -227,11 +283,6 @@
     <!-- * Gatekeeper pattern
     * Sequential Convoy pattern -->
     * [Strangler Fig pattern](#strangler-fig-pattern)
-
-* Tools
-    <!-- * Microservices Orchestration
-        * Kubernetes
-            * vs Docker Swarm -->
 
 <!-- * To-Do
     * Cloud
@@ -296,6 +347,60 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 * **Partitions:** For more throughput, topics are broken into several partitions, which is how a single topic can span across multiple brokers. Similar to RDBMS sharding for scaling.
 * **Offset:** A unique integer identifier assigned to each message within a specific partition, representing its position within that partition's log, and is used to track the progress of consumers.
 * **Connectors:** Used to connect to external systems such as databases, key-value stores, search indexes, and file systems to move data in/from Kafka.
+
+---
+
+# Tools
+## Kubernetes
+<h3 id="fundamentals-kubernetes">Fundamentals</h3>
+
+Container orchestration tool to simplify managing containerized applications across multiple servers.
+
+<h4 id="key-features-kubernetes">Key Features</h4>
+
+* **Container Orchestration:** Automatically provision, deploy, scale and manage the lifecycle of containerized applications.
+* **Service Discovery:** Applications in separate pods can communicate without knowing hard coded IP addresses.
+* **Load Balancing:** Distribute traffic across the network to improve stability and performance.
+* **Self-Healing:** Automatically replace failed containers.
+
+<h4 id="concepts-kubernetes">Concepts</h4>
+
+##### Architecture
+* **Master node** controls cluster state & worker nodes. A cluster usually has multiple master nodes.
+    * **etcd:** Cluster brain. Keeps current state of the cluster. Key value store of cluster changes for state restoration.
+    * **API server:** Cluster gateway. Entry point into the cluster. Gatekeeper for authentication.
+    * **Scheduler:** Decides which node will get the new Pod. Sends instruction to the node's kubelet to start the new pod.
+    * **Controller manager:** Keeps overview of the cluster. Detects cluster state changes such as a pod crash.
+* **Worker node** do the actual work. Each node can have multiple pods.
+    * **Container runtime:** Docker or other container application
+    * **Kubelet:** Interacts with both the container & node.
+    * **Kubelet proxy:** Forwards requests from services to pods.
+
+* Configuration:
+    * Controller manager status checks by comparing declared desired state & current actual state. Self healing capability attempts to restore to the desired state `if current state != desired state`.
+    * Configuration file has:
+        * Metadata
+        * Specification: Attributes specific to the `kind` of the configuration.
+        * Status: Automatically generated by K8s that gets updated continuously. The current status information comes from `etcd`.
+
+<!-- * Tools
+    * Minikube
+        * For testing cluster locally.
+        * A cluster with one node with both master & worker processes.
+    * Kubectl
+        * CLI tool for K8s cluster -->
+
+<h4 id="terminologies-kubernetes">Terminologies</h4>
+
+* **Pod:** Smallest unit of K8s. A layer over a container to abstract away container technologies. Usually one container per pod. Each pod has an IP. New IP address on re-creation.
+* **Service:** Static permanent IP address attached to Pod that doesn't change even when Pod gets re-created. Also acts as a load balancer.
+* **Ingress:** Component to forward requests to Service.
+* **ConfigMap:** External configuration for application. Making it easier to manage and update application settings without redeploying containers.
+* **Secret:** ConfigMap to store sensitive secret data.
+* **Volume:** Persistant storage for pods.
+* **Deployment:** Abstract template/blueprint layer for creating pods with stateless apps.
+* **StatefulSet:** Alternative of `Deployment` to replicate Stateful apps such as DBMS to manage data inconsistencies.
+* **Virtual network:** Forms the cluster for master & worker nodes to interact.
 
 ---
 
@@ -865,3 +970,4 @@ For writing, deleting, or updating transactions, creating multiple versions of t
 * **Single Point of Failure -** The above proxy layer can become a single point of failure or a performance bottleneck.
 * **Data synchronization -** Data consistency & redundancy issues can happen from the monolithic system having a data store and the new microservice having it's own data store as well. Sharing or updating data will likely require a synchronizing agent between the two stores for eventual consistency.
 * **Complete refactoring -** For small applications, it might be more efficient to rewrite the whole application in microservices architecture instead of incrementally migrating it.
+
