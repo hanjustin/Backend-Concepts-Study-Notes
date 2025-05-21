@@ -45,7 +45,7 @@
         </ul>
     <li><b>Tools</b></li>
         <ul>
-            <li><details><summary>Kubernetes</summary>
+            <li><details><summary>Kubernetes - WIP</summary>
                 <ul>
                     <li><a href="#fundamentals-kubernetes"><b>Fundamentals</b></a></li>
                         <ul>
@@ -169,14 +169,14 @@
                 </ul>
             </details>
             </li>
-            <!-- <li><details><summary>Cassandra</summary>
+            <li><details><summary>Cassandra - WIP</summary>
                 <ul>
                     <li><a href="#fundamentals-cassandra"><b>Fundamentals</b></a></li>
                         <ul>
                             <li><a href="#concepts-cassandra"><b>Concepts</b></a></li>
                                 <ul><ul><ul><ul>
-                                    <li>TO DO - Empty</li>
-                                    <li>TO DO - Empty</li>
+                                    <li>Interconnected independent nodes</li>
+                                    <li>Query oriented table</li>
                                 </ul></ul></ul></ul>
                             <li><a href="#terminologies-cassandra"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
@@ -184,9 +184,20 @@
                                     <li>TO DO - Empty</li>
                                 </ul></ul></ul></ul>
                         </ul>
+                    <li><a href="#cql-syntax"><b>CQL Syntax</b></a></li>
+                                <ul><ul><ul><ul><ul>
+                                    <li><b>Keyspace Management</b></li>
+                                        <ul>
+                                            <!-- <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li> -->
+                                        </ul>
+                                    <li><b>Data CRUD Operations</b></li>
+                                        <ul>
+                                            <!-- <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li> -->
+                                        </ul>
+                                </ul></ul></ul></ul></ul>
                 </ul>
             </details>
-            </li> -->
+            </li>
             <li><details><summary>Redis</summary>
                 <ul>
                     <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
@@ -590,12 +601,92 @@ FROM my_role;
 ## Cassandra
 <h3 id="fundamentals-cassandra">Fundamentals</h3>
 
+* Distributed column-oriented database.
+
+
+
+* Token generated from hashed partition key is used to determine which node to save data. A node will be assigned a range of token. Inside an actual node, virtual nodes are created with smaller token range.
+
+
+
 <h4 id="concepts-cassandra">Concepts</h4>
+
+* Rack: A cluster of connected machines in a data center.
+* 
+
+
+* **Interconnected independent nodes:** Each node performs the same functions for no single point of failure. Each node can independently accept read and write requests regardless of where the data is actually located in the cluster, and in case of a node failure, other nodes can handle the requests.
+* **Query oriented table:** Design tables to satisfy a query by not requiring `JOIN` like in RDBMS to achieve optimal query performance by requiring read only from one table. Table should reflect the query you are trying to make.
+* **Fast writes:**
+
+
 
 <h4 id="terminologies-cassandra">Terminologies</h4>
 
 * **CQL:** SQL like query language for Cassandra.
-* **Term2:** Term2
+* **Clustering key:** The clustering columns can be used in the order they were defined. i.e. Sorting by month requires first sorting by year if `month` clustering column is declared after `year` column.
+
+* **Partition key** is used to group data into the same node for optimal read/write, so one table's data could be partitioned and saved in multiple nodes. Used instead of primary key to search data.
+
+clustering columns
+
+* **Replication factor:** Number of nodes to have data within a keyspace (database). It is the number of machines in the cluster that will receive copies of the same data.
+* **Consistency levels:**
+    Assuming Replication factor = 3,
+    * **Any:** Only available on writes. Ensures data gets written to at least one node before returning to the client.
+    * **One, Two, Three:**
+    * **Quorum:** Write was received by at least majority of replicas. Reads majority of replicas to get data with the most recent timestamp.
+
+
+-- Unorganized
+* **Anti-Entropy:** The mechanism that ensures that every node contains update data.
+* **Bloom Filter:** It is an algorithm that determines if an element is a member of a particular set. These are nothing but quick, nondeterministic, algorithms for testing whether an element is a member of a set. It is a special kind of cache. Bloom filters are accessed after every query.
+* **SuperColumn:** A column which is basically a map of other columns. In one kind it contains all the columns.
+* **Seed Node:** A node which is basically used by newly added nodes to get up and running.
+
+<h3 id="cql-syntax">CQL Syntax</h3>
+
+```
+-- keyspace
+CREATE KEYSPACE my_keyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+
+USE my_keyspace;
+
+DESCRIBE KEYSPACES;
+DROP KEYSPACE my_keyspace;
+
+CREATE TABLE my_employee_by_id (id int PRIMARY KEY, name text, position text);
+CREATE TABLE my_employee_by_car_mke (car_make text, id int, car_model text, PRIMARY KEY(car_make, id));
+
+CREATE TABLE my_employee_by_car_make_sorted (car_make text, age int, id int, name text, PRIMARY KEY(car_make, age, id));
+
+-- Timestamps
+SELECT writetime(my_col) FROM my_table;
+
+-- TTL
+UPDATE employee_by_id USING TTL 60 SET car_model='TRUCK' WHERE id = 2;
+
+-- Collection add/delete
+UPDATE employee_by_id SET phone = {'123', '456'}
+UPDATE employee_by_id SET phone = phone + {'789'} WHERE id = 1;
+UPDATE employee_by_id SET phone = phone - {'123'} WHERE id = 2;
+
+-- Secondary index to search not using primary key
+CREATE INDEX ON employee_by_id(name);
+
+Normal UUID without ordering
+Time UUID for sorting
+
+CREATE TABLE my_employee_by_uuid (
+    id uuid PRIMARY KEY,
+    first_name text,
+    last_name text
+);
+
+INSERT INTO my_employee_by_uuid (id, first_name, last_name) VALUES (uuid(), 'John', 'Doe');
+
+-- For time UUID, use `id timeuuid PRIMARY KEY` and `now()`
+```
 
 ## Redis
 <h3 id="fundamentals-redis">Fundamentals</h3>
