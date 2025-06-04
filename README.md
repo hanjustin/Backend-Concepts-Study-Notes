@@ -175,13 +175,25 @@
                         <ul>
                             <li><a href="#concepts-cassandra"><b>Concepts</b></a></li>
                                 <ul><ul><ul><ul>
-                                    <li>Interconnected independent nodes</li>
-                                    <li>Query oriented table</li>
+                                    <li>Masterless interconnected independent nodes</li>
+                                    <li>Query oriented denormalized data format</li>
+                                    <li>Per request tunable consistency</li>
+                                    <li>Last write wins eventual consistency</li>
+                                    <li>Rows with optional fields</li>
                                 </ul></ul></ul></ul>
                             <li><a href="#terminologies-cassandra"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
-                                    <li>TO DO - Empty</li>
-                                    <li>TO DO - Empty</li>
+                                        <b><ins>K</ins></b>eyspace,
+                                        <b><ins>T</ins></b>able,
+                                        <b><ins>P</ins></b>artition,
+                                        <b><ins>R</ins></b>eplication factor,
+                                        <b><ins>C</ins></b>onsistency levels,
+                                        <b><ins>P</ins></b>rimary key,
+                                        <b><ins>P</ins></b>artition key,
+                                        <b><ins>C</ins></b>lustering key,
+                                        <b><ins>C</ins></b>oordinator,
+                                        <b><ins>P</ins></b>artitioner,
+                                        <b><ins>G</ins></b>ossip protocol
                                 </ul></ul></ul></ul>
                         </ul>
                     <li><a href="#cql-syntax"><b>CQL Syntax</b></a></li>
@@ -601,48 +613,40 @@ FROM my_role;
 ## Cassandra
 <h3 id="fundamentals-cassandra">Fundamentals</h3>
 
-* Distributed column-oriented database.
-
-
-
-* Token generated from hashed partition key is used to determine which node to save data. A node will be assigned a range of token. Inside an actual node, virtual nodes are created with smaller token range.
-
-
+* Distributed NoSQL no single point of failure database with denormalized data.
 
 <h4 id="concepts-cassandra">Concepts</h4>
 
-* Rack: A cluster of connected machines in a data center.
-* 
-
-
-* **Interconnected independent nodes:** Each node performs the same functions for no single point of failure. Each node can independently accept read and write requests regardless of where the data is actually located in the cluster, and in case of a node failure, other nodes can handle the requests.
-* **Query oriented table:** Design tables to satisfy a query by not requiring `JOIN` like in RDBMS to achieve optimal query performance by requiring read only from one table. Table should reflect the query you are trying to make.
-* **Fast writes:**
-
-
+* **Masterless interconnected independent nodes:** No single point of failure achieved by having each node performing the same functions and independently accepting read and write requests regardless of where the data is actually located in the cluster.
+* **Query oriented denormalized data format:** A single table should fulfill a query, so all desired data in a denormalized form must be in a single table. Unlike RDBMS, `JOIN` is not provided at the database level, so data merging should happen at the application level if needed.
+* **Per request tunable consistency:** A client application can tune the consistency for individual read or write operation so that the data returned meets the consistency requirement. A tradeoff between operation latency and consistency.
+* **Last write wins eventual consistency:** Every mutation is timestamped to resolve conflicting mutations.
+* **Rows with optional fields:** Rows are identifiable with primary keys, and rows can omit columns as row data is stored in key/value pairs internally where `key = column name` & `value = cell data`.
+* **Rows saved together by partition key:** For optimal data retrieval, all rows with the same partition key are stored in the same node.
 
 <h4 id="terminologies-cassandra">Terminologies</h4>
 
-* **CQL:** SQL like query language for Cassandra.
-* **Clustering key:** The clustering columns can be used in the order they were defined. i.e. Sorting by month requires first sorting by year if `month` clustering column is declared after `year` column.
+* **Keyspace:** Contains tables like RDBMS database. Defines how a dataset is replicated, per datacenter. Replication is the number of copies saved per cluster.
+* **Table:** Defines the typed schema. Tables contain partitions, which contain rows, which contain columns. Can flexibly add new columns to tables with zero downtime.
+* **Partition:** A group of rows saved together to a node that is also replicated to multiple nodes.
+* **Replication factor:** Number of nodes in the cluster that will have copies of the same data.
+* **Consistency levels:** Determines the number of replicas that need to acknowledge the read or write operation to return report to the client application. The write consistency level simply controls how many responses the coordinator waits before responding to the client, so all replicas will eventually get updated.
+    * **One, Two, Three:** 1~3 replica(s) received the request.
+    * **Quorum:** At least half of the replicas received the request.
+* **Primary key:** Uniquely identifies a row. Consists of partition key(s) and optional clustering columns.
+* **Partition key:** Group rows into the same node for optimal read/write and get hashed to distribute partitions across a cluster.
+* **Clustering key:** Sorting columns used to order rows within a partition.
+* **Coordinator:** A node that first receives a request that will act as a proxy between the client application and the nodes that own the data being requested.
+* **Partitioner:** A hash function that derives a token from the primary key of a row. The token determines which nodes receive the replicas.
+* **Gossip protocol:** Nodes periodically exchange state information about themselves and about other nodes they know about using the protocol.
 
-* **Partition key** is used to group data into the same node for optimal read/write, so one table's data could be partitioned and saved in multiple nodes. Used instead of primary key to search data.
-
-clustering columns
-
-* **Replication factor:** Number of nodes to have data within a keyspace (database). It is the number of machines in the cluster that will receive copies of the same data.
-* **Consistency levels:**
-    Assuming Replication factor = 3,
-    * **Any:** Only available on writes. Ensures data gets written to at least one node before returning to the client.
-    * **One, Two, Three:**
-    * **Quorum:** Write was received by at least majority of replicas. Reads majority of replicas to get data with the most recent timestamp.
 
 
 -- Unorganized
-* **Anti-Entropy:** The mechanism that ensures that every node contains update data.
-* **Bloom Filter:** It is an algorithm that determines if an element is a member of a particular set. These are nothing but quick, nondeterministic, algorithms for testing whether an element is a member of a set. It is a special kind of cache. Bloom filters are accessed after every query.
-* **SuperColumn:** A column which is basically a map of other columns. In one kind it contains all the columns.
-* **Seed Node:** A node which is basically used by newly added nodes to get up and running.
+* All performant queries supply the partition key in the query.
+* Primary key puts the partition key first and then the clustering key. The primary key can simply just be a partition key. It can also exist as a composite primary key by combining partition key(s) and clustering key(s).
+* to efficiently retrieve data, the where clause in fetch query must contain all the composite partition keys in the same order as specified in the primary key definition. where clause should contain the columns in the same order as defined in the primary key clause.
+* The clustering columns can be used in the order they were defined. i.e. Sorting by month requires first sorting by year if `month` clustering column is declared after `year` column.
 
 <h3 id="cql-syntax">CQL Syntax</h3>
 
@@ -686,6 +690,13 @@ CREATE TABLE my_employee_by_uuid (
 INSERT INTO my_employee_by_uuid (id, first_name, last_name) VALUES (uuid(), 'John', 'Doe');
 
 -- For time UUID, use `id timeuuid PRIMARY KEY` and `now()`
+
+-- Execute multiple statements simultaneously
+BEGIN BATCH  
+-- Insert stmt;
+-- Update stmt;
+-- Delete stmt;
+APPLY BATCH
 ```
 
 ## Redis
