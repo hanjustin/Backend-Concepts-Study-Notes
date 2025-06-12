@@ -190,21 +190,31 @@
                                         <b><ins>C</ins></b>onsistency levels,
                                         <b><ins>P</ins></b>rimary key,
                                         <b><ins>P</ins></b>artition key,
+                                        <b><ins>C</ins></b>omposite partition key,
                                         <b><ins>C</ins></b>lustering key,
                                         <b><ins>C</ins></b>oordinator,
                                         <b><ins>P</ins></b>artitioner,
-                                        <b><ins>G</ins></b>ossip protocol
+                                        <b><ins>G</ins></b>ossip protocol,
+                                        <b><ins>L</ins></b>ightweight transactions
                                 </ul></ul></ul></ul>
                         </ul>
                     <li><a href="#cql-syntax"><b>CQL Syntax</b></a></li>
                                 <ul><ul><ul><ul><ul>
                                     <li><b>Keyspace Management</b></li>
                                         <ul>
-                                            <!-- <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li> -->
+                                            <li><code>CREATE</code>, <code>USE</code>, <code>DROP</code></li>
+                                        </ul>
+                                    <li><b>Table Management</b></li>
+                                        <ul>
+                                            <li><code>CREATE</code>, <code>ALTER</code>, <code>DELETE</code></li>
                                         </ul>
                                     <li><b>Data CRUD Operations</b></li>
                                         <ul>
-                                            <!-- <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li> -->
+                                            <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>USING TTL</code>, <code>DELETE</code></li>
+                                        </ul>
+                                    <li><b>Misc</b></li>
+                                        <ul>
+                                            <li><code>CREATE TYPE/INDEX</code>, <code>BEGING/APPLY BATCH</code></li>
                                         </ul>
                                 </ul></ul></ul></ul></ul>
                 </ul>
@@ -460,7 +470,6 @@ Container orchestration tool to simplify managing containerized applications acr
 <h3 id="sql-syntax">SQL Syntax</h3>
 
 #### Database Management
-* Define and modify database structure
 
 ```sql
 CREATE TABLE my_table (
@@ -480,8 +489,6 @@ DROP TABLE my_table;
 ```
 
 #### Data CRUD Operations
-* Retrieve and manage data
-
 ```sql
 -- Create
 INSERT INTO my_table (col1, col2, col3)
@@ -613,12 +620,12 @@ FROM my_role;
 ## Cassandra
 <h3 id="fundamentals-cassandra">Fundamentals</h3>
 
-* Distributed NoSQL no single point of failure database with denormalized data.
+* Distributed NoSQL no single point of failure database with denormalized data. Database to consider when needing a very high write throughput, prioritizing availability over consistency, and not needing advanced query patterns (such as `JOIN`) or adhoc aggregations.
 
 <h4 id="concepts-cassandra">Concepts</h4>
 
 * **Masterless interconnected independent nodes:** No single point of failure achieved by having each node performing the same functions and independently accepting read and write requests regardless of where the data is actually located in the cluster.
-* **Query oriented denormalized data format:** A single table should fulfill a query, so all desired data in a denormalized form must be in a single table. Unlike RDBMS, `JOIN` is not provided at the database level, so data merging should happen at the application level if needed.
+* **Query oriented denormalized data format:** A single table should fulfill a query, so all desired data in a denormalized form must be in a single table. UI & UX have a heavy influence on how data gets modeled. Unlike RDBMS, `JOIN` is not provided at the database level, so data merging should happen at the application level if needed.
 * **Per request tunable consistency:** A client application can tune the consistency for individual read or write operation so that the data returned meets the consistency requirement. A tradeoff between operation latency and consistency.
 * **Last write wins eventual consistency:** Every mutation is timestamped to resolve conflicting mutations.
 * **Rows with optional fields:** Rows are identifiable with primary keys, and rows can omit columns as row data is stored in key/value pairs internally where `key = column name` & `value = cell data`.
@@ -626,7 +633,7 @@ FROM my_role;
 
 <h4 id="terminologies-cassandra">Terminologies</h4>
 
-* **Keyspace:** Contains tables like RDBMS database. Defines how a dataset is replicated, per datacenter. Replication is the number of copies saved per cluster.
+* **Keyspace:** Contains tables like RDBMS database. Defines how a dataset is replicated, per datacenter. Replication is the number of copies saved per cluster, and it is controlled on a per-keyspace basis.
 * **Table:** Defines the typed schema. Tables contain partitions, which contain rows, which contain columns. Can flexibly add new columns to tables with zero downtime.
 * **Partition:** A group of rows saved together to a node that is also replicated to multiple nodes.
 * **Replication factor:** Number of nodes in the cluster that will have copies of the same data.
@@ -635,61 +642,82 @@ FROM my_role;
     * **Quorum:** At least half of the replicas received the request.
 * **Primary key:** Uniquely identifies a row. Consists of partition key(s) and optional clustering columns.
 * **Partition key:** Group rows into the same node for optimal read/write and get hashed to distribute partitions across a cluster.
+* **Composite partition key:** Uses two or more columns as partition keys to break the partition into smaller groups to improve data retrieval.
 * **Clustering key:** Sorting columns used to order rows within a partition.
 * **Coordinator:** A node that first receives a request that will act as a proxy between the client application and the nodes that own the data being requested.
 * **Partitioner:** A hash function that derives a token from the primary key of a row. The token determines which nodes receive the replicas.
 * **Gossip protocol:** Nodes periodically exchange state information about themselves and about other nodes they know about using the protocol.
-
-
-
--- Unorganized
-* All performant queries supply the partition key in the query.
-* Primary key puts the partition key first and then the clustering key. The primary key can simply just be a partition key. It can also exist as a composite primary key by combining partition key(s) and clustering key(s).
-* to efficiently retrieve data, the where clause in fetch query must contain all the composite partition keys in the same order as specified in the primary key definition. where clause should contain the columns in the same order as defined in the primary key clause.
-* The clustering columns can be used in the order they were defined. i.e. Sorting by month requires first sorting by year if `month` clustering column is declared after `year` column.
+* **Lightweight transactions:** Conditional update operations using `IF EXISTS` or `IF NOT EXISTS`
 
 <h3 id="cql-syntax">CQL Syntax</h3>
 
-```
--- keyspace
-CREATE KEYSPACE my_keyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+* Primary key has partition key(s) first and then has optional clustering key(s).
+* Columns used in the `where` clause should follow the same order as the columns defined in the primary key.
+* All performant queries must include all partition key columns.
+
+#### Keyspace Management
+```sql
+CREATE KEYSPACE my_keyspace
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
 
 USE my_keyspace;
-
 DESCRIBE KEYSPACES;
 DROP KEYSPACE my_keyspace;
+```
 
-CREATE TABLE my_employee_by_id (id int PRIMARY KEY, name text, position text);
-CREATE TABLE my_employee_by_car_mke (car_make text, id int, car_model text, PRIMARY KEY(car_make, id));
+#### Table Management
+```sql
+CREATE TABLE my_table ( 
+  partition_k1 text,
+  partition_k2 text,
+  clust_k int, 
+  my_set set<int>,
+  my_list list<int>,
+  my_map map<int, text>,
+  my_tuple tuple<int, int>,
+  PRIMARY KEY ((partition_k1, partition_k2), clust_k)
+) WITH CLUSTERING ORDER BY (clust_k DESC);
 
-CREATE TABLE my_employee_by_car_make_sorted (car_make text, age int, id int, name text, PRIMARY KEY(car_make, age, id));
+ALTER TABLE my_table ADD new_col int;
+DELETE TABLE my_table;
+```
 
--- Timestamps
-SELECT writetime(my_col) FROM my_table;
+#### Data CRUD Operations
+```sql
+-- Create
+INSERT INTO my_table (partition_k1, partition_k2, clust_k)
+VALUES ('par_k1', 'par_k2', 123);
 
--- TTL
-UPDATE employee_by_id USING TTL 60 SET car_model='TRUCK' WHERE id = 2;
+-- Read
+SELECT *
+FROM my_table
+WHERE partition_k1 = 'par_k1' AND partition_k2 = 'par_k2';
 
--- Collection add/delete
-UPDATE employee_by_id SET phone = {'123', '456'}
-UPDATE employee_by_id SET phone = phone + {'789'} WHERE id = 1;
-UPDATE employee_by_id SET phone = phone - {'123'} WHERE id = 2;
+-- Update w/ TTL
+UPDATE my_table
+USING TTL 60
+SET my_list = my_list + [1]
+WHERE partition_k1 = 'par_k1' AND partition_k2 = 'par_k2' AND clust_k = 123;
+
+-- Delete
+DELETE my_list
+FROM my_table
+WHERE partition_k1 = 'par_k1' AND partition_k2 = 'par_k2' AND clust_k = 123;
+```
+
+#### Misc
+```sql
+CREATE TYPE full_name (
+  first_name text,
+  middle_name text,
+  last_name text
+);
 
 -- Secondary index to search not using primary key
 CREATE INDEX ON employee_by_id(name);
 
-Normal UUID without ordering
-Time UUID for sorting
-
-CREATE TABLE my_employee_by_uuid (
-    id uuid PRIMARY KEY,
-    first_name text,
-    last_name text
-);
-
-INSERT INTO my_employee_by_uuid (id, first_name, last_name) VALUES (uuid(), 'John', 'Doe');
-
--- For time UUID, use `id timeuuid PRIMARY KEY` and `now()`
+-- Timestamps
+SELECT writetime(my_col) FROM my_table;
 
 -- Execute multiple statements simultaneously
 BEGIN BATCH  
@@ -698,6 +726,12 @@ BEGIN BATCH
 -- Delete stmt;
 APPLY BATCH
 ```
+
+<!-- <h3 id="cql-syntax">Data Modeling Examples</h3>
+
+* expected queries to create table schema. a query-driven approach, in which specific queries are the key to organizing the data
+* Consider understanding partition size limitations, cost of data consistency. partitions must be sized within certain limits. duplicate data in tables must be considered as well for resulting in performance latency during writes.
+* The primary key is defined when the table is created and cannot be altered. The size of the partitions, the order of the data within partitions, the distribution of the partitions among the nodes of the cluster — you must consider all of these when selecting the table's primary key. -->
 
 ## Redis
 <h3 id="fundamentals-redis">Fundamentals</h3>
