@@ -45,6 +45,7 @@
         </ul>
     <li><b>Tools</b></li>
         <ul>
+            <li><a href="#postman">Postman</a></li>
             <li><details><summary>Kubernetes - WIP</summary>
                 <ul>
                     <li><a href="#fundamentals-kubernetes"><b>Fundamentals</b></a></li>
@@ -94,6 +95,35 @@
                             <li><b>m</b>inikube,
                             <b>k</b>ubectl,
                             <b>H</b>elm</li>
+                        </ul></ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
+        </ul>
+    <li><b>Cloud</b></li>
+        <ul>
+            <li><details><summary>AWS - WIP</summary>
+                <ul>
+                    <li><em>Notes from certification preparation resources:</em></li>
+                        <ul>
+                            <li><b>CLF-C02</b> Cloud Practitioner</li>
+                        </ul>
+                    <li><a href="#fundamentals-aws"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><a href="#concepts-aws"><b>Concepts</b></a></li>
+                                <ul>
+                                    <li><b>Concept1</b></li>
+                                    <li>Concept2 - WIP</li>
+                                </ul>
+                            <li><a href="#terminologies-aws"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>
+                                        WIP
+                                    </li>
+                                </ul></ul></ul></ul>
+                        </ul>
+                    <li><b>TEMP</b></li>
+                        <ul><ul><ul><ul><ul>
                         </ul></ul></ul></ul></ul>
                 </ul>
             </details>
@@ -169,7 +199,7 @@
                 </ul>
             </details>
             </li>
-            <li><details><summary>Cassandra - WIP</summary>
+            <li><details><summary>Cassandra</summary>
                 <ul>
                     <li><a href="#fundamentals-cassandra"><b>Fundamentals</b></a></li>
                         <ul>
@@ -214,7 +244,7 @@
                                         </ul>
                                     <li><b>Misc</b></li>
                                         <ul>
-                                            <li><code>CREATE TYPE/INDEX</code>, <code>BEGING/APPLY BATCH</code></li>
+                                            <li><code>CREATE TYPE/INDEX</code>, <code>BEGIN/APPLY BATCH</code></li>
                                         </ul>
                                 </ul></ul></ul></ul></ul>
                 </ul>
@@ -271,10 +301,12 @@
 </ul>
 
 * **Databases - Fundamentals**
-    <!-- * **[Indexes](#indexes)** -->
-    * **[Normalization](#normalization)**
-        * 1NF, 2NF, 3NF
-        * vs Denormalization
+    * **Concepts**
+        * **[Indexing](#indexing)**
+        * **[Sharding](#sharding)**
+        * **[Normalization](#normalization)**
+            * 1NF, 2NF, 3NF
+            * vs Denormalization
     * **Relational**
     <!-- * Non-relational
         * Key-value pair
@@ -293,6 +325,7 @@
                 <b><ins>L</ins></b>ocking,
                 <b><ins>M</ins></b>ulti-versioning
         * **[BASE](#base)**
+    * **Terminologies**
 
 * **Architectural Patterns**
     * **Distributed System**
@@ -435,6 +468,195 @@ Container orchestration tool to simplify managing containerized applications acr
 * **StatefulSet:** Alternative of `Deployment` to replicate Stateful apps such as DBMS to manage data inconsistencies.
 * **Virtual network:** Forms the cluster for master & worker nodes to interact.
 
+## Postman
+
+API testing tool. Unlike `cURL` which has a CLI, Postman has a GUI to simplify creating and managing API requests.
+
+---
+
+# Cloud
+## AWS
+<h3 id="fundamentals-aws">Fundamentals</h3>
+
+* **AWS Global Infrastructure:** Globally distributed hardware and datacenters that are physically networked together to act as one large resource for the end customer.
+
+<h4 id="concepts-aws">Concepts</h4>
+
+* Types of Cloud Computing
+    * Different models offer varying level of control and responsibility.
+    * **SaaS - Software as a Service:** <br> Entire cloud-based application for customers. Completely managed by the service provider and come ready to use. <br> i.e. Gmail, Slack, Office 365
+    * **PaaS - Platform as a Service:** <br> Allow developers to develop and deploy applications without worrying about setting up the infrastructure. The environment to build and deploy is managed by the cloud service provider. <br> i.e. Heroku, Google App Engine
+    * **IaaS - Infrastructure as a Service:** <br> Provide cloud IT basic building blocks for high level of infrastructure flexibility. The cloud service provider hosts, manages and maintains the hardware and computing resources in its own data centers. <br> i.e. AWS, Azure, Google Cloud
+
+<h4 id="terminologies-aws">Terminologies</h4>
+
+* **Regions:** Geographically distinct locations consisting of Availability Zone(s). Every region is physically isolated from and independent of every other region in terms of power for fault tolerance and stability. Each region usually has three Availability Zones. Not all AWS Services are available in all regions.
+* **Availability Zone:** Physical location made up of datacenter(s). Within a region, AZs are connected through low-latency links.
+* **Subnet:** A range of IP addresses. Associated with an AZ.
+* **Fault Domain:** A section of a network that is vulnerable to damage if a critical device or system fails. The domain is to limit the possible damage by limiting the damage cascade outside that domain when a failure occurs. The scope of a domain could be: specific servers in a rack, an entire rack/room in a datacenter, or the entire data center building.
+
+
+* Common practice to run workloads in at least 3 AZs for high availability.
+
+
+## Video notes WIP
+
+The AWS Global Network represent the interconnections between AWS Global Infrastructure.
+Commonly referred to as the "The Backbone of AWS".
+Think of it as private expressway, where things can move very fast between datacenters.
+
+
+
+Points of Presence (PoP) is an intermediate location between an AWS Region and the end user, and this location could be a datacenter or collection of hardware.
+For AWS a Point of Presence is a data center owned by AWS or a trusted partner that is utilized by AWS Services related for content delivery or expediated upload.
+
+Edge Locations are datacenters that hold cached (copy) on the most popular files (eg. web pages, images and videos) so that the delivery of distance to the end users are reduce
+
+The following AWS Services use Pops for content delivery or expediated upload.
+Amazon CloudFront is a Content Delivery Network (CDN) service that:
+• You point your website to CloudFront so that it will route requests to nearest Edge Location cache
+• allows you to choose an origin (such as a web-server or storage) that will be source of cached
+• caches the contents of what origin would returned to various Edge Locations around the world
+**Amazon S3 Transfer Acceleration** allows you to generate a special URL that can be used by end users to upload files to a nearby Edge Location. Once a file is uploaded to an Edge Location, it can move much faster within the AWS Network to reach S3.
+**AWS Global Accelerator** can find the optimal path from the end user to your web-servers. Global Accelerator are deployed within Edge Locations so you send user traffic to an Edge Location instead of directly to your web-application.
+
+
+**Local Zones** are datacenters located very close to a densely populated area to provide single-digit millisecond low latency performance (eg. 7ms) for that area.
+The purpose of Local Zone is the support highly-demanding applications sensitive to latencies:
+• Media & Entertainment
+• Electronic Design Automation
+• Ad-Tech
+• Machine Learning
+
+**AWS Wavelength Zones** allows for edge-computing on 5G Networks. Applications will have ultra-low latency being as close as possible to the users. AWS has partnered with various Telecom companies to utilize their 5G networks
+
+**What is Data Residency?**
+The physical or geographic location of where an organization or cloud resources reside.
+**What is Compliance Boundaries?**
+A regulatory compliance (legal requirement) by a government or organization that describes where data and cloud resources are allowed to reside
+
+**What is Data Sovereignty?**
+Data Sovereignty is the jurisdictional control or legal authority
+that can be asserted over data because it's physical location is
+within jurisdictional boundaries
+
+For workloads that need to meet compliance boundaries strictly defining the data residency of data and cloud resources in AWS you can use:
+**AWS Config** is a Policy as Code service.
+You can create rules to continuous check AWS resources configuration. If they deviate from your expectations you are alerted or AWS Config can in some cases auto-remediate.
+**AWS Outposts** is physical rack of servers that you can put in your data center. Your data will reside whenever the Outpost Physically resides
+
+A **business continuity plan (BCP)** is a document that outlines how a business will continue operating during an unplanned disruption in services
+**Recovery Point Objective (RPO)**
+the maximum acceptable amount of data loss after an unplanned data-loss incident, expressed as an amount of time
+Recovery Point Objective (RPO) is the maximum acceptable amount of time since the last data recovery point. This objective determines what is considered an acceptable loss of data between the last recovery point and the interruption of service and is defined by the organization.
+
+**Recovery Time Objective (RTO)**
+the maximum amount of downtime your business can tolerate without incurring a significant financial loss
+The maximum acceptable delay between the interruption of service and restoration of service. This objective determines what is considered an acceptable time window when service is unavailable and is defined by the organization.
+
+Amazon Resource Names (ARNs) uniquely identify AWS resources.
+ARNs are required to specify a resource unambiguously across all of AWS
+
+**Computing Services**
+Elastic Compute Cloud (EC2) allows you to launch Virtual Machines (VM)
+EC2 is also considered the backbone of AWS because the majority of AWS services are using EC2 as their underlying servers. eg. S3, RDS, DynamoDB, Lambdas.
+
+What is Edge Computing?
+When you push your computing workloads outside of your networks to run close to the destination location. eg. Pushing computing to run on phones, lot Devices, or external servers not within your cloud network.
+What is Hybrid Computing?
+When you're able to run workloads on both your on-premise datacenter and AWS Virtual Private Cloud (VPC)
+
+AWS Outposts is physical rack of servers that you can put in your data center. AWS Outposts allows you to use AWS API and Services such as EC2 right in your datacenter.
+verizon O
+• vodafone business
+AWS Wavelength allows you to build and launch your applications in a telecom datacenter. By doing this your applications with have ultra-low latency since they will be pushed over a the 5G network and be closest as possible to the end user.
+VMWare Cloud on AWS allows you to manage on-premise virtual machines using VMWare as EC2 instances.
+The data-center must being using VMWare for Virtualization.
+Sphere
+AWS Local Zones are edge datacenters located outside of an AWS region so you can use AWS closer to end destination.
+When you need faster computing, storage and databases in populated areas that are outside of an AWS Region
+
+Cost and Capacity Management Computing Services
+Cost Management How do we save money?
+Capacity Management How do we meet the demand of traffic and usages though adding or upgrading servers?
+EC2 Spot Instances, Reserved Instanced and Savings Plan
+Ways to save on computing, by paying up in full or partially, by committing to a yearly contracts or by being flexible about availability and interruption to computing service.
+AWS Batch plans, schedules, and executes your batch computing workloads across the full range of AWS compute services, can utilize Spot Instance to save money.
+AWS Compute Optimizer suggests how to reduce costs and improve performance by using machine learning to analyze you previous usage history
+EC2 Autoscaling Groups (ASGs)
+Automatically adds or remove EC2 servers to meet the current demand of traffic. Will save you money and meet capacity since you only run the amount of servers you need.
+Elastic Load Balancer (ELB)
+Distributes traffic to multiple instance, can re-route traffic from unhealthy instance to healthy instances. can route traffic to EC2 instances running in different Availability Zones
+AWS Elastic Beanstalk (EB) is for easily deploying web-applications without developers having to worry about setting up and understanding the underlying AWS Services. Similar to Heroku.
+
+Types of Storage Services
+Elastic Block Store (EBS) - Block
+Data is split into evenly split blocks
+Directly accessed by the Operation System
+Supports only a single write volume
+When you need a virtual hard drive attached to a VM
+AWS Elastic File Storage (EFS) - File File is stored with data and metadata
+Multiple connections via a network share
+Supports multiple reads, writing locks the file.
+When you need a file-share where multiple users or VMs need to access the same drive
+Amazon Simple Storage Service (S3) - Object
+Object is stored with data, metadata and Unique ID
+Scales with limited no file limit or storage limit Supports multiple reads and writes (no locks)
+When you just want to upload files, and not have to worry about underlying infrastructure. Not intended for high lOPs
+
+What is Object Storage (Object-based Storage)?
+data storage architecture that manages data as objects, as opposed to other storage architectures:
+:
+file systems which manages data as a files and fire hierarchy, and block storage which manages data as blocks within sectors and tracks.
+S3 provides you with unlimited storage.
+You don't need to think about the underlying infrastructure
+The S3 Console provides an interface for you to upload and access your data
+
+S3 Object
+Objects contain your data. They are like files.
+Object may consist of:
+• Key this is the name of the object
+• Value the data itself made up of a sequence of bytes
+• Version ID when versioning enabled, the version of object Metadata additional information attached to the object
+
+S3 Bucket
+Buckets hold objects. Buckets can also have folders which in turn hold objects. S3 is a universal namespace so bucket names must be unique (think like having a domain name)
+
+AWS offers a range of S3 storage classes that trade Retrieval Time, Accessibility and Durability for Cheaper Storage
+S3 Standard (default)
+Fast! 99.99% Availability, 11 9's Durability. Replicated across at least three AZs
+S3 Intelligent Tiering
+Uses ML to analyze object usage and determine the appropriate storage class.
+Data is moved to the most cost-effective access tier, without any performance impact or added overhead.
+S3 Standard-IA (Infrequent Access)
+Still Fast! Cheaper if you access files less than once a month.
+Additional retrieval fee is applied. 50% less than Standard (reduced availability)
+S3 One-Zone-IA
+Still Fast! Objects only exist in one AZ. Availability (is 99.5%). but cheaper than Standard IA by 20% less (Reduce durability) Data could get destroyed. A retrieval fee is applied.
+S3 Glacier
+For long-term cold storage. Retrieval of data can take minutes to hours but the off is very cheap storage
+S3 Glacier Deep Archive
+The lowest cost storage class. Data retrieval time is 12 hours.
+
+Simple Storage Service (S3) is a serverless object storage service. You can upload very large files and an unlimited amount of files. You pay for what you store. You don't worry about the underlying file-system, or upgrading the disk size.
+S3 Glacier is a cold storage service. It design as a low cost storage solution for archiving and long-term backup.
+It uses previous generation HDD drives to get that low cost. Its highly secure and durable.
+Elastic Block Store (EBS) is a persistent block storage service. It is a virtual hard drive in the cloud you attach to EC2 instances. You can choose different kinds of hard drives: SSD, IOPS SSD, Throughput HHD, Cold HHD
+Elastic File Storage (EFS) is a cloud-native NFS file system service. File storage you can mount to multiple EC2 instances at the same time. When you need to share files between multiple servers
+Storage Gateway is a hybrid cloud storage service that extends your on-premise storage to cloud
+File Gateway extends your local storage to AWS S3
+Volume Gateway caches your local drives to S3 so you have a countious backup of local files in the cloud
+Tape Gateway stores files onto virtual tapes for backing up your files on very cost effective long term storage.
+AWS Backup a fully managed backup service that makes it easy to centralize and automate the backup of data across multiple AWS services eg. EC2, EBS, RDS, DynamoDB, EFS, Storage Gateway. You create backup plans.
+CloudEndure Disaster Recovery continuously replicates your machines into a low-cost staging area in your target
+AWS account and preferred Region enabling fast and reliable recovery in case of IT data center failures.
+Amazon FSx is a feature rich and highly-performant file system. That can be used for Windows (SMB) or Linux (Lustre)
+FSX
+FSXO
+Amazon FSx for Window File Server uses the SMB protocol and allows you to mount FSx to Windows servers
+FSxa
+Amazon FSx for Lustre uses Linux's Lustre file system and allows you to mount FSx to Linux servers
+
 ---
 
 # Databases
@@ -456,8 +678,8 @@ Container orchestration tool to simplify managing containerized applications acr
 * **Primary key:** A column that uniquely identifies each row.
 * **Composite primary key:** A combination of columns that uniquely identifies each row.
 * **Foreign key:** Create relationship by referencing the primary key in another table.
-* **View:** Stored query.
-* **Materialized view:** Precomputed query that periodically updates cached results for faster read.
+* **View:** Assign an alias to a query for reuse of the query.
+* **Materialized view:** View w/ cache. Precomputed query that periodically updates cached results for faster read.
 * **Stored procedure:** Functions that can accept parameters.
 * **Aggregate function:** Perform a calculation on a set of rows and return a single row.
 * **Window function:** Perform a calculation on a set of rows and return multiple rows.
@@ -783,13 +1005,23 @@ NoSQL database storing data in a JSON-like format.
 ---
 
 # Databases - Fundamentals
+## Indexing
+Speeding up search queries by creating a search optimized data structure to avoid scanning the entire dataset, but will cost additional disk storage and slow down data inserts/updates/deletes.
 
-## Indexes
-Speeds up data retrieval at the cost of additional storage, more RAM usage, and slower inserts/updates/deletes.
+* **Index Types**
+    * **B-Tree:** Most common index using a self-balancing tree that maintains sorted data. Each node contains an ordered array of keys and pointers, structured to minimize disk reads.
+    * **Geosptail index:** Location data search
+    * **Hash index:** In-memory exact matching
+    * **Inverted index:** Full text search
 
-by creating a pointer to data.
+## Sharding
+Splitting data into multiple servers to avoid exponential cost of vertical scaling of a single machine.
 
-They are created on columns that are frequently searched or used in queries.
+* **Sharding Types**
+    * **Range-based sharding:** Using specifics data ranges or intervals to split rows, such as a range of dates, numeric values, or alphanumeric identifiers.
+    * **Hash-based sharding:** Using a hash function to use the hash value as the identifier to allocate data to the appropriate shard.
+    * **Directory-based sharding:** Using a lookup table to map sharding keys to shard locations.
+    * **Geo-based sharding:** Using location or proximity to group data to a single shard. Essentially ranged sharding where the shard key contains geographic information and the shards themselves are geo-located.
 
 ## Normalization
 Data organization to minimize data redundancy and improve data integrity by breaking down tables into smaller tables for easier database maintenance. Increasing normalization level improves data integrity, but it is not common to go above 3NF.
