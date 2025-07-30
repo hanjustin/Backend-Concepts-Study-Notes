@@ -14,7 +14,7 @@
             <li><a href="#graphql">GraphQL</a></li>
             <li><details><summary>Kafka (Click)</summary>
                 <ul>
-                    <li><b>Fundamentals</b></li>
+                    <li><a href="#fundamentals-kafka"><b>Fundamentals</b></a></li>
                         <ul>
                             <li><b>Concepts</b></li>
                                 <ul><ul><ul><ul>
@@ -104,36 +104,103 @@
         <ul>
             <li><details><summary>AWS - WIP</summary>
                 <ul>
-                    <li><em>Notes from AWS certification preparation resources:</em></li>
-                        <ul>
-                            <li><b>CLF-C02</b> Cloud Practitioner - Foundational</li>
-                            <li><b>SAA-C03</b> Solutions Architect - Associate</li>
-                        </ul>
                     <li><a href="#fundamentals-aws"><b>Fundamentals</b></a></li>
                         <ul>
-                            <li><a href="#concepts-aws"><b>Concepts</b></a></li>
+                            <li><b>Concepts</b></li>
                                 <ul>
-                                    <li><b>Concept1</b></li>
-                                    <li>Concept2 - WIP</li>
+                                    <li><a href="#computing-models"><b>Computing Models</b></a></li>
+                                            <ul><ul><ul>
+                                                <li>
+                                                    <b><ins>S</ins></b>erverless,
+                                                    <b><ins>S</ins></b>aaS,
+                                                    <b><ins>P</ins></b>aaS,
+                                                    <b><ins>I</ins></b>aaS
+                                                </li>
+                                            </ul></ul></ul>
+                                    <li><a href="#deployment-models"><b>Deployment Models</b></a></li>
+                                            <ul><ul><ul>
+                                                <li>
+                                                    <b><ins>P</ins></b>rivate,
+                                                    <b><ins>P</ins></b>ublic,
+                                                    <b><ins>H</ins></b>ybrid,
+                                                    <b><ins>M</ins></b>ulticloud
+                                                </li>
+                                            </ul></ul></ul>
+                                    <li><a href="#global-infrastructure"><b>Global Infrastructure</b></a></li>
+                                            <ul><ul><ul>
+                                                <li>
+                                                    <b><ins>R</ins></b>egions,
+                                                    <b><ins>A</ins></b>vailability zones,
+                                                    <b><ins>E</ins></b>dge locations
+                                                </li>
+                                            </ul></ul></ul>
+                                    <li><a href="#best-practices-aws"><b>Cloud Best Practices Pillars - Well-Architected Framework</b></a></li>
+                                            <ul><ul><ul>
+                                                <li>
+                                                    <b><ins>O</ins></b>perational excellence,
+                                                    <b><ins>S</ins></b>ecurity,
+                                                    <b><ins>R</ins></b>eliability,
+                                                    <b><ins>P</ins></b>erformance efficiency,
+                                                    <b><ins>C</ins></b>ost optimization
+                                                </li>
+                                            </ul></ul></ul>
                                 </ul>
                             <li><a href="#terminologies-aws"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
                                     <li>
-                                        WIP
+                                        <b><ins>F</ins></b>ault domain,
+                                        <b><ins>A</ins></b>RNs,
+                                        <b><ins>S</ins></b>ervice level agreement,
+                                        <b><ins>S</ins></b>ervice level indicator,
+                                        <b><ins>S</ins></b>ervice level objective,
+                                        <b><ins>R</ins></b>ecovery point objective,
+                                        <b><ins>R</ins></b>ecovery time objective
                                     </li>
                                 </ul></ul></ul></ul>
                         </ul>
-                    <li><a href="#key-services-aws"><b>Key Services</b></a></li>
+                    <li><b>Key Services</b></li>
                         <ul>
-                            <li><a href="#concepts-aws"><b>IAM</b></a></li>
-                            <li><a href="#concepts-aws"><b>VPC</b></a></li>
-                            <li><a href="#concepts-aws"><b>EC2</b></a></li>
-                            <li><a href="#concepts-aws"><b>S3</b></a> - Bucket, Object, Storage classes</li>
+                            <li>
+                                <a href="#iam-aws"><b>IAM</b></a> - 
+                                <b><ins>U</ins></b>ser,
+                                <b><ins>P</ins></b>olicy,
+                                <b><ins>G</ins></b>roup,
+                                <b><ins>R</ins></b>ole,
+                                <b><ins>T</ins></b>rust Relationship
+                            </li>
+                            <li>
+                                <a href="#vpc-aws"><b>VPC</b></a> - 
+                                <!-- <b><ins>U</ins></b>ser,
+                                <b><ins>P</ins></b>olicy,
+                                <b><ins>G</ins></b>roup,
+                                <b><ins>R</ins></b>ole,
+                                <b><ins>T</ins></b>rust Relationship -->
+                            </li>
+                            <li>
+                                <a href="#ec2-aws"><b>EC2</b></a> - 
+                                <!-- <b><ins>U</ins></b>ser,
+                                <b><ins>P</ins></b>olicy,
+                                <b><ins>G</ins></b>roup,
+                                <b><ins>R</ins></b>ole,
+                                <b><ins>T</ins></b>rust Relationship -->
+                            </li>
+                            <li>
+                                <a href="#s3-aws"><b>S3</b></a> - 
+                                <b><ins>B</ins></b>ucket,
+                                <b><ins>O</ins></b>bject,
+                                <b><ins>S</ins></b>torage classes,
+                                <b><ins>L</ins></b>ifecycle automation
+                            </li>
                             <li><a href="#concepts-aws"><b>Lambda</b></a></li>
                         </ul>
                     <li><a href="#fundamentals-aws"><b>Other Services</b></a></li>
                         <ul>
                             <li>RDS, DynamoDB</b></a></li>
+                        </ul>
+                    <li><em>Key points from AWS certification preparation resources:</em></li>
+                        <ul>
+                            <li><b>CLF-C02</b> Cloud Practitioner - Foundational</li>
+                            <li><b>SAA-C03</b> Solutions Architect - Associate</li>
                         </ul>
                 </ul>
             </details>
@@ -149,7 +216,6 @@
                                 <ul><ul><ul><ul>
                                     <li>Table Inheritance</li>
                                     <li>User-defined Data Types</li>
-                                    <li>Concept3 - WIP</li>
                                 </ul></ul></ul></ul>
                             <li><a href="#terminologies-postgresql"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
@@ -349,7 +415,6 @@
     * [Monolithic](#monolithic)
         * [Modular Monolith](#modular-monolith)
         * [Distributed Monolith](#distributed-monolith)
-    * [Serverless](#serverless)
 
 * **[Design Patterns](#design-patterns)**
     <!-- * Ambassador pattern
@@ -389,11 +454,13 @@
 * As clients can request exact data wanted, could be used to avoid REST API's over-fetching & under-fetching problems.
 
 ## Kafka
+
+<h3 id="fundamentals-kafka">Fundamentals</h3>
+
 * Like a post office between a sender and receiver(s). Allows real-time data streaming and processing.
 * Often used as a message broker, allowing different software systems to communicate by sending (producing) and receiving (consuming) messages.
 * Can be used as a pub-sub and queue based messaging system.
 
-### Fundamentals
 #### Concepts
 ##### Partition leader
 Every partition has exactly one partition leader which handles all the read/write requests of that partition. Every partition replica resides on a different broker. Every partition follower is reading messages from the partition leader (acts like a kind of consumer) and does not serve any consumers of that partition (only the partition leader serves read/writes). When a partition leader shuts down for any reason (e.g a broker shuts down), one of it's in-sync partition followers becomes the new leader.
@@ -487,33 +554,99 @@ API testing tool. Unlike `cURL` which has a CLI, Postman has a GUI to simplify c
 ## AWS
 <h3 id="fundamentals-aws">Fundamentals</h3>
 
-* **AWS Global Infrastructure:** Globally distributed hardware and datacenters that are physically networked together to act as one large resource for the end customer.
+Physical or virtual resources owned by Amazon that can be used and scaled on-demand over the internet. Allows businesses to save money on hardware, software, and IT maintenance costs.
 
 <h4 id="concepts-aws">Concepts</h4>
 
-* Types of Cloud Computing
-    * Different models offer varying level of control and responsibility.
-    * **SaaS - Software as a Service:** <br> Entire cloud-based application for customers. Completely managed by the service provider and come ready to use. <br> i.e. Gmail, Slack, Office 365
-    * **PaaS - Platform as a Service:** <br> Allow developers to develop and deploy applications without worrying about setting up the infrastructure. The environment to build and deploy is managed by the cloud service provider. <br> i.e. Heroku, Google App Engine
-    * **IaaS - Infrastructure as a Service:** <br> Provide cloud IT basic building blocks for high level of infrastructure flexibility. The cloud service provider hosts, manages and maintains the hardware and computing resources in its own data centers. <br> i.e. AWS, Azure, Google Cloud
+##### Computing Models
+* Different models offer varying level of control and responsibility.
+* **Serverless:** <br> Allow developers to focus solely on writing code, often in the form of functions. Abstracts away the underlying infrastructure and server management completely. Ideal for asynchronous, stateless apps that can be started instantaneously. Doesn’t cost anything when idle. To consider when cold-starts are acceptable or you don't have lots of traffic demand.
+* **SaaS - Software as a Service:** <br> Entire cloud-based application for customers. Completely managed by the service provider and come ready to use. <br> i.e. Gmail, Slack, Office 365
+* **PaaS - Platform as a Service:** <br> Allow developers to develop and deploy applications without worrying about setting up the infrastructure. The environment to build and deploy is managed by the cloud service provider. <br> i.e. Heroku, Google App Engine
+* **IaaS - Infrastructure as a Service:** <br> Provide cloud IT basic building blocks for high level of infrastructure flexibility. The cloud service provider hosts, manages and maintains the hardware and computing resources in its own data centers. <br> i.e. AWS, Azure, Google Cloud
+
+##### Deployment models
+* **Private:** Infrastructure resources used exclusively by one business or organization. Can be physically located at your organization’s on-site datacenter, or it can be hosted by a third-party service provider, but the services and infrastructure are solely dedicated to one organization.
+* **Public:** Shared infrastructure resources. Public providers allow different companies or organizations to access hardware and software resources over the public internet and bill companies pay-per-usage.
+* **Hybrid:** A mixture of public and private clouds.
+* **Multicloud:** Using at least two cloud providers to run applications. A combination of two or more public clouds, two or more private clouds, or some combination of both.
+
+##### Global Infrastructure
+* Globally distributed hardware and datacenters that are physically networked together to act as one large resource for the end customer.
+* **Regions:** Geographically distinct locations consisting of Availability Zone(s). Every region is physically isolated from and independent of every other region in terms of power for fault tolerance and stability. Each region usually has three Availability Zones. Not all AWS Services are available in all regions.
+* **Availability Zone:** Physical location made up of datacenter(s). Within a region, AZs are connected through low-latency links. Common practice to run workloads in at least 3 AZs for high availability.
+* **Edge Locations:** Datacenters with cached files that are used rather than the origin server to serve contents faster to users by reducing the delivery distance.
+
+<h5 id="best-practices-aws">AWS Well-Architected Framework</h5>
+
+Design principles and architectural best practices for designing and running workloads in the cloud. Aspects to consider:
+* **Operational Excellence:** Apply software engineering principles to your cloud infrastructure. Make frequent, small, reversible changes while monitoring systems to perform post-mortems on system failures.
+* **Security:** Apply security at all layers and follow security best practices to protect data and systems.
+* **Reliability:** Scale horizontally to avoid a single point of failure and use automation to automatically recover from failure.
+* **Performance Efficiency:** Structure and streamline allocation of IT and computing resources. Select resource types and sizes optimized for workload requirements.
+* **Cost Optimization:** Minimize overspending by selecting resources of the right type and quantity.
 
 <h4 id="terminologies-aws">Terminologies</h4>
 
-* **Regions:** Geographically distinct locations consisting of Availability Zone(s). Every region is physically isolated from and independent of every other region in terms of power for fault tolerance and stability. Each region usually has three Availability Zones. Not all AWS Services are available in all regions.
-* **Availability Zone:** Physical location made up of datacenter(s). Within a region, AZs are connected through low-latency links.
-* **Subnet:** A range of IP addresses. Associated with an AZ.
+* **Amazon Resource Names (ARNs):** Uniquely identify AWS resources.
 * **Fault Domain:** A section of a network that is vulnerable to damage if a critical device or system fails. The domain is to limit the possible damage by limiting the damage cascade outside that domain when a failure occurs. The scope of a domain could be: specific servers in a rack, an entire rack/room in a datacenter, or the entire data center building.
 * **Service Level Agreement (SLA):** A formal contract between a service provider and a customer that defines the level of service expected from the provider.
 * **Service Level Indicator (SLI):** A metric/measurement that indicates what measure of performance a customer is receiving. i.e. uptime, performance, availability, throughput, latency, error rate, durability
-**Service Level Objective (SLO):** A measurable target that defines the desired level of service quality for a specific service. Represented as a specific target percentage over a period of time. i.e. Availability SLA of 99.99% in a period of 3 months
-**Recovery Point Objective (RPO):** The maximum acceptable amount of data loss after an unplanned data-loss incident.
+* **Service Level Objective (SLO):** A measurable target that defines the desired level of service quality for a specific service. Represented as a specific target percentage over a period of time. i.e. Availability SLA of 99.99% in a period of 3 months
+* **Recovery Point Objective (RPO):** The maximum acceptable amount of data loss after an unplanned data-loss incident.
 * **Recovery Time Objective (RTO):** The maximum acceptable downtime of service.
-* **Amazon Resource Names (ARNs):** Uniquely identify AWS resources.
-
-
-* Common practice to run workloads in at least 3 AZs for high availability.
 
 <h3 id="key-services-aws">Key Services</h3>
+
+<h4 id="iam-aws">IAM</h4>
+
+Control access to resources/entities. Create **Users** who use credentials that gain access based on their **policy document**. **Policy** determines **Actions** that **Users** can perform.
+
+* **Groups:** User types with default policy documents. i.e developer, tester
+* **Roles:** Used to grant temporary access to resources.
+* **Trust Relationships:** Used to access a resource under external accounts. The resource owner creates a role to allow external accounts to access the resource.
+
+**Policy document to allow user to create Lambda functions**
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CreateFunction",
+            "Effect": "Allow"
+            "Action": [
+                "lambda: CreateFunction",
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+<h4 id="vpc-aws">VPC</h4>
+
+* Provides a secure isolated network environment for AWS resources to enhance security by preventing unauthorized access.
+* Similar to your home network. Home devices are connected to your router, and this creates your private home network as routers have built-in firewalls. Your router also acts as a gateway between the private network and the public network.
+
+* **Subnet:** A range of IP addresses. Associated with an AZ.
+
+##### Internet Gateway
+
+Component that allows communication between your VPC and the internet. Similar to a home modem, it is a digital cloud modem that allows AWS resources to connect to the internet.
+
+* Performs Network Address Translation (NAT). Mapping of public ip addresses to private ip addresses.
+* One gateway per VPC. The gateway can be attached/detached to/from VPC.
+
+##### Endpoints
+
+##### Subnet
+
+Partition of VPC network.
+
+
+<h4 id="ec2-aws">EC2</h4>
+
+considered the backbone of AWS because the majority of AWS services are using EC2 as their underlying servers.
 
 <h4 id="s3-aws">S3</h4>
 S3 (Simple Storage Service) is an object storage is a data storage architecture that manages data as objects. Like Google Drive or Dropbox. No need to think about the underlying infrastructure.
@@ -531,18 +664,10 @@ myObject = sClient-get_object(Bucket='BUCKET_NAME', Key='OBJECT_NAME'
 
 * **GUI:** The S3 Console provides an interface to upload and access your data.
 
-**S3 Bucket**
+##### S3 Bucket
 A container of objects within a namespace. It is like a top-level folder that can also have nested folders.
 
-**Storage Classes**
-Each tier has different pricing, retrieval time, availability.
-* Tiers: Standard, Infrequent Access, Glacier
-
-**Lifecycle Automation**
-Bucket/Object Lifecycle rules automate the storage class optimization process to reduce cost.
-offers a range of S3 storage classes that trade Retrieval Time, Accessibility and Durability for Cheaper Storage
-
-**S3 Object**
+##### S3 Object
 Objects are like files. Resources that represent data
 
 Object may consist of:
@@ -554,86 +679,23 @@ Object may consist of:
 * **Locking:** - makes data files immutable
 * **Versioning:** — have multiple versions of a data file
 
-<h4 id="concepts-aws">Concepts</h4>
+##### Storage Classes
+Each tier has different pricing, retrieval time, availability.
+* Tiers: Standard, Infrequent Access, Glacier
+
+##### Lifecycle Automation
+Bucket/Object Lifecycle rules automate the storage class optimization process to reduce cost.
+
+<h4 id="lambda-aws">Lambda</h4>
+
 
 ## Video notes WIP
 
-* Global Infrastructure
-
-The **AWS Global Network** represent the interconnections between AWS Global Infrastructure.
-Commonly referred to as the "The Backbone of AWS".
-Think of it as private expressway, where things can move very fast between datacenters.
 
 
-
-**Points of Presence (PoP)** is an intermediate location between an AWS Region and the end user, and this location could be a datacenter or collection of hardware.
-For AWS a Point of Presence is a data center owned by AWS or a trusted partner that is utilized by AWS Services related for content delivery or expediated upload.
-
-**Edge Locations** are datacenters that hold cached (copy) on the most popular files (eg. web pages, images and videos) so that the delivery of distance to the end users are reduce
-
-The following AWS Services use Pops for content delivery or expediated upload.
-Amazon CloudFront is a Content Delivery Network (CDN) service that:
-• You point your website to CloudFront so that it will route requests to nearest Edge Location cache
-• allows you to choose an origin (such as a web-server or storage) that will be source of cached
-• caches the contents of what origin would returned to various Edge Locations around the world
-**Amazon S3 Transfer Acceleration** allows you to generate a special URL that can be used by end users to upload files to a nearby Edge Location. Once a file is uploaded to an Edge Location, it can move much faster within the AWS Network to reach S3.
-**AWS Global Accelerator** can find the optimal path from the end user to your web-servers. Global Accelerator are deployed within Edge Locations so you send user traffic to an Edge Location instead of directly to your web-application.
-
-
-**Local Zones** are datacenters located very close to a densely populated area to provide single-digit millisecond low latency performance (eg. 7ms) for that area.
-The purpose of Local Zone is the support highly-demanding applications sensitive to latencies:
-• Media & Entertainment
-• Electronic Design Automation
-• Ad-Tech
-• Machine Learning
-
-**AWS Wavelength Zones** allows for edge-computing on 5G Networks. Applications will have ultra-low latency being as close as possible to the users. AWS has partnered with various Telecom companies to utilize their 5G networks
-
-**What is Data Residency?**
-The physical or geographic location of where an organization or cloud resources reside.
-**What is Compliance Boundaries?**
-A regulatory compliance (legal requirement) by a government or organization that describes where data and cloud resources are allowed to reside
-
-**What is Data Sovereignty?**
-Data Sovereignty is the jurisdictional control or legal authority
-that can be asserted over data because it's physical location is
-within jurisdictional boundaries
-
-For workloads that need to meet compliance boundaries strictly defining the data residency of data and cloud resources in AWS you can use:
-**AWS Config** is a Policy as Code service.
-You can create rules to continuous check AWS resources configuration. If they deviate from your expectations you are alerted or AWS Config can in some cases auto-remediate.
-**AWS Outposts** is physical rack of servers that you can put in your data center. Your data will reside whenever the Outpost Physically resides
-
-
-
-**Computing Services**
-Elastic Compute Cloud (EC2) allows you to launch Virtual Machines (VM)
-EC2 is also considered the backbone of AWS because the majority of AWS services are using EC2 as their underlying servers. eg. S3, RDS, DynamoDB, Lambdas.
-
-**What is Edge Computing?**
-When you push your computing workloads outside of your networks to run close to the destination location. eg. Pushing computing to run on phones, lot Devices, or external servers not within your cloud network.
-
-**What is Hybrid Computing?**
-When you're able to run workloads on both your on-premise datacenter and AWS Virtual Private Cloud (VPC)
-
-**AWS Outposts** is physical rack of servers that you can put in your data center. AWS Outposts allows you to use AWS API and Services such as EC2 right in your datacenter.
-**AWS Wavelength** allows you to build and launch your applications in a telecom datacenter. By doing this your applications with have ultra-low latency since they will be pushed over a the 5G network and be closest as possible to the end user.
-VMWare Cloud on AWS allows you to manage on-premise virtual machines using VMWare as EC2 instances.
-The data-center must being using VMWare for Virtualization.
-Sphere
-AWS Local Zones are edge datacenters located outside of an AWS region so you can use AWS closer to end destination.
-When you need faster computing, storage and databases in populated areas that are outside of an AWS Region
-
-**Cost and Capacity Management Computing Services**
-**Cost Management** How do we save money?
-**Capacity Management** How do we meet the demand of traffic and usages though adding or upgrading servers?
-EC2 Spot Instances, Reserved Instanced and Savings Plan
-Ways to save on computing, by paying up in full or partially, by committing to a yearly contracts or by being flexible about availability and interruption to computing service.
-AWS Batch plans, schedules, and executes your batch computing workloads across the full range of AWS compute services, can utilize Spot Instance to save money.
-AWS Compute Optimizer suggests how to reduce costs and improve performance by using machine learning to analyze you previous usage history
-EC2 Autoscaling Groups (ASGs)
+**EC2 Autoscaling Groups (ASGs)**
 Automatically adds or remove EC2 servers to meet the current demand of traffic. Will save you money and meet capacity since you only run the amount of servers you need.
-Elastic Load Balancer (ELB)
+**Elastic Load Balancer (ELB)**
 Distributes traffic to multiple instance, can re-route traffic from unhealthy instance to healthy instances. can route traffic to EC2 instances running in different Availability Zones
 AWS Elastic Beanstalk (EB) is for easily deploying web-applications without developers having to worry about setting up and understanding the underlying AWS Services. Similar to Heroku.
 
@@ -674,13 +736,6 @@ DynamoDB is AWS's flagship database service
 **Aurora** is a fully managed database of either MySQL (5x faster) and PSQL (3x faster) database.
 When you want a highly available, durable, scalable and secure relational database for Postgres or MySQL.
 
-**Other Database Services**
-Redshift is a petabyte-size data-warehouse. Data-warehouses are for Online Analytical Processing (OLAP) Data-warehouses can be expensive because they are keeping data "hot". Meaning that we can run a very complex query and a large amount of data and get that data back very fast.
-When you to quickly generate analytics or reports from a large amount of data.
-**ElastiCache** is a managed database of the in-memory and caching open-source databases Redis or Memcached. When you need to improve the performance of application by adding a caching layer in-front of web-server or database.
-Neptune is a managed graph database. Data is represented as interconnected nodes.
-When you need to understand the connections between data eg. Mapping Fraud Rings or Social Media relationships **Amazon Timestreams:** A fully managed time series database. Think of devices that send lots of data that are time-sensitive such as loT devices. When you need to measure how things change over time.
-**Amazon Quantum Ledger Database:** A fully managed ledger database that provides transparent, immutable and cryptographically variable transaction logs. When you need to record history of financial activities that can be trusted.
 
 
 **EC2**
@@ -786,32 +841,9 @@ Identity Providers could be: Facebook, Amazon, Google, Twitter, Github, LinkedIn
 **Multi-Factor Authentication (MFA):** A security control where after you fill in your username/email and password you have to use a second device such as a phone to confirm that its you logging in. Protects against people who have stolen your password.
 **Security Key:** A secondary device used as second step in authentication process to gain access to a device, workstation or application.
 
-**AWS Identity and Access Management (IAM )** you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
-**IAM Policies**
-JSON documents which grant permissions for a specific user, group, or role to access services. Policies are attached to IAM Identities
-**IAM Permission**
-The API actions that can or cannot be performed.
-They are represented in the IAM Policy document
 
 
 
-**IAM Identities**
-**IAM Users:** End users who log into the console or interact with AWS resources programmatically or via clicking Ul interfaces
-**IAM Groups:** Group up your Users so they all share permission levels of the group eg. Administrators, Developers, Auditors
-**IAM Roles:** Roles grant AWS resources permissions to specific AWS API actions Associate policies to a Role and then assign it to an AWS resource
-
-
-**What is Application Integration?**
-Application Integration is the process of letting two independent applications to communicate and work with each other, commonly facilitated by an intermediate system.
-Cloud workloads encourage systems and services to be loosely coupled and so
-AWS has many service for the specific purpose of application integration.
-The common systems or design patterns utilized for Application Integration generally are:
-• Queueing
-• Streaming
-• Pub/Sub
-• API Gateways
-• State Machine
-• Event Bus
 
 **Simple Queueing Service (SQS)**
 Fully managed queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications
@@ -828,15 +860,8 @@ Simple Notification Service (SNS) - a pub-sub messaging system. Sends notificati
 Step Functions is a state machine service. It coordinate multiple AWS services into serverless workflows. Easily share data among Lambdas. Have a group of lambdas wait for each other. Create logical steps. Also works with Fargate Tasks.
 EventBridge (CloudWatch Events) is a serverless event bus that makes it easy to connect applications together from your own application, third-party services and AWS services.
 Kinesis is a real-time streaming data service. Create Producers which send data to a stream. Multiple Consumers can consume data within a stream. Use for real-time analytics, click streams, ingesting data from a fleet of IOT Devices
-**Amazon MQ** is a managed message broker service that uses Apache ActiveMQ
-**Managed Kafka Service (MSK)** a fully managed Apache Kafka service.
 
 
-**AWS Organizations** allow the creation of new AWS accounts. Centrally manage billing, control access, compliance, security, and share resources across your AWS accounts.
-
-Root Account User is a single sign-in identity that has complete access to all AWS services and resources in an account. Each account has a Root Account User
-Organization Units are a group of AWS accounts within an organization which can also contain other organizational units - creating a hierarchy
-Service Control Policies give central control over the allowed permissions for all accounts in your organization, helping to ensure your accounts stay within your organization's guidelines.
 
 **What is Compliance-as-code (CaC)?**
 Compliance as code is when we utilize programming to automate the monitoring, enforcing and remediating changes to stay compliant with a compliance programs or expected configuration.
@@ -851,36 +876,6 @@ Auto Scaling Groups, and Elastic Load Balancers. If you have ever used Heroku it
 CloudFormation is a infrastructure modeling and provisioning service. Automate the provisiong of AWS Services by writing CloudFormation templates in either JSON or YAML files. This is known as Infrastructure as Code (laC)
 
 
-What is Platform as a Service? (PaaS)
-a PasS allows customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app
-Elastic Beanstalk is a Paas for deploying web-applications with little-to-no knowledge of the underlying infrastructure so you can focus on writing application code instead of setting up an automated deployment pipeline and DevOps tasks.
-Choose a platform, upload your code and it runs with little knowledge of the infrastructure.
-
-Elastic Beanstalk is powered by a CloudFormation template setups for you:
-• Elastic Load Balancer
-• Autoscaling Groups
-• RDS Database
-• EC2 Instance preconfigured (or custom ) platforms
-• Monitoring (CloudWatch, SNS)
-• In-Place and Blue/Green deployment methodologies
-• Security (Rotates passwords)
-
-What is Serverless?
-When the underlying servers, infrastructure and Operating System (OS) is taken care of by the Cloud Service Provider (CSP).
-Serverless is generally by default highly available, scalable and cost-effective. You pay for what you use.
-Serverless architecture generally describe fully managed cloud services.
-To consider when cold-starts are acceptable or you don't have lots of traffic demand.
-Abstracts away the underlying
-infrastructure and are billed based on the execution of your business task. (you don't pay for idle servers).
-
-DynamoDB is a serverless NoSQL key/value and document database. It is designed to scale to billions of records with guaranteed consistent data return in at least a second. You don't have to worry about managing shards!
-
-ECS Fargate is serverless orchestration container service. It is the same as ECS expect you pay-on-demand per running container (With ECS you have to keep a EC2 server running even if you have no containers running) AWS manages the underlying server, so you don't have to scale or upgrade the EC2 server.
-AWS Lambda is a serverless functions service. You can run code without provisioning or managing servers.
-You upload small pieces of code, choose much memory and how long function is allowed to run before timing out. You a charged based on the runtime of the serverless function rounded to the nearest 100ms.
-Step Functions is a state machine service. It coordinate multiple AWS services into serverless workflows. Easily share data among Lambdas. Have a group of lambdas wait for each other. Create logical steps. Also works with Fargate Tasks.
-Aurora Serverless is the serverless on-demand version of Aurora. When you want "most" of the benefits of Aurora but can trade to have cold-starts or you don't have lots of traffic demand
-
 
 **Other services:**
 * **Amazon Athena** is a serverless interactive query service. It can take a bunch of CSV or JSON files in a S3 Bucket and load them into temporary SQL tables so you can run SQL queries. When you want to query CSV or JSON files
@@ -890,15 +885,7 @@ Aurora Serverless is the serverless on-demand version of Aurora. When you want "
 * **Kinesis Data Streams** is a real-time streaming data service. Create Producers which send data to a stream. Multiple Consumers can consume data within a stream. Use for real-time analytics, click streams, ingesting data from a fleet of IOT Devices Kinesis Firehose is serverless and a simpler version of Data Streams, You pay-on-demand based on how much data is consumed through the stream and you don't worry about the underlying servers.
 * **Amazon Kinesis Data Analytics** allows you to run queries against data that is flowing through your real-time stream so you can create reports and analysis on emerging data.
 Amazon Kinesis Video Streams allows you to analyze or apply processing on real-time streaming video.
-* **Managed Kafka Service (MSK)** a fully managed Apache Kafka service for building real-time streaming data pipelines and applications.
 
-Redshift is a petabyte-size data-warehouse. Data-warehouses are for Online Analytical Processing) OLAP Data-warehouses can be expensive because they are keeping data "hot". Meaning that we can run a very complex query and a large amount of data and get that data back very fast.
-When you to quickly generate analytics or reports from a large amount of data.
-* **Amazon QuickSight** is business intelligence (BI) dashboard. You can use it to create business dashboards to power business decisions. It requires little to no programming knowledge and connect and ingest to many different types of databases
-* **AWS Data Pipeline** automates the movement of data. You can reliably move data between compute and storage services.
-* **AWS Glue** is an Extract, Transform, Load (ETL) service. Moving data from one location to another and where you need to perform transformations before the final destination. Similar to Database Migration Service (DMS) but more robust
-* **AWS Lake Formation** is as a centralized, curated, and secured repository that stores all your data.
-A data lake is a storage repository that holds a vast amount of raw data in its native format until it is needed.
 **Logging Services**
 **Cloud Trail** - logs all API calls (SDK, CLI) between AWS services. AWS CloudTrail is used to monitor API calls and Actions made on an AWS account.
 **CloudWatch** is a collection of multiple services
@@ -909,35 +896,6 @@ CloudWatch Logs A centralized place to store your cloud services log data or app
 • CloudWatch Dashboard create visualizations based on metrics
 **AWS X-Ray** is a distributed tracing system. You can use it to pinpoint issues with your microservices.
 See how data moves from one app to another, how long it took to move, and if it failed to move forward.
-
-
-
-**AWS Well-Architected Framework**
-Aspects to consider:
-* **Operational Excellence:** Apply software engineering principles to your cloud infrastructure. Make frequent, small, reversible changes while monitoring systems to perform post-mortems on system failures.
-* **Security:** Apply security at all layers and follow security best practices to protect data and systems.
-* **Reliability:** Scale horizontally to avoid a single point of failure and use automation to automatically recover from failure.
-* **Performance Efficiency:**
-* **Cost Optimization:** Minimize overspending by selecting resources of the right type and quantity.
-
-
-
-**Performance Efficiency Design Principles**
-Performance Efficiency Pillar - Use computing resources effectively
-Democratize advanced technologies:
-Focus on product development rather than procurement, provisioning and management of services.
-Take advantage of advanced technology specialized and optimized for your use-case with on-demand cloud services.
-Go global in minutes
-Deploying your workload in multiple AWS Regions around the world allows you to provide lower latency and a better experience for your customers at minimal cost.
-Use serverless architectures:
-Serverless architectures remove the need for you to run and maintain physical servers for traditional compute activities.
-Removes the operational burden of managing physical servers, and can lower transactional costs because managed services operate at cloud scale.
-Experiment more often:
-With virtual and automatable resources, you can quickly carry out comparative testing using different types of instances, storage, or configurations.
-Consider mechanical sympathy
-Understand how cloud services are consumed and always use the technology approach that aligns best with your workload goals. For example, consider data access patterns when you select database or storage approaches.
-
-
 
 ---
 
@@ -1519,16 +1477,6 @@ For writing, deleting, or updating transactions, creating multiple versions of t
     - Tightly coupled microservices.
     - The deployment of one service causes downtime for other services.
     - Services are overly chatty.
-
-## Serverless
-
-* Server management is abstracted away from app development as the cloud provider manages the server infrastructure. Automatically scale up and down as needed.
-* Ideal for asynchronous, stateless apps that can be started instantaneously. Doesn’t cost anything when idle.
-* Cloud provider limits the flexibility & customizability. 
-
-  vs
-
-  Increase developer productivity and reduce operational costs.
 
 ---
 
