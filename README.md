@@ -178,11 +178,9 @@
                             </li>
                             <li>
                                 <a href="#ec2-aws"><b>EC2</b></a> - 
-                                <!-- <b><ins>U</ins></b>ser,
-                                <b><ins>P</ins></b>olicy,
-                                <b><ins>G</ins></b>roup,
-                                <b><ins>R</ins></b>ole,
-                                <b><ins>T</ins></b>rust Relationship -->
+                                <b><ins>I</ins></b>nstance types,
+                                <b><ins>S</ins></b>torage options (EBS & EFS),
+                                <b><ins>A</ins></b>MI
                             </li>
                             <li>
                                 <a href="#s3-aws"><b>S3</b></a> - 
@@ -192,6 +190,12 @@
                                 <b><ins>L</ins></b>ifecycle automation
                             </li>
                             <li><a href="#concepts-aws"><b>Lambda</b></a></li>
+                            <li>
+                                <a href="#cloudformation-aws"><b>CloudFormation</b></a> - 
+                                <b><ins>I</ins></b>aC,
+                                <b><ins>S</ins></b>tack,
+                                <b><ins>C</ins></b>hangeSets
+                            </li>
                         </ul>
                     <li><a href="#fundamentals-aws"><b>Other Services</b></a></li>
                         <ul>
@@ -646,7 +650,23 @@ Partition of VPC network.
 
 <h4 id="ec2-aws">EC2</h4>
 
-considered the backbone of AWS because the majority of AWS services are using EC2 as their underlying servers.
+Online virtual machine server service. Considered the backbone of AWS as the majority of AWS services are using EC2 as their underlying servers.
+
+##### Instance types
+Choosing the appropriate instance type for specific workloads. Factors to consider include CPU capacity, memory requirements, storage needs, network demands, and any specialized requirements such as GPUs accelerators.
+
+* **General Purpose:** Balance of compute, memory and networking resources. Use-cases web servers and code repositories
+* **Compute Optimized:** Ideal for compute bound applications that benefit from high performance processor. Use-cases scientific modeling, dedicated gaming servers and ad server engines
+* **Memory Optimized:** Fast performance for workloads that process large data sets in memory. Use-cases in-memory caches, in-memory databases, real time big data analytics
+* **Accelerated Optimized:** Hardware accelerators, or co-processors. Use-cases Machine learning, computational finance, seismic analysis, speech recognition
+* **Storage Optimized:** High, sequential read and write access to very large data sets on local storage. Use-cases NoSQL, in-memory or transactional databases, data warehousing
+
+##### Storage options
+* **EBS:** Elastic Block Store for a low-latency block storage that can be attached to a single EC2 instance.
+* **EFS:** Elastic File Storage for a shared file system that can be accessed by multiple EC2 instances concurrently.
+
+##### AMI
+The blueprint/snapshot used to create multiple EC2 instances with the same state. It contains the OS, pre-installed software, and configuration settings.
 
 <h4 id="s3-aws">S3</h4>
 S3 (Simple Storage Service) is an object storage is a data storage architecture that manages data as objects. Like Google Drive or Dropbox. No need to think about the underlying infrastructure.
@@ -688,40 +708,15 @@ Bucket/Object Lifecycle rules automate the storage class optimization process to
 
 <h4 id="lambda-aws">Lambda</h4>
 
+<h4 id="cloudformation-aws">CloudFormation</h4>
+
+**IaC:** Declarative Infrastructure as Code to automate provisioning of AWS resources with JSON or YAML template files.
+* **Stack:** A collection of resources that you can manage as code within a template. When you deploy a template, it creates a stack.
+* **ChangeSet:** Like `git diff`. Changing the running resources in a stack, requires updating the stack. Before making changes, generate a change set to see a summary of proposed changes to see how running resources will be impacted.
+
+
 
 ## Video notes WIP
-
-
-
-**EC2 Autoscaling Groups (ASGs)**
-Automatically adds or remove EC2 servers to meet the current demand of traffic. Will save you money and meet capacity since you only run the amount of servers you need.
-**Elastic Load Balancer (ELB)**
-Distributes traffic to multiple instance, can re-route traffic from unhealthy instance to healthy instances. can route traffic to EC2 instances running in different Availability Zones
-AWS Elastic Beanstalk (EB) is for easily deploying web-applications without developers having to worry about setting up and understanding the underlying AWS Services. Similar to Heroku.
-
-**Types of Storage Services**
-Elastic Block Store (EBS) - Block
-Data is split into evenly split blocks
-Directly accessed by the Operation System
-Supports only a single write volume
-When you need a virtual hard drive attached to a VM
-AWS Elastic File Storage (EFS) - File File is stored with data and metadata
-Multiple connections via a network share
-Supports multiple reads, writing locks the file.
-When you need a file-share where multiple users or VMs need to access the same drive
-
-
-
-
-Elastic Block Store (EBS) is a persistent block storage service. It is a virtual hard drive in the cloud you attach to EC2 instances. You can choose different kinds of hard drives: SSD, IOPS SSD, Throughput HHD, Cold HHD
-Elastic File Storage (EFS) is a cloud-native NFS file system service. File storage you can mount to multiple EC2 instances at the same time. When you need to share files between multiple servers
-Storage Gateway is a hybrid cloud storage service that extends your on-premise storage to cloud
-File Gateway extends your local storage to AWS S3
-Volume Gateway caches your local drives to S3 so you have a countious backup of local files in the cloud
-Tape Gateway stores files onto virtual tapes for backing up your files on very cost effective long term storage.
-CloudEndure Disaster Recovery continuously replicates your machines into a low-cost staging area in your target
-AWS account and preferred Region enabling fast and reliable recovery in case of IT data center failures.
-
 
 **NoSQL Database Services**
 
@@ -738,84 +733,11 @@ When you want a highly available, durable, scalable and secure relational databa
 
 
 
-**EC2**
-**Elastic Compute Cloud (EC2)** is a highly configurable virtual server.
-EC2 is resizable compute capacity. It takes minutes to launch new instances.
-Anything and everything on AWS uses EC2 Instance underneath.
-
-**What are Instance Families?**
-Different combinations of CPU, Memory, Storage and Networking capacity can be selected to meet various workloads.
-
-**General Purpose:** Balance of compute, memory and networking resources Use-cases web servers and code repositories
-**Compute Optimized:** Ideal for compute bound applications that benefit from high performance processor. Use-cases scientific modeling, dedicated gaming servers and ad server engines
-**Memory Optimized:** Fast performance for workloads that process large data sets in memory. Use-cases in-memory caches, in-memory databases, real time big data analytics
-**Accelerated Optimized:** Hardware accelerators, or co-processors. Use-cases Machine learning, computational finance, seismic analysis, speech recognition
-**Storage Optimized:** High, sequential read and write access to very large data sets on local storage Use-cases NoSQL, in-memory or transactional databases, data warehousing
 
 
-### EC2 Pricing Models
-On-Demand
-Least Commitment
-• low cost and flexible
-• only pay per hour or the *second
-• short-term, spiky, unpredictable workloads
-• cannot be interrupted
-• For first time apps
 
-Spot up to 90%
-Biggest Savings
-• request spare computing capacity
-• flexible start and end times
-Can handle interruptions (server randomly stopping and starting)
-• For non-critical background jobs
 
-Reserved up to 75% off Best Long-term
-• steady state or predictable usage
-• commit to EC2 over a 1 or 3 year term
-• Can resell unused reserved instances
 
-Dedicated
-Most Expensive
-Can be on-demand or reserved or spot
-When you need a guarantee of isolate hardware (enterprise requirements)
-
-On-Demand is a Pay-As-You-Go (PAYG) model, where you consume compute and then you pay.
-On-Demand is for applications where the workload is for short-term, spikey or unpredictable.
-When you have a new app for development or you want to run experiment.
-
-Reserved Instances (RI)
-Designed for applications that have a steady-state, predictable usage, or require reserved capacity.
-RI Attributes (aka Instance Attributes) are limited based on Class Offering and can affect the final price of an RI instance. There are 4 RI Attributes:
-1. Instance type: For example, m4. large. This is composed of the instance family (for example, m4) and the instance size (for example, large).
-2. Region: The Region in which the Reserved Instance is purchased.
-3. Tenancy: Whether your instance runs on shared (default) or single-tenant (dedicated) hardware.
-4. Platform: The operating system eg. Windows or Linux/Unix.
-
-**Capacity Reservations**
-EC2 instances are backed by different kind of hardware, and so there is a finite amount of servers available within an Availability Zone per instance type or family.
-You go to launch a specific type of EC2 instance but AWS has ran out of that server!
-Capacity Reservation is a service of EC2 that allows you to request a reserve of EC2 instance type for a specific Region and AZ
-The reserved capacity is charged at the selected instance type's
-On-Demand rate whether an instance is running in it or not.
-You can also use your regional reserved instances with your Capacity Reservations to benefit from billing discounts
-
-**Spot Instances**
-AWS has unused compute capacity that they want to maximize the utility of their idle servers.
-It's like when a hotel offers booking discounts to fill vacant suites or planes offer discount to fill vacant seats
-Spot Instances provide a discount of 90% compared to On-Demand Pricing
-Spot Instances can be terminated if the computing capacity is needed by other On-Demand customers
-Designed for applications that have flexible start and end times or applications that are only feasible at very low compute costs.
-AWS Batch is an easy and convenient way to use Spot Pricing
-
-**Dedicated Instances** is designed to meet regulatory requirements.
-When you have strict server-bound licensing that won't support multi-tenancy or cloud deployments you use Dedicated Hosts.
-Multi-Tenant
-When multiple customers are running workloads on the same hardware. Virtual Isolation is what separate customers
-Single-Tenant
-When a single customer has dedicated hardware.
-Physical Isolation is what separates customers
-
-Enterprises and Large Organizations may have security concerns or obligations about against sharing the same hardware with other AWS Customers.
 
 **Zero Trust Model**
 Operates on the principle of: "Trust no one, verify everything."
@@ -862,40 +784,6 @@ EventBridge (CloudWatch Events) is a serverless event bus that makes it easy to 
 Kinesis is a real-time streaming data service. Create Producers which send data to a stream. Multiple Consumers can consume data within a stream. Use for real-time analytics, click streams, ingesting data from a fleet of IOT Devices
 
 
-
-**What is Compliance-as-code (CaC)?**
-Compliance as code is when we utilize programming to automate the monitoring, enforcing and remediating changes to stay compliant with a compliance programs or expected configuration.
-What is AWS Config?
-AWS Config as is Compliance-as-Code framework that allows us to manage change in your AWS accounts on a per region basis.
-
-What is provisioning?
-The allocation or creation of resources and services to a customer.
-AWS Provisioning Services are responsible for setting up and then managing those AWS Services
-Elastic Beanstalk (EB) is a Platform as a Service (PaaS) to easily deploy web-applications. EB will provision various AWS services, including EC2, S3, Simple Notification Service (SNS), CloudWatch, EC2
-Auto Scaling Groups, and Elastic Load Balancers. If you have ever used Heroku it the AWS equivalent AWS OpsWorks is a configuration management service that also provides managed instances of the open-source configuration managed software Chef and Puppet.
-CloudFormation is a infrastructure modeling and provisioning service. Automate the provisiong of AWS Services by writing CloudFormation templates in either JSON or YAML files. This is known as Infrastructure as Code (laC)
-
-
-
-**Other services:**
-* **Amazon Athena** is a serverless interactive query service. It can take a bunch of CSV or JSON files in a S3 Bucket and load them into temporary SQL tables so you can run SQL queries. When you want to query CSV or JSON files
-* **Amazon CloudSearch** is a fully managed full-text search service. When you want add search to your website
-* **Amazon Elasticsearch Service (ES)** is a managed Elasticsearch cluster. Elasticsearch is a open-source full-text search engine. It is more robust than CloudSearch but requires more server and operational maintaince.
-* **Amazon Elastic MapReduce (EMR)** is for data processing and analysis. Its can be used for creating reports just like Redshift, but is more suited when you need to transform unstructured data into structured data on the fly.
-* **Kinesis Data Streams** is a real-time streaming data service. Create Producers which send data to a stream. Multiple Consumers can consume data within a stream. Use for real-time analytics, click streams, ingesting data from a fleet of IOT Devices Kinesis Firehose is serverless and a simpler version of Data Streams, You pay-on-demand based on how much data is consumed through the stream and you don't worry about the underlying servers.
-* **Amazon Kinesis Data Analytics** allows you to run queries against data that is flowing through your real-time stream so you can create reports and analysis on emerging data.
-Amazon Kinesis Video Streams allows you to analyze or apply processing on real-time streaming video.
-
-**Logging Services**
-**Cloud Trail** - logs all API calls (SDK, CLI) between AWS services. AWS CloudTrail is used to monitor API calls and Actions made on an AWS account.
-**CloudWatch** is a collection of multiple services
-CloudWatch Logs A centralized place to store your cloud services log data or application logs.
-• CloudWatch Metrics Represents a time-ordered set of data points. A variable to monitor
-• CloudWatch Events (EventBridge) trigger an event based on a condition eg. ever hour take snapshot of server
-• CloudWatch Alarms triggers notifications based on metrics
-• CloudWatch Dashboard create visualizations based on metrics
-**AWS X-Ray** is a distributed tracing system. You can use it to pinpoint issues with your microservices.
-See how data moves from one app to another, how long it took to move, and if it failed to move forward.
 
 ---
 
