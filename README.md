@@ -102,7 +102,7 @@
         </ul>
     <li><b>Cloud</b></li>
         <ul>
-            <li><details><summary>AWS - WIP</summary>
+            <li><details><summary>AWS</summary>
                 <ul>
                     <li><a href="#fundamentals-aws"><b>Fundamentals</b></a></li>
                         <ul>
@@ -170,11 +170,9 @@
                             </li>
                             <li>
                                 <a href="#vpc-aws"><b>VPC</b></a> - 
-                                <!-- <b><ins>U</ins></b>ser,
-                                <b><ins>P</ins></b>olicy,
-                                <b><ins>G</ins></b>roup,
-                                <b><ins>R</ins></b>ole,
-                                <b><ins>T</ins></b>rust Relationship -->
+                                <b><ins>S</ins></b>ubnets,
+                                <b><ins>S</ins></b>ecurity groups,
+                                <b><ins>V</ins></b>PC endpoint
                             </li>
                             <li>
                                 <a href="#ec2-aws"><b>EC2</b></a> - 
@@ -189,7 +187,11 @@
                                 <b><ins>S</ins></b>torage classes,
                                 <b><ins>L</ins></b>ifecycle automation
                             </li>
-                            <li><a href="#concepts-aws"><b>Lambda</b></a></li>
+                            <li><a href="#lambda-aws"><b>Lambda</b></a> - 
+                                <b><ins>F</ins></b>aaS,
+                                <b><ins>T</ins></b>rigger,
+                                <b><ins>E</ins></b>xecution environment
+                            </li>
                             <li>
                                 <a href="#cloudformation-aws"><b>CloudFormation</b></a> - 
                                 <b><ins>I</ins></b>aC,
@@ -197,10 +199,10 @@
                                 <b><ins>C</ins></b>hangeSets
                             </li>
                         </ul>
-                    <li><a href="#fundamentals-aws"><b>Other Services</b></a></li>
+                    <!-- <li><a href="#fundamentals-aws"><b>Other Services</b></a></li>
                         <ul>
-                            <li>RDS, DynamoDB</b></a></li>
-                        </ul>
+                            <li>DynamoDB</b></a></li>
+                        </ul> -->
                     <li><em>Key points from AWS certification preparation resources:</em></li>
                         <ul>
                             <li><b>CLF-C02</b> Cloud Practitioner - Foundational</li>
@@ -632,21 +634,11 @@ Control access to resources/entities. Create **Users** who use credentials that 
 * Provides a secure isolated network environment for AWS resources to enhance security by preventing unauthorized access.
 * Similar to your home network. Home devices are connected to your router, and this creates your private home network as routers have built-in firewalls. Your router also acts as a gateway between the private network and the public network.
 
-* **Subnet:** A range of IP addresses. Associated with an AZ.
-
-##### Internet Gateway
-
-Component that allows communication between your VPC and the internet. Similar to a home modem, it is a digital cloud modem that allows AWS resources to connect to the internet.
-
-* Performs Network Address Translation (NAT). Mapping of public ip addresses to private ip addresses.
-* One gateway per VPC. The gateway can be attached/detached to/from VPC.
-
-##### Endpoints
-
-##### Subnet
-
-Partition of VPC network.
-
+* **Subnets:** VPC can be divided into smaller segments called subnets.
+    * **Public subnet:** Allocation of resources to interact with the public internet directly through an internet gateway, which is a digital cloud modem similar to a home modem that allows AWS resources to connect to the internet.
+    * **Private subnet:** Allocation of resources to NOT interact with the public internet directly. Will not have a route to an internet gateway and rely on mechanisms like NAT gateways to access the internet, so resources will be hidden from the outside world.
+* **Security groups:** Control inbound and outbound traffic to associated resources using stateful rules based on IP addresses, ports, and protocols.
+* **VPC endpoint:** Allows resources in your VPC to privately connect to AWS services outside of your VPC without using the internet. Enhances security and performance by keeping the traffic within the AWS network.
 
 <h4 id="ec2-aws">EC2</h4>
 
@@ -708,82 +700,15 @@ Bucket/Object Lifecycle rules automate the storage class optimization process to
 
 <h4 id="lambda-aws">Lambda</h4>
 
+* **FaaS:** Allow developers to only worry about writing code. Cloud compute service w/o the need of managing a server. Ideal for short, event driven workloads.
+* **Trigger:** An event source that sends event data as a JSON file for your functions to process
+* **Execution environment:** A secure isolated runtime environment for your lambda function.
+
 <h4 id="cloudformation-aws">CloudFormation</h4>
 
 **IaC:** Declarative Infrastructure as Code to automate provisioning of AWS resources with JSON or YAML template files.
 * **Stack:** A collection of resources that you can manage as code within a template. When you deploy a template, it creates a stack.
 * **ChangeSet:** Like `git diff`. Changing the running resources in a stack, requires updating the stack. Before making changes, generate a change set to see a summary of proposed changes to see how running resources will be impacted.
-
-
-
-## Video notes WIP
-
-**NoSQL Database Services**
-
-DynamoDB is a serverless NoSQL key/value and document database. No to worry about managing shards.
-DynamoDB is AWS's flagship database service
-
-**DocumentDB:** MongoDB compatible NoSQL database.
-**Amazon Keyspaces** is a fully managed Cassandra database.
-
-**Relational Database Service (RDS)** is a service that supports multiple SQL engines.
-
-**Aurora** is a fully managed database of either MySQL (5x faster) and PSQL (3x faster) database.
-When you want a highly available, durable, scalable and secure relational database for Postgres or MySQL.
-
-
-
-
-
-
-
-
-
-**Zero Trust Model**
-Operates on the principle of: "Trust no one, verify everything."
-Malicious actors being able to by-pass conventional access controls demonstrates traditional security measures are no longer sufficient
-In the Zero Trust Model Identity becomes the primary security perimeter.
-What is the Primary Security Perimeter?
-The primary or new security perimeter defines the first line of defense and its security controls that protect a company's cloud resources and assets
-Network-Centric: (Old-Way)
-traditional security focused on firewalls and VPNs since there were few employees or workstations outside the office or they were in specific remote offices.
-Identity-Centric: (New-Way)
-Bring-your-own-device, remote workstations is much more common, we can't trust if the employee is in a secure location, we have identity based security controls like MFA, or providing provisional access based on the level of risk from where, when and what a user wants to access.
-Identity-Centric does not replace but augments Network-Centric Security
-
-Identity Security Controls you can implement on AWS to meet the Zero Trust Model. (AWS has limitations)
-
-**Directory service:** Mapping of the names of network resources to their network addresses. Used for locating, managing, administering and organizing resources such as Folders, Files, Printers, Users, Groups, etc.
-
-Identity Provider (IdP) a system entity that creates, maintains, and manages identity information for principals and also provides authentication services to applications within a federation or distributed network.
-A trusted provider of your user identity that lets you use authenticate to access other services.
-Identity Providers could be: Facebook, Amazon, Google, Twitter, Github, LinkedIn
-
-**Single sign-on (SSO):** An authentication scheme that allows a user to log in with a single ID and password to different systems and software.
-**Multi-Factor Authentication (MFA):** A security control where after you fill in your username/email and password you have to use a second device such as a phone to confirm that its you logging in. Protects against people who have stolen your password.
-**Security Key:** A secondary device used as second step in authentication process to gain access to a device, workstation or application.
-
-
-
-
-
-**Simple Queueing Service (SQS)**
-Fully managed queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications
-
-**Simple Notification Service (SNS)** is a highly available, durable, secure, fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications.
-
-**What is an API Gateway?**
-An API Gateway is a program that sits between a single-entry point and multiple backends.
-API Gateway allows for throttling, logging, routing logic or formatting of the request and response
-Amazon API Gateway is a solution for creating secure APls in your cloud environment at any scale.
-Create APls that act as a front door for applications to access data, business logic, or functionality from back-end services.
-
-Simple Notification Service (SNS) - a pub-sub messaging system. Sends notifications via various formats such as Plain-text Email, HTTP/s (webhooks) SMS (text messages), SQS and Lambda. Push messages which then are sent to subscribers Simple Queue Service (SQS) is a queueing messaging service. Send events to a queue. Other applications pull the queue for messages. Commonly used for background jobs.
-Step Functions is a state machine service. It coordinate multiple AWS services into serverless workflows. Easily share data among Lambdas. Have a group of lambdas wait for each other. Create logical steps. Also works with Fargate Tasks.
-EventBridge (CloudWatch Events) is a serverless event bus that makes it easy to connect applications together from your own application, third-party services and AWS services.
-Kinesis is a real-time streaming data service. Create Producers which send data to a stream. Multiple Consumers can consume data within a stream. Use for real-time analytics, click streams, ingesting data from a fleet of IOT Devices
-
-
 
 ---
 
