@@ -443,6 +443,11 @@
 
 ---
 
+# Other study notes
+* [Artificial Intelligence](Artificial-Intelligence)
+
+---
+
 # Communication
 
 ## Synchronous vs Asynchronous
