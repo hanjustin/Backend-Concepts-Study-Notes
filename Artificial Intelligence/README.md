@@ -1,4 +1,8 @@
 
+# Study Goal
+
+Improve technology literacy by reading AI fundamentals.
+
 # Table of Contents
 
 <ul>
@@ -69,19 +73,42 @@ An umbrella term encompassing a broad range of technologies that mimic human int
 
 # Machine Learning
 
-* The terms AI & ML are used interchangeably.
-* Formally, a subset of AI that automatically uses statistical algorithms to analyze large amounts of data, learn from the insights, and then make informed decisions. Enables a machine or system to learn and improve from experience.
-* The process of training a piece of software, called a model, to make useful predictions from data. Primarily based on mathematics and statistics for establishing or discovering patterns.
+* **Definition** <br> Formally, a subset of AI that automatically uses statistical algorithms to analyze large amounts of data, learn from the insights, and then make informed decisions. Enables a machine or system to learn and improve from experience. The terms AI & ML are used interchangeably.
+* **Process** <br> Training a piece of software, called a model, to make useful predictions from data. Primarily based on mathematics and statistics for establishing or discovering patterns.
 
 ## Fundamentals
+### Concepts
+#### Loss Functions
+Describes how wrong a model's predictions are. Measures the distance between the model's predictions and the actual labels. Focuses on the distance between the values by using the absolute value or square of the distance. The goal of training a model is to minimize the loss.
+
+* **MSE (Mean squared error):** The model is closer to the outliers but further away from most of the other data points. `Sum(Distance^2) / N`
+
+* **MAE (Mean absolute error):** The model is further away from the outliers but closer to most of the other data points. `Sum(Abs(Distance)) / N`
+
+#### Gradient Descent
+An iterative mathematical process that finds the weights and bias that produce the model with the lowest loss.
+
+* **Repeat the following steps until the loss can't be reduced any further.**
+    * Calculate the loss with the current weight and bias.
+    * Determine the direction to move the weights and bias that reduce loss.
+    * Move the weight and bias values a small amount (`gradient`*`learning rate`) in the direction that reduces loss. The learning rate determines the magnitude of the change.
+
+#### Learning Rate
+Number that influences how quickly the model converges. If too low, take a long time to converge. If too high, the model never converges, but instead bounces around the weights and bias that minimize the loss. The goal is to pick a learning rate that's not too high nor too low so that the model converges quickly.
+
 ### Terminologies
 * **Parameter:** The weights and biases that a model learns during training.
 * **Hyperparameters:** The values that you adjust during successive runs of training a model.
-
+* **Convergence:** A state reached when additional training won't improve the model as loss values change very little or not at all.
 
 
 ## Approaches
 ### Unsupervised Learning
+
+* **Clustering:** Group similar data points together.
+* **Anomaly Detection:** Find unusual data points.
+* **Dimensionality Reduction:** Compress data using fewer numbers.
+
 Using unlabeled raw data to create models. Patterns (similarities, differences) or relationships are infered without any explicit guidance or instruction.
 
 #### Use case
@@ -90,6 +117,12 @@ While the algorithm itself does not understand these patterns based on any previ
 
 
 ### Supervised Learning
+
+* **Regression:** Predicting a number. Infinitely many possible outputs.
+* **Classification:** Predict categories. Small number of outputs.
+
+
+
 Using labeled data to create models. The label is the "answer," or the value we want the model to predict. After seeing lots of data with the correct answers, models create patterns to make predictions.
 * `cat` or `dog` labeled to images. Identify new photos with the correct animal.
 * The sale price added to used cars. Assign accurate prices to other used cars.
@@ -101,8 +134,6 @@ Using labeled data to create models. The label is the "answer," or the value we 
 
 ### Reinforcement Learning
 The model receives rewards or penalties based on actions. The algorithm modifies its strategy in order to achieve the highest reward.
-
-
 
 
 
@@ -121,16 +152,8 @@ Using a line to summarize the relationship in the data. Just like a linear algeb
 * `b`: The bias of the model. Same concept as the y-intercept for a line.
 * `w`: The weight of the feature. Same concept as the slope for a line.
 
-### Loss
-Describes how wrong a model's predictions are. Measures the distance between the model's predictions and the actual labels. Focuses on the distance between the values by using the absolute value or square of the distance. The goal of training a model is to minimize the loss.
-
-* **MSE (Mean squared error):** The model is closer to the outliers but further away from most of the other data points. `Sum(Distance^2) / N`
-
-* **MAE (Mean absolute error):** The model is further away from the outliers but closer to most of the other data points. `Sum(Abs(Distance)) / N`
-
 
 * Core concepts to study
-    * Gradient Descent
     * Regularization
     * Train, Test, Validation set
     * Labels, Weights (Parameters), Hyperparameters
@@ -175,15 +198,17 @@ Determine if ML is a good approach for a problem.
 * **Standard Deviation:** Measure of how spreadout numbers are / how far typical data points are from the average. Square root of variance, which is the average of the squared differences between each data point and the mean.
 * **Z-score:** How many standard deviations away from the mean.
 * **Residual:** Synonymous to the loss value in ML. `Actual - Model Expected`. Residual plots help to determine whether a linear model is appropriate in modeling the given data. There should not be a visible pattern of residual plots.
-* **Correlation coefficient (r):** Measure of the strength of a linear relationship. Between `-1` and `1`. The closer `r` is to zero, the weaker the linear relationship.
-* **Coefficient of determination (R-squared):** Measure of how well a statistical model predicts an outcome. Shows how much of the change in the outcome (dependent variable) can be explained by the things we’re using to predict it (independent variable(s)). Between `0` and `1`. Closer to 1 mean a better fit.
+* **Correlation coefficient (r):** Measure of the strength of a linear relationship between two variables. Between `-1` and `1`. The closer `r` is to zero, the weaker the linear relationship.
+* **Coefficient of determination (R-squared):** Measure of how well a statistical model predicts an outcome. Shows how much of the change in one thing can be explained by changes in another. How much of the change in the outcome (dependent variable) can be explained by the things we’re using to predict it (independent variable(s)). Between `0` and `1`. Closer to 1 mean a better fit.
 
 * Core concepts to study
-    * Random Variables
     * Probability Distributions
     * Different types of Plots
     * Populations and Samples & Law of Large Numbers
     * Expected Values
+
+
+    * Random Variables
     * Variance & Covariance, Correlation
     * Central Limit Theorem & Normal Distribution
     * Standard Deviation, Statistical Significance, Z-scores and Hypothesis Testing
@@ -202,5 +227,8 @@ Determine if ML is a good approach for a problem.
 **Model Picking**
 **Interpreting Model Results**
 
-=====
 
+# Resources
+
+* **Andrew Ng - Coursera**
+    * [ML Specialization](https://www.coursera.org/specializations/machine-learning-introduction?utm_source=deeplearning-ai&utm_medium=institutions&utm_campaign=WebsiteCourses-MLS)
