@@ -9,38 +9,55 @@ Improve technology literacy by reading AI fundamentals.
         <li><b>Artificial Intelligence</b></li>
         <ul>
             <li><details><summary>Fundamentals</summary>
-                        <ul>
-                            <li><b>Concepts</b></li>
-                                <ul><ul><ul><ul>
-                                    <li><a href="#">Concept1</a></li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>T</ins></b>erm1,
-                                        <b><ins>T</ins></b>erm2,
-                                    </li>
-                                </ul></ul></ul></ul>
-                        </ul>
+                <ul>
+                    <li><b>Concepts</b></li>
+                        <ul><ul><ul><ul>
+                            <li><a href="#">Concept1</a></li>
+                        </ul></ul></ul></ul>
+                    <li><a href="#"><b>Terminologies</b></a></li>
+                        <ul><ul><ul><ul>
+                            <li>
+                                <b><ins>T</ins></b>erm1,
+                                <b><ins>T</ins></b>erm2,
+                            </li>
+                        </ul></ul></ul></ul>
+                </ul>
             </details>
             </li>
         </ul>
     <li><b>Machine Learning</b></li>
         <ul>
             <li><details><summary>Fundamentals</summary>
+                <ul>
+                    <li><b>Concepts</b></li>
                         <ul>
-                            <li><b>Concepts</b></li>
-                                <ul><ul><ul><ul>
-                                    <li><a href="#">Concept1</a></li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>T</ins></b>erm1,
-                                        <b><ins>T</ins></b>erm2,
-                                    </li>
-                                </ul></ul></ul></ul>
+                            <li><a href="#"><b>Learning Approaches</b></a></li>
+                                    <ul><ul><ul>
+                                        <li>
+                                            <b><ins>S</ins></b>upervised,
+                                            <b><ins>U</ins></b>n-supervised,
+                                            <b><ins>S</ins></b>emi-supervised,
+                                            <b><ins>R</ins></b>einforcement
+                                        </li>
+                                    </ul></ul></ul>
+                            <li><a href="#"><b>Deployment Models</b></a></li>
+                                    <ul><ul><ul>
+                                        <li>
+                                            <b><ins>P</ins></b>rivate,
+                                            <b><ins>P</ins></b>ublic,
+                                            <b><ins>H</ins></b>ybrid,
+                                            <b><ins>M</ins></b>ulticloud
+                                        </li>
+                                    </ul></ul></ul>
                         </ul>
+                    <li><a href="#"><b>Terminologies</b></a></li>
+                        <ul><ul><ul><ul>
+                            <li>
+                                <b><ins>T</ins></b>erm1,
+                                <b><ins>T</ins></b>erm2,
+                            </li>
+                        </ul></ul></ul></ul>
+                </ul>
             </details>
             </li>
             <li><details><summary>MLOps</summary>
@@ -78,7 +95,39 @@ An umbrella term encompassing a broad range of technologies that mimic human int
 
 ## Fundamentals
 ### Concepts
-#### Loss Functions
+#### Learning Approaches
+##### Unsupervised Learning
+Using unlabeled raw data to create models. Patterns (similarities, differences) or relationships are infered without any explicit guidance or instruction.
+
+* **Clustering:** Group similar data points together.
+* **Anomaly Detection:** Find unusual data points.
+* **Dimensionality Reduction:** Compress data using fewer numbers.
+
+
+
+###### Use case
+Useful for identifying previously undetected patterns in data and can help identify features useful for categorizing data
+While the algorithm itself does not understand these patterns based on any previous information you provided, you can then go through the data groupings and attempt to classify them based on your understanding of the dataset.
+
+
+##### Supervised Learning
+
+Using labeled data to create models. The label is the "answer," or the value we want the model to predict. After seeing lots of data with the correct answers, models create patterns to make predictions.
+* `cat` or `dog` labeled to images. Identify new photos with the correct animal.
+* The sale price added to used cars. Assign accurate prices to other used cars.
+
+* **Regression:** Predicting a number. Infinitely many possible outputs.
+* **Classification:** Predict categories. Small number of outputs.
+
+
+##### Semi-supervised Learning
+
+##### Reinforcement Learning
+The model receives rewards or penalties based on actions. The algorithm modifies its strategy in order to achieve the highest reward.
+
+
+
+#### Loss/Error/Cost Functions
 Describes how wrong a model's predictions are. Measures the distance between the model's predictions and the actual labels. Focuses on the distance between the values by using the absolute value or square of the distance. The goal of training a model is to minimize the loss.
 
 * **MSE (Mean squared error):** The model is closer to the outliers but further away from most of the other data points. `Sum(Distance^2) / N`
@@ -102,39 +151,6 @@ Number that influences how quickly the model converges. If too low, take a long 
 * **Convergence:** A state reached when additional training won't improve the model as loss values change very little or not at all.
 
 
-## Approaches
-### Unsupervised Learning
-
-* **Clustering:** Group similar data points together.
-* **Anomaly Detection:** Find unusual data points.
-* **Dimensionality Reduction:** Compress data using fewer numbers.
-
-Using unlabeled raw data to create models. Patterns (similarities, differences) or relationships are infered without any explicit guidance or instruction.
-
-#### Use case
-Useful for identifying previously undetected patterns in data and can help identify features useful for categorizing data
-While the algorithm itself does not understand these patterns based on any previous information you provided, you can then go through the data groupings and attempt to classify them based on your understanding of the dataset.
-
-
-### Supervised Learning
-
-* **Regression:** Predicting a number. Infinitely many possible outputs.
-* **Classification:** Predict categories. Small number of outputs.
-
-
-
-Using labeled data to create models. The label is the "answer," or the value we want the model to predict. After seeing lots of data with the correct answers, models create patterns to make predictions.
-* `cat` or `dog` labeled to images. Identify new photos with the correct animal.
-* The sale price added to used cars. Assign accurate prices to other used cars.
-
-#### 
-
-
-### Semi-supervised Learning
-
-### Reinforcement Learning
-The model receives rewards or penalties based on actions. The algorithm modifies its strategy in order to achieve the highest reward.
-
 
 
 ## MLOps
@@ -145,13 +161,18 @@ DevOps for ML models.
 2. **Error Function:** Evaluates the prediction of the model. Assessing the accuracy of the model by comparing to known examples (if available).
 3. **Model Optimization Process:** Iteratively improve the accuracy of a machine learning model by minimizing its loss function.
 
-## Models
+## Algorithms
 ### Linear Regression
 Using a line to summarize the relationship in the data. Just like a linear algebraic equation, a linear regression model equation is:
 `y' = b + wx`
 * `b`: The bias of the model. Same concept as the y-intercept for a line.
 * `w`: The weight of the feature. Same concept as the slope for a line.
 
+### Logistic Regression
+Used for binary classification tasks, such as identifying whether spam or not spam.
+
+* **Sigmoid/logistic function:** S-shaped curve function that is used to calculate a probability between 0 and 1.
+* **Log loss function:** Logarithm of the magnitude of the change is used as the rate of change of a logistic regression model is not constant.
 
 * Core concepts to study
     * Regularization
@@ -222,8 +243,13 @@ Determine if ML is a good approach for a problem.
     * **Label:** The "answer," or the value we want the model to predict.
     * **Features:** The values that a supervised model uses to predict the label.
 
-**Data Preprocessing**
-**Feature Engineering**
+* **Data Preprocessing**
+    * **Feature Scaling:** Bringing all features to a similar scale using normalization or standardization. To ensure that all features contribute equally to the model and to prevent being biased toward certain features simply because of their magnitudes.
+
+    * **Feature Engineering:**
+Using intuition to design new features, by transforming or combining original features.
+
+
 **Model Picking**
 **Interpreting Model Results**
 
