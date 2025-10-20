@@ -150,17 +150,6 @@ Number that influences how quickly the model converges. If too low, take a long 
 * **Hyperparameters:** The values that you adjust during successive runs of training a model.
 * **Convergence:** A state reached when additional training won't improve the model as loss values change very little or not at all.
 
-
-
-
-## MLOps
-DevOps for ML models.
-
-### Steps
-1. **Decision Process:** Estimating a pattern for given input data.
-2. **Error Function:** Evaluates the prediction of the model. Assessing the accuracy of the model by comparing to known examples (if available).
-3. **Model Optimization Process:** Iteratively improve the accuracy of a machine learning model by minimizing its loss function.
-
 ## Algorithms
 ### Linear Regression
 Using a line to summarize the relationship in the data. Just like a linear algebraic equation, a linear regression model equation is:
@@ -172,7 +161,7 @@ Using a line to summarize the relationship in the data. Just like a linear algeb
 Used for binary classification tasks, such as identifying whether spam or not spam.
 
 * **Sigmoid/logistic function:** S-shaped curve function that is used to calculate a probability between 0 and 1.
-* **Log loss function:** Logarithm of the magnitude of the change is used as the rate of change of a logistic regression model is not constant.
+* **Log loss cost function:** Used to penalize confident wrong predictions more and to ensure a convex cost function to guarantee a global minimum for optimization with gradient descent.
 
 * Core concepts to study
     * Regularization
@@ -185,10 +174,26 @@ Used for binary classification tasks, such as identifying whether spam or not sp
 ## Problem Framing
 Determine if ML is a good approach for a problem.
 
+## To be organized
+* **Underfitting:** High bias. Doesn't fit the training set well.
+* **Overfitting:** High variance. Fits the training set TOO well, so the cost function is close to zero, and the model will not generalize to new examples well.
+    * **Addressing overfitting:**
+Collecting more training examples.
+Feature selection. Include/exclude features.
+Regularization. Reducing the size of parameters to reduce the effect. Regularization approach:
+Modify the cost function by adding a regularization term, which significantly increases the cost when a parameter's value is high.
+Regulariazation paremeter: Used to control the balance of fitting to the data and keeping the parameters small. Underfitting will happen for a large value and overfitting will happen for a small value.
 
+Neural networks:
+Input layer, activations/hidden layer, Output layer
 
+## MLOps
+DevOps for ML models.
 
-
+### Steps
+1. **Decision Process:** Estimating a pattern for given input data.
+2. **Error Function:** Evaluates the prediction of the model. Assessing the accuracy of the model by comparing to known examples (if available).
+3. **Model Optimization Process:** Iteratively improve the accuracy of a machine learning model by minimizing its loss function.
 
 # Neural Network
 * Subfield of ML.
