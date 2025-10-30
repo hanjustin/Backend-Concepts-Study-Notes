@@ -178,14 +178,11 @@ Determine if ML is a good approach for a problem.
 * **Underfitting:** High bias. Doesn't fit the training set well.
 * **Overfitting:** High variance. Fits the training set TOO well, so the cost function is close to zero, and the model will not generalize to new examples well.
     * **Addressing overfitting:**
-Collecting more training examples.
-Feature selection. Include/exclude features.
-Regularization. Reducing the size of parameters to reduce the effect. Regularization approach:
-Modify the cost function by adding a regularization term, which significantly increases the cost when a parameter's value is high.
-Regulariazation paremeter: Used to control the balance of fitting to the data and keeping the parameters small. Underfitting will happen for a large value and overfitting will happen for a small value.
-
-Neural networks:
-Input layer, activations/hidden layer, Output layer
+        * Collecting more training examples.
+        * Feature selection. Include/exclude features.
+        * Regularization. Reducing the size of parameters to reduce the effect. Regularization steps:
+            * Modify the cost function by adding a regularization term, which significantly increases the cost when a parameter's value is high.
+            * Regulariazation paremeter: Used to control the balance of fitting to the data and keeping the parameters small. Underfitting will happen for a large value and overfitting will happen for a small value.
 
 ## MLOps
 DevOps for ML models.
@@ -197,6 +194,10 @@ DevOps for ML models.
 
 # Neural Network
 * Subfield of ML.
+* Input layer, activations/hidden layer, Output layer
+
+* **Neuron:** The most fundamental unit of processing that receives inputs and generates an output.
+* **Hidden layers:** are created from feature engineering automation. Neurons per layer & the number of hidden layers need to be decided when building a neural network.
 
 # Deep Learning
 * Scalable version of ML. Subfield of neural networks that eliminates some of the human intervention of supervised learning by automatically determining the set of features to categorize unstructured data.
