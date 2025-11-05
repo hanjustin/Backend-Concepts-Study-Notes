@@ -194,10 +194,35 @@ DevOps for ML models.
 
 # Neural Network
 * Subfield of ML.
-* Input layer, activations/hidden layer, Output layer
 
 * **Neuron:** The most fundamental unit of processing that receives inputs and generates an output.
-* **Hidden layers:** are created from feature engineering automation. Neurons per layer & the number of hidden layers need to be decided when building a neural network.
+* **Hidden (Activation) layers:** Layers between input layer & output layer. Created from feature engineering automation. Neurons per layer & the number of hidden layers need to be decided when building a neural network.
+* **Forward propagation:** Activation of layers from left to right.
+
+## Tensorflow Code snippet
+
+* Simple neural network example
+
+```python
+x = np.array([[200.0, 17.0]])  # Input array
+layer_1 = Dense(units=3, activation='sigmoid')  # Hidden layer
+a1 = layer_1(x)   # Output of layer1
+
+layer_2 = Dense(units=1, activation='sigmoid')  # Output layer
+a2 = layer_2(a1)
+
+layer_1 = Dense(units=3, activation='sigmoid')
+layer_2 = Dense(units=1, activation='sigmoid')
+model = Sequential([layer_1, layer_2])
+
+# Train the model
+model.compile(...)
+model.fit(input_data, targets)
+
+# Use the model
+model.predict(new_input_data)
+```
+
 
 # Deep Learning
 * Scalable version of ML. Subfield of neural networks that eliminates some of the human intervention of supervised learning by automatically determining the set of features to categorize unstructured data.
