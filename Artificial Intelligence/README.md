@@ -6,18 +6,18 @@ Improve technology literacy by reading AI fundamentals.
 # Table of Contents
 
 <ul>
-        <li><b>Artificial Intelligence</b></li>
+    <li><b>Artificial Intelligence</b></li>
         <ul>
             <li><details><summary>Fundamentals</summary>
                 <ul>
                     <li><b>Concepts</b></li>
                         <ul><ul><ul><ul>
-                            <li><a href="#">Concept1</a></li>
+                            <li><a href="#"></a>Concept1</li>
                         </ul></ul></ul></ul>
-                    <li><a href="#"><b>Terminologies</b></a></li>
+                    <li><a href="#terminologies-ai"><b>Terminologies</b></a></li>
                         <ul><ul><ul><ul>
                             <li>
-                                <b><ins>T</ins></b>erm1,
+                                <b><ins>A</ins></b>GI,
                                 <b><ins>T</ins></b>erm2,
                             </li>
                         </ul></ul></ul></ul>
@@ -31,7 +31,7 @@ Improve technology literacy by reading AI fundamentals.
                 <ul>
                     <li><b>Concepts</b></li>
                         <ul>
-                            <li><a href="#"><b>Learning Approaches</b></a></li>
+                            <li><a href="#learning-approaches"><b>Learning Approaches</b></a></li>
                                     <ul><ul><ul>
                                         <li>
                                             <b><ins>S</ins></b>upervised,
@@ -40,21 +40,34 @@ Improve technology literacy by reading AI fundamentals.
                                             <b><ins>R</ins></b>einforcement
                                         </li>
                                     </ul></ul></ul>
-                            <li><a href="#"><b>Deployment Models</b></a></li>
+                            <li><a href="#"><b>Error Functions</b></a></li>
                                     <ul><ul><ul>
                                         <li>
-                                            <b><ins>P</ins></b>rivate,
-                                            <b><ins>P</ins></b>ublic,
-                                            <b><ins>H</ins></b>ybrid,
-                                            <b><ins>M</ins></b>ulticloud
+                                            <b><ins>M</ins></b>SE,
+                                            <b><ins>M</ins></b>AE
+                                        </li>
+                                    </ul></ul></ul>
+                            <li><a href="#"><b>Gradient Descent</b></a></li>
+                                    <ul><ul><ul>
+                                        <li>
+                                            <b><ins>T</ins></b>erm1,
+                                            <b><ins>T</ins></b>erm2
+                                        </li>
+                                    </ul></ul></ul>
+                            <li><a href="#"><b>Learning Rate</b></a></li>
+                                    <ul><ul><ul>
+                                        <li>
+                                            <b><ins>T</ins></b>erm1,
+                                            <b><ins>T</ins></b>erm2
                                         </li>
                                     </ul></ul></ul>
                         </ul>
-                    <li><a href="#"><b>Terminologies</b></a></li>
+                    <li><a href="#terminologies-ml"><b>Terminologies</b></a></li>
                         <ul><ul><ul><ul>
                             <li>
-                                <b><ins>T</ins></b>erm1,
-                                <b><ins>T</ins></b>erm2,
+                                <b><ins>P</ins></b>arameter,
+                                <b><ins>H</ins></b>yperparameter,
+                                <b><ins>C</ins></b>onvergence,
                             </li>
                         </ul></ul></ul></ul>
                 </ul>
@@ -66,9 +79,10 @@ Improve technology literacy by reading AI fundamentals.
                         <ul>
                             <li><b>Concepts</b></li>
                                 <ul><ul><ul><ul>
-                                    <li><a href="#">Concept1</a></li>
+                                    <li><a href="#"></a>Concept1</li>
+                                    <li><a href="#"></a>Concept2</li>
                                 </ul></ul></ul></ul>
-                            <li><a href="#"><b>Terminologies</b></a></li>
+                            <li><a href="#terminologies-mlops"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
                                     <li>
                                         <b><ins>T</ins></b>erm1,
@@ -80,6 +94,90 @@ Improve technology literacy by reading AI fundamentals.
             </details>
             </li>
         </ul>
+    <li><b>Neural Network</b></li>
+        <ul>
+            <li><details><summary>Fundamentals</summary>
+                <ul>
+                    <li><b>Concepts</b></li>
+                        <ul><ul><ul><ul>
+                            <li><a href="#"></a>Concept1</li>
+                            <li><a href="#"></a>Concept2</li>
+                        </ul></ul></ul></ul>
+                    <li><a href="#terminologies-neural-network"><b>Terminologies</b></a></li>
+                        <ul><ul><ul><ul>
+                            <li>
+                                <b><ins>N</ins></b>euron,
+                                <b><ins>H</ins></b>idden layers,
+                                <b><ins>F</ins></b>orward propagation,
+                                <b><ins>V</ins></b>ectorization,
+                            </li>
+                        </ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
+            <li><a href="#code-snippet-neural-network"><b>Code snippet</b></a> - <code>Hello World</code> w/ NumPy & TensorFlow
+            </li>
+        </ul>
+    <li><b>Deep Learning</b></li>
+        <ul>
+            <li><details><summary>Fundamentals</summary>
+                <ul>
+                    <li><b>Concepts</b></li>
+                        <ul><ul><ul><ul>
+                            <li><a href="#"></a>Concept1</li>
+                            <li><a href="#"></a>Concept2</li>
+                        </ul></ul></ul></ul>
+                    <li><a href="#terminologies-deep-learning"></a><b>Terminologies</b></li>
+                        <ul><ul><ul><ul>
+                            <li>
+                                <b><ins>T</ins></b>erm1,
+                                <b><ins>T</ins></b>erm2,
+                            </li>
+                        </ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
+        </ul>
+    <!-- <li><b>Generative AI</b></li>
+        <ul>
+            <li><details><summary>Fundamentals</summary>
+                <ul>
+                    <li><b>Concepts</b></li>
+                        <ul><ul><ul><ul>
+                            <li><a href="#">Concept1</a></li>
+                            <li><a href="#">Concept2</a></li>
+                        </ul></ul></ul></ul>
+                    <li><a href="#terminologies-"><b>Terminologies</b></a></li>
+                        <ul><ul><ul><ul>
+                            <li>
+                                <b><ins>T</ins></b>erm1,
+                                <b><ins>T</ins></b>erm2,
+                            </li>
+                        </ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
+        </ul> -->
+    <!-- <li><b>Agentic AI</b></li>
+        <ul>
+            <li><details><summary>Fundamentals</summary>
+                <ul>
+                    <li><b>Concepts</b></li>
+                        <ul><ul><ul><ul>
+                            <li><a href="#">Concept1</a></li>
+                            <li><a href="#">Concept2</a></li>
+                        </ul></ul></ul></ul>
+                    <li><a href="#terminologies-"><b>Terminologies</b></a></li>
+                        <ul><ul><ul><ul>
+                            <li>
+                                <b><ins>T</ins></b>erm1,
+                                <b><ins>T</ins></b>erm2,
+                            </li>
+                        </ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
+        </ul> -->
 </ul>
 
 ---
@@ -88,13 +186,23 @@ Improve technology literacy by reading AI fundamentals.
 
 An umbrella term encompassing a broad range of technologies that mimic human intelligence. Enabling a machine or system to sense, reason, act, or adapt like a human.
 
+<h2 id="fundamentals-ai">Fundamentals</h2>
+
+<h3 id="concepts-ai">Concepts</h3>
+
+<h3 id="terminologies-ai">Terminologies</h3>
+
+* **AGI (Artificial General Intelligence):** AI that would match or surpass human capabilities.
+
 # Machine Learning
 
 * **Definition** <br> Formally, a subset of AI that automatically uses statistical algorithms to analyze large amounts of data, learn from the insights, and then make informed decisions. Enables a machine or system to learn and improve from experience. The terms AI & ML are used interchangeably.
 * **Process** <br> Training a piece of software, called a model, to make useful predictions from data. Primarily based on mathematics and statistics for establishing or discovering patterns.
 
-## Fundamentals
-### Concepts
+<h2 id="fundamentals-ml">Fundamentals</h2>
+
+<h3 id="concepts-ml">Concepts</h3>
+
 #### Learning Approaches
 ##### Unsupervised Learning
 Using unlabeled raw data to create models. Patterns (similarities, differences) or relationships are infered without any explicit guidance or instruction.
@@ -145,7 +253,8 @@ An iterative mathematical process that finds the weights and bias that produce t
 #### Learning Rate
 Number that influences how quickly the model converges. If too low, take a long time to converge. If too high, the model never converges, but instead bounces around the weights and bias that minimize the loss. The goal is to pick a learning rate that's not too high nor too low so that the model converges quickly.
 
-### Terminologies
+<h3 id="terminologies-ml">Terminologies</h3>
+
 * **Parameter:** The weights and biases that a model learns during training.
 * **Hyperparameters:** The values that you adjust during successive runs of training a model.
 * **Convergence:** A state reached when additional training won't improve the model as loss values change very little or not at all.
@@ -195,11 +304,64 @@ DevOps for ML models.
 # Neural Network
 * Subfield of ML.
 
+<h2 id="fundamentals-neural-network">Fundamentals</h2>
+
+<h3 id="concepts-neural-network">Concepts</h3>
+
+<h3 id="terminologies-neural-network">Terminologies</h3>
+
 * **Neuron:** The most fundamental unit of processing that receives inputs and generates an output.
 * **Hidden (Activation) layers:** Layers between input layer & output layer. Created from feature engineering automation. Neurons per layer & the number of hidden layers need to be decided when building a neural network.
 * **Forward propagation:** Activation of layers from left to right.
+* **Vectorization:** Technique to speed up training. Organize all parameters into matrices to avoid `for` loops and perform calculations efficiently.
 
-## Tensorflow Code snippet
+<h2 id="code-snippet-neural-network">Code Snippet</h2>
+
+### Forward propagation in NumPy
+
+```python
+# Hard coded neural network with a single hidden layer.
+# w2_1 variable denotes the weight of 2nd layer's 1st neuron.
+
+# First Hidden Layer's 1st neuron
+w1_1 = np.array([1, 2])
+b1_1 = np.array([1])
+z1_1 = np.dot(w1_1, x) + b1_1
+a1_1 = sigmoid(z1_1)
+
+# 2nd neuron
+w1_2 = np.array([1, 2])
+b1_2 = np.array([1])
+z1_2 = np.dot(w1_2, x) + b1_2
+a1_2 = sigmoid(z1_2)
+
+# 3rd neuron
+w1_3 = np.array([1, 2])
+b1_3 = np.array([1])
+z1_3 = np.dot(w1_3, x) + b1_3
+a1_3 = sigmoid(z1_3)
+
+a1 = np.array([a1_1, a1_2, a1_3])
+
+# Output layer
+w2_1 = np.array([-7, 8, 9])
+b2_1 = np.array([3])
+z2_1 = np.dot(w2_1, a1) + b2_1
+a2_1 = sigmoid(z2_1)
+
+# Forward propagation
+# by getting activations from the previous layer
+def dense(a_in, W, b):
+    units = W.shape[1]      # Get number of columns
+    a_out = np.zeroes(units)
+    for j in range(units):
+        w = W[:,j]          # Get j-th column of W matrix
+        z = np.dot(w, a_in) + b[j]
+        a_out[j] = g(z)     # Sigmoid function
+    return a_out
+```
+
+### Tensorflow
 
 * Simple neural network example
 
