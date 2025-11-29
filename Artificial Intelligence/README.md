@@ -20,6 +20,17 @@ Improve technology literacy by reading AI fundamentals.
                                 <b><ins>A</ins></b>GI,
                                 <b><ins>T</ins></b>erm2,
                             </li>
+                            <li><b>HW & SW terms:</b></li>
+                            <ul>
+                                <li>
+                                    <b><ins>T</ins></b>PU,
+                                    <b><ins>C</ins></b>UDA,
+                                    <b><ins>J</ins></b>upyter notebook,
+                                    <b><ins>P</ins></b>ytorch,
+                                    <b><ins>T</ins></b>ensorFlow,
+                                    <b><ins>S</ins></b>cikit-learn
+                                </li>
+                            </ul>
                         </ul></ul></ul></ul>
                 </ul>
             </details>
@@ -193,6 +204,13 @@ An umbrella term encompassing a broad range of technologies that mimic human int
 <h3 id="terminologies-ai">Terminologies</h3>
 
 * **AGI (Artificial General Intelligence):** AI that would match or surpass human capabilities.
+* **Hardware & Software:**
+    * **TPU (Tensor Processing Unit):** Google's custom-developed ASICs used to accelerate the mathematical tasks used for neural networks and other ML models.
+    * **CUDA (Compute Unified Device Architecture):** General purpose language to allow NVIDIA's GPUs to be used for computational tasks beyond graphics, such as scientific simulations and data processing.
+    * **Jupyter notebook:** Web document app for data scientists to share live code, equations, and visualizations.
+    * **Pytorch:** Deep learning library using dynamic computational graph which allows users to define and modify models on-the-fly, making it easier to experiment with different architectures and techniques.
+    * **TensorFlow:** Deep learning library using directed acyclic graphs (computational graphs) for constructing neural networks.
+    * **Scikit-learn:** Python library focused on simple and efficient tools for data mining and analysis for general ML.
 
 # Machine Learning
 
