@@ -419,6 +419,15 @@
                         <b><ins>P</ins></b>latform engineering
                     </li>
                 </ul>
+            <li><a href="#observability-devops"><b>Observability</b></a></li>
+                <ul>
+                    <li>
+                        <b><ins>M</ins></b>etrics,
+                        <b><ins>L</ins></b>ogs,
+                        <b><ins>T</ins></b>races
+                    </li>
+                </ul>
+            <li><b>SRE</b></li>
         </ul>
   </li>
 </ul>
@@ -1231,6 +1240,27 @@ For writing, deleting, or updating transactions, creating multiple versions of t
 
 * **DevSecOps:** Augmentation of DevOps to allow for security practices to be integrated into the DevOps approach. Making security a shared responsibility of development, security and IT operations teams, rather than the sole responsibility of a security silo.
 * **Platform engineering:** A software engineering discipline focused on the development of self-service toolchains, services, and processes to create an internal developer platform (IDP).
+
+<h2 id="observability-devops">Observability</h2>
+
+Usage of tools & practices to make a system’s internal state more transparent to determine if the system is healthy. Three main types of telemetry data:
+
+* **Metrics**
+
+    Provide quantitative insights into system performance by measuring various network parameters.
+
+    * **Examples:**
+        * **Host metrics:** Memory, disk and CPU usage
+        * **Network performance metrics:** uptime, latency, throughput
+        * **App metrics:** response times, request and error rates
+
+* **Logs**
+
+    Immutable exhaustive historical records of discrete events that occur within a system.
+
+* **Traces**
+
+    Used to follow the lifecycle of a single request as it flows through services and systems.
 
 ---
 
