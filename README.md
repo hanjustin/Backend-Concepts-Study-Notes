@@ -409,6 +409,20 @@
         * **[BASE](#base)**
     * **Terminologies**
 
+<ul>
+    <li><b>DevOps</b></li>
+        <ul>
+            <li><a href="#terminologies-devops"><b>Terminologies</b></a></li>
+                <ul>
+                    <li>
+                        <b><ins>D</ins></b>evSecOps,
+                        <b><ins>P</ins></b>latform engineering
+                    </li>
+                </ul>
+        </ul>
+  </li>
+</ul>
+
 * **Architectural Patterns**
     * **Distributed System**
         * [CAP theorem](#cap-theorem)
@@ -1209,6 +1223,14 @@ For writing, deleting, or updating transactions, creating multiple versions of t
 * **Basically available:** High availability by distributing data across different nodes.
 * **Soft state:** Intermediate states can exist before a consistent state. Data consistency handled by developers.
 * **Eventually consistent:** Given enough time, all nodes will have the same data eventually.
+
+---
+
+# DevOps
+<h2 id="terminologies-devops">Terminologies</h2>
+
+* **DevSecOps:** Augmentation of DevOps to allow for security practices to be integrated into the DevOps approach. Making security a shared responsibility of development, security and IT operations teams, rather than the sole responsibility of a security silo.
+* **Platform engineering:** A software engineering discipline focused on the development of self-service toolchains, services, and processes to create an internal developer platform (IDP).
 
 ---
 
