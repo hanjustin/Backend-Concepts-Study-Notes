@@ -418,16 +418,32 @@
                         <b><ins>D</ins></b>evSecOps,
                         <b><ins>P</ins></b>latform engineering
                     </li>
-                </ul>
-            <li><a href="#observability-devops"><b>Observability</b></a></li>
-                <ul>
                     <li>
-                        <b><ins>M</ins></b>etrics,
+                        <b><ins>O</ins></b>bservability - 
+                            <b><ins>M</ins></b>etrics,
                         <b><ins>L</ins></b>ogs,
                         <b><ins>T</ins></b>races
                     </li>
                 </ul>
-            <li><b>SRE</b></li>
+            <li><details><summary>SRE</summary>
+                <ul>
+                    <li><a href="#fundamentals-sre"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><b>Concepts</b></li>
+                                <ul><ul><ul><ul>
+                                    <!-- <li><a href="#">7 key principles</a></li> -->
+                                </ul></ul></ul></ul>
+                            <li><a href="#terminologies-sre"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <b><ins>T</ins></b>oil,
+                                    <b><ins>E</ins></b>rror budget,
+                                    <b><ins>M</ins></b>TTD,
+                                    <b><ins>M</ins></b>TTR
+                                </ul></ul></ul></ul>
+                        </ul>
+                </ul>
+            </details>
+            </li>
         </ul>
   </li>
 </ul>
@@ -1240,27 +1256,38 @@ For writing, deleting, or updating transactions, creating multiple versions of t
 
 * **DevSecOps:** Augmentation of DevOps to allow for security practices to be integrated into the DevOps approach. Making security a shared responsibility of development, security and IT operations teams, rather than the sole responsibility of a security silo.
 * **Platform engineering:** A software engineering discipline focused on the development of self-service toolchains, services, and processes to create an internal developer platform (IDP).
+* **Observability:** Usage of tools & practices to make a system’s internal state more transparent to determine if the system is healthy. Three main types of telemetry data:
+    * **Metrics**<br>
+        Provide quantitative insights into system performance by measuring various network parameters.
 
-<h2 id="observability-devops">Observability</h2>
+        * **Examples:**
+            * **Host metrics:** Memory, disk and CPU usage
+            * **Network performance metrics:** uptime, latency, throughput
+            * **App metrics:** response times, request and error rates
 
-Usage of tools & practices to make a system’s internal state more transparent to determine if the system is healthy. Three main types of telemetry data:
+    * **Logs**<br>
+        Immutable exhaustive historical records of discrete events that occur within a system.
 
-* **Metrics**
-
-    Provide quantitative insights into system performance by measuring various network parameters.
-
-    * **Examples:**
-        * **Host metrics:** Memory, disk and CPU usage
-        * **Network performance metrics:** uptime, latency, throughput
-        * **App metrics:** response times, request and error rates
-
-* **Logs**
-
-    Immutable exhaustive historical records of discrete events that occur within a system.
-
-* **Traces**
-
+    * **Traces**<br>
     Used to follow the lifecycle of a single request as it flows through services and systems.
+
+<h2 id="xxx">SRE</h2>
+
+<h3 id="fundamentals-sre">Fundamentals</h3>
+
+```
+interface DevOps
+class SRE implements DevOps
+```
+
+Tackling IT operations and infrastructure problems using software engineering techniques.
+
+<h4 id="terminologies-sre">Terminologies</h4>
+
+* **Toil:** Manual repetitive work that should be be automated.
+* **Error budget:** Acceptable amount of downtime or service unreliability over a specified period.
+* **MTTD (Mean Time to Detect):** The average time it takes to identify an incident after it occurs.
+* **MTTR (Mean Time to Recover):** The average time it takes to fully recover from a failure.
 
 ---
 
