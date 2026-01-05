@@ -1252,6 +1252,9 @@ For writing, deleting, or updating transactions, creating multiple versions of t
 ---
 
 # DevOps
+
+A set of practices, guidelines and culture designed to break down silos in IT development, operations, and security.
+
 <h2 id="terminologies-devops">Terminologies</h2>
 
 * **DevSecOps:** Augmentation of DevOps to allow for security practices to be integrated into the DevOps approach. Making security a shared responsibility of development, security and IT operations teams, rather than the sole responsibility of a security silo.
@@ -1271,7 +1274,7 @@ For writing, deleting, or updating transactions, creating multiple versions of t
     * **Traces**<br>
     Used to follow the lifecycle of a single request as it flows through services and systems.
 
-<h2 id="xxx">SRE</h2>
+<h2>SRE</h2>
 
 <h3 id="fundamentals-sre">Fundamentals</h3>
 
@@ -1280,7 +1283,20 @@ interface DevOps
 class SRE implements DevOps
 ```
 
-Tackling IT operations and infrastructure problems using software engineering techniques.
+* Tackling IT operations and infrastructure problems using software engineering techniques.
+* Running large-scale systems scalably, reliably, and efficiently.
+
+<h4 id="concepts-sre">Concepts</h4>
+
+##### 7 principles of SRE
+
+* **Embrace risk:** 100% reliability is unrealistic. Be reliable enough based on risk & on a cost-benefit analysis.
+* **Use SLOs:** Establish measurable target that represents a level of quality.
+* **Automate to eliminate toil:** Look for common and time consuming tasks to reduce repetitive manual tasks.
+* **Capaciity planning:** Use data-driven insights to plan for growth, so systems can handle spikes without unexpected outages.
+* **Release engineering:** Continuous improvement to minimize risk and use consistent and repeatable methodologies for reliable release processes.
+* **Monitoring:** Monitoring tools will analyze core system performance metrics and alert humans only when SLO is threatened or a system cannot self-heal.
+* **Simplicity:** The simpler the system, the easier it is to manage and scale.
 
 <h4 id="terminologies-sre">Terminologies</h4>
 
