@@ -234,12 +234,12 @@
                                         <b><ins>S</ins></b>tored procedure,
                                         <b><ins>A</ins></b>ggregate & window functions
                                     </li>
+                                    <li><b>Tools:</b></li>
+                                        <ul>
+                                            <li><b>p</b>sql, <b>p</b>gAdmin</li>
+                                        </ul>
                                 </ul></ul></ul></ul>
                         </ul>
-                    <li><a href="#tools-postgresql"><b>Tools</b></a></li>
-                        <ul><ul><ul><ul><ul>
-                            <li><b>p</b>sql, <b>p</b>gAdmin</li>
-                        </ul></ul></ul></ul></ul>
                     <li><a href="#sql-syntax"><b>SQL Syntax</b></a></li>
                                 <ul><ul><ul><ul><ul>
                                     <li><b>Database Management</b></li>
@@ -415,6 +415,7 @@
             <li><a href="#terminologies-devops"><b>Terminologies</b></a></li>
                 <ul>
                     <li>
+                        <b><ins>G</ins></b>itOps,
                         <b><ins>D</ins></b>evSecOps,
                         <b><ins>P</ins></b>latform engineering
                     </li>
@@ -431,14 +432,36 @@
                         <ul>
                             <li><b>Concepts</b></li>
                                 <ul><ul><ul><ul>
-                                    <!-- <li><a href="#">7 key principles</a></li> -->
+                                    <li><b>The 7 principles</b></li>
+                                        <ul>
+                                            <li>Embrace risk</li>
+                                            <li>Use SLOs</li>
+                                            <li>Automate to eliminate toil</li>
+                                            <li>Capacity planning</li>
+                                            <li>Release engineering</li>
+                                            <li>Monitoring</li>
+                                            <li>Simplicity</li>
+                                        </ul>
                                 </ul></ul></ul></ul>
                             <li><a href="#terminologies-sre"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
-                                    <b><ins>T</ins></b>oil,
-                                    <b><ins>E</ins></b>rror budget,
-                                    <b><ins>M</ins></b>TTD,
-                                    <b><ins>M</ins></b>TTR
+                                    <li>
+                                        <b><ins>T</ins></b>oil,
+                                        <b><ins>E</ins></b>rror budget,
+                                        <b><ins>M</ins></b>TTD,
+                                        <b><ins>M</ins></b>TTR,
+                                        <b><ins>S</ins></b>aturation
+                                    </li>
+                                    <li><b>Tools:</b></li>
+                                        <ul>
+                                            <li>
+                                                <b><ins>T</ins></b>erraform,
+                                                <b><ins>A</ins></b>rgo,
+                                                <b><ins>P</ins></b>uppet,
+                                                <b><ins>P</ins></b>rometheus,
+                                                <b><ins>S</ins></b>plunk
+                                            </li>
+                                        </ul>
                                 </ul></ul></ul></ul>
                         </ul>
                 </ul>
@@ -781,10 +804,9 @@ Bucket/Object Lifecycle rules automate the storage class optimization process to
 * **Aggregate function:** Perform a calculation on a set of rows and return a single row.
 * **Window function:** Perform a calculation on a set of rows and return multiple rows.
 
-<h3 id="tools-postgresql">Tools</h3>
-
-* **psql:** CLI tool to enter SQL queries or commands to PostgreSQL database. Commands start with backslash `\`.
-* **pgAdmin:** GUI tool to manage PostgreSQL database.
+* **Tools**
+    * **psql:** CLI tool to enter SQL queries or commands to PostgreSQL database.
+    * **pgAdmin:** GUI tool to manage PostgreSQL database.
 
 <h3 id="sql-syntax">SQL Syntax</h3>
 
@@ -1257,6 +1279,7 @@ A set of practices, guidelines and culture designed to break down silos in IT de
 
 <h2 id="terminologies-devops">Terminologies</h2>
 
+* **GitOps:** Using git as the single source of truth for infrastructure, configuration, and deployment processes.
 * **DevSecOps:** Augmentation of DevOps to allow for security practices to be integrated into the DevOps approach. Making security a shared responsibility of development, security and IT operations teams, rather than the sole responsibility of a security silo.
 * **Platform engineering:** A software engineering discipline focused on the development of self-service toolchains, services, and processes to create an internal developer platform (IDP).
 * **Observability:** Usage of tools & practices to make a system’s internal state more transparent to determine if the system is healthy. Three main types of telemetry data:
@@ -1288,7 +1311,7 @@ class SRE implements DevOps
 
 <h4 id="concepts-sre">Concepts</h4>
 
-##### 7 principles of SRE
+##### The 7 principles
 
 * **Embrace risk:** 100% reliability is unrealistic. Be reliable enough based on risk & on a cost-benefit analysis.
 * **Use SLOs:** Establish measurable target that represents a level of quality.
@@ -1304,6 +1327,14 @@ class SRE implements DevOps
 * **Error budget:** Acceptable amount of downtime or service unreliability over a specified period.
 * **MTTD (Mean Time to Detect):** The average time it takes to identify an incident after it occurs.
 * **MTTR (Mean Time to Recover):** The average time it takes to fully recover from a failure.
+* **Saturation:** A measure of how close to capacity a service is as some services will begin to fail or slow down.
+
+* **Tools:**
+    * **Terraform:** Declarative IaC tool for configuring and deploying cloud infrastructure.
+    * **Argo:** Declarative continuous deployment tool for Kubernetes.
+    * **Puppet:** Configuration management tool for server management automation.
+    * **Prometheus:** Apps and infrastructure monitoring and alerting tool.
+    * **Splunk:** A data (logs, metrics, events) analytics and monitoring platform.
 
 ---
 
