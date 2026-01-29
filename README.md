@@ -211,6 +211,19 @@
                 </ul>
             </details>
             </li>
+            <li><details><summary>Cloudflare</summary>
+                <ul>
+                    <li><a href="#cloudflare"><b>Key Services</b></a></li>
+                        <ul>
+                            <li>
+                                <b><ins>C</ins></b>DN,
+                                <b><ins>W</ins></b>AF, 
+                                <b><ins>D</ins></b>DoS mitigation
+                            </li>
+                        </ul>
+                </ul>
+            </details>
+            </li>
         </ul>
     <li><b>Databases</b></li>
         <ul>
@@ -569,7 +582,7 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 ## Kubernetes
 <h3 id="fundamentals-kubernetes">Fundamentals</h3>
 
-Container orchestration tool to simplify managing containerized applications across multiple servers.
+Container orchestration tool to simplify managing containerized apps at scale.
 
 <h4 id="key-features-kubernetes">Key Features</h4>
 
@@ -607,7 +620,7 @@ Container orchestration tool to simplify managing containerized applications acr
 
 <h4 id="terminologies-kubernetes">Terminologies</h4>
 
-* **Pod:** Smallest unit of K8s. A layer over a container to abstract away container technologies. Usually one container per pod. Each pod has an IP. New IP address on re-creation.
+* **Pod:** An abstraction layer for container(s). Smallest unit of K8s. Each pod has an IP. New IP address on re-creation.
 * **Service:** Static permanent IP address attached to Pod that doesn't change even when Pod gets re-created. Also acts as a load balancer.
 * **Ingress:** Component to forward requests to Service.
 * **ConfigMap:** External configuration for application. Making it easier to manage and update application settings without redeploying containers.
@@ -776,6 +789,17 @@ Bucket/Object Lifecycle rules automate the storage class optimization process to
 **IaC:** Declarative Infrastructure as Code to automate provisioning of AWS resources with JSON or YAML template files.
 * **Stack:** A collection of resources that you can manage as code within a template. When you deploy a template, it creates a stack.
 * **ChangeSet:** Like `git diff`. Changing the running resources in a stack, requires updating the stack. Before making changes, generate a change set to see a summary of proposed changes to see how running resources will be impacted.
+
+## Cloudflare
+
+* Reverse proxy. A server that sits between your web server and the user.
+* Infrastructure-agnostic. Can be deployed in front of any cloud infrastructure.
+
+### Key services
+
+* **CDN (Content Delivery Network):** Accelerates the delivery of content by using a distributed network of edge locations to cache content near users, minimizing latency and improving performance.
+* **WAF (Web Application Firewall):** Protects servers by blocking malicious HTTP traffic (like SQL injection, XSS)
+* **DDoS mitigation:** Protect customers from distributed denial of service (DDoS) attacks.
 
 ---
 
