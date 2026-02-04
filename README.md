@@ -5,8 +5,7 @@
 * Not at the level to easily apply the concepts and evaluate the tradeoffs.
 
 # Table of Contents
-<!-- * Synchronous vs Asynchronous -->
-<!-- * RabbitMQ -->
+
 <ul>
     <li><b>Communication</b></li>
         <ul>
@@ -232,189 +231,13 @@
         </ul>
     <li><b>Databases</b></li>
         <ul>
-            <li><details><summary>PostgreSQL</summary>
-                <ul>
-                    <li><a href="#fundamentals-postgresql"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><a href="#concepts-postgresql"><b>Concepts</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>Table Inheritance</li>
-                                    <li>User-defined Data Types</li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#terminologies-postgresql"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>P</ins></b>rimary key,
-                                        <b><ins>C</ins></b>omposite primary key,
-                                        <b><ins>F</ins></b>oreign key,
-                                        <b><ins>V</ins></b>iew,
-                                        <b><ins>M</ins></b>aterialized view,
-                                        <b><ins>S</ins></b>tored procedure,
-                                        <b><ins>A</ins></b>ggregate & window functions
-                                    </li>
-                                    <li><b>Tools:</b></li>
-                                        <ul>
-                                            <li><b>p</b>sql, <b>p</b>gAdmin</li>
-                                        </ul>
-                                </ul></ul></ul></ul>
-                        </ul>
-                    <li><a href="#sql-syntax"><b>SQL Syntax</b></a></li>
-                                <ul><ul><ul><ul><ul>
-                                    <li><b>Database Management</b></li>
-                                        <ul>
-                                            <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li>
-                                        </ul>
-                                    <li><b>Data CRUD Operations</b></li>
-                                        <ul>
-                                            <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li>
-                                        </ul>
-                                    <li><b>Data Integrity Protection</b></li>
-                                        <ul>
-                                            <li><b>Constraint</b></li>
-                                                <ul>
-                                                    <li><code>PRIMARY KEY</code>, <code>REFERENCES</code>, <code>CHECK</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, <code>ON DELETE</code></li>
-                                                </ul>
-                                            <li><b>Transaction Management</b></li>
-                                                <ul>
-                                                    <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
-                                                </ul>
-                                            <li><b>Trigger</b></li>
-                                                <ul>
-                                                    <li><code>CREATE TRIGGER</code>, <code>CREATE FUNCTION</code>, <code>BEFORE/AFTER event</code>, <code>$$string_constant$$</code></li>
-                                                </ul>
-                                        </ul>
-                                    <li><b>Aggregate Queries</b></li>
-                                        <ul>
-                                            <li><code>MIN</code>, <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>GROUP BY</code></li>
-                                        </ul>
-                                    <li><b>User Access Control</b></li>
-                                        <ul>
-                                            <li><code>ROLE</code>, <code>GRANT</code>, <code>REVOKE</code></li>
-                                        </ul>
-                                    <li><b>Join</b></li>
-                                        <ul>
-                                            <li><code>JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code></li>
-                                        </ul>
-                                </ul></ul></ul></ul></ul>
-                </ul>
-            </details>
-            </li>
-            <li><details><summary>Cassandra</summary>
-                <ul>
-                    <li><a href="#fundamentals-cassandra"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><a href="#concepts-cassandra"><b>Concepts</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>Masterless interconnected independent nodes</li>
-                                    <li>Query oriented denormalized data format</li>
-                                    <li>Per request tunable consistency</li>
-                                    <li>Last write wins eventual consistency</li>
-                                    <li>Rows with optional fields</li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#terminologies-cassandra"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                        <b><ins>K</ins></b>eyspace,
-                                        <b><ins>T</ins></b>able,
-                                        <b><ins>P</ins></b>artition,
-                                        <b><ins>R</ins></b>eplication factor,
-                                        <b><ins>C</ins></b>onsistency levels,
-                                        <b><ins>P</ins></b>rimary key,
-                                        <b><ins>P</ins></b>artition key,
-                                        <b><ins>C</ins></b>omposite partition key,
-                                        <b><ins>C</ins></b>lustering key,
-                                        <b><ins>C</ins></b>oordinator,
-                                        <b><ins>P</ins></b>artitioner,
-                                        <b><ins>G</ins></b>ossip protocol,
-                                        <b><ins>L</ins></b>ightweight transactions
-                                </ul></ul></ul></ul>
-                        </ul>
-                    <li><a href="#cql-syntax"><b>CQL Syntax</b></a></li>
-                                <ul><ul><ul><ul><ul>
-                                    <li><b>Keyspace Management</b></li>
-                                        <ul>
-                                            <li><code>CREATE</code>, <code>USE</code>, <code>DROP</code></li>
-                                        </ul>
-                                    <li><b>Table Management</b></li>
-                                        <ul>
-                                            <li><code>CREATE</code>, <code>ALTER</code>, <code>DELETE</code></li>
-                                        </ul>
-                                    <li><b>Data CRUD Operations</b></li>
-                                        <ul>
-                                            <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>USING TTL</code>, <code>DELETE</code></li>
-                                        </ul>
-                                    <li><b>Misc</b></li>
-                                        <ul>
-                                            <li><code>CREATE TYPE/INDEX</code>, <code>BEGIN/APPLY BATCH</code></li>
-                                        </ul>
-                                </ul></ul></ul></ul></ul>
-                </ul>
-            </details>
-            </li>
-            <li><details><summary>Redis</summary>
-                <ul>
-                    <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><a href="#key-features-redis"><b>Key Features</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>RAM In-memory Datastore</li>
-                                    <li>Data Structure Store</li>
-                                    <li>Atomic Operations</li>
-                                    <li>Pub/sub</li>
-                                    <li>Optional Persistence</li>
-                                </ul></ul></ul></ul>
-                            <!-- <li><a href="#concepts-redis"><b>Concepts</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>Eviction Policies</li>
-                                </ul></ul></ul></ul> -->
-                        </ul>
-                    <li><a href="#use-cases-redis"><b>Use Cases</b></a></li>
-                        <ul><ul><ul><ul><ul>
-                            <li>Caching</li>
-                            <li>Session Store</li>
-                            <li>Rate Limiting</li>
-                            <li>Real-Time Analytics</li>
-                            <li>Event-Driven Message Queues</li>
-                            <li>Location-Based Services</li>
-                        </ul></ul></ul></ul></ul>
-                </ul>
-            </details>
-            </li>
-            <li><details><summary>MongoDB</summary>
-                <ul>
-                    <li><a href="#fundamentals-mongodb"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><a href="#key-features-mongodb"><b>Key Features</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>Optional Schema</li>
-                                    <li>Aggregation Pipelines</li>
-                                    <li>Relationship options: Embed vs. Reference</li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#terminologies-mongodb"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>Collection, Document, BSON, mongosh</li>
-                                </ul></ul></ul></ul>
-                        </ul>
-                </ul>
-            </details>
-            </li>
-        </ul>
-</ul>
-
-* **Databases - Fundamentals**
-    * **Concepts**
-        * **[Indexing](#indexing)**
-        * **[Sharding](#sharding)**
-        * **[Normalization](#normalization)**
-            * 1NF, 2NF, 3NF
-            * vs Denormalization
-    * **Relational**
     <!-- * Non-relational
         * Key-value pair
         * Document-oriented
         * Column-oriented
         * Graph-based
         * Time series -->
-    * **SQL vs NoSQL**
+    <!-- * **SQL vs NoSQL**
     * **[ACID vs BASE transaction](#acid-vs-base-transaction)**
         * **[ACID](#acid)**
             * **[Isolation Levels vs Read Phenomena](#isolation-levels-vs-read-phenomena)**
@@ -423,11 +246,197 @@
                 <b><ins>C</ins></b>heckpointing,
                 <b><ins>S</ins></b>hadow paging,
                 <b><ins>L</ins></b>ocking,
-                <b><ins>M</ins></b>ulti-versioning
-        * **[BASE](#base)**
-    * **Terminologies**
-
-<ul>
+                <b><ins>M</ins></b>ulti-versioning -->
+            <li><details><summary>Fundamentals</summary>
+                <ul>
+                    <li><a href="#concepts-databases"><b>Concepts</b></a></li>
+                        <ul><ul><ul><ul>
+                            <li>
+                                <b><ins>I</ins></b>ndexing,
+                                <b><ins>S</ins></b>harding, 
+                                <b><ins>R</ins></b>elational,
+                                <b><ins>A</ins></b>CID,
+                                <b><ins>B</ins></b>ASE,
+                                <b><ins>N</ins></b>ormalization,
+                                <b><ins>D</ins></b>enormalization
+                            </li>
+                        </ul></ul></ul></ul>
+                    <li><b>Terminologies</b></li>
+                        <ul><ul><ul><ul>
+                            <li></li>
+                        </ul></ul></ul></ul>
+                </ul>
+            </details>
+            </li>
+            <li><b>Popular Databases</b></li>
+                <ul>
+                    <li><details><summary>PostgreSQL</summary>
+                        <ul>
+                            <li><a href="#fundamentals-postgresql"><b>Fundamentals</b></a></li>
+                                <ul>
+                                    <li><a href="#concepts-postgresql"><b>Concepts</b></a></li>
+                                        <ul><ul><ul><ul>
+                                            <li>Table Inheritance</li>
+                                            <li>User-defined Data Types</li>
+                                        </ul></ul></ul></ul>
+                                    <li><a href="#terminologies-postgresql"><b>Terminologies</b></a></li>
+                                        <ul><ul><ul><ul>
+                                            <li>
+                                                <b><ins>P</ins></b>rimary key,
+                                                <b><ins>C</ins></b>omposite primary key,
+                                                <b><ins>F</ins></b>oreign key,
+                                                <b><ins>V</ins></b>iew,
+                                                <b><ins>M</ins></b>aterialized view,
+                                                <b><ins>S</ins></b>tored procedure,
+                                                <b><ins>A</ins></b>ggregate & window functions
+                                            </li>
+                                            <li><b>Tools:</b></li>
+                                                <ul>
+                                                    <li><b>p</b>sql, <b>p</b>gAdmin</li>
+                                                </ul>
+                                        </ul></ul></ul></ul>
+                                </ul>
+                            <li><a href="#sql-syntax"><b>SQL Syntax</b></a></li>
+                                        <ul><ul><ul><ul><ul>
+                                            <li><b>Database Management</b></li>
+                                                <ul>
+                                                    <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li>
+                                                </ul>
+                                            <li><b>Data CRUD Operations</b></li>
+                                                <ul>
+                                                    <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li>
+                                                </ul>
+                                            <li><b>Data Integrity Protection</b></li>
+                                                <ul>
+                                                    <li><b>Constraint</b></li>
+                                                        <ul>
+                                                            <li><code>PRIMARY KEY</code>, <code>REFERENCES</code>, <code>CHECK</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, <code>ON DELETE</code></li>
+                                                        </ul>
+                                                    <li><b>Transaction Management</b></li>
+                                                        <ul>
+                                                            <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
+                                                        </ul>
+                                                    <li><b>Trigger</b></li>
+                                                        <ul>
+                                                            <li><code>CREATE TRIGGER</code>, <code>CREATE FUNCTION</code>, <code>BEFORE/AFTER event</code>, <code>$$string_constant$$</code></li>
+                                                        </ul>
+                                                </ul>
+                                            <li><b>Aggregate Queries</b></li>
+                                                <ul>
+                                                    <li><code>MIN</code>, <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>GROUP BY</code></li>
+                                                </ul>
+                                            <li><b>User Access Control</b></li>
+                                                <ul>
+                                                    <li><code>ROLE</code>, <code>GRANT</code>, <code>REVOKE</code></li>
+                                                </ul>
+                                            <li><b>Join</b></li>
+                                                <ul>
+                                                    <li><code>JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code></li>
+                                                </ul>
+                                        </ul></ul></ul></ul></ul>
+                        </ul>
+                    </details>
+                    </li>
+                    <li><details><summary>Cassandra</summary>
+                        <ul>
+                            <li><a href="#fundamentals-cassandra"><b>Fundamentals</b></a></li>
+                                <ul>
+                                    <li><a href="#concepts-cassandra"><b>Concepts</b></a></li>
+                                        <ul><ul><ul><ul>
+                                            <li>Masterless interconnected independent nodes</li>
+                                            <li>Query oriented denormalized data format</li>
+                                            <li>Per request tunable consistency</li>
+                                            <li>Last write wins eventual consistency</li>
+                                            <li>Rows with optional fields</li>
+                                        </ul></ul></ul></ul>
+                                    <li><a href="#terminologies-cassandra"><b>Terminologies</b></a></li>
+                                        <ul><ul><ul><ul>
+                                                <b><ins>K</ins></b>eyspace,
+                                                <b><ins>T</ins></b>able,
+                                                <b><ins>P</ins></b>artition,
+                                                <b><ins>R</ins></b>eplication factor,
+                                                <b><ins>C</ins></b>onsistency levels,
+                                                <b><ins>P</ins></b>rimary key,
+                                                <b><ins>P</ins></b>artition key,
+                                                <b><ins>C</ins></b>omposite partition key,
+                                                <b><ins>C</ins></b>lustering key,
+                                                <b><ins>C</ins></b>oordinator,
+                                                <b><ins>P</ins></b>artitioner,
+                                                <b><ins>G</ins></b>ossip protocol,
+                                                <b><ins>L</ins></b>ightweight transactions
+                                        </ul></ul></ul></ul>
+                                </ul>
+                            <li><a href="#cql-syntax"><b>CQL Syntax</b></a></li>
+                                        <ul><ul><ul><ul><ul>
+                                            <li><b>Keyspace Management</b></li>
+                                                <ul>
+                                                    <li><code>CREATE</code>, <code>USE</code>, <code>DROP</code></li>
+                                                </ul>
+                                            <li><b>Table Management</b></li>
+                                                <ul>
+                                                    <li><code>CREATE</code>, <code>ALTER</code>, <code>DELETE</code></li>
+                                                </ul>
+                                            <li><b>Data CRUD Operations</b></li>
+                                                <ul>
+                                                    <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>USING TTL</code>, <code>DELETE</code></li>
+                                                </ul>
+                                            <li><b>Misc</b></li>
+                                                <ul>
+                                                    <li><code>CREATE TYPE/INDEX</code>, <code>BEGIN/APPLY BATCH</code></li>
+                                                </ul>
+                                        </ul></ul></ul></ul></ul>
+                        </ul>
+                    </details>
+                    </li>
+                    <li><details><summary>Redis</summary>
+                        <ul>
+                            <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
+                                <ul>
+                                    <li><a href="#key-features-redis"><b>Key Features</b></a></li>
+                                        <ul><ul><ul><ul>
+                                            <li>RAM In-memory Datastore</li>
+                                            <li>Data Structure Store</li>
+                                            <li>Atomic Operations</li>
+                                            <li>Pub/sub</li>
+                                            <li>Optional Persistence</li>
+                                        </ul></ul></ul></ul>
+                                    <!-- <li><a href="#concepts-redis"><b>Concepts</b></a></li>
+                                        <ul><ul><ul><ul>
+                                            <li>Eviction Policies</li>
+                                        </ul></ul></ul></ul> -->
+                                </ul>
+                            <li><a href="#use-cases-redis"><b>Use Cases</b></a></li>
+                                <ul><ul><ul><ul><ul>
+                                    <li>Caching</li>
+                                    <li>Session Store</li>
+                                    <li>Rate Limiting</li>
+                                    <li>Real-Time Analytics</li>
+                                    <li>Event-Driven Message Queues</li>
+                                    <li>Location-Based Services</li>
+                                </ul></ul></ul></ul></ul>
+                        </ul>
+                    </details>
+                    </li>
+                    <li><details><summary>MongoDB</summary>
+                        <ul>
+                            <li><a href="#fundamentals-mongodb"><b>Fundamentals</b></a></li>
+                                <ul>
+                                    <li><a href="#key-features-mongodb"><b>Key Features</b></a></li>
+                                        <ul><ul><ul><ul>
+                                            <li>Optional Schema</li>
+                                            <li>Aggregation Pipelines</li>
+                                            <li>Relationship options: Embed vs. Reference</li>
+                                        </ul></ul></ul></ul>
+                                    <li><a href="#terminologies-mongodb"><b>Terminologies</b></a></li>
+                                        <ul><ul><ul><ul>
+                                            <li>Collection, Document, BSON, mongosh</li>
+                                        </ul></ul></ul></ul>
+                                </ul>
+                        </ul>
+                    </details>
+                    </li>
+                </ul>
+        </ul>
     <li><b>DevOps</b></li>
         <ul>
             <li><a href="#terminologies-devops"><b>Terminologies</b></a></li>
@@ -486,7 +495,7 @@
             </details>
             </li>
         </ul>
-  </li>
+    </li>
 </ul>
 
 * **Architectural Patterns**
@@ -799,20 +808,173 @@ Bucket/Object Lifecycle rules automate the storage class optimization process to
 ---
 
 # Databases
-## PostgreSQL
-<h3 id="fundamentals-postgresql">Fundamentals</h3>
+
+<h2 id="fundamentals-databases">Fundamentals</h2>
+<h3 id="concepts-databases">Concepts</h3>
+
+#### Indexing
+Speeding up search queries by creating a search optimized data structure to avoid scanning the entire dataset, but will cost additional disk storage and slow down data inserts/updates/deletes.
+
+* **Index Types**
+    * **B-Tree:** Most common index using a self-balancing tree that maintains sorted data. Each node contains an ordered array of keys and pointers, structured to minimize disk reads.
+    * **Geosptail index:** Location data search
+    * **Hash index:** In-memory exact matching
+    * **Inverted index:** Full text search
+
+#### Sharding
+Splitting data into multiple servers to avoid exponential cost of vertical scaling of a single machine.
+
+* **Sharding Types**
+    * **Range-based sharding:** Using specifics data ranges or intervals to split rows, such as a range of dates, numeric values, or alphanumeric identifiers.
+    * **Hash-based sharding:** Using a hash function to use the hash value as the identifier to allocate data to the appropriate shard.
+    * **Directory-based sharding:** Using a lookup table to map sharding keys to shard locations.
+    * **Geo-based sharding:** Using location or proximity to group data to a single shard. Essentially ranged sharding where the shard key contains geographic information and the shards themselves are geo-located.
+
+#### Normalization
+Data organization to minimize data redundancy and improve data integrity by breaking down tables into smaller tables for easier database maintenance. Increasing normalization level improves data integrity, but it is not common to go above 3NF.
+
+* **1NF - First normal form:**
+    * Each row is uniquely identifiable with a primary key.
+    * Each column represents unique characteristic or attribute type of the entity. i.e. For table `Product`, instead of having `Vendor1`, `Vendor2`, `Vendor3` and so on to list vendors for a product, only one `Vendor` column should be used.
+    * Each cell holds a single, indivisible piece of data. i.e. Full name `John Doe` in `Name` column should be broken down into `John` and `Doe` to get saved in `First name` and `Last name` columns respectively.
+
+* **2NF:**
+Columns must be dependent on the entire primary key.
+
+* **3NF:**
+Columns must be **ONLY** dependent on the entire primary key, so columns should be independent of each other. Columns affected by a non-primary key column needs to be moved to a different table.
+
+##### vs Denormalization
+In certain read-heavy applications, denormalization could be more suitable when performance and query speed are more critical than data integrity.
+
+#### Relational
+
+* **Key:** What makes the row unique and separates from other rows. Key is a 'type of index'. Key should be:
+    * Unique
+    * Never changing
+    * Never `Null`
+    
+* **Natural Key:** Unique identifier not artificially generated. i.e. email in User table. No need to have a separate col for keys.
+
+#### ACID vs BASE transaction
+
+* **Transaction:** A single unit of work. A sequence of one or more database operations treated as a single, indivisible unit. Must complete a transaction fully for the database to remain consistent.
+
+|                  |       ACID        |        BASE        |
+| ---------------- | ----------------- | ------------------ |
+| **Priority**     | Consistency over availability | Availability & scalability over consistency |
+| **Use cases**    | Financial & healthcare databases for high data integrity & data accuracy. | Social media platforms for high availability |
+
+##### ACID
+* **Atomicity:** All transactions must succeed or fail completely as a unit. A transaction cannot be partially complete. Ensure data integrity and consistency by either committing all changes or rolling them back if an error occurs.
+* **Consistency:** A transaction will keep data integrity by only making changes adhering to predefined constraints, rules, and relationships.
+* **Isolation:** Each transaction is executed in isolation from other transactions, ensuring no interference.
+* **Durability:** Changes from a committed transaction are permanent and won’t be lost.
+
+###### Isolation Levels vs Read Phenomena
+A trade-off of consistency vs performance. Higher isolation level reduces the number of concurrency effects, but increases the chances that one transaction will block another.
+
+<table>
+    <tr>
+        <th>Read <ins>Phenomena→</ins><br>Isolation LVL↓</th>
+        <th>Dirty read</th>
+        <th>Non-repeatable read</th>
+        <th>Phantom read</th>
+    </tr>
+    <tr>
+        <td><b>Serializable</b></td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><b>Repeatable read</b></td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><b>Read committed</b></td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><b>Read uncommitted</b></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+</table>
+
+###### Read Phenomena
+* <b>Dirty read: </b><br>Reading data not yet commited by another transaction.
+* <b>Non-repeatable read: </b><br>Reading the same row twice returns different values because another transaction commited the row modification.
+* <b>Phantom read: </b><br>Different results from the same two queries because another transaction commited a row insertion or deletion.
+
+###### Isolation Levels
+* <b>Read uncommitted: </b><br>Can read uncommited changes. The highest performance but the lowest isolation level.
+* <b>Read committed: </b><br>Only allow commited data read.
+* <b>Repeatable read: </b><br>Any data read during the transaction remains unchanged, even if other transactions commit changes to the data. Read and write locks acquired until the end of the transaction.
+* <b>Serializable: </b><br>Execute the transaction as if it were the only transaction in the system. In addition to read and write locks, range locks acquired when using `WHERE` range clause to prevent a phantom read. The highest isolation level to prevent all anomalies.
+
+###### ACID Compliance Strategies
+
+<!-- <b><ins>W</ins></b>rite-ahead logging,
+<b><ins>C</ins></b>heckpointing,
+<b><ins>S</ins></b>hadow paging,
+<b><ins>L</ins></b>ocking,
+<b><ins>M</ins></b>ulti-versioning -->
+
+<table>
+    <tr>
+        <td><b>Write Ahead Logging</b></td>
+        <td>All modifications are written to a log before they are applied. Allow transactions to be reconstructed from the log in case of a crash.</td>
+    </tr>
+    <tr>
+        <td><b>Check-<br>pointing</b></td>
+        <td>Process of saving changes in the buffer cache memory to the disk to create a checkpoint. Also uses transaction logs since the last checkpoint for a quick recovery in the event of a system crash.</td>
+    </tr>
+    <tr>
+        <td><b>Shadow<br>paging</b></td>
+        <td>Creating a copy of the database’s page table and making all changes to the new page. Then, the new page table replaces the old one.</td>
+    </tr>
+    <tr>
+        <td><b>Locking</b></td>
+        <td>A transaction will mark the relevant data as locked, so other transactions will have to wait for the data access. This can create delays when other transactions need to access the affected data.</td>
+    </tr>
+    <tr>
+        <td><b>Multi-<br>versioning</b></td>
+        <td>For writing, deleting, or updating transactions, creating multiple versions of the data for ACID compliance.</td>
+    </tr>
+</table>
+
+##### BASE
+* **Basically available:** High availability by distributing data across different nodes.
+* **Soft state:** Intermediate states can exist before a consistent state. Data consistency handled by developers.
+* **Eventually consistent:** Given enough time, all nodes will have the same data eventually.
+
+<h3 id="terminologies-databases">Terminologies</h3>
+
+* **Entity:** What we store. (Like object class)
+* **Attribute:** Things about the entity (Like object property)
+* **DBMS:** Database Management System. Allow Filter/search data using query
+
+## Popular Databases
+### PostgreSQL
+<h4 id="fundamentals-postgresql">Fundamentals</h4>
 
 * Object-Relational Database Management System (ORDBMS) that combines traditional RDBMS with object-oriented concepts such as inheritance.
 * Supports both relational (SQL) and non-relational (JSON) queries.
 
-<h4 id="concepts-postgresql">Concepts</h4>
+<h5 id="concepts-postgresql">Concepts</h5>
 
 * **Table Inheritance:** Inherits all columns from parent table.
     * **Big limitation:** Constraints are **not** inherited. Indexes (including unique constraints) and foreign key constraints don't work with inheritance.
         * i.e. For tables Parent, Child (which inherits Parent), and Foo, and Foo having a foreign key on Parent.id, then adding a row to Child, and trying to insert a row into Foo, referencing Child's ID will fail, even though that ID is in the Parent table. The foreign keys only work on the direct table it references as it'll only find rows in that table exactly.
 * **User-defined Data Types:** In addition to the native data types, custom data types can be created using `CREATE DOMAIN` or `CREATE TYPE`.
 
-<h4 id="terminologies-postgresql">Terminologies</h4>
+<h5 id="terminologies-postgresql">Terminologies</h5>
 
 * **Primary key:** A column that uniquely identifies each row.
 * **Composite primary key:** A combination of columns that uniquely identifies each row.
@@ -827,9 +989,9 @@ Bucket/Object Lifecycle rules automate the storage class optimization process to
     * **psql:** CLI tool to enter SQL queries or commands to PostgreSQL database.
     * **pgAdmin:** GUI tool to manage PostgreSQL database.
 
-<h3 id="sql-syntax">SQL Syntax</h3>
+<h4 id="sql-syntax">SQL Syntax</h4>
 
-#### Database Management
+##### Database Management
 
 ```sql
 CREATE TABLE my_table (
@@ -848,7 +1010,7 @@ TRUNCATE TABLE my_table;
 DROP TABLE my_table;
 ```
 
-#### Data CRUD Operations
+##### Data CRUD Operations
 ```sql
 -- Create
 INSERT INTO my_table (col1, col2, col3)
@@ -871,8 +1033,8 @@ DELETE FROM my_table
 WHERE col1 = 'My Condition';
 ```
 
-#### Data Integrity Protection
-##### Constraint
+##### Data Integrity Protection
+###### Constraint
 ```sql
 CREATE TABLE my_user (
   user_id SERIAL PRIMARY KEY,
@@ -887,7 +1049,7 @@ CREATE TABLE my_child (
 );
 ```
 
-##### Transaction Management
+###### Transaction Management
 
 ```sql
 -- Transaction inserting values 1 and 3, but not 2.
@@ -902,7 +1064,7 @@ BEGIN;
 COMMIT;
 ```
 
-##### Trigger
+###### Trigger
 
 ```sql
 CREATE TRIGGER my_trigger
@@ -942,7 +1104,7 @@ $$
 LANGUAGE plpgsql;
 ```
 
-#### Aggregate Queries
+##### Aggregate Queries
 
 ```sql
 SELECT
@@ -954,7 +1116,7 @@ FROM my_products_table
 GROUP BY category;
 ```
 
-#### User Access Control
+##### User Access Control
 * Manage permissions & rights to control access to data
 
 ```sql
@@ -968,7 +1130,7 @@ REVOKE UPDATE ON my_table
 FROM my_role;
 ```
 
-#### Misc
+##### Misc
 
 ```sql
 -- casting
@@ -977,12 +1139,12 @@ FROM my_role;
 
 * **Dollar-Quoted String Constants:** Can use `$Tag$It's working$Tag$` instead of `'It''s working'`. For better readability, dollar signs can be used to avoid double single quotes. The tag is optional, but can be used to provide additional context like `$uuid$ext_data$uuid$`. Nesting constants with different tags is also possible.
 
-## Cassandra
-<h3 id="fundamentals-cassandra">Fundamentals</h3>
+### Cassandra
+<h4 id="fundamentals-cassandra">Fundamentals</h4>
 
 * Distributed NoSQL no single point of failure database with denormalized data. Database to consider when needing a very high write throughput, prioritizing availability over consistency, and not needing advanced query patterns (such as `JOIN`) or adhoc aggregations.
 
-<h4 id="concepts-cassandra">Concepts</h4>
+<h5 id="concepts-cassandra">Concepts</h5>
 
 * **Masterless interconnected independent nodes:** No single point of failure achieved by having each node performing the same functions and independently accepting read and write requests regardless of where the data is actually located in the cluster.
 * **Query oriented denormalized data format:** A single table should fulfill a query, so all desired data in a denormalized form must be in a single table. UI & UX have a heavy influence on how data gets modeled. Unlike RDBMS, `JOIN` is not provided at the database level, so data merging should happen at the application level if needed.
@@ -991,7 +1153,7 @@ FROM my_role;
 * **Rows with optional fields:** Rows are identifiable with primary keys, and rows can omit columns as row data is stored in key/value pairs internally where `key = column name` & `value = cell data`.
 * **Rows saved together by partition key:** For optimal data retrieval, all rows with the same partition key are stored in the same node.
 
-<h4 id="terminologies-cassandra">Terminologies</h4>
+<h5 id="terminologies-cassandra">Terminologies</h5>
 
 * **Keyspace:** Contains tables like RDBMS database. Defines how a dataset is replicated, per datacenter. Replication is the number of copies saved per cluster, and it is controlled on a per-keyspace basis.
 * **Table:** Defines the typed schema. Tables contain partitions, which contain rows, which contain columns. Can flexibly add new columns to tables with zero downtime.
@@ -1009,13 +1171,13 @@ FROM my_role;
 * **Gossip protocol:** Nodes periodically exchange state information about themselves and about other nodes they know about using the protocol.
 * **Lightweight transactions:** Conditional update operations using `IF EXISTS` or `IF NOT EXISTS`
 
-<h3 id="cql-syntax">CQL Syntax</h3>
+<h4 id="cql-syntax">CQL Syntax</h4>
 
 * Primary key has partition key(s) first and then has optional clustering key(s).
 * Columns used in the `where` clause should follow the same order as the columns defined in the primary key.
 * All performant queries must include all partition key columns.
 
-#### Keyspace Management
+##### Keyspace Management
 ```sql
 CREATE KEYSPACE my_keyspace
 WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
@@ -1025,7 +1187,7 @@ DESCRIBE KEYSPACES;
 DROP KEYSPACE my_keyspace;
 ```
 
-#### Table Management
+##### Table Management
 ```sql
 CREATE TABLE my_table ( 
   partition_k1 text,
@@ -1042,7 +1204,7 @@ ALTER TABLE my_table ADD new_col int;
 DELETE TABLE my_table;
 ```
 
-#### Data CRUD Operations
+##### Data CRUD Operations
 ```sql
 -- Create
 INSERT INTO my_table (partition_k1, partition_k2, clust_k)
@@ -1065,7 +1227,7 @@ FROM my_table
 WHERE partition_k1 = 'par_k1' AND partition_k2 = 'par_k2' AND clust_k = 123;
 ```
 
-#### Misc
+##### Misc
 ```sql
 CREATE TYPE full_name (
   first_name text,
@@ -1093,11 +1255,11 @@ APPLY BATCH
 * Consider understanding partition size limitations, cost of data consistency. partitions must be sized within certain limits. duplicate data in tables must be considered as well for resulting in performance latency during writes.
 * The primary key is defined when the table is created and cannot be altered. The size of the partitions, the order of the data within partitions, the distribution of the partitions among the nodes of the cluster — you must consider all of these when selecting the table's primary key. -->
 
-## Redis
-<h3 id="fundamentals-redis">Fundamentals</h3>
+### Redis
+<h4 id="fundamentals-redis">Fundamentals</h4>
 Redis (REmote DIctionary Server) is a data structure server. It is a key-value in-memory store commonly used for caching as it leverages the speed of memory to complement other DBMS with data persistence, but Redis can persist data as well if needed.
 
-<h4 id="key-features-redis">Key Features</h4>
+<h5 id="key-features-redis">Key Features</h5>
 
 * **RAM In-memory Datastore:** Fast data access speed for storing in RAM instead of storing on disk.
 * **Data Structure Store:** Can use native data types to store data. i.e. `String`, `HashMap`, `List`, `Set`
@@ -1112,7 +1274,7 @@ Redis (REmote DIctionary Server) is a data structure server. It is a key-value i
     * **LRU (Least Recently Used):** Removes the least recently accessed items.
     * **LFU (Least Frequently Used):** Removes items based on access frequency. -->
 
-<h3 id="use-cases-redis">Use Cases</h3>
+<h4 id="use-cases-redis">Use Cases</h4>
 
 * **Caching:** Reducing database loads by storing frequently accessed data in memory.
 * **Session Store:** Manage user sessions and authentication tokens, reducing overhead on DBMS.
@@ -1121,11 +1283,11 @@ Redis (REmote DIctionary Server) is a data structure server. It is a key-value i
 * **Event-Driven Message Queues:** Act as a broker for real-time message delivery with its Pub/Sub features.
 * **Location-Based Services:** Geospatial data structure can be used for storing and querying location data.
 
-## MongoDB
-<h3 id="fundamentals-mongodb">Fundamentals</h3>
+### MongoDB
+<h4 id="fundamentals-mongodb">Fundamentals</h4>
 NoSQL database storing data in a JSON-like format.
 
-<h4 id="key-features-mongodb">Key Features</h4>
+<h5 id="key-features-mongodb">Key Features</h5>
 
 * **Optional Schema:** Often known as a schema-less db, but a schema can be added to a collection if needed.
 * **Aggregation Pipelines:** Similar to SQL's `GROUP BY`. Select and process multiple documents to get computed results. Operations such as filtering, grouping, and sorting are used to create a data analysis pipeline.
@@ -1133,162 +1295,12 @@ NoSQL database storing data in a JSON-like format.
     * **Embed:** Store related data in the same document (faster reads).
     * **Reference:** Store ObjectIDs to avoid redundancy (normalized like RDBMS).
 
-<h4 id="terminologies-mongodb">Terminologies</h4>
+<h5 id="terminologies-mongodb">Terminologies</h5>
 
 * **Collection:** A group of documents. Similar to a table in RDBMS.
 * **Document:** JSON-like basic unit of data. Will have a unique ID `_id`field and uses `BSON` format.
 * **`BSON`:** The binary representation of JSON primarily used for data storage.
 * **`mongosh`:** MongoDB Shell is a CLI to connect and interact with MongoDB databases.
-
----
-
-# Databases - Fundamentals
-## Indexing
-Speeding up search queries by creating a search optimized data structure to avoid scanning the entire dataset, but will cost additional disk storage and slow down data inserts/updates/deletes.
-
-* **Index Types**
-    * **B-Tree:** Most common index using a self-balancing tree that maintains sorted data. Each node contains an ordered array of keys and pointers, structured to minimize disk reads.
-    * **Geosptail index:** Location data search
-    * **Hash index:** In-memory exact matching
-    * **Inverted index:** Full text search
-
-## Sharding
-Splitting data into multiple servers to avoid exponential cost of vertical scaling of a single machine.
-
-* **Sharding Types**
-    * **Range-based sharding:** Using specifics data ranges or intervals to split rows, such as a range of dates, numeric values, or alphanumeric identifiers.
-    * **Hash-based sharding:** Using a hash function to use the hash value as the identifier to allocate data to the appropriate shard.
-    * **Directory-based sharding:** Using a lookup table to map sharding keys to shard locations.
-    * **Geo-based sharding:** Using location or proximity to group data to a single shard. Essentially ranged sharding where the shard key contains geographic information and the shards themselves are geo-located.
-
-## Normalization
-Data organization to minimize data redundancy and improve data integrity by breaking down tables into smaller tables for easier database maintenance. Increasing normalization level improves data integrity, but it is not common to go above 3NF.
-
-* **1NF - First normal form:**
-    * Each row is uniquely identifiable with a primary key.
-    * Each column represents unique characteristic or attribute type of the entity. i.e. For table `Product`, instead of having `Vendor1`, `Vendor2`, `Vendor3` and so on to list vendors for a product, only one `Vendor` column should be used.
-    * Each cell holds a single, indivisible piece of data. i.e. Full name `John Doe` in `Name` column should be broken down into `John` and `Doe` to get saved in `First name` and `Last name` columns respectively.
-
-* **2NF:**
-Columns must be dependent on the entire primary key.
-
-* **3NF:**
-Columns must be **ONLY** dependent on the entire primary key, so columns should be independent of each other. Columns affected by a non-primary key column needs to be moved to a different table.
-
-### vs Denormalization
-In certain read-heavy applications, denormalization could be more suitable when performance and query speed are more critical than data integrity.
-
-## Relational
-
-* **Key:** What makes the row unique and separates from other rows. Key is a 'type of index'. Key should be:
-    * Unique
-    * Never changing
-    * Never `Null`
-    
-* **Natural Key:** Unique identifier not artificially generated. i.e. email in User table. No need to have a separate col for keys.
-
-#### Terminologies
-* **Entity:** What we store. (Like object class)
-* **Attribute:** Things about the entity (Like object property)
-* **DBMS:** Database Management System. Allow Filter/search data using query
-
-
-
-<!-- ## Non-relational
-
-* A master-replica architecture
-
-### Key-value pair
-### Document-oriented
-### Column-oriented
-### Graph-based
-### Time series -->
-
-## SQL vs NoSQL
-
-## ACID vs BASE transaction
-
-* **Transaction:** A single unit of work. A sequence of one or more database operations treated as a single, indivisible unit. Must complete a transaction fully for the database to remain consistent.
-
-|                  |       ACID        |        BASE        |
-| ---------------- | ----------------- | ------------------ |
-| **Priority**     | Consistency over availability | Availability & scalability over consistency |
-| **Use cases**    | Financial & healthcare databases for high data integrity & data accuracy. | Social media platforms for high availability |
-
-### ACID
-* **Atomicity:** All transactions must succeed or fail completely as a unit. A transaction cannot be partially complete. Ensure data integrity and consistency by either committing all changes or rolling them back if an error occurs.
-* **Consistency:** A transaction will keep data integrity by only making changes adhering to predefined constraints, rules, and relationships.
-* **Isolation:** Each transaction is executed in isolation from other transactions, ensuring no interference.
-* **Durability:** Changes from a committed transaction are permanent and won’t be lost.
-
-#### Isolation Levels vs Read Phenomena
-A trade-off of consistency vs performance. Higher isolation level reduces the number of concurrency effects, but increases the chances that one transaction will block another.
-
-<table>
-    <tr>
-        <th>Read <ins>Phenomena→</ins><br>Isolation LVL↓</th>
-        <th>Dirty read</th>
-        <th>Non-repeatable read</th>
-        <th>Phantom read</th>
-    </tr>
-    <tr>
-        <td><b>Serializable</b></td>
-        <td>No</td>
-        <td>No</td>
-        <td>No</td>
-    </tr>
-    <tr>
-        <td><b>Repeatable read</b></td>
-        <td>No</td>
-        <td>No</td>
-        <td>Yes</td>
-    </tr>
-    <tr>
-        <td><b>Read committed</b></td>
-        <td>No</td>
-        <td>Yes</td>
-        <td>Yes</td>
-    </tr>
-    <tr>
-        <td><b>Read uncommitted</b></td>
-        <td>Yes</td>
-        <td>Yes</td>
-        <td>Yes</td>
-    </tr>
-</table>
-
-##### Read Phenomena
-* <b>Dirty read: </b><br>Reading data not yet commited by another transaction.
-* <b>Non-repeatable read: </b><br>Reading the same row twice returns different values because another transaction commited the row modification.
-* <b>Phantom read: </b><br>Different results from the same two queries because another transaction commited a row insertion or deletion.
-
-##### Isolation Levels
-* <b>Read uncommitted: </b><br>Can read uncommited changes. The highest performance but the lowest isolation level.
-* <b>Read committed: </b><br>Only allow commited data read.
-* <b>Repeatable read: </b><br>Any data read during the transaction remains unchanged, even if other transactions commit changes to the data. Read and write locks acquired until the end of the transaction.
-* <b>Serializable: </b><br>Execute the transaction as if it were the only transaction in the system. In addition to read and write locks, range locks acquired when using `WHERE` range clause to prevent a phantom read. The highest isolation level to prevent all anomalies.
-
-#### Compliance Strategies
-
-##### Write Ahead Logging
-All modifications are written to a log before they are applied. Allow transactions to be reconstructed from the log in case of a crash.
-
-##### Checkpointing
-Process of saving changes in the buffer cache memory to the disk to create a checkpoint. Also uses transaction logs since the last checkpoint for a quick recovery in the event of a system crash.
-
-##### Shadow paging
-Creating a copy of the database’s page table and making all changes to the new page. Then, the new page table replaces the old one.
-
-##### Locking
-A transaction will mark the relevant data as locked, so other transactions will have to wait for the data access. This can create delays when other transactions need to access the affected data.
-
-##### Multi-versioning
-For writing, deleting, or updating transactions, creating multiple versions of the data for ACID compliance.
-
-### BASE
-* **Basically available:** High availability by distributing data across different nodes.
-* **Soft state:** Intermediate states can exist before a consistent state. Data consistency handled by developers.
-* **Eventually consistent:** Given enough time, all nodes will have the same data eventually.
 
 ---
 
@@ -1532,3 +1544,6 @@ class SRE implements DevOps
 * **Data synchronization -** Data consistency & redundancy issues can happen from the monolithic system having a data store and the new microservice having it's own data store as well. Sharing or updating data will likely require a synchronizing agent between the two stores for eventual consistency.
 * **Complete refactoring -** For small applications, it might be more efficient to rewrite the whole application in microservices architecture instead of incrementally migrating it.
 
+
+<!-- * Synchronous vs Asynchronous -->
+<!-- * RabbitMQ -->
