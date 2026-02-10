@@ -7,40 +7,26 @@
 # Table of Contents
 
 <ul>
-    <li><b>Communication</b></li>
+    <li><b>Networking</b></li>
+        <ul>
+            <li><details><summary>Fundamentals</summary>
+                <ul>
+                    <li><a href="#"><b>Concepts</b></a></li>
+                        <ul><ul><ul><ul>
+                            <li>
+                            </li>
+                        </ul></ul></ul></ul>
+                    <li><b>Terminologies</b></li>
+                        <ul><ul><ul><ul>
+                            <li></li>
+                        </ul></ul></ul></ul>
+                </ul>
+            </details></li>
+            <li><b>Communication</b></li>
         <ul>
             <li><a href="#grpc">gRPC</a></li>
             <li><a href="#graphql">GraphQL</a></li>
-            <li><details><summary>Kafka (Click)</summary>
-                <ul>
-                    <li><a href="#fundamentals-kafka"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><b>Concepts</b></li>
-                                <ul><ul><ul><ul>
-                                    <li><a href="#partition-leader">Partition leader</a></li>
-                                    <li><a href="#consumer-group">Consumer group</a></li>
-                                    <li><a href="#cluster-coordinator---zookeeper-or-kraft">Cluster coordinator - Zookeeper or KRaft</a></li>
-                                    <li><a href="#schema-registry">Schema registry</a></li>
-                                    <li><a href="#data-retention-period">Data retention period</a></li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>P</ins></b>roducer,
-                                        <b><ins>C</ins></b>onsumer,
-                                        <b><ins>B</ins></b>roker,
-                                        <b><ins>C</ins></b>luster,
-                                        <b><ins>M</ins></b>essage,
-                                        <b><ins>T</ins></b>opic,
-                                        <b><ins>P</ins></b>artitions,
-                                        <b><ins>O</ins></b>ffset,
-                                        <b><ins>C</ins></b>onnectors
-                                    </li>
-                                </ul></ul></ul></ul>
-                        </ul>
-                </ul>
-            </details>
-            </li>
+        </ul>
         </ul>
     <li><b>Tools</b></li>
         <ul>
@@ -101,8 +87,7 @@
                                 </ul></ul></ul></ul>
                         </ul>
                 </ul>
-            </details>
-            </li>
+            </details></li>
         </ul>
     <li><b>Cloud</b></li>
         <ul>
@@ -213,8 +198,7 @@
                             <li><b>SAA-C03</b> Solutions Architect - Associate</li>
                         </ul>
                 </ul>
-            </details>
-            </li>
+            </details></li>
             <li><details><summary>Cloudflare</summary>
                 <ul>
                     <li><a href="#cloudflare"><b>Key Services</b></a></li>
@@ -226,8 +210,7 @@
                             </li>
                         </ul>
                 </ul>
-            </details>
-            </li>
+            </details></li>
         </ul>
     <li><b>Databases</b></li>
         <ul>
@@ -266,8 +249,7 @@
                             <li></li>
                         </ul></ul></ul></ul>
                 </ul>
-            </details>
-            </li>
+            </details></li>
             <li><b>Popular Databases</b></li>
                 <ul>
                     <li><details><summary>PostgreSQL</summary>
@@ -335,8 +317,7 @@
                                                 </ul>
                                         </ul></ul></ul></ul></ul>
                         </ul>
-                    </details>
-                    </li>
+                    </details></li>
                     <li><details><summary>Cassandra</summary>
                         <ul>
                             <li><a href="#fundamentals-cassandra"><b>Fundamentals</b></a></li>
@@ -386,8 +367,7 @@
                                                 </ul>
                                         </ul></ul></ul></ul></ul>
                         </ul>
-                    </details>
-                    </li>
+                    </details></li>
                     <li><details><summary>Redis</summary>
                         <ul>
                             <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
@@ -415,8 +395,7 @@
                                     <li>Location-Based Services</li>
                                 </ul></ul></ul></ul></ul>
                         </ul>
-                    </details>
-                    </li>
+                    </details></li>
                     <li><details><summary>MongoDB</summary>
                         <ul>
                             <li><a href="#fundamentals-mongodb"><b>Fundamentals</b></a></li>
@@ -433,9 +412,40 @@
                                         </ul></ul></ul></ul>
                                 </ul>
                         </ul>
-                    </details>
-                    </li>
+                    </details></li>
                 </ul>
+        </ul>
+    <li><b>System Design</b></li>
+        <ul>
+            <li><details><summary>Kafka (Click)</summary>
+                <ul>
+                    <li><a href="#fundamentals-kafka"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><b>Concepts</b></li>
+                                <ul><ul><ul><ul>
+                                    <li><a href="#partition-leader">Partition leader</a></li>
+                                    <li><a href="#consumer-group">Consumer group</a></li>
+                                    <li><a href="#cluster-coordinator---zookeeper-or-kraft">Cluster coordinator - Zookeeper or KRaft</a></li>
+                                    <li><a href="#schema-registry">Schema registry</a></li>
+                                    <li><a href="#data-retention-period">Data retention period</a></li>
+                                </ul></ul></ul></ul>
+                            <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>
+                                        <b><ins>P</ins></b>roducer,
+                                        <b><ins>C</ins></b>onsumer,
+                                        <b><ins>B</ins></b>roker,
+                                        <b><ins>C</ins></b>luster,
+                                        <b><ins>M</ins></b>essage,
+                                        <b><ins>T</ins></b>opic,
+                                        <b><ins>P</ins></b>artitions,
+                                        <b><ins>O</ins></b>ffset,
+                                        <b><ins>C</ins></b>onnectors
+                                    </li>
+                                </ul></ul></ul></ul>
+                        </ul>
+                </ul>
+            </details></li>
         </ul>
     <li><b>DevOps</b></li>
         <ul>
@@ -492,8 +502,7 @@
                                 </ul></ul></ul></ul>
                         </ul>
                 </ul>
-            </details>
-            </li>
+            </details></li>
         </ul>
     </li>
 </ul>
@@ -520,26 +529,15 @@
     * Sequential Convoy pattern -->
     * [Strangler Fig pattern](#strangler-fig-pattern)
 
-<!-- * To-Do
-    * Authentication
-        * JWT
-        * OAuth
-    * Server-side rendering
-        * vs Client-side rendering
-        * vs Single-page app
-        * SEO
-    * Monorepo vs Polyrepo Code Management -->
-
 ---
 
 # Other study notes
+* [Unorganized](Unorganized)
 * [Artificial Intelligence](Artificial-Intelligence)
 
 ---
 
-# Communication
-
-## Synchronous vs Asynchronous
+# Networking
 
 ## gRPC
 
@@ -552,43 +550,6 @@
 * GraphQL schema file `*.graphqls` contains all information about what a client can potentially do with a GraphQL API.
 * A single endpoint can be used to receive requests with GraphQL queries.
 * As clients can request exact data wanted, could be used to avoid REST API's over-fetching & under-fetching problems.
-
-## Kafka
-
-<h3 id="fundamentals-kafka">Fundamentals</h3>
-
-* Like a post office between a sender and receiver(s). Allows real-time data streaming and processing.
-* Often used as a message broker, allowing different software systems to communicate by sending (producing) and receiving (consuming) messages.
-* Can be used as a pub-sub and queue based messaging system.
-
-#### Concepts
-##### Partition leader
-Every partition has exactly one partition leader which handles all the read/write requests of that partition. Every partition replica resides on a different broker. Every partition follower is reading messages from the partition leader (acts like a kind of consumer) and does not serve any consumers of that partition (only the partition leader serves read/writes). When a partition leader shuts down for any reason (e.g a broker shuts down), one of it's in-sync partition followers becomes the new leader.
-
-##### Consumer group
-Consumers within a group share responsibility for processing messages. One consumer can get many partitions, but no two consumers within a group will be subscribed to the same partition to prevent the two consumers receiving the same message.
-
-##### Cluster coordinator - Zookeeper or KRaft
-Centralized service for managing metadata and coordination of distributed systems.
-Used to keep track of active brokers. Each Kafka partition has a leader broker and ZooKeeper facilates the election of the leader. Newer Kafka uses KRaft.
-
-##### Schema registry
-Data schema is needed for data serialization and deserialization. When the schema is expected to change, you must update the registry which resides in a cluster for consumers and producers to find out what schema a given message follows.
-
-##### Data retention period
-Other message queue programs delete messages after consumption. Kafka has a configurable messages retention period.
-
-<h4 id="terminologies-kafka">Terminologies</h4>
-
-* **Producer:** Services that publish/write to messages to Kafka
-* **Consumer:** Susbscribe to read/process the messages sent to Kafka
-* **Broker:** A single Kafka server that stores messages and manages distributing messages to cosumers.
-* **Cluster:** A group of interconnected brokers that work together to manage the data streams entering and leaving a Kafka system.
-* **Message:** Records the fact something happened. Also called "record" or "event". Read or write is done in the form of messages. It has a format of key/value pair & header data (meta data of topics & partitions).
-* **Topic:** Categorization used to group messagess. Based on the requirements, define topics like schema for databases. Producers send to a topic, while consumers subscribe to topics.
-* **Partitions:** For more throughput, topics are broken into several partitions, which is how a single topic can span across multiple brokers. Similar to RDBMS sharding for scaling.
-* **Offset:** A unique integer identifier assigned to each message within a specific partition, representing its position within that partition's log, and is used to track the progress of consumers.
-* **Connectors:** Used to connect to external systems such as databases, key-value stores, search indexes, and file systems to move data in/from Kafka.
 
 ---
 
@@ -1304,6 +1265,46 @@ NoSQL database storing data in a JSON-like format.
 
 ---
 
+# System Design
+## Kafka
+
+<h3 id="fundamentals-kafka">Fundamentals</h3>
+
+* Like a post office between a sender and receiver(s). Allows real-time data streaming and processing.
+* Often used as a message broker, allowing different software systems to communicate by sending (producing) and receiving (consuming) messages.
+* Can be used as a pub-sub and queue based messaging system.
+
+#### Concepts
+##### Partition leader
+Every partition has exactly one partition leader which handles all the read/write requests of that partition. Every partition replica resides on a different broker. Every partition follower is reading messages from the partition leader (acts like a kind of consumer) and does not serve any consumers of that partition (only the partition leader serves read/writes). When a partition leader shuts down for any reason (e.g a broker shuts down), one of it's in-sync partition followers becomes the new leader.
+
+##### Consumer group
+Consumers within a group share responsibility for processing messages. One consumer can get many partitions, but no two consumers within a group will be subscribed to the same partition to prevent the two consumers receiving the same message.
+
+##### Cluster coordinator - Zookeeper or KRaft
+Centralized service for managing metadata and coordination of distributed systems.
+Used to keep track of active brokers. Each Kafka partition has a leader broker and ZooKeeper facilates the election of the leader. Newer Kafka uses KRaft.
+
+##### Schema registry
+Data schema is needed for data serialization and deserialization. When the schema is expected to change, you must update the registry which resides in a cluster for consumers and producers to find out what schema a given message follows.
+
+##### Data retention period
+Other message queue programs delete messages after consumption. Kafka has a configurable messages retention period.
+
+<h4 id="terminologies-kafka">Terminologies</h4>
+
+* **Producer:** Services that publish/write to messages to Kafka
+* **Consumer:** Susbscribe to read/process the messages sent to Kafka
+* **Broker:** A single Kafka server that stores messages and manages distributing messages to cosumers.
+* **Cluster:** A group of interconnected brokers that work together to manage the data streams entering and leaving a Kafka system.
+* **Message:** Records the fact something happened. Also called "record" or "event". Read or write is done in the form of messages. It has a format of key/value pair & header data (meta data of topics & partitions).
+* **Topic:** Categorization used to group messagess. Based on the requirements, define topics like schema for databases. Producers send to a topic, while consumers subscribe to topics.
+* **Partitions:** For more throughput, topics are broken into several partitions, which is how a single topic can span across multiple brokers. Similar to RDBMS sharding for scaling.
+* **Offset:** A unique integer identifier assigned to each message within a specific partition, representing its position within that partition's log, and is used to track the progress of consumers.
+* **Connectors:** Used to connect to external systems such as databases, key-value stores, search indexes, and file systems to move data in/from Kafka.
+
+---
+
 # DevOps
 
 A set of practices, guidelines and culture designed to break down silos in IT development, operations, and security.
@@ -1475,59 +1476,6 @@ class SRE implements DevOps
 * **Over-engineering -** Just a single backend will suffice if different clients mostly make the same requests. Building the new backends can create more technical debt.
 * **Code Duplication -** Code duplication across services is highly likely without a proper planning. The new frontend-focused backend services should only contain client specific logics, and general business logics should be managed elsewhere.
 
-
-<!-- ## Gateway Routing
-### Problem context
-* 
-
-### Solution
-* 
-
-### Benefits
-* 
-
-### Issues and Considerations
-* 
-
-## Gatekeeper pattern
-### Problem context
-* 
-
-### Solution
-* 
-
-### Benefits
-* 
-
-### Issues and Considerations
-* 
-
-## Anti-corruption Layer pattern
-### Problem context
-* 
-
-### Solution
-* 
-
-### Benefits
-* 
-
-### Issues and Considerations
-* 
-
-## Sequential Convoy pattern
-### Problem context
-* 
-
-### Solution
-* 
-
-### Benefits
-* 
-
-### Issues and Considerations
-*  -->
-
 ## Strangler Fig pattern
 ### Problem context
 * Migrating a monolithic application to microservices application in a single operation introduces transformation risk and business disruption. It is extremely hard or even impossible to add new features while the app is being refactored.
@@ -1544,6 +1492,3 @@ class SRE implements DevOps
 * **Data synchronization -** Data consistency & redundancy issues can happen from the monolithic system having a data store and the new microservice having it's own data store as well. Sharing or updating data will likely require a synchronizing agent between the two stores for eventual consistency.
 * **Complete refactoring -** For small applications, it might be more efficient to rewrite the whole application in microservices architecture instead of incrementally migrating it.
 
-
-<!-- * Synchronous vs Asynchronous -->
-<!-- * RabbitMQ -->
