@@ -9,11 +9,13 @@
 <ul>
     <li><b>Networking</b></li>
         <ul>
-            <li><details><summary>Fundamentals</summary>
+            <li><details><summary>Fundamentals (Click)</summary>
                 <ul>
-                    <li><a href="#"><b>Concepts</b></a></li>
+                    <li><a href="#concepts-networking"><b>Concepts</b></a></li>
                         <ul><ul><ul><ul>
                             <li>
+                                <b><ins>O</ins></b>SI model,
+                                <b><ins>T</ins></b>CP/IP model
                             </li>
                         </ul></ul></ul></ul>
                     <li><b>Terminologies</b></li>
@@ -137,11 +139,11 @@
                             <li><a href="#terminologies-aws"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
                                     <li>
-                                        <b><ins>F</ins></b>ault domain,
                                         <b><ins>A</ins></b>RNs,
-                                        <b><ins>S</ins></b>ervice level agreement,
-                                        <b><ins>S</ins></b>ervice level indicator,
-                                        <b><ins>S</ins></b>ervice level objective,
+                                        <b><ins>F</ins></b>ault domain,
+                                        <b><ins>S</ins></b>LA,
+                                        <b><ins>S</ins></b>LI,
+                                        <b><ins>S</ins></b>LO,
                                         <b><ins>R</ins></b>ecovery point objective,
                                         <b><ins>R</ins></b>ecovery time objective
                                     </li>
@@ -417,7 +419,7 @@
         </ul>
     <li><b>System Design</b></li>
         <ul>
-            <li><details><summary>Kafka (Click)</summary>
+            <li><details><summary>Kafka</summary>
                 <ul>
                     <li><a href="#fundamentals-kafka"><b>Fundamentals</b></a></li>
                         <ul>
@@ -538,6 +540,66 @@
 ---
 
 # Networking
+
+<h2 id="fundamentals-networking">Fundamentals</h2>
+<h3 id="concepts-networking">Concepts</h3>
+
+#### OSI Model (Open Systems Interconnection)
+
+A theoretical tool serving as a conceptual guide for designing and evaluating network systems. A standardized framework to conceptualize network data flow into seven layers.
+
+<table>
+    <tr>
+        <td><b>Application<br>Layer</b></td>
+        <td>User facing application, such as a web browser or email.</td>
+    </tr>
+    <tr>
+        <td><b>Presentation<br>Layer</b></td>
+        <td>Preparing data presentable for the application layer. Responsible for translation, (de/en)cryption, and (de)compression of data.</td>
+    </tr>
+    <tr>
+        <td><b>Session<br>Layer</b></td>
+        <td>Opening and closing communication between two devices. Also adds checkpoints for faster crash recovery during a data transfer.</td>
+    </tr>
+    <tr>
+        <td><b>Transport<br>Layer</b></td>
+        <td>Break data into segments and add a header to each of the segments to ensure delivery of data units in the right order, without losses or errors.</td>
+    </tr>
+    <tr>
+        <td><b>Network<br>Layer</b></td>
+        <td>Finds the best physical path for the data to reach its destination. Responsible for speed and error handling of data transfer.<br>IPv4, IPv6</td>
+    </tr>
+    <tr>
+        <td><b>Datalink<br>Layer</b></td>
+        <td>Functions similar to the network layer, except it facilitates data transfer between two devices on the same network. Responsible for smooth inter-network communications.</td>
+    </tr>
+    <tr>
+        <td><b>Physical<br>Layer</b></td>
+        <td>Physical equipment involved in the data transfer, such as the cables and switches. Also responsible for converting the data into a bit stream and specifying the electrical, optical, and radio characteristics of the network.</td>
+    </tr>
+</table>
+
+#### TCP/IP Model
+More practical version of OSI model that forms the basis of the modern internet. Four layers which are ultimately condensed version of the seven layers model.
+
+<table>
+    <tr>
+        <td><b>Application<br>Layer</b></td>
+        <td>The applications that users interact.<br>HTTP, FTP, SMTP, POP3, SSH etc.</td>
+    </tr>
+    <tr>
+        <td><b>Transport<br>Layer</b></td>
+        <td>Establishes the connection between two devices and enables reliable data transmission.<br>TCP, UDP</td>
+    </tr>
+    <tr>
+        <td><b>Internet<br>Layer</b></td>
+        <td>Determines how data finds its path through the network. <br>IPv4, IPv6</td>
+    </tr>
+    <tr>
+        <td><b>Network<br>Access<br>Layer</b></td>
+        <td>How data is physically transmitted, for example via network cables, radio signals, or fiber optics. Ethernet or Wi-Fi</td>
+    </tr>
+</table>
 
 ## gRPC
 
