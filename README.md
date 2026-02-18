@@ -18,7 +18,7 @@
                                 <b><ins>T</ins></b>CP/IP model
                             </li>
                         </ul></ul></ul></ul>
-                    <li><b>Terminologies</b></li>
+                    <li><a href="#terminologies-networking"><b>Terminologies</b></a></li>
                         <ul><ul><ul><ul>
                             <li></li>
                         </ul></ul></ul></ul>
@@ -29,67 +29,6 @@
             <li><a href="#grpc">gRPC</a></li>
             <li><a href="#graphql">GraphQL</a></li>
         </ul>
-        </ul>
-    <li><b>Tools</b></li>
-        <ul>
-            <li><a href="#postman">Postman</a></li>
-            <li><details><summary>Kubernetes</summary>
-                <ul>
-                    <li><a href="#fundamentals-kubernetes"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><a href="#key-features-kubernetes"><b>Key Features</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>C</ins></b>ontainer orchestration,
-                                        <b><ins>S</ins></b>ervice discovery,
-                                        <b><ins>L</ins></b>oad balancing,
-                                        <b><ins>S</ins></b>elf-healing
-                                    </li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#concepts-kubernetes"><b>Concepts</b></a></li>
-                                <ul>
-                                    <li><b>Architecture</b></li>
-                                        <ul><ul><ul>
-                                            <li><b>Master node</b></li>
-                                                <ul>
-                                                    <li>
-                                                        <b><ins>e</ins></b>tcd,
-                                                        <b><ins>A</ins></b>PI server,
-                                                        <b><ins>S</ins></b>cheduler,
-                                                        <b><ins>C</ins></b>ontroller manager
-                                                    </li>
-                                                </ul>
-                                            <li><b>Worker node</b></li>
-                                                <ul>
-                                                    <li>
-                                                        <b><ins>C</ins></b>ontainer runtime,
-                                                        <b><ins>K</ins></b>ubelet,
-                                                        <b><ins>K</ins></b>ube-proxy
-                                                    </li>
-                                                </ul>
-                                        </ul></ul></ul>
-                                </ul>
-                            <li><a href="#terminologies-kubernetes"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>P</ins></b>od,
-                                        <b><ins>S</ins></b>ervice,
-                                        <b><ins>I</ins></b>ngress,
-                                        <b><ins>C</ins></b>onfigMap,
-                                        <b><ins>S</ins></b>ecret,
-                                        <b><ins>V</ins></b>olume,
-                                        <b><ins>D</ins></b>eployment,
-                                        <b><ins>S</ins></b>tatefulSet,
-                                        <b><ins>V</ins></b>irtual network
-                                    </li>
-                                    <li><b>Tools:</b></li>
-                                        <ul>
-                                            <li><b>m</b>inikube, <b>k</b>ubectl</li>
-                                        </ul>
-                                </ul></ul></ul></ul>
-                        </ul>
-                </ul>
-            </details></li>
         </ul>
     <li><b>Cloud</b></li>
         <ul>
@@ -505,6 +444,63 @@
                         </ul>
                 </ul>
             </details></li>
+            <li><details><summary>Kubernetes</summary>
+                <ul>
+                    <li><a href="#fundamentals-kubernetes"><b>Fundamentals</b></a></li>
+                        <ul>
+                            <li><a href="#key-features-kubernetes"><b>Key Features</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>
+                                        <b><ins>C</ins></b>ontainer orchestration,
+                                        <b><ins>S</ins></b>ervice discovery,
+                                        <b><ins>L</ins></b>oad balancing,
+                                        <b><ins>S</ins></b>elf-healing
+                                    </li>
+                                </ul></ul></ul></ul>
+                            <li><a href="#concepts-kubernetes"><b>Concepts</b></a></li>
+                                <ul>
+                                    <li><b>Architecture</b></li>
+                                        <ul><ul><ul>
+                                            <li><b>Master node</b></li>
+                                                <ul>
+                                                    <li>
+                                                        <b><ins>e</ins></b>tcd,
+                                                        <b><ins>A</ins></b>PI server,
+                                                        <b><ins>S</ins></b>cheduler,
+                                                        <b><ins>C</ins></b>ontroller manager
+                                                    </li>
+                                                </ul>
+                                            <li><b>Worker node</b></li>
+                                                <ul>
+                                                    <li>
+                                                        <b><ins>C</ins></b>ontainer runtime,
+                                                        <b><ins>K</ins></b>ubelet,
+                                                        <b><ins>K</ins></b>ube-proxy
+                                                    </li>
+                                                </ul>
+                                        </ul></ul></ul>
+                                </ul>
+                            <li><a href="#terminologies-kubernetes"><b>Terminologies</b></a></li>
+                                <ul><ul><ul><ul>
+                                    <li>
+                                        <b><ins>P</ins></b>od,
+                                        <b><ins>S</ins></b>ervice,
+                                        <b><ins>I</ins></b>ngress,
+                                        <b><ins>C</ins></b>onfigMap,
+                                        <b><ins>S</ins></b>ecret,
+                                        <b><ins>V</ins></b>olume,
+                                        <b><ins>D</ins></b>eployment,
+                                        <b><ins>S</ins></b>tatefulSet,
+                                        <b><ins>V</ins></b>irtual network
+                                    </li>
+                                    <li><b>Tools:</b></li>
+                                        <ul>
+                                            <li><b>m</b>inikube, <b>k</b>ubectl</li>
+                                        </ul>
+                                </ul></ul></ul></ul>
+                        </ul>
+                </ul>
+            </details></li>
         </ul>
     </li>
 </ul>
@@ -601,6 +597,8 @@ More practical version of OSI model that forms the basis of the modern internet.
     </tr>
 </table>
 
+<h3 id="terminologies-networking">Terminologies</h3>
+
 ## gRPC
 
 * Platform agnostic serialization protocol that is used to communicate between services.
@@ -612,54 +610,6 @@ More practical version of OSI model that forms the basis of the modern internet.
 * GraphQL schema file `*.graphqls` contains all information about what a client can potentially do with a GraphQL API.
 * A single endpoint can be used to receive requests with GraphQL queries.
 * As clients can request exact data wanted, could be used to avoid REST API's over-fetching & under-fetching problems.
-
----
-
-# Tools
-## Kubernetes
-<h3 id="fundamentals-kubernetes">Fundamentals</h3>
-
-Container orchestration tool to simplify managing containerized apps at scale. Offers high availability & high scalability.
-
-<h4 id="key-features-kubernetes">Key Features</h4>
-
-* **Container Orchestration:** Automatically provision, deploy, scale and manage the lifecycle of containerized applications.
-* **Service Discovery:** Applications in separate pods can communicate without knowing hard coded IP addresses.
-* **Load Balancing:** Distribute traffic across the network to improve stability and performance.
-* **Self-Healing:** Automatically replace failed containers.
-
-<h4 id="concepts-kubernetes">Concepts</h4>
-
-##### Architecture
-* **Master node** controls cluster state & worker nodes. A cluster usually has multiple master nodes.
-    * **etcd:** Cluster brain. Keeps current state of the cluster. Key value store of cluster changes for state restoration.
-    * **API server:** Cluster gateway. Entry point into the cluster. Gatekeeper for authentication.
-    * **Scheduler:** Decides which node will get the new Pod. Sends instruction to the node's kubelet to start the new pod.
-    * **Controller manager:** Keeps overview of the cluster. Detects cluster state changes such as a pod crash and attempts self healing when `current state != desired state`.
-* **Worker node** does the actual work. Each node can have multiple pods.
-    * **Container runtime:** Docker or other container application
-    * **Kubelet:** Interacts with both the container & node.
-    * **Kubelet proxy:** Forwards requests from services to pods.
-
-<h4 id="terminologies-kubernetes">Terminologies</h4>
-
-* **Pod:** An abstraction layer for container(s). Smallest unit of K8s. Each pod has an IP. New IP address on re-creation.
-* **Service:** Acts as a load balancer and a static permanent IP address attached for a pod even when the pod gets re-created.
-* **Ingress:** Component to forward requests to Service.
-* **ConfigMap:** External configuration for application. Making it easier to manage and update application settings without redeploying containers.
-* **Secret:** ConfigMap to store sensitive secret data.
-* **Volume:** Persistant storage for pods.
-* **Deployment:** Abstract template/blueprint layer for creating pods with stateless apps.
-* **StatefulSet:** Alternative of `Deployment` to replicate Stateful apps such as DBMS to manage data inconsistencies.
-* **Virtual network:** Forms the cluster for master & worker nodes to interact.
-
-* **Tools**
-    * **Minikube:** A cluster with one node with both master & worker processes. For testing cluster locally.
-    * **Kubectl:** CLI tool for K8s cluster
-
-## Postman
-
-API testing tool. Unlike `cURL` which has a CLI, Postman has a GUI to simplify creating and managing API requests.
 
 ---
 
@@ -1429,6 +1379,47 @@ class SRE implements DevOps
     * **Puppet:** Configuration management tool for server management automation.
     * **Prometheus:** Apps and infrastructure monitoring and alerting tool.
     * **Splunk:** A data (logs, metrics, events) analytics and monitoring platform.
+
+## Kubernetes
+<h3 id="fundamentals-kubernetes">Fundamentals</h3>
+
+Container orchestration tool to simplify managing containerized apps at scale. Offers high availability & high scalability.
+
+<h4 id="key-features-kubernetes">Key Features</h4>
+
+* **Container Orchestration:** Automatically provision, deploy, scale and manage the lifecycle of containerized applications.
+* **Service Discovery:** Applications in separate pods can communicate without knowing hard coded IP addresses.
+* **Load Balancing:** Distribute traffic across the network to improve stability and performance.
+* **Self-Healing:** Automatically replace failed containers.
+
+<h4 id="concepts-kubernetes">Concepts</h4>
+
+##### Architecture
+* **Master node** controls cluster state & worker nodes. A cluster usually has multiple master nodes.
+    * **etcd:** Cluster brain. Keeps current state of the cluster. Key value store of cluster changes for state restoration.
+    * **API server:** Cluster gateway. Entry point into the cluster. Gatekeeper for authentication.
+    * **Scheduler:** Decides which node will get the new Pod. Sends instruction to the node's kubelet to start the new pod.
+    * **Controller manager:** Keeps overview of the cluster. Detects cluster state changes such as a pod crash and attempts self healing when `current state != desired state`.
+* **Worker node** does the actual work. Each node can have multiple pods.
+    * **Container runtime:** Docker or other container application
+    * **Kubelet:** Interacts with both the container & node.
+    * **Kubelet proxy:** Forwards requests from services to pods.
+
+<h4 id="terminologies-kubernetes">Terminologies</h4>
+
+* **Pod:** An abstraction layer for container(s). Smallest unit of K8s. Each pod has an IP. New IP address on re-creation.
+* **Service:** Acts as a load balancer and a static permanent IP address attached for a pod even when the pod gets re-created.
+* **Ingress:** Component to forward requests to Service.
+* **ConfigMap:** External configuration for application. Making it easier to manage and update application settings without redeploying containers.
+* **Secret:** ConfigMap to store sensitive secret data.
+* **Volume:** Persistant storage for pods.
+* **Deployment:** Abstract template/blueprint layer for creating pods with stateless apps.
+* **StatefulSet:** Alternative of `Deployment` to replicate Stateful apps such as DBMS to manage data inconsistencies.
+* **Virtual network:** Forms the cluster for master & worker nodes to interact.
+
+* **Tools**
+    * **Minikube:** A cluster with one node with both master & worker processes. For testing cluster locally.
+    * **Kubectl:** CLI tool for K8s cluster
 
 ---
 

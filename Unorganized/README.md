@@ -1,10 +1,52 @@
+TCP 3-Way Handshake
 
+-----
+* **DNS:** The phonebook of the internet translating human-readable domain names (e.g., example.com) into machine-readable IP addresses (e.g., 192.0.2.1).
+* **Routing:** Finding the best physical path for the data to reach its destination.
 
-<!-- * Synchronous vs Asynchronous -->
-<!-- * RabbitMQ -->
+* **MAC (Media Access Control) address:**
+
+* **TCP** is commonly used where all data must be intact (e.g. file share), whereas UDP is used when retaining all packets is less critical (e.g. video streaming). Transmission Control Protocol (TCP), a near-lossless connection-based protocol, and the User Datagram Protocol (UDP), a lossy connectionless protocol
+-----
+
+WAN vs LAN
+IPv4, IPv6
+
+1. Network Types
+Local Area Network (LAN)
+Wide Area Network (WAN)
+Metropolitan Area Network (MAN)
+Wireless Networks (Wi-Fi)
+2. IP Addressing
+IPv4 Addresses
+IPv6 Addresses
+Public vs. Private Addresses
+Static vs. Dynamic IP Addressing
+3. Network Protocols
+TCP/IP Protocol Suite
+UDP (User Datagram Protocol)
+HTTP/HTTPS (HyperText Transfer Protocol/Secure)
+FTP (File Transfer Protocol)
+DNS (Domain Name System)
+4. Hardware Components
+Routers
+Switches
+Hubs
+Access Points
+5. Data Transmission
+Packet Switching
+Circuit Switching
+Bandwidth and Latency
+Data Encoding
+
+8. Network Topologies
+Star Topology
+Bus Topology
+Ring Topology
+Mesh Topology
 
 ## Transport Layer
-* TCP (Transmission Control Protocol): A communication protocol that ensures reliable, connection-oriented transmission of data by dividing it into smaller packets, numbering them, and reassembling them at the receiving end.
+* TCP (Transmission Control Protocol): A communication protocol that ensures reliable, connection-oriented transmission of data by dividing it into smaller packets, numbering them, and reassembling them at the receiving end. Splits data into packets and correctly reassembles them at the destination.
     * 3-way handshake
 * UDP (User Datagram Protocol): Faster than TCP, but doesn't guarantee delivery or order of packets.
 
@@ -89,3 +131,11 @@ ACID: a set of properties that ensure reliability and integrity in database tran
 
 ### Issues and Considerations
 *  -->
+
+<!-- * Synchronous vs Asynchronous -->
+<!-- * RabbitMQ -->
+
+---
+
+Tools:
+* **Postman:** API testing tool. Unlike `cURL` which has a CLI, Postman has a GUI to simplify creating and managing API requests.
