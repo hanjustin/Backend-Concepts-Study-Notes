@@ -1,10 +1,17 @@
+Latency vs Throughput vs Bandwidth: Unraveling the Complexities of Network Speed
+
+
 TCP 3-Way Handshake
 
------
-* **DNS:** The phonebook of the internet translating human-readable domain names (e.g., example.com) into machine-readable IP addresses (e.g., 192.0.2.1).
-* **Routing:** Finding the best physical path for the data to reach its destination.
+### Topology
 
-* **MAC (Media Access Control) address:**
+Topology affects reliability, efficiency, and performance. A well-designed topology ensures that data can be transmitted smoothly and quickly between devices, reducing latency and minimizing downtime in case of failures.
+
+Star Topology
+Bus Topology
+Ring Topology
+Mesh Topology
+-----
 
 * **TCP** is commonly used where all data must be intact (e.g. file share), whereas UDP is used when retaining all packets is less critical (e.g. video streaming). Transmission Control Protocol (TCP), a near-lossless connection-based protocol, and the User Datagram Protocol (UDP), a lossy connectionless protocol
 -----
@@ -28,22 +35,13 @@ UDP (User Datagram Protocol)
 HTTP/HTTPS (HyperText Transfer Protocol/Secure)
 FTP (File Transfer Protocol)
 DNS (Domain Name System)
-4. Hardware Components
-Routers
-Switches
-Hubs
-Access Points
+
 5. Data Transmission
 Packet Switching
 Circuit Switching
 Bandwidth and Latency
 Data Encoding
 
-8. Network Topologies
-Star Topology
-Bus Topology
-Ring Topology
-Mesh Topology
 
 ## Transport Layer
 * TCP (Transmission Control Protocol): A communication protocol that ensures reliable, connection-oriented transmission of data by dividing it into smaller packets, numbering them, and reassembling them at the receiving end. Splits data into packets and correctly reassembles them at the destination.

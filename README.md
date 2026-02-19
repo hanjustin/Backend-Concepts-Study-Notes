@@ -11,16 +11,33 @@
         <ul>
             <li><details><summary>Fundamentals (Click)</summary>
                 <ul>
-                    <li><a href="#concepts-networking"><b>Concepts</b></a></li>
-                        <ul><ul><ul><ul>
-                            <li>
-                                <b><ins>O</ins></b>SI model,
-                                <b><ins>T</ins></b>CP/IP model
-                            </li>
-                        </ul></ul></ul></ul>
+                    <li><b>Concepts</b></li>
+                        <ul><ul>
+                            <li><a href="#reference-models-networking"><b>Reference Models</b></a></li>
+                                            <ul><ul>
+                                                <li>
+                                                    <b><ins>O</ins></b>SI,
+                                                    <b><ins>T</ins></b>CP/IP
+                                                </li>
+                                            </ul></ul>
+                        </ul></ul>
                     <li><a href="#terminologies-networking"><b>Terminologies</b></a></li>
                         <ul><ul><ul><ul>
-                            <li></li>
+                            <li>
+                                <b><ins>D</ins></b>NS,
+                                <b><ins>R</ins></b>outing,
+                                <b><ins>M</ins></b>AC address
+                            </li>
+                            <li><b>Hardware:</b></li>
+                                <ul>
+                                    <li>
+                                        <b><ins>G</ins></b>ateway,
+                                        <b><ins>S</ins></b>witch,
+                                        <b><ins>R</ins></b>epeater,
+                                        <b><ins>W</ins></b>AP,
+                                        <b><ins>N</ins></b>IC,
+                                    </li>
+                                </ul>
                         </ul></ul></ul></ul>
                 </ul>
             </details></li>
@@ -538,11 +555,14 @@
 # Networking
 
 <h2 id="fundamentals-networking">Fundamentals</h2>
-<h3 id="concepts-networking">Concepts</h3>
+<h3 id="reference-models-networking">Reference Models</h3>
+
+* **OSI model:** A theoretical tool serving as a conceptual guide for designing and evaluating network systems
+* **TCP/IP model:** A more practical version of the OSI model that forms the basis of the modern internet.
 
 #### OSI Model (Open Systems Interconnection)
 
-A theoretical tool serving as a conceptual guide for designing and evaluating network systems. A standardized framework to conceptualize network data flow into seven layers.
+A standardized framework to conceptualize network data flow into seven layers.
 
 <table>
     <tr>
@@ -576,7 +596,7 @@ A theoretical tool serving as a conceptual guide for designing and evaluating ne
 </table>
 
 #### TCP/IP Model
-More practical version of OSI model that forms the basis of the modern internet. Four layers which are ultimately condensed version of the seven layers model.
+Four layers which are ultimately condensed version of the seven layers model.
 
 <table>
     <tr>
@@ -598,6 +618,17 @@ More practical version of OSI model that forms the basis of the modern internet.
 </table>
 
 <h3 id="terminologies-networking">Terminologies</h3>
+
+* **DNS:** The phonebook of the internet translating human-readable domain names (e.g. example.com) into machine-readable IP addresses (e.g. 192.0.2.1).
+* **Routing:** Finding the best physical path for the data to reach its destination.
+* **MAC (Media Access Control) address:** Hardware identifier assigned to a device's NIC. Acts as a hardware-based address for local network communication and doesn't change, unlike IP addresses.
+
+* **Hardware:**
+    * **Gateway:** An interface providing compatibility between networks to allow data to flow from one discrete network to another.
+    * **Switch:** Connects devices on a local area network and facilitates data exchanges.
+    * **Repeater:** Device that receives a signal and retransmits it at a higher level or higher power
+    * **WAP (Wireless Access Point):** Allows a Wi-Fi device to connect to a wired network. Better than Wi-Fi extender by using an Ethernet cable.
+    * **NIC (Network Interface Controller):** A hardware component that enables network connections (Ethernet or Wi-Fi).
 
 ## gRPC
 
