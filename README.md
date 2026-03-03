@@ -12,20 +12,45 @@
             <li><details><summary>Fundamentals (Click)</summary>
                 <ul>
                     <li><b>Concepts</b></li>
-                        <ul><ul>
-                            <li><a href="#reference-models-networking"><b>Reference Models</b></a></li>
-                                            <ul><ul>
-                                                <li>
-                                                    <b><ins>O</ins></b>SI,
-                                                    <b><ins>T</ins></b>CP/IP
-                                                </li>
-                                            </ul></ul>
-                        </ul></ul>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="#reference-models-networking"><b>Reference Models</b></a>
+                            </td>
+                            <td>
+                                <b><ins>O</ins></b>SI,
+                                <b><ins>T</ins></b>CP/IP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#key-metrics-networking"><b>Key Metrics</b></a>
+                            </td>
+                            <td>
+                                <b><ins>T</ins></b>hroughput,
+                                <b><ins>L</ins></b>atency,
+                                <b><ins>J</ins></b>itter,<br>
+                                <b><ins>P</ins></b>acket loss
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#topology-networking"><b>Topology</b></a>
+                            </td>
+                            <td>
+                                <b><ins>R</ins></b>ing,
+                                <b><ins>S</ins></b>tar,
+                                <b><ins>B</ins></b>us,
+                                <b><ins>M</ins></b>esh
+                            </td>
+                        </tr>
+                    </table>
                     <li><a href="#terminologies-networking"><b>Terminologies</b></a></li>
                         <ul><ul><ul><ul>
                             <li>
                                 <b><ins>D</ins></b>NS,
                                 <b><ins>R</ins></b>outing,
+                                <b><ins>P</ins></b>2P,
                                 <b><ins>M</ins></b>AC address
                             </li>
                             <li><b>Hardware:</b></li>
@@ -35,17 +60,17 @@
                                         <b><ins>S</ins></b>witch,
                                         <b><ins>R</ins></b>epeater,
                                         <b><ins>W</ins></b>AP,
-                                        <b><ins>N</ins></b>IC,
+                                        <b><ins>N</ins></b>IC
                                     </li>
                                 </ul>
                         </ul></ul></ul></ul>
                 </ul>
             </details></li>
             <li><b>Communication</b></li>
-        <ul>
-            <li><a href="#grpc">gRPC</a></li>
-            <li><a href="#graphql">GraphQL</a></li>
-        </ul>
+                <ul>
+                    <li><a href="#grpc">gRPC</a></li>
+                    <li><a href="#graphql">GraphQL</a></li>
+                </ul>
         </ul>
     <li><b>Cloud</b></li>
         <ul>
@@ -56,41 +81,41 @@
                             <li><b>Concepts</b></li>
                                 <ul>
                                     <li><a href="#computing-models"><b>Computing Models</b></a></li>
-                                            <ul><ul><ul>
-                                                <li>
-                                                    <b><ins>S</ins></b>erverless,
-                                                    <b><ins>S</ins></b>aaS,
-                                                    <b><ins>P</ins></b>aaS,
-                                                    <b><ins>I</ins></b>aaS
-                                                </li>
-                                            </ul></ul></ul>
+                                        <ul><ul><ul>
+                                            <li>
+                                                <b><ins>S</ins></b>erverless,
+                                                <b><ins>S</ins></b>aaS,
+                                                <b><ins>P</ins></b>aaS,
+                                                <b><ins>I</ins></b>aaS
+                                            </li>
+                                        </ul></ul></ul>
                                     <li><a href="#deployment-models"><b>Deployment Models</b></a></li>
-                                            <ul><ul><ul>
-                                                <li>
-                                                    <b><ins>P</ins></b>rivate,
-                                                    <b><ins>P</ins></b>ublic,
-                                                    <b><ins>H</ins></b>ybrid,
-                                                    <b><ins>M</ins></b>ulticloud
-                                                </li>
-                                            </ul></ul></ul>
+                                        <ul><ul><ul>
+                                            <li>
+                                                <b><ins>P</ins></b>rivate,
+                                                <b><ins>P</ins></b>ublic,
+                                                <b><ins>H</ins></b>ybrid,
+                                                <b><ins>M</ins></b>ulticloud
+                                            </li>
+                                        </ul></ul></ul>
                                     <li><a href="#global-infrastructure"><b>Global Infrastructure</b></a></li>
-                                            <ul><ul><ul>
-                                                <li>
-                                                    <b><ins>R</ins></b>egions,
-                                                    <b><ins>A</ins></b>vailability zones,
-                                                    <b><ins>E</ins></b>dge locations
-                                                </li>
-                                            </ul></ul></ul>
+                                        <ul><ul><ul>
+                                            <li>
+                                                <b><ins>R</ins></b>egions,
+                                                <b><ins>A</ins></b>vailability zones,
+                                                <b><ins>E</ins></b>dge locations
+                                            </li>
+                                        </ul></ul></ul>
                                     <li><a href="#best-practices-aws"><b>Cloud Best Practices Pillars - Well-Architected Framework</b></a></li>
-                                            <ul><ul><ul>
-                                                <li>
-                                                    <b><ins>O</ins></b>perational excellence,
-                                                    <b><ins>S</ins></b>ecurity,
-                                                    <b><ins>R</ins></b>eliability,
-                                                    <b><ins>P</ins></b>erformance efficiency,
-                                                    <b><ins>C</ins></b>ost optimization
-                                                </li>
-                                            </ul></ul></ul>
+                                        <ul><ul><ul>
+                                            <li>
+                                                <b><ins>O</ins></b>perational excellence,
+                                                <b><ins>S</ins></b>ecurity,
+                                                <b><ins>R</ins></b>eliability,
+                                                <b><ins>P</ins></b>erformance efficiency,
+                                                <b><ins>C</ins></b>ost optimization
+                                            </li>
+                                        </ul></ul></ul>
                                 </ul>
                             <li><a href="#terminologies-aws"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
@@ -237,43 +262,43 @@
                                         </ul></ul></ul></ul>
                                 </ul>
                             <li><a href="#sql-syntax"><b>SQL Syntax</b></a></li>
-                                        <ul><ul><ul><ul><ul>
-                                            <li><b>Database Management</b></li>
+                                <ul><ul><ul><ul><ul>
+                                    <li><b>Database Management</b></li>
+                                        <ul>
+                                            <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li>
+                                        </ul>
+                                    <li><b>Data CRUD Operations</b></li>
+                                        <ul>
+                                            <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li>
+                                        </ul>
+                                    <li><b>Data Integrity Protection</b></li>
+                                        <ul>
+                                            <li><b>Constraint</b></li>
                                                 <ul>
-                                                    <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li>
+                                                    <li><code>PRIMARY KEY</code>, <code>REFERENCES</code>, <code>CHECK</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, <code>ON DELETE</code></li>
                                                 </ul>
-                                            <li><b>Data CRUD Operations</b></li>
+                                            <li><b>Transaction Management</b></li>
                                                 <ul>
-                                                    <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li>
+                                                    <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
                                                 </ul>
-                                            <li><b>Data Integrity Protection</b></li>
+                                            <li><b>Trigger</b></li>
                                                 <ul>
-                                                    <li><b>Constraint</b></li>
-                                                        <ul>
-                                                            <li><code>PRIMARY KEY</code>, <code>REFERENCES</code>, <code>CHECK</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, <code>ON DELETE</code></li>
-                                                        </ul>
-                                                    <li><b>Transaction Management</b></li>
-                                                        <ul>
-                                                            <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
-                                                        </ul>
-                                                    <li><b>Trigger</b></li>
-                                                        <ul>
-                                                            <li><code>CREATE TRIGGER</code>, <code>CREATE FUNCTION</code>, <code>BEFORE/AFTER event</code>, <code>$$string_constant$$</code></li>
-                                                        </ul>
+                                                    <li><code>CREATE TRIGGER</code>, <code>CREATE FUNCTION</code>, <code>BEFORE/AFTER event</code>, <code>$$string_constant$$</code></li>
                                                 </ul>
-                                            <li><b>Aggregate Queries</b></li>
-                                                <ul>
-                                                    <li><code>MIN</code>, <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>GROUP BY</code></li>
-                                                </ul>
-                                            <li><b>User Access Control</b></li>
-                                                <ul>
-                                                    <li><code>ROLE</code>, <code>GRANT</code>, <code>REVOKE</code></li>
-                                                </ul>
-                                            <li><b>Join</b></li>
-                                                <ul>
-                                                    <li><code>JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code></li>
-                                                </ul>
-                                        </ul></ul></ul></ul></ul>
+                                        </ul>
+                                    <li><b>Aggregate Queries</b></li>
+                                        <ul>
+                                            <li><code>MIN</code>, <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>GROUP BY</code></li>
+                                        </ul>
+                                    <li><b>User Access Control</b></li>
+                                        <ul>
+                                            <li><code>ROLE</code>, <code>GRANT</code>, <code>REVOKE</code></li>
+                                        </ul>
+                                    <li><b>Join</b></li>
+                                        <ul>
+                                            <li><code>JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code></li>
+                                        </ul>
+                                </ul></ul></ul></ul></ul>
                         </ul>
                     </details></li>
                     <li><details><summary>Cassandra</summary>
@@ -290,40 +315,40 @@
                                         </ul></ul></ul></ul>
                                     <li><a href="#terminologies-cassandra"><b>Terminologies</b></a></li>
                                         <ul><ul><ul><ul>
-                                                <b><ins>K</ins></b>eyspace,
-                                                <b><ins>T</ins></b>able,
-                                                <b><ins>P</ins></b>artition,
-                                                <b><ins>R</ins></b>eplication factor,
-                                                <b><ins>C</ins></b>onsistency levels,
-                                                <b><ins>P</ins></b>rimary key,
-                                                <b><ins>P</ins></b>artition key,
-                                                <b><ins>C</ins></b>omposite partition key,
-                                                <b><ins>C</ins></b>lustering key,
-                                                <b><ins>C</ins></b>oordinator,
-                                                <b><ins>P</ins></b>artitioner,
-                                                <b><ins>G</ins></b>ossip protocol,
-                                                <b><ins>L</ins></b>ightweight transactions
+                                            <b><ins>K</ins></b>eyspace,
+                                            <b><ins>T</ins></b>able,
+                                            <b><ins>P</ins></b>artition,
+                                            <b><ins>R</ins></b>eplication factor,
+                                            <b><ins>C</ins></b>onsistency levels,
+                                            <b><ins>P</ins></b>rimary key,
+                                            <b><ins>P</ins></b>artition key,
+                                            <b><ins>C</ins></b>omposite partition key,
+                                            <b><ins>C</ins></b>lustering key,
+                                            <b><ins>C</ins></b>oordinator,
+                                            <b><ins>P</ins></b>artitioner,
+                                            <b><ins>G</ins></b>ossip protocol,
+                                            <b><ins>L</ins></b>ightweight transactions
                                         </ul></ul></ul></ul>
                                 </ul>
                             <li><a href="#cql-syntax"><b>CQL Syntax</b></a></li>
-                                        <ul><ul><ul><ul><ul>
-                                            <li><b>Keyspace Management</b></li>
-                                                <ul>
-                                                    <li><code>CREATE</code>, <code>USE</code>, <code>DROP</code></li>
-                                                </ul>
-                                            <li><b>Table Management</b></li>
-                                                <ul>
-                                                    <li><code>CREATE</code>, <code>ALTER</code>, <code>DELETE</code></li>
-                                                </ul>
-                                            <li><b>Data CRUD Operations</b></li>
-                                                <ul>
-                                                    <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>USING TTL</code>, <code>DELETE</code></li>
-                                                </ul>
-                                            <li><b>Misc</b></li>
-                                                <ul>
-                                                    <li><code>CREATE TYPE/INDEX</code>, <code>BEGIN/APPLY BATCH</code></li>
-                                                </ul>
-                                        </ul></ul></ul></ul></ul>
+                                <ul><ul><ul><ul><ul>
+                                    <li><b>Keyspace Management</b></li>
+                                        <ul>
+                                            <li><code>CREATE</code>, <code>USE</code>, <code>DROP</code></li>
+                                        </ul>
+                                    <li><b>Table Management</b></li>
+                                        <ul>
+                                            <li><code>CREATE</code>, <code>ALTER</code>, <code>DELETE</code></li>
+                                        </ul>
+                                    <li><b>Data CRUD Operations</b></li>
+                                        <ul>
+                                            <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>USING TTL</code>, <code>DELETE</code></li>
+                                        </ul>
+                                    <li><b>Misc</b></li>
+                                        <ul>
+                                            <li><code>CREATE TYPE/INDEX</code>, <code>BEGIN/APPLY BATCH</code></li>
+                                        </ul>
+                                </ul></ul></ul></ul></ul>
                         </ul>
                     </details></li>
                     <li><details><summary>Redis</summary>
@@ -617,10 +642,31 @@ Four layers which are ultimately condensed version of the seven layers model.
     </tr>
 </table>
 
+<h3 id="key-metrics-networking">Key Metrics</h3>
+
+* **Throughput:** Actual data transfer rate. Usually lower than bandwidth theoretical maximum rate due to network congestion.
+* **Latency:** The delay in network communication. The time that data takes to transfer across the network. "Ping" is often used synonymously with latency. The speed of light sets the absolute minimum theoretical limit for network latency.
+* **Jitter:** Variation of packet arrival times. Like measuring the consistency of a heartbeat, you want it to be regular and predictable. High jitter can cause choppy audio in VoIP, distorted video in video conferencing, and laggy gameplay.
+* **Packet loss:** Percentage of packets that never arrive, typically due to buffer overflow during congestion or link failures
+
+<h3 id="topology-networking">Topology</h3>
+
+A map of how data moves through your network system. The configuration of nodes and connections between network hardware. A well-structured network affects reliability, efficiency, and performance by reducing latency and minimizing downtime in case of failures.
+
+* **Physical:** Physical wiring components of a network. Cables, routers, switches, etc.
+* **Logical:** Logic directs the flow of data from one device to another. Use data packet headers to manipulate how data flows through the networking, making them flexible and scalable in ways the physical topology can’t be.
+
+**Topology types**
+* **Ring:** Arranges devices in a circular formation, and all data travels the same way around the circle. Data packets move from one device to another until they reach the intended destination. Some ring structures use two rings, one sending data clockwise and the other counterclockwise to minimize downtime.
+* **Star:** Devices connect to one central point, typically a router or switch. A request is first sent to the center point in the network, which transmits it to the intended device. 
+* **Bus:** All devices connect to one shared connection line. Every node on the network can monitor every packet delivered on the cable. Every packet is examined by each node to see if it is meant for that node.
+* **Mesh:** Interconnects all devices on the network. Each node have multiple connections to the other nodes allowing data to travel from diverse pathways. More practical with WiFi networks.
+
 <h3 id="terminologies-networking">Terminologies</h3>
 
 * **DNS:** The phonebook of the internet translating human-readable domain names (e.g. example.com) into machine-readable IP addresses (e.g. 192.0.2.1).
 * **Routing:** Finding the best physical path for the data to reach its destination.
+* **P2P:** Decentralized network. Each node (a router, printer, switch, or computer) acts as both a server and a client by connecting directly with one another to share resources.
 * **MAC (Media Access Control) address:** Hardware identifier assigned to a device's NIC. Acts as a hardware-based address for local network communication and doesn't change, unlike IP addresses.
 
 * **Hardware:**

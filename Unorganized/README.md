@@ -1,16 +1,7 @@
-Latency vs Throughput vs Bandwidth: Unraveling the Complexities of Network Speed
-
-
 TCP 3-Way Handshake
 
-### Topology
 
-Topology affects reliability, efficiency, and performance. A well-designed topology ensures that data can be transmitted smoothly and quickly between devices, reducing latency and minimizing downtime in case of failures.
 
-Star Topology
-Bus Topology
-Ring Topology
-Mesh Topology
 -----
 
 * **TCP** is commonly used where all data must be intact (e.g. file share), whereas UDP is used when retaining all packets is less critical (e.g. video streaming). Transmission Control Protocol (TCP), a near-lossless connection-based protocol, and the User Datagram Protocol (UDP), a lossy connectionless protocol
