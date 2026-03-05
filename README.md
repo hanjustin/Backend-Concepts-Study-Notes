@@ -53,6 +53,14 @@
                                 <b><ins>P</ins></b>2P,
                                 <b><ins>M</ins></b>AC address
                             </li>
+                            <li><b>Types by scale:</b></li>
+                                <ul>
+                                    <li>
+                                        <b><ins>W</ins></b>AN,
+                                        <b><ins>L</ins></b>AN,
+                                        <b><ins>N</ins></b>FC
+                                    </li>
+                                </ul>
                             <li><b>Hardware:</b></li>
                                 <ul>
                                     <li>
@@ -66,11 +74,61 @@
                         </ul></ul></ul></ul>
                 </ul>
             </details></li>
-            <li><b>Communication</b></li>
-                <ul>
-                    <li><a href="#grpc">gRPC</a></li>
-                    <li><a href="#graphql">GraphQL</a></li>
-                </ul>
+            <li><details><summary>Network Protocols</summary>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="#communication-protocol-networking"><b>Communication</b></a>
+                        </td>
+                        <td>
+                            <b><ins>T</ins></b>CP,
+                            <b><ins>U</ins></b>DP
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#management-protocol-networking"><b>Management</b></a>
+                        </td>
+                        <td>
+                            <b><ins>S</ins></b>NMP,
+                            <b><ins>I</ins></b>CMP
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#security-protocol-networking"><b>Security</b></a>
+                        </td>
+                        <td>
+                            <b><ins>S</ins></b>SH,
+                            <b><ins>S</ins></b>FTP,
+                            <b><ins>T</ins></b>LS,
+                            <b><ins>H</ins></b>TTPS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#email-protocol-networking"><b>Email</b></a>
+                        </td>
+                        <td>
+                            <b><ins>S</ins></b>MTP,
+                            <b><ins>I</ins></b>MAP,
+                            <b><ins>P</ins></b>OP3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#other-protocol-networking"><b>Other</b></a>
+                        </td>
+                        <td>
+                            <b><ins>F</ins></b>TP,
+                            <b><ins>M</ins></b>QTT,
+                            <b><ins>A</ins></b>MQP,
+                            <b><ins>R</ins></b>PC,
+                            <b><ins>W</ins></b>ebRTC
+                        </td>
+                    </tr>
+                </table>
+            </details></li>
         </ul>
     <li><b>Cloud</b></li>
         <ul>
@@ -404,13 +462,13 @@
                 <ul>
                     <li><a href="#fundamentals-kafka"><b>Fundamentals</b></a></li>
                         <ul>
-                            <li><b>Concepts</b></li>
+                            <li><a href="#concepts-kafka"><b>Concepts</b></a></li>
                                 <ul><ul><ul><ul>
-                                    <li><a href="#partition-leader">Partition leader</a></li>
-                                    <li><a href="#consumer-group">Consumer group</a></li>
-                                    <li><a href="#cluster-coordinator---zookeeper-or-kraft">Cluster coordinator - Zookeeper or KRaft</a></li>
-                                    <li><a href="#schema-registry">Schema registry</a></li>
-                                    <li><a href="#data-retention-period">Data retention period</a></li>
+                                    <li>Partition leader</li>
+                                    <li>Consumer group</li>
+                                    <li>Cluster coordinator - Zookeeper or KRaft</li>
+                                    <li>Schema registry</li>
+                                    <li>Data retention period</li>
                                 </ul></ul></ul></ul>
                             <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
                                 <ul><ul><ul><ul>
@@ -429,6 +487,11 @@
                         </ul>
                 </ul>
             </details></li>
+            <li><b>API Design</b></li>
+                <ul>
+                    <li><a href="#grpc">gRPC</a></li>
+                    <li><a href="#graphql">GraphQL</a></li>
+                </ul>
         </ul>
     <li><b>DevOps</b></li>
         <ul>
@@ -669,6 +732,11 @@ A map of how data moves through your network system. The configuration of nodes 
 * **P2P:** Decentralized network. Each node (a router, printer, switch, or computer) acts as both a server and a client by connecting directly with one another to share resources.
 * **MAC (Media Access Control) address:** Hardware identifier assigned to a device's NIC. Acts as a hardware-based address for local network communication and doesn't change, unlike IP addresses.
 
+* **Types by scale:**
+    * **WAN (Wide Area Network):** A large-scale computer network that connects multiple LANs or other networks. Spans beyond a single building or large campus to connect multiple locations spread across a specific geographic area or even the world.
+    * **LAN (Local Area Network):** A small-scale computer network that covers a limited geographical area, such as a home, a small store, or a floor of an office building.
+    * **NFC (Near-field Communication):** Allows devices within a few centimeters of each other to exchange information wirelessly.
+
 * **Hardware:**
     * **Gateway:** An interface providing compatibility between networks to allow data to flow from one discrete network to another.
     * **Switch:** Connects devices on a local area network and facilitates data exchanges.
@@ -676,17 +744,48 @@ A map of how data moves through your network system. The configuration of nodes 
     * **WAP (Wireless Access Point):** Allows a Wi-Fi device to connect to a wired network. Better than Wi-Fi extender by using an Ethernet cable.
     * **NIC (Network Interface Controller):** A hardware component that enables network connections (Ethernet or Wi-Fi).
 
-## gRPC
+<h2 id="network-protocols-networking">Network Protocols</h2>
+<h3 id="communication-protocol-networking">Communication</h3>
 
-* Platform agnostic serialization protocol that is used to communicate between services.
-* Protocol Buffer (Protobuf). `.proto` file format is commonly used to define messages sent between clients and servers for communication between two different languages. Generates code used for the client/server communication.
+* **TCP (Transmission Control Protocol):** Ensures reliable transmission of data by dividing data into packets, numbering them, and reassembling them at the destination.
+    * Connection-oriented. Meaning establishing a connection before data transmission.
+    * Uses sequenced acknowledgments to ensure reliability.
+    * Provides error detection and flow control.
+    * Guarantees data delivery in the correct order. Used when data must be intact (e.g. file share).
 
-## GraphQL
+* **UDP (User Datagram Protocol):** Faster than TCP, but doesn't guarantee delivery or order of packets. Used when retaining all packets is less critical (e.g. video streaming).
+    * Does not establish a connection before sending data.
+    * No error recovery, flow control, or reliability mechanisms.
+    * Suitable where speed is more important than accuracy.
+    * Used in video streaming, online gaming, multicasting, and broadcasting.
 
-* In client/server communication, clients can control the response data format. In REST, server controls the data format. Distinct clients (web, iOS, etc.) can have different data requirements.
-* GraphQL schema file `*.graphqls` contains all information about what a client can potentially do with a GraphQL API.
-* A single endpoint can be used to receive requests with GraphQL queries.
-* As clients can request exact data wanted, could be used to avoid REST API's over-fetching & under-fetching problems.
+<h3 id="management-protocol-networking">Management</h3>
+
+Enable administrators to monitor, configure, and maintain network devices like routers and switches. Designed to facilitate the tracking and provision of reports on data and traffic flowing to and from network links.
+
+* **SNMP (Simple Network Management Protocol):** Used to manage and monitor all network devices no matter the hardware and software configuration by using a common language. This shared language allows for the network to be easily monitored.
+* **ICMP (Internet Control Message Protocol):** Used specifically for error reporting and diagnostic purposes. Used by network administrators to troubleshoot connection or communication issues.
+
+<h3 id="security-protocol-networking">Security</h3>
+
+* **SSH (Secure Shell) Protocol:** An authentication-based cryptographic connection protocol. Handles secure authentication and connections over TCP to securely send commands to a computer over an unsecured network.
+* **SFTP (Secure File Transfer Protocol):** Used for secure file transfering by adding authentication and encryption to file transfer. Encrypts all file contents and commands.
+* **TLS (Transport Layer Security):** Provides privacy and data security for communications over the Internet. Must have a TLS certificate installed on its origin server.
+* **HTTPS:** An implementation of TLS encryption on top of the HTTP protocol.
+
+<h3 id="email-protocol-networking">Email</h3>
+
+* **SMTP (Simple Mail Transfer Protocol):** Used for sending emails between servers.
+* **IMAP (Internet Message Access Protocol):** Used for receiving emails from a server.
+* **POP3 (Post Office Protocol v3):** Used for downloading emails from a server. Typically when emails are accessed by only one device.
+
+<h3 id="other-protocol-networking">Other</h3>
+
+* **FTP:** For transfering files over the internet.
+* **MQTT (Message Queuing Telemetry Transport):** Lightweight messaging protocol. For devices w/ low processing power.
+* **AMQP (Advanced Message Queuing Protocol):** Protocol for message-oriented middleware. For enterprise level communication with robust security.
+* **RPC (Remote Procedure Call):** Invoking function on another server as if. Abstracts network communication to allow developers to interact code on a remote server as if it were local.
+* **WebRTC:** Enables browser-to-browser applications for voice calling, video chat, and file sharing.
 
 ---
 
@@ -916,6 +1015,7 @@ In certain read-heavy applications, denormalization could be more suitable when 
 | **Use cases**    | Financial & healthcare databases for high data integrity & data accuracy. | Social media platforms for high availability |
 
 ##### ACID
+A set of properties that ensure reliability and integrity in database transactions, guaranteeing that they are executed reliably, consistently, and without interference.
 * **Atomicity:** All transactions must succeed or fail completely as a unit. A transaction cannot be partially complete. Ensure data integrity and consistency by either committing all changes or rolling them back if an error occurs.
 * **Consistency:** A transaction will keep data integrity by only making changes adhering to predefined constraints, rules, and relationships.
 * **Isolation:** Each transaction is executed in isolation from other transactions, ensuring no interference.
@@ -1363,7 +1463,8 @@ NoSQL database storing data in a JSON-like format.
 * Often used as a message broker, allowing different software systems to communicate by sending (producing) and receiving (consuming) messages.
 * Can be used as a pub-sub and queue based messaging system.
 
-#### Concepts
+<h4 id="concepts-kafka">Concepts</h4>
+
 ##### Partition leader
 Every partition has exactly one partition leader which handles all the read/write requests of that partition. Every partition replica resides on a different broker. Every partition follower is reading messages from the partition leader (acts like a kind of consumer) and does not serve any consumers of that partition (only the partition leader serves read/writes). When a partition leader shuts down for any reason (e.g a broker shuts down), one of it's in-sync partition followers becomes the new leader.
 
@@ -1391,6 +1492,19 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 * **Partitions:** For more throughput, topics are broken into several partitions, which is how a single topic can span across multiple brokers. Similar to RDBMS sharding for scaling.
 * **Offset:** A unique integer identifier assigned to each message within a specific partition, representing its position within that partition's log, and is used to track the progress of consumers.
 * **Connectors:** Used to connect to external systems such as databases, key-value stores, search indexes, and file systems to move data in/from Kafka.
+
+## API Design
+### gRPC
+
+* Platform agnostic serialization protocol that is used to communicate between services.
+* Protocol Buffer (Protobuf). `.proto` file format is commonly used to define messages sent between clients and servers for communication between two different languages. Generates code used for the client/server communication.
+
+### GraphQL
+
+* In client/server communication, clients can control the response data format. In REST, server controls the data format. Distinct clients (web, iOS, etc.) can have different data requirements.
+* GraphQL schema file `*.graphqls` contains all information about what a client can potentially do with a GraphQL API.
+* A single endpoint can be used to receive requests with GraphQL queries.
+* As clients can request exact data wanted, could be used to avoid REST API's over-fetching & under-fetching problems.
 
 ---
 
