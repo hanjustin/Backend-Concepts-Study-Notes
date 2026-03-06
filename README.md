@@ -75,7 +75,11 @@
                 </ul>
             </details></li>
             <li><details><summary>Network Protocols</summary>
-                <table>
+                <ul>
+                    <li><a href="#tcp-three-way-handshake"><b>TCP 3-way handshake</b></a></li>
+                    <li><a href="#tls-handshake"><b>TLS handshake</b></a></li>
+                    <li><b>Common protocols:</b></li>
+                    <table>
                     <tr>
                         <td>
                             <a href="#communication-protocol-networking"><b>Communication</b></a>
@@ -128,6 +132,7 @@
                         </td>
                     </tr>
                 </table>
+                </ul>
             </details></li>
         </ul>
     <li><b>Cloud</b></li>
@@ -727,7 +732,7 @@ A map of how data moves through your network system. The configuration of nodes 
 
 <h3 id="terminologies-networking">Terminologies</h3>
 
-* **DNS:** The phonebook of the internet translating human-readable domain names (e.g. example.com) into machine-readable IP addresses (e.g. 192.0.2.1).
+* **DNS:** The phonebook of the internet translating human-readable domain names (e.g. example.com) into machine-readable IP addresses (e.g. 192.0.2.1). This mapping process is known as a DNS lookup.
 * **Routing:** Finding the best physical path for the data to reach its destination.
 * **P2P:** Decentralized network. Each node (a router, printer, switch, or computer) acts as both a server and a client by connecting directly with one another to share resources.
 * **MAC (Media Access Control) address:** Hardware identifier assigned to a device's NIC. Acts as a hardware-based address for local network communication and doesn't change, unlike IP addresses.
@@ -745,6 +750,35 @@ A map of how data moves through your network system. The configuration of nodes 
     * **NIC (Network Interface Controller):** A hardware component that enables network connections (Ethernet or Wi-Fi).
 
 <h2 id="network-protocols-networking">Network Protocols</h2>
+
+<h3 id="tcp-three-way-handshake">TCP 3-way Handshake</h3>
+
+* Used to establish a reliable connection between a client and a server before actual data transmission.
+* **3 steps:** SYN, SYN-ACK, and ACK
+
+    1. **SYN:** A client sends a synchronize sequence number (SYN) packet to a server.
+
+    2. **SYN-ACK:** The server receives the SYN and sends back a SYNchronize-ACKnowledgement.
+
+    3. **ACK:** The client receives the server's SYN-ACK and sends an ACKnowledge.. The server receives ACK and the TCP socket connection is established.
+
+<h3 id="tls-handshake">TLS Handshake</h3>
+
+* To create a secure session between the client and server. Starts after a TCP connection has been opened via a TCP handshake.
+* **Purpose:**
+    * Specify TLS version to use.
+    * Decide which cipher suites to use.
+    * Authenticate the identity of the server via the server’s public key and the SSL certificate authority’s digital signature.
+    * Generate session keys in order to use symmetric encryption after the handshake is complete.
+
+* **Simplified process:**
+    1. **Client Hello:** The client initiates the handshake by sending information such as supported TLS versions, cipher suites, and a random number.
+    2. **Server Hello:** The server responds with its chosen TLS version, cipher suite, and its own random number.
+    3. **Certificate Exchange:** The server presents its digital certificate to the client for authentication.
+    4. **Key Exchange:** The client and server exchange information to establish a shared secret key.
+    5. **Finished Messages:** Both the client and server send “Finished” messages, which are encrypted with the negotiated session keys, to verify that the handshake was successful and that they both have the same shared secret.
+    6. **Secure Communication:** Securely exchange data using the established session keys.
+
 <h3 id="communication-protocol-networking">Communication</h3>
 
 * **TCP (Transmission Control Protocol):** Ensures reliable transmission of data by dividing data into packets, numbering them, and reassembling them at the destination.
