@@ -46,32 +46,62 @@
                         </tr>
                     </table>
                     <li><a href="#terminologies-networking"><b>Terminologies</b></a></li>
-                        <ul><ul><ul><ul>
-                            <li>
-                                <b><ins>D</ins></b>NS,
-                                <b><ins>R</ins></b>outing,
-                                <b><ins>P</ins></b>2P,
-                                <b><ins>M</ins></b>AC address
-                            </li>
-                            <li><b>Types by scale:</b></li>
-                                <ul>
-                                    <li>
-                                        <b><ins>W</ins></b>AN,
-                                        <b><ins>L</ins></b>AN,
-                                        <b><ins>N</ins></b>FC
-                                    </li>
-                                </ul>
-                            <li><b>Hardware:</b></li>
-                                <ul>
-                                    <li>
-                                        <b><ins>G</ins></b>ateway,
-                                        <b><ins>S</ins></b>witch,
-                                        <b><ins>R</ins></b>epeater,
-                                        <b><ins>W</ins></b>AP,
-                                        <b><ins>N</ins></b>IC
-                                    </li>
-                                </ul>
-                        </ul></ul></ul></ul>
+                        <table>
+                            <tr>
+                                <td>
+                                    <b><ins>D</ins></b>NS,
+                                    <b><ins>R</ins></b>outing,
+                                    <b><ins>P</ins></b>ort,
+                                    <b><ins>P</ins></b>2P,
+                                    <b><ins>M</ins></b>AC address
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    <b>Types by scale:</b>
+                                </td>
+                                <td>
+                                    <b><ins>W</ins></b>AN,
+                                    <b><ins>L</ins></b>AN,
+                                    <b><ins>N</ins></b>FC
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Hardware:</b>
+                                </td>
+                                <td>
+                                    <b><ins>G</ins></b>ateway,
+                                    <b><ins>S</ins></b>witch,
+                                    <b><ins>R</ins></b>epeater,
+                                    <b><ins>W</ins></b>AP,
+                                    <b><ins>N</ins></b>IC
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Tools:</b>
+                                </td>
+                                <td>
+                                    <b><ins>P</ins></b>ing,
+                                    <b><ins>T</ins></b>raceroute
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>RTC:</b>
+                                </td>
+                                <td>
+                                    <b><ins>W</ins></b>ebRTC,
+                                    <b><ins>W</ins></b>ebhook,
+                                    <b><ins>W</ins></b>ebSocket,
+                                    <b><ins>S</ins></b>SE,
+                                    <b><ins>P</ins></b>olling (Long/short)
+                                </td>
+                            </tr>
+                        </table>
                 </ul>
             </details></li>
             <li><details><summary>Network Protocols</summary>
@@ -80,58 +110,57 @@
                     <li><a href="#tls-handshake"><b>TLS handshake</b></a></li>
                     <li><b>Common protocols:</b></li>
                     <table>
-                    <tr>
-                        <td>
-                            <a href="#communication-protocol-networking"><b>Communication</b></a>
-                        </td>
-                        <td>
-                            <b><ins>T</ins></b>CP,
-                            <b><ins>U</ins></b>DP
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#management-protocol-networking"><b>Management</b></a>
-                        </td>
-                        <td>
-                            <b><ins>S</ins></b>NMP,
-                            <b><ins>I</ins></b>CMP
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#security-protocol-networking"><b>Security</b></a>
-                        </td>
-                        <td>
-                            <b><ins>S</ins></b>SH,
-                            <b><ins>S</ins></b>FTP,
-                            <b><ins>T</ins></b>LS,
-                            <b><ins>H</ins></b>TTPS
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#email-protocol-networking"><b>Email</b></a>
-                        </td>
-                        <td>
-                            <b><ins>S</ins></b>MTP,
-                            <b><ins>I</ins></b>MAP,
-                            <b><ins>P</ins></b>OP3
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#other-protocol-networking"><b>Other</b></a>
-                        </td>
-                        <td>
-                            <b><ins>F</ins></b>TP,
-                            <b><ins>M</ins></b>QTT,
-                            <b><ins>A</ins></b>MQP,
-                            <b><ins>R</ins></b>PC,
-                            <b><ins>W</ins></b>ebRTC
-                        </td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td>
+                                <a href="#communication-protocol-networking"><b>Communication</b></a>
+                            </td>
+                            <td>
+                                <b><ins>T</ins></b>CP,
+                                <b><ins>U</ins></b>DP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#management-protocol-networking"><b>Management</b></a>
+                            </td>
+                            <td>
+                                <b><ins>S</ins></b>NMP,
+                                <b><ins>I</ins></b>CMP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#security-protocol-networking"><b>Security</b></a>
+                            </td>
+                            <td>
+                                <b><ins>S</ins></b>SH,
+                                <b><ins>S</ins></b>FTP,
+                                <b><ins>T</ins></b>LS,
+                                <b><ins>H</ins></b>TTPS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#email-protocol-networking"><b>Email</b></a>
+                            </td>
+                            <td>
+                                <b><ins>S</ins></b>MTP,
+                                <b><ins>I</ins></b>MAP,
+                                <b><ins>P</ins></b>OP3
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#other-protocol-networking"><b>Other</b></a>
+                            </td>
+                            <td>
+                                <b><ins>F</ins></b>TP,
+                                <b><ins>M</ins></b>QTT,
+                                <b><ins>A</ins></b>MQP,
+                                <b><ins>R</ins></b>PC
+                            </td>
+                        </tr>
+                    </table>
                 </ul>
             </details></li>
         </ul>
@@ -734,6 +763,7 @@ A map of how data moves through your network system. The configuration of nodes 
 
 * **DNS:** The phonebook of the internet translating human-readable domain names (e.g. example.com) into machine-readable IP addresses (e.g. 192.0.2.1). This mapping process is known as a DNS lookup.
 * **Routing:** Finding the best physical path for the data to reach its destination.
+* **Port:** Port numbers act as unique identifiers to distinguish different applications or services on a device, allowing network traffic to reach the correct program. Working at the Transport layer, ports help the operating system route incoming data to the appropriate application.
 * **P2P:** Decentralized network. Each node (a router, printer, switch, or computer) acts as both a server and a client by connecting directly with one another to share resources.
 * **MAC (Media Access Control) address:** Hardware identifier assigned to a device's NIC. Acts as a hardware-based address for local network communication and doesn't change, unlike IP addresses.
 
@@ -748,6 +778,18 @@ A map of how data moves through your network system. The configuration of nodes 
     * **Repeater:** Device that receives a signal and retransmits it at a higher level or higher power
     * **WAP (Wireless Access Point):** Allows a Wi-Fi device to connect to a wired network. Better than Wi-Fi extender by using an Ethernet cable.
     * **NIC (Network Interface Controller):** A hardware component that enables network connections (Ethernet or Wi-Fi).
+
+* **Tools:**
+    * **Ping:** Tests if a specific IP address or domain is reachable and measures latency between your computer and the destination. Quick check to see if a website is down, if the internet is connected, or if a local network device is active.
+    * **Traceroute:** Provides a map of how data on the internet travels from its source to its destination. Details the precise route info, router by router, as well as the time it took for each hop.
+
+* **Real-Time Communication:**
+    * **WebRTC (Web Real-Time Communication):** Enables browser-to-browser applications for voice calling, video chat, and file sharing.
+    * **Webhook:** An integration technique used to handle events or event-based actions. The event source sends an HTTP POST to a pre-registered URL. No persistent connection needed. Use cases: Payment notifications, CI/CD triggers.
+    * **WebSocket:** A bidirectional real-time communication protocol allowing both client and server to send messages at any time. Starts as HTTP, then upgrades to WebSocket protocol.
+    * **SSE (Server-Sent Events):** Enables server to push data to client in real-time over a single, long-lived HTTP connection. No need for the client to constantly ask for updates.
+    * **Short Polling:** Client repeatedly making requests to the server at a fixed interval for updates. The server responds immediately with an empty response or with data if available.
+    * **Long Polling:** Client sends a request, and the server holds the connection open until new data is available or a timeout occurs. Client immediately sends another request to restart the process. Best for: Notifications, simple chat.
 
 <h2 id="network-protocols-networking">Network Protocols</h2>
 
@@ -819,7 +861,6 @@ Enable administrators to monitor, configure, and maintain network devices like r
 * **MQTT (Message Queuing Telemetry Transport):** Lightweight messaging protocol. For devices w/ low processing power.
 * **AMQP (Advanced Message Queuing Protocol):** Protocol for message-oriented middleware. For enterprise level communication with robust security.
 * **RPC (Remote Procedure Call):** Invoking function on another server as if. Abstracts network communication to allow developers to interact code on a remote server as if it were local.
-* **WebRTC:** Enables browser-to-browser applications for voice calling, video chat, and file sharing.
 
 ---
 

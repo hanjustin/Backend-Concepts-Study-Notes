@@ -1,6 +1,3 @@
-* WebSockets: Real time updates two way communication channel. a communication protocol that provides full-duplex, real-time, and bidirectional communication between a client and a server over a single, long-lived connection.WebSockets can be used in applications such as chat systems or real-time collaboration tools, where instant and continuous data exchange between clients and servers is required.
-
-
 
 -----
 
