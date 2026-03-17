@@ -7,664 +7,827 @@
 # Table of Contents
 
 <ul>
-    <li><b>Networking</b></li>
+  <li><b>Networking</b></li>
+    <ul>
+      <li><details><summary>Fundamentals (Click)</summary>
         <ul>
-            <li><details><summary>Fundamentals (Click)</summary>
+          <li><b>Concepts</b></li>
+          <table>
+            <tr>
+              <th style="text-align: center;">
+                <b>Category</b>
+              </th>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#reference-models-networking"><b>Reference Models</b></a>
+              </td>
+              <td>
+                <b><ins>O</ins></b>SI,
+                <b><ins>T</ins></b>CP/IP
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#key-metrics-networking"><b>Key Metrics</b></a>
+              </td>
+              <td>
+                <b><ins>T</ins></b>hroughput,
+                <b><ins>L</ins></b>atency,
+                <b><ins>J</ins></b>itter,<br>
+                <b><ins>P</ins></b>acket loss
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#topology-networking"><b>Topology</b></a>
+              </td>
+              <td>
+                <b><ins>R</ins></b>ing,
+                <b><ins>S</ins></b>tar,
+                <b><ins>B</ins></b>us,
+                <b><ins>M</ins></b>esh
+              </td>
+            </tr>
+          </table>
+          <li><a href="#terminologies-networking"><b>Terminologies</b></a></li>
+            <table>
+              <tr>
+                <td>
+                  <b><ins>D</ins></b>NS,
+                  <b><ins>R</ins></b>outing,
+                  <b><ins>P</ins></b>ort,
+                  <b><ins>P</ins></b>2P,
+                  <b><ins>M</ins></b>AC address
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td style="text-align: right;">
+                  <b>Coverage Range</b>
+                </td>
+                <td>
+                  <b><ins>W</ins></b>AN,
+                  <b><ins>L</ins></b>AN,
+                  <b><ins>N</ins></b>FC
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: right;">
+                  <b>Hardware</b>
+                </td>
+                <td>
+                  <b><ins>G</ins></b>ateway,
+                  <b><ins>S</ins></b>witch,
+                  <b><ins>R</ins></b>epeater,
+                  <b><ins>W</ins></b>AP,
+                  <b><ins>N</ins></b>IC
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: right;">
+                  <b>Tools</b>
+                </td>
+                <td>
+                  <b><ins>P</ins></b>ing,
+                  <b><ins>T</ins></b>raceroute
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: right;">
+                  <b>RTC</b>
+                </td>
+                <td>
+                  <b><ins>W</ins></b>ebRTC,
+                  <b><ins>W</ins></b>ebhook,
+                  <b><ins>W</ins></b>ebSocket,
+                  <b><ins>S</ins></b>SE,
+                  <b><ins>P</ins></b>olling (Long/short)
+                </td>
+              </tr>
+            </table>
+        </ul>
+        <hr>
+      </details></li>
+      <li><details><summary>Network Protocols</summary>
+        <ul>
+          <li><a href="#tcp-three-way-handshake"><b>TCP 3-way handshake</b></a></li>
+          <li><a href="#tls-handshake"><b>TLS handshake</b></a></li>
+          <li><b>Common protocols:</b></li>
+          <table>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#communication-protocol-networking"><b>Communication</b></a>
+              </td>
+              <td>
+                <b><ins>T</ins></b>CP,
+                <b><ins>U</ins></b>DP
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#management-protocol-networking"><b>Management</b></a>
+              </td>
+              <td>
+                <b><ins>S</ins></b>NMP,
+                <b><ins>I</ins></b>CMP
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#security-protocol-networking"><b>Security</b></a>
+              </td>
+              <td>
+                <b><ins>S</ins></b>SH,
+                <b><ins>S</ins></b>FTP,
+                <b><ins>T</ins></b>LS,
+                <b><ins>H</ins></b>TTPS
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#email-protocol-networking"><b>Email</b></a>
+              </td>
+              <td>
+                <b><ins>S</ins></b>MTP,
+                <b><ins>I</ins></b>MAP,
+                <b><ins>P</ins></b>OP3
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#other-protocol-networking"><b>Other</b></a>
+              </td>
+              <td>
+                <b><ins>F</ins></b>TP,
+                <b><ins>M</ins></b>QTT,
+                <b><ins>A</ins></b>MQP,
+                <b><ins>R</ins></b>PC
+              </td>
+            </tr>
+          </table>
+        </ul>
+        <hr>
+      </details></li>
+    </ul>
+  <li><b>Cloud</b></li>
+    <ul>
+      <li><details><summary>AWS</summary>
+        <ul>
+          <li><a href="#fundamentals-aws"><b>Fundamentals</b></a></li>
+            <ul>
+              <li><b>Concepts</b></li>
+              <table>
+                <tr>
+                  <td style="text-align: right;">
+                    <a href="#computing-models"><b>Computing<br>Models</b></a>
+                  </td>
+                  <td>
+                    <b><ins>S</ins></b>erverless,
+                    <b><ins>S</ins></b>aaS,
+                    <b><ins>P</ins></b>aaS,
+                    <b><ins>I</ins></b>aaS
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;">
+                    <a href="#deployment-models"><b>Deployment<br>Models</b></a>
+                  </td>
+                  <td>
+                    <b><ins>P</ins></b>rivate,
+                    <b><ins>P</ins></b>ublic,
+                    <b><ins>H</ins></b>ybrid,
+                    <b><ins>M</ins></b>ulticloud
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;">
+                    <a href="#global-infrastructure"><b>Global<br>Infrastructure</b></a>
+                  </td>
+                  <td>
+                    <b><ins>R</ins></b>egions,
+                    <b><ins>A</ins></b>vailability zones,
+                    <b><ins>E</ins></b>dge locations
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;">
+                    <a href="#best-practices-aws"><b>Best Practices<br>Pillars</b></a>
+                  </td>
+                  <td>
+                    <b><ins>S</ins></b>ecurity,
+                    <b><ins>R</ins></b>eliability,
+                    <b><ins>O</ins></b>perational excellence,<br>
+                    <b><ins>P</ins></b>erformance efficiency,<br>
+                    <b><ins>C</ins></b>ost optimization
+                  </td>
+                </tr>
+              </table>
+              <li><a href="#terminologies-aws"><b>Terminologies</b></a></li>
+                <table>
+                  <tr>
+                    <td>
+                      <b><ins>A</ins></b>RNs,
+                      <b><ins>F</ins></b>ault domain,
+                      <b><ins>S</ins></b>LA,
+                      <b><ins>S</ins></b>LI,
+                      <b><ins>S</ins></b>LO,<br>
+                      <b><ins>R</ins></b>ecovery point objective,<br>
+                      <b><ins>R</ins></b>ecovery time objective
+                    </td>
+                  </tr>
+                </table>
+            </ul>
+          <li><b>Key Services</b></li>
+          <table>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#iam-aws"><b>IAM</b></a>
+              </td>
+              <td>
+                <b><ins>U</ins></b>ser,
+                <b><ins>P</ins></b>olicy,
+                <b><ins>G</ins></b>roup,
+                <b><ins>R</ins></b>ole,
+                <b><ins>T</ins></b>rust Relationship
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#vpc-aws"><b>VPC</b></a>
+              </td>
+              <td>
+                <b><ins>S</ins></b>ubnets,
+                <b><ins>S</ins></b>ecurity groups,
+                <b><ins>V</ins></b>PC endpoint
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#ec2-aws"><b>EC2</b></a>
+              </td>
+              <td>
+                <b><ins>I</ins></b>nstance types,
+                <b><ins>S</ins></b>torage options (EBS & EFS),
+                <b><ins>A</ins></b>MI
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#s3-aws"><b>S3</b></a>
+              </td>
+              <td>
+                <b><ins>B</ins></b>ucket,
+                <b><ins>O</ins></b>bject,
+                <b><ins>S</ins></b>torage classes,
+                <b><ins>L</ins></b>ifecycle automation
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#lambda-aws"><b>Lambda</b></a>
+              </td>
+              <td>
+                <b><ins>F</ins></b>aaS,
+                <b><ins>T</ins></b>rigger,
+                <b><ins>E</ins></b>xecution environment
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#cloudformation-aws"><b>CloudFormation</b></a>
+              </td>
+              <td>
+                <b><ins>I</ins></b>aC,
+                <b><ins>S</ins></b>tack,
+                <b><ins>C</ins></b>hangeSets
+              </td>
+            </tr>
+          </table>
+          <li><em>Key points from AWS certification preparation resources:</em></li>
+            <ul>
+              <li><b>CLF-C02</b> Cloud Practitioner - Foundational</li>
+              <li><b>SAA-C03</b> Solutions Architect - Associate</li>
+            </ul>
+        </ul>
+        <hr>
+      </details></li>
+      <li><details><summary>Cloudflare</summary>
+        <ul>
+          <li><a href="#cloudflare"><b>Key Services</b></a></li>
+            <ul>
+              <li>
+                <b><ins>C</ins></b>DN,
+                <b><ins>W</ins></b>AF, 
+                <b><ins>D</ins></b>DoS mitigation
+              </li>
+            </ul>
+        </ul>
+        <hr>
+      </details></li>
+    </ul>
+  <li><b>Databases</b></li>
+    <ul>
+  <!-- * Non-relational
+    * Key-value pair
+    * Document-oriented
+    * Column-oriented
+    * Graph-based
+    * Time series -->
+  <!-- * **SQL vs NoSQL**
+  * **[ACID vs BASE transaction](#acid-vs-base-transaction)**
+    * **[ACID](#acid)**
+      * **[Isolation Levels vs Read Phenomena](#isolation-levels-vs-read-phenomena)**
+      * **[Compliance Strategies](#compliance-strategies)**
+        * <b><ins>W</ins></b>rite-ahead logging,
+        <b><ins>C</ins></b>heckpointing,
+        <b><ins>S</ins></b>hadow paging,
+        <b><ins>L</ins></b>ocking,
+        <b><ins>M</ins></b>ulti-versioning -->
+      <li><details><summary>Fundamentals</summary>
+        <ul>
+          <li><a href="#concepts-databases"><b>Concepts</b></a></li>
+            <ul><ul><ul><ul>
+              <li>
+                <b><ins>I</ins></b>ndexing,
+                <b><ins>S</ins></b>harding, 
+                <b><ins>R</ins></b>elational,
+                <b><ins>A</ins></b>CID,
+                <b><ins>B</ins></b>ASE,
+                <b><ins>N</ins></b>ormalization,
+                <b><ins>D</ins></b>enormalization
+              </li>
+            </ul></ul></ul></ul>
+          <li><b>Terminologies</b></li>
+            <ul><ul><ul><ul>
+              <li></li>
+            </ul></ul></ul></ul>
+        </ul>
+        <hr>
+      </details></li>
+      <li><b>Popular Databases</b></li>
+        <ul>
+          <li><details><summary>PostgreSQL</summary>
+            <ul>
+              <li><a href="#fundamentals-postgresql"><b>Fundamentals</b></a></li>
                 <ul>
-                    <li><b>Concepts</b></li>
+                  <li><a href="#concepts-postgresql"><b>Concepts</b></a></li>
+                    <ul><ul><ul><ul>
+                      <li>Table Inheritance</li>
+                      <li>User-defined Data Types</li>
+                    </ul></ul></ul></ul>
+                  <li><a href="#terminologies-postgresql"><b>Terminologies</b></a></li>
                     <table>
-                        <tr>
-                            <td>
-                                <a href="#reference-models-networking"><b>Reference Models</b></a>
-                            </td>
-                            <td>
-                                <b><ins>O</ins></b>SI,
-                                <b><ins>T</ins></b>CP/IP
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#key-metrics-networking"><b>Key Metrics</b></a>
-                            </td>
-                            <td>
-                                <b><ins>T</ins></b>hroughput,
-                                <b><ins>L</ins></b>atency,
-                                <b><ins>J</ins></b>itter,<br>
-                                <b><ins>P</ins></b>acket loss
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#topology-networking"><b>Topology</b></a>
-                            </td>
-                            <td>
-                                <b><ins>R</ins></b>ing,
-                                <b><ins>S</ins></b>tar,
-                                <b><ins>B</ins></b>us,
-                                <b><ins>M</ins></b>esh
-                            </td>
-                        </tr>
+                      <tr>
+                        <td>
+                          <b><ins>P</ins></b>rimary key,
+                          <b><ins>C</ins></b>omposite primary key,
+                          <b><ins>F</ins></b>oreign key,
+                          <b><ins>V</ins></b>iew,
+                          <b><ins>M</ins></b>aterialized view,
+                          <b><ins>S</ins></b>tored procedure,
+                          <b><ins>A</ins></b>ggregate & window functions
+                        </td>
+                      </tr>
                     </table>
-                    <li><a href="#terminologies-networking"><b>Terminologies</b></a></li>
-                        <table>
-                            <tr>
-                                <td>
-                                    <b><ins>D</ins></b>NS,
-                                    <b><ins>R</ins></b>outing,
-                                    <b><ins>P</ins></b>ort,
-                                    <b><ins>P</ins></b>2P,
-                                    <b><ins>M</ins></b>AC address
-                                </td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td>
-                                    <b>Types by scale:</b>
-                                </td>
-                                <td>
-                                    <b><ins>W</ins></b>AN,
-                                    <b><ins>L</ins></b>AN,
-                                    <b><ins>N</ins></b>FC
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>Hardware:</b>
-                                </td>
-                                <td>
-                                    <b><ins>G</ins></b>ateway,
-                                    <b><ins>S</ins></b>witch,
-                                    <b><ins>R</ins></b>epeater,
-                                    <b><ins>W</ins></b>AP,
-                                    <b><ins>N</ins></b>IC
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>Tools:</b>
-                                </td>
-                                <td>
-                                    <b><ins>P</ins></b>ing,
-                                    <b><ins>T</ins></b>raceroute
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>RTC:</b>
-                                </td>
-                                <td>
-                                    <b><ins>W</ins></b>ebRTC,
-                                    <b><ins>W</ins></b>ebhook,
-                                    <b><ins>W</ins></b>ebSocket,
-                                    <b><ins>S</ins></b>SE,
-                                    <b><ins>P</ins></b>olling (Long/short)
-                                </td>
-                            </tr>
-                        </table>
-                </ul>
-            </details></li>
-            <li><details><summary>Network Protocols</summary>
-                <ul>
-                    <li><a href="#tcp-three-way-handshake"><b>TCP 3-way handshake</b></a></li>
-                    <li><a href="#tls-handshake"><b>TLS handshake</b></a></li>
-                    <li><b>Common protocols:</b></li>
                     <table>
-                        <tr>
-                            <td>
-                                <a href="#communication-protocol-networking"><b>Communication</b></a>
-                            </td>
-                            <td>
-                                <b><ins>T</ins></b>CP,
-                                <b><ins>U</ins></b>DP
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#management-protocol-networking"><b>Management</b></a>
-                            </td>
-                            <td>
-                                <b><ins>S</ins></b>NMP,
-                                <b><ins>I</ins></b>CMP
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#security-protocol-networking"><b>Security</b></a>
-                            </td>
-                            <td>
-                                <b><ins>S</ins></b>SH,
-                                <b><ins>S</ins></b>FTP,
-                                <b><ins>T</ins></b>LS,
-                                <b><ins>H</ins></b>TTPS
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#email-protocol-networking"><b>Email</b></a>
-                            </td>
-                            <td>
-                                <b><ins>S</ins></b>MTP,
-                                <b><ins>I</ins></b>MAP,
-                                <b><ins>P</ins></b>OP3
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#other-protocol-networking"><b>Other</b></a>
-                            </td>
-                            <td>
-                                <b><ins>F</ins></b>TP,
-                                <b><ins>M</ins></b>QTT,
-                                <b><ins>A</ins></b>MQP,
-                                <b><ins>R</ins></b>PC
-                            </td>
-                        </tr>
+                      <tr>
+                        <td>
+                          <b>Tools</b>
+                        </td>
+                        <td>
+                          <b><ins>p</ins></b>sql,
+                          <b><ins>p</ins></b>gAdmin
+                        </td>
+                      </tr>
                     </table>
                 </ul>
-            </details></li>
+              <li><a href="#sql-syntax"><b>SQL Syntax</b></a></li>
+                <ul><ul><ul><ul><ul>
+                  <li><b>Database Management</b></li>
+                    <ul>
+                      <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li>
+                    </ul>
+                  <li><b>Data CRUD Operations</b></li>
+                    <ul>
+                      <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li>
+                    </ul>
+                  <li><b>Data Integrity Protection</b></li>
+                    <ul>
+                      <li><b>Constraint</b></li>
+                        <ul>
+                          <li><code>PRIMARY KEY</code>, <code>REFERENCES</code>, <code>CHECK</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, <code>ON DELETE</code></li>
+                        </ul>
+                      <li><b>Transaction Management</b></li>
+                        <ul>
+                          <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
+                        </ul>
+                      <li><b>Trigger</b></li>
+                        <ul>
+                          <li><code>CREATE TRIGGER</code>, <code>CREATE FUNCTION</code>, <code>BEFORE/AFTER event</code>, <code>$$string_constant$$</code></li>
+                        </ul>
+                    </ul>
+                  <li><b>Aggregate Queries</b></li>
+                    <ul>
+                      <li><code>MIN</code>, <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>GROUP BY</code></li>
+                    </ul>
+                  <li><b>User Access Control</b></li>
+                    <ul>
+                      <li><code>ROLE</code>, <code>GRANT</code>, <code>REVOKE</code></li>
+                    </ul>
+                  <li><b>Join</b></li>
+                    <ul>
+                      <li><code>JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code></li>
+                    </ul>
+                </ul></ul></ul></ul></ul>
+            </ul>
+            <hr>
+          </details></li>
+          <li><details><summary>Cassandra</summary>
+            <ul>
+              <li><a href="#fundamentals-cassandra"><b>Fundamentals</b></a></li>
+                <ul>
+                  <li><a href="#concepts-cassandra"><b>Concepts</b></a></li>
+                    <ul><ul><ul><ul>
+                      <li>Masterless interconnected independent nodes</li>
+                      <li>Query oriented denormalized data format</li>
+                      <li>Per request tunable consistency</li>
+                      <li>Last write wins eventual consistency</li>
+                      <li>Rows with optional fields</li>
+                    </ul></ul></ul></ul>
+                  <li><a href="#terminologies-cassandra"><b>Terminologies</b></a></li>
+                    <table>
+                      <tr>
+                        <td>
+                          <b><ins>K</ins></b>eyspace,
+                          <b><ins>T</ins></b>able,
+                          <b><ins>P</ins></b>artition,
+                          <b><ins>R</ins></b>eplication factor,
+                          <b><ins>C</ins></b>onsistency levels,
+                          <b><ins>P</ins></b>rimary key,
+                          <b><ins>P</ins></b>artition key,
+                          <b><ins>C</ins></b>omposite partition key,
+                          <b><ins>C</ins></b>lustering key,
+                          <b><ins>C</ins></b>oordinator,
+                          <b><ins>P</ins></b>artitioner,
+                          <b><ins>G</ins></b>ossip protocol,
+                          <b><ins>L</ins></b>ightweight transactions
+                        </td>
+                      </tr>
+                    </table>
+                </ul>
+              <li><a href="#cql-syntax"><b>CQL Syntax</b></a></li>
+                <ul><ul><ul><ul><ul>
+                  <li><b>Keyspace Management</b></li>
+                    <ul>
+                      <li><code>CREATE</code>, <code>USE</code>, <code>DROP</code></li>
+                    </ul>
+                  <li><b>Table Management</b></li>
+                    <ul>
+                      <li><code>CREATE</code>, <code>ALTER</code>, <code>DELETE</code></li>
+                    </ul>
+                  <li><b>Data CRUD Operations</b></li>
+                    <ul>
+                      <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>USING TTL</code>, <code>DELETE</code></li>
+                    </ul>
+                  <li><b>Misc</b></li>
+                    <ul>
+                      <li><code>CREATE TYPE/INDEX</code>, <code>BEGIN/APPLY BATCH</code></li>
+                    </ul>
+                </ul></ul></ul></ul></ul>
+            </ul>
+            <hr>
+          </details></li>
+          <li><details><summary>Redis</summary>
+            <ul>
+              <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
+                <ul>
+                  <li><a href="#key-features-redis"><b>Key Features</b></a></li>
+                    <ul><ul><ul><ul>
+                      <li>RAM In-memory Datastore</li>
+                      <li>Data Structure Store</li>
+                      <li>Atomic Operations</li>
+                      <li>Pub/sub</li>
+                      <li>Optional Persistence</li>
+                    </ul></ul></ul></ul>
+                  <!-- <li><a href="#concepts-redis"><b>Concepts</b></a></li>
+                    <ul><ul><ul><ul>
+                      <li>Eviction Policies</li>
+                    </ul></ul></ul></ul> -->
+                </ul>
+              <li><a href="#use-cases-redis"><b>Use Cases</b></a></li>
+                <ul><ul><ul><ul><ul>
+                  <li>Caching</li>
+                  <li>Session Store</li>
+                  <li>Rate Limiting</li>
+                  <li>Real-Time Analytics</li>
+                  <li>Event-Driven Message Queues</li>
+                  <li>Location-Based Services</li>
+                </ul></ul></ul></ul></ul>
+            </ul>
+            <hr>
+          </details></li>
+          <li><details><summary>MongoDB</summary>
+            <ul>
+              <li><a href="#fundamentals-mongodb"><b>Fundamentals</b></a></li>
+                <ul>
+                  <li><a href="#key-features-mongodb"><b>Key Features</b></a></li>
+                    <ul><ul><ul><ul>
+                      <li>Optional Schema</li>
+                      <li>Aggregation Pipelines</li>
+                      <li>Relationship options: Embed vs. Reference</li>
+                    </ul></ul></ul></ul>
+                  <li><a href="#terminologies-mongodb"><b>Terminologies</b></a></li>
+                    <table>
+                      <tr>
+                        <td>
+                          <b><ins>C</ins></b>ollection,
+                          <b><ins>D</ins></b>ocument,
+                          <b><ins>B</ins></b>SON,
+                          <b><ins>m</ins></b>ongosh
+                        </td>
+                      </tr>
+                    </table>
+                </ul>
+            </ul>
+            <hr>
+          </details></li>
         </ul>
-    <li><b>Cloud</b></li>
+    </ul>
+  <li><b>System Design</b></li>
+    <ul>
+      <li><details><summary>Fundamentals</summary>
         <ul>
-            <li><details><summary>AWS</summary>
-                <ul>
-                    <li><a href="#fundamentals-aws"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><b>Concepts</b></li>
-                                <ul>
-                                    <li><a href="#computing-models"><b>Computing Models</b></a></li>
-                                        <ul><ul><ul>
-                                            <li>
-                                                <b><ins>S</ins></b>erverless,
-                                                <b><ins>S</ins></b>aaS,
-                                                <b><ins>P</ins></b>aaS,
-                                                <b><ins>I</ins></b>aaS
-                                            </li>
-                                        </ul></ul></ul>
-                                    <li><a href="#deployment-models"><b>Deployment Models</b></a></li>
-                                        <ul><ul><ul>
-                                            <li>
-                                                <b><ins>P</ins></b>rivate,
-                                                <b><ins>P</ins></b>ublic,
-                                                <b><ins>H</ins></b>ybrid,
-                                                <b><ins>M</ins></b>ulticloud
-                                            </li>
-                                        </ul></ul></ul>
-                                    <li><a href="#global-infrastructure"><b>Global Infrastructure</b></a></li>
-                                        <ul><ul><ul>
-                                            <li>
-                                                <b><ins>R</ins></b>egions,
-                                                <b><ins>A</ins></b>vailability zones,
-                                                <b><ins>E</ins></b>dge locations
-                                            </li>
-                                        </ul></ul></ul>
-                                    <li><a href="#best-practices-aws"><b>Cloud Best Practices Pillars - Well-Architected Framework</b></a></li>
-                                        <ul><ul><ul>
-                                            <li>
-                                                <b><ins>O</ins></b>perational excellence,
-                                                <b><ins>S</ins></b>ecurity,
-                                                <b><ins>R</ins></b>eliability,
-                                                <b><ins>P</ins></b>erformance efficiency,
-                                                <b><ins>C</ins></b>ost optimization
-                                            </li>
-                                        </ul></ul></ul>
-                                </ul>
-                            <li><a href="#terminologies-aws"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>A</ins></b>RNs,
-                                        <b><ins>F</ins></b>ault domain,
-                                        <b><ins>S</ins></b>LA,
-                                        <b><ins>S</ins></b>LI,
-                                        <b><ins>S</ins></b>LO,
-                                        <b><ins>R</ins></b>ecovery point objective,
-                                        <b><ins>R</ins></b>ecovery time objective
-                                    </li>
-                                </ul></ul></ul></ul>
-                        </ul>
-                    <li><b>Key Services</b></li>
-                        <ul>
-                            <li>
-                                <a href="#iam-aws"><b>IAM</b></a> - 
-                                <b><ins>U</ins></b>ser,
-                                <b><ins>P</ins></b>olicy,
-                                <b><ins>G</ins></b>roup,
-                                <b><ins>R</ins></b>ole,
-                                <b><ins>T</ins></b>rust Relationship
-                            </li>
-                            <li>
-                                <a href="#vpc-aws"><b>VPC</b></a> - 
-                                <b><ins>S</ins></b>ubnets,
-                                <b><ins>S</ins></b>ecurity groups,
-                                <b><ins>V</ins></b>PC endpoint
-                            </li>
-                            <li>
-                                <a href="#ec2-aws"><b>EC2</b></a> - 
-                                <b><ins>I</ins></b>nstance types,
-                                <b><ins>S</ins></b>torage options (EBS & EFS),
-                                <b><ins>A</ins></b>MI
-                            </li>
-                            <li>
-                                <a href="#s3-aws"><b>S3</b></a> - 
-                                <b><ins>B</ins></b>ucket,
-                                <b><ins>O</ins></b>bject,
-                                <b><ins>S</ins></b>torage classes,
-                                <b><ins>L</ins></b>ifecycle automation
-                            </li>
-                            <li><a href="#lambda-aws"><b>Lambda</b></a> - 
-                                <b><ins>F</ins></b>aaS,
-                                <b><ins>T</ins></b>rigger,
-                                <b><ins>E</ins></b>xecution environment
-                            </li>
-                            <li>
-                                <a href="#cloudformation-aws"><b>CloudFormation</b></a> - 
-                                <b><ins>I</ins></b>aC,
-                                <b><ins>S</ins></b>tack,
-                                <b><ins>C</ins></b>hangeSets
-                            </li>
-                        </ul>
-                    <!-- <li><a href="#fundamentals-aws"><b>Other Services</b></a></li>
-                        <ul>
-                            <li>DynamoDB</b></a></li>
-                        </ul> -->
-                    <li><em>Key points from AWS certification preparation resources:</em></li>
-                        <ul>
-                            <li><b>CLF-C02</b> Cloud Practitioner - Foundational</li>
-                            <li><b>SAA-C03</b> Solutions Architect - Associate</li>
-                        </ul>
-                </ul>
-            </details></li>
-            <li><details><summary>Cloudflare</summary>
-                <ul>
-                    <li><a href="#cloudflare"><b>Key Services</b></a></li>
-                        <ul>
-                            <li>
-                                <b><ins>C</ins></b>DN,
-                                <b><ins>W</ins></b>AF, 
-                                <b><ins>D</ins></b>DoS mitigation
-                            </li>
-                        </ul>
-                </ul>
-            </details></li>
+          <li><b>Concepts</b></li>
+          <table>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#theorem-system-design"><b>Theorem</b></a>
+              </td>
+              <td>
+                <b><ins>C</ins></b>AP &<br>
+                <ul><ul>
+                  <b><ins>P</ins></b>ACELC
+                </ul></ul>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#scaling-patterns"><b>Scaling Patterns</b></a>
+              </td>
+              <td>
+                <b><ins>V</ins></b>ertical &<br>
+                <ul><ul>
+                  <b><ins>H</ins></b>orizontal
+                </ul></ul>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">
+                <a href="#consistency-patterns"><b>Consistency Patterns</b></a>
+              </td>
+              <td>
+                <b><ins>S</ins></b>trong &<br>
+                <ul><ul>
+                  <b><ins>E</ins></b>ventual
+                </ul></ul>
+              </td>
+            </tr>
+          </table>
+          <li><b>Terminologies</b></li>
+            <table>
+              <tr>
+                <td>
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </table>
         </ul>
-    <li><b>Databases</b></li>
+        <hr>
+      </details></li>
+      <li><details><summary>Kafka</summary>
         <ul>
-    <!-- * Non-relational
-        * Key-value pair
-        * Document-oriented
-        * Column-oriented
-        * Graph-based
-        * Time series -->
-    <!-- * **SQL vs NoSQL**
-    * **[ACID vs BASE transaction](#acid-vs-base-transaction)**
-        * **[ACID](#acid)**
-            * **[Isolation Levels vs Read Phenomena](#isolation-levels-vs-read-phenomena)**
-            * **[Compliance Strategies](#compliance-strategies)**
-                * <b><ins>W</ins></b>rite-ahead logging,
-                <b><ins>C</ins></b>heckpointing,
-                <b><ins>S</ins></b>hadow paging,
-                <b><ins>L</ins></b>ocking,
-                <b><ins>M</ins></b>ulti-versioning -->
-            <li><details><summary>Fundamentals</summary>
-                <ul>
-                    <li><a href="#concepts-databases"><b>Concepts</b></a></li>
-                        <ul><ul><ul><ul>
-                            <li>
-                                <b><ins>I</ins></b>ndexing,
-                                <b><ins>S</ins></b>harding, 
-                                <b><ins>R</ins></b>elational,
-                                <b><ins>A</ins></b>CID,
-                                <b><ins>B</ins></b>ASE,
-                                <b><ins>N</ins></b>ormalization,
-                                <b><ins>D</ins></b>enormalization
-                            </li>
-                        </ul></ul></ul></ul>
-                    <li><b>Terminologies</b></li>
-                        <ul><ul><ul><ul>
-                            <li></li>
-                        </ul></ul></ul></ul>
-                </ul>
-            </details></li>
-            <li><b>Popular Databases</b></li>
-                <ul>
-                    <li><details><summary>PostgreSQL</summary>
-                        <ul>
-                            <li><a href="#fundamentals-postgresql"><b>Fundamentals</b></a></li>
-                                <ul>
-                                    <li><a href="#concepts-postgresql"><b>Concepts</b></a></li>
-                                        <ul><ul><ul><ul>
-                                            <li>Table Inheritance</li>
-                                            <li>User-defined Data Types</li>
-                                        </ul></ul></ul></ul>
-                                    <li><a href="#terminologies-postgresql"><b>Terminologies</b></a></li>
-                                        <ul><ul><ul><ul>
-                                            <li>
-                                                <b><ins>P</ins></b>rimary key,
-                                                <b><ins>C</ins></b>omposite primary key,
-                                                <b><ins>F</ins></b>oreign key,
-                                                <b><ins>V</ins></b>iew,
-                                                <b><ins>M</ins></b>aterialized view,
-                                                <b><ins>S</ins></b>tored procedure,
-                                                <b><ins>A</ins></b>ggregate & window functions
-                                            </li>
-                                            <li><b>Tools:</b></li>
-                                                <ul>
-                                                    <li><b>p</b>sql, <b>p</b>gAdmin</li>
-                                                </ul>
-                                        </ul></ul></ul></ul>
-                                </ul>
-                            <li><a href="#sql-syntax"><b>SQL Syntax</b></a></li>
-                                <ul><ul><ul><ul><ul>
-                                    <li><b>Database Management</b></li>
-                                        <ul>
-                                            <li><code>CREATE</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>DROP</code></li>
-                                        </ul>
-                                    <li><b>Data CRUD Operations</b></li>
-                                        <ul>
-                                            <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>DELETE</code></li>
-                                        </ul>
-                                    <li><b>Data Integrity Protection</b></li>
-                                        <ul>
-                                            <li><b>Constraint</b></li>
-                                                <ul>
-                                                    <li><code>PRIMARY KEY</code>, <code>REFERENCES</code>, <code>CHECK</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, <code>ON DELETE</code></li>
-                                                </ul>
-                                            <li><b>Transaction Management</b></li>
-                                                <ul>
-                                                    <li><code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></li>
-                                                </ul>
-                                            <li><b>Trigger</b></li>
-                                                <ul>
-                                                    <li><code>CREATE TRIGGER</code>, <code>CREATE FUNCTION</code>, <code>BEFORE/AFTER event</code>, <code>$$string_constant$$</code></li>
-                                                </ul>
-                                        </ul>
-                                    <li><b>Aggregate Queries</b></li>
-                                        <ul>
-                                            <li><code>MIN</code>, <code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>GROUP BY</code></li>
-                                        </ul>
-                                    <li><b>User Access Control</b></li>
-                                        <ul>
-                                            <li><code>ROLE</code>, <code>GRANT</code>, <code>REVOKE</code></li>
-                                        </ul>
-                                    <li><b>Join</b></li>
-                                        <ul>
-                                            <li><code>JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, <code>FULL JOIN</code></li>
-                                        </ul>
-                                </ul></ul></ul></ul></ul>
-                        </ul>
-                    </details></li>
-                    <li><details><summary>Cassandra</summary>
-                        <ul>
-                            <li><a href="#fundamentals-cassandra"><b>Fundamentals</b></a></li>
-                                <ul>
-                                    <li><a href="#concepts-cassandra"><b>Concepts</b></a></li>
-                                        <ul><ul><ul><ul>
-                                            <li>Masterless interconnected independent nodes</li>
-                                            <li>Query oriented denormalized data format</li>
-                                            <li>Per request tunable consistency</li>
-                                            <li>Last write wins eventual consistency</li>
-                                            <li>Rows with optional fields</li>
-                                        </ul></ul></ul></ul>
-                                    <li><a href="#terminologies-cassandra"><b>Terminologies</b></a></li>
-                                        <ul><ul><ul><ul>
-                                            <b><ins>K</ins></b>eyspace,
-                                            <b><ins>T</ins></b>able,
-                                            <b><ins>P</ins></b>artition,
-                                            <b><ins>R</ins></b>eplication factor,
-                                            <b><ins>C</ins></b>onsistency levels,
-                                            <b><ins>P</ins></b>rimary key,
-                                            <b><ins>P</ins></b>artition key,
-                                            <b><ins>C</ins></b>omposite partition key,
-                                            <b><ins>C</ins></b>lustering key,
-                                            <b><ins>C</ins></b>oordinator,
-                                            <b><ins>P</ins></b>artitioner,
-                                            <b><ins>G</ins></b>ossip protocol,
-                                            <b><ins>L</ins></b>ightweight transactions
-                                        </ul></ul></ul></ul>
-                                </ul>
-                            <li><a href="#cql-syntax"><b>CQL Syntax</b></a></li>
-                                <ul><ul><ul><ul><ul>
-                                    <li><b>Keyspace Management</b></li>
-                                        <ul>
-                                            <li><code>CREATE</code>, <code>USE</code>, <code>DROP</code></li>
-                                        </ul>
-                                    <li><b>Table Management</b></li>
-                                        <ul>
-                                            <li><code>CREATE</code>, <code>ALTER</code>, <code>DELETE</code></li>
-                                        </ul>
-                                    <li><b>Data CRUD Operations</b></li>
-                                        <ul>
-                                            <li><code>INSERT INTO</code>, <code>SELECT</code>, <code>WHERE</code>, <code>UPDATE</code>, <code>USING TTL</code>, <code>DELETE</code></li>
-                                        </ul>
-                                    <li><b>Misc</b></li>
-                                        <ul>
-                                            <li><code>CREATE TYPE/INDEX</code>, <code>BEGIN/APPLY BATCH</code></li>
-                                        </ul>
-                                </ul></ul></ul></ul></ul>
-                        </ul>
-                    </details></li>
-                    <li><details><summary>Redis</summary>
-                        <ul>
-                            <li><a href="#fundamentals-redis"><b>Fundamentals</b></a></li>
-                                <ul>
-                                    <li><a href="#key-features-redis"><b>Key Features</b></a></li>
-                                        <ul><ul><ul><ul>
-                                            <li>RAM In-memory Datastore</li>
-                                            <li>Data Structure Store</li>
-                                            <li>Atomic Operations</li>
-                                            <li>Pub/sub</li>
-                                            <li>Optional Persistence</li>
-                                        </ul></ul></ul></ul>
-                                    <!-- <li><a href="#concepts-redis"><b>Concepts</b></a></li>
-                                        <ul><ul><ul><ul>
-                                            <li>Eviction Policies</li>
-                                        </ul></ul></ul></ul> -->
-                                </ul>
-                            <li><a href="#use-cases-redis"><b>Use Cases</b></a></li>
-                                <ul><ul><ul><ul><ul>
-                                    <li>Caching</li>
-                                    <li>Session Store</li>
-                                    <li>Rate Limiting</li>
-                                    <li>Real-Time Analytics</li>
-                                    <li>Event-Driven Message Queues</li>
-                                    <li>Location-Based Services</li>
-                                </ul></ul></ul></ul></ul>
-                        </ul>
-                    </details></li>
-                    <li><details><summary>MongoDB</summary>
-                        <ul>
-                            <li><a href="#fundamentals-mongodb"><b>Fundamentals</b></a></li>
-                                <ul>
-                                    <li><a href="#key-features-mongodb"><b>Key Features</b></a></li>
-                                        <ul><ul><ul><ul>
-                                            <li>Optional Schema</li>
-                                            <li>Aggregation Pipelines</li>
-                                            <li>Relationship options: Embed vs. Reference</li>
-                                        </ul></ul></ul></ul>
-                                    <li><a href="#terminologies-mongodb"><b>Terminologies</b></a></li>
-                                        <ul><ul><ul><ul>
-                                            <li>Collection, Document, BSON, mongosh</li>
-                                        </ul></ul></ul></ul>
-                                </ul>
-                        </ul>
-                    </details></li>
-                </ul>
+          <li><a href="#fundamentals-kafka"><b>Fundamentals</b></a></li>
+            <ul>
+              <li><a href="#concepts-kafka"><b>Concepts</b></a></li>
+                <ul><ul><ul><ul>
+                  <li>Partition leader</li>
+                  <li>Consumer group</li>
+                  <li>Cluster coordinator - Zookeeper or KRaft</li>
+                  <li>Schema registry</li>
+                  <li>Data retention period</li>
+                </ul></ul></ul></ul>
+              <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
+                <table>
+                  <tr>
+                    <td>
+                      <b><ins>P</ins></b>roducer,
+                      <b><ins>C</ins></b>onsumer,
+                      <b><ins>B</ins></b>roker,
+                      <b><ins>C</ins></b>luster,
+                      <b><ins>M</ins></b>essage,
+                      <b><ins>T</ins></b>opic,
+                      <b><ins>P</ins></b>artitions,
+                      <b><ins>O</ins></b>ffset,
+                      <b><ins>C</ins></b>onnectors
+                    </td>
+                  </tr>
+                </table>
+            </ul>
         </ul>
-    <li><b>System Design</b></li>
+        <hr>
+      </details></li>
+      <li><b>API Design</b></li>
         <ul>
-            <li><details><summary>Kafka</summary>
-                <ul>
-                    <li><a href="#fundamentals-kafka"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><a href="#concepts-kafka"><b>Concepts</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>Partition leader</li>
-                                    <li>Consumer group</li>
-                                    <li>Cluster coordinator - Zookeeper or KRaft</li>
-                                    <li>Schema registry</li>
-                                    <li>Data retention period</li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#terminologies-kafka"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>P</ins></b>roducer,
-                                        <b><ins>C</ins></b>onsumer,
-                                        <b><ins>B</ins></b>roker,
-                                        <b><ins>C</ins></b>luster,
-                                        <b><ins>M</ins></b>essage,
-                                        <b><ins>T</ins></b>opic,
-                                        <b><ins>P</ins></b>artitions,
-                                        <b><ins>O</ins></b>ffset,
-                                        <b><ins>C</ins></b>onnectors
-                                    </li>
-                                </ul></ul></ul></ul>
-                        </ul>
-                </ul>
-            </details></li>
-            <li><b>API Design</b></li>
-                <ul>
-                    <li><a href="#grpc">gRPC</a></li>
-                    <li><a href="#graphql">GraphQL</a></li>
-                </ul>
+          <li><a href="#grpc">gRPC</a></li>
+          <li><a href="#graphql">GraphQL</a></li>
         </ul>
-    <li><b>DevOps</b></li>
+    </ul>
+  <li><b>Engineering Aspects</b></li>
+    <ul>
+      <li><details><summary>DevOps</summary>
         <ul>
-            <li><a href="#terminologies-devops"><b>Terminologies</b></a></li>
+          <li><a href="#terminologies-devops"><b>Terminologies</b></a></li>
+          <table>
+            <tr>
+              <td>
+                <b><ins>G</ins></b>itOps,
+                <b><ins>D</ins></b>evSecOps,
+                <b><ins>P</ins></b>latform engineering
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>
+                <b>Observability</b>
+              </td>
+              <td>
+                <b><ins>M</ins></b>etrics,
+                <b><ins>L</ins></b>ogs,
+                <b><ins>T</ins></b>races
+              </td>
+            </tr>
+          </table>
+          <li><b>SRE</b></li>
+            <ul>
+              <li><a href="#fundamentals-sre"><b>Fundamentals</b></a></li>
                 <ul>
-                    <li>
-                        <b><ins>G</ins></b>itOps,
-                        <b><ins>D</ins></b>evSecOps,
-                        <b><ins>P</ins></b>latform engineering
-                    </li>
-                    <li>
-                        <b><ins>O</ins></b>bservability - 
-                            <b><ins>M</ins></b>etrics,
-                        <b><ins>L</ins></b>ogs,
-                        <b><ins>T</ins></b>races
-                    </li>
+                  <li><b>Concepts</b></li>
+                  <table>
+                    <tr>
+                      <td style="text-align: right;">
+                        <b>The 7 principles</b>
+                      </td>
+                      <td>
+                        <b><ins>E</ins></b>mbrace risk,
+                        <b><ins>S</ins></b>LOs,
+                        <b><ins>A</ins></b>utomation,
+                        <b><ins>M</ins></b>onitoring,
+                        <b><ins>S</ins></b>implicity,<br>
+                        <b><ins>C</ins></b>apacity planning,<br>
+                        <b><ins>R</ins></b>elease engineering
+                      </td>
+                    </tr>
+                  </table>
+                  <li><a href="#terminologies-sre"><b>Terminologies</b></a></li>
+                  <table>
+                    <tr>
+                      <td>
+                        <b><ins>T</ins></b>oil,
+                        <b><ins>E</ins></b>rror budget,
+                        <b><ins>M</ins></b>TTD,
+                        <b><ins>M</ins></b>TTR,
+                        <b><ins>S</ins></b>aturation
+                      </td>
+                    </tr>
+                  </table>
+                  <table>
+                    <tr>
+                      <td>
+                        <b>Tools</b>
+                      </td>
+                      <td>
+                        <b><ins>T</ins></b>erraform,
+                        <b><ins>A</ins></b>rgo,
+                        <b><ins>P</ins></b>uppet,
+                        <b><ins>P</ins></b>rometheus,
+                        <b><ins>S</ins></b>plunk
+                      </td>
+                    </tr>
+                  </table>
                 </ul>
-            <li><details><summary>SRE</summary>
+            </ul>
+          <li><details><summary>Kubernetes</summary>
+            <ul>
+              <li><a href="#fundamentals-kubernetes"><b>Fundamentals</b></a></li>
                 <ul>
-                    <li><a href="#fundamentals-sre"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><b>Concepts</b></li>
-                                <ul><ul><ul><ul>
-                                    <li><b>The 7 principles</b></li>
-                                        <ul>
-                                            <li>Embrace risk</li>
-                                            <li>Use SLOs</li>
-                                            <li>Automate to eliminate toil</li>
-                                            <li>Capacity planning</li>
-                                            <li>Release engineering</li>
-                                            <li>Monitoring</li>
-                                            <li>Simplicity</li>
-                                        </ul>
-                                </ul></ul></ul></ul>
-                            <li><a href="#terminologies-sre"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>T</ins></b>oil,
-                                        <b><ins>E</ins></b>rror budget,
-                                        <b><ins>M</ins></b>TTD,
-                                        <b><ins>M</ins></b>TTR,
-                                        <b><ins>S</ins></b>aturation
-                                    </li>
-                                    <li><b>Tools:</b></li>
-                                        <ul>
-                                            <li>
-                                                <b><ins>T</ins></b>erraform,
-                                                <b><ins>A</ins></b>rgo,
-                                                <b><ins>P</ins></b>uppet,
-                                                <b><ins>P</ins></b>rometheus,
-                                                <b><ins>S</ins></b>plunk
-                                            </li>
-                                        </ul>
-                                </ul></ul></ul></ul>
-                        </ul>
+                  <li><a href="#key-features-kubernetes"><b>Key Features</b></a></li>
+                  <table>
+                    <tr>
+                      <td>
+                        <b><ins>C</ins></b>ontainer orchestration,
+                        <b><ins>S</ins></b>ervice discovery,
+                        <b><ins>L</ins></b>oad balancing,
+                        <b><ins>S</ins></b>elf-healing
+                      </td>
+                    </tr>
+                  </table>
+                  <li><a href="#concepts-kubernetes"><b>Concepts</b></a></li>
+                    <ul>
+                      <li><b>Architecture</b></li>
+                        <ul><ul><ul>
+                          <li><b>Master node</b></li>
+                            <ul>
+                              <li>
+                                <b><ins>e</ins></b>tcd,
+                                <b><ins>A</ins></b>PI server,
+                                <b><ins>S</ins></b>cheduler,
+                                <b><ins>C</ins></b>ontroller manager
+                              </li>
+                            </ul>
+                          <li><b>Worker node</b></li>
+                            <ul>
+                              <li>
+                                <b><ins>C</ins></b>ontainer runtime,
+                                <b><ins>K</ins></b>ubelet,
+                                <b><ins>K</ins></b>ube-proxy
+                              </li>
+                            </ul>
+                        </ul></ul></ul>
+                    </ul>
+                  <li><a href="#terminologies-kubernetes"><b>Terminologies</b></a></li>
+                  <table>
+                    <tr>
+                      <td>
+                        <b><ins>P</ins></b>od,
+                        <b><ins>S</ins></b>ervice,
+                        <b><ins>I</ins></b>ngress,
+                        <b><ins>C</ins></b>onfigMap,
+                        <b><ins>S</ins></b>ecret,
+                        <b><ins>V</ins></b>olume,
+                        <b><ins>D</ins></b>eployment,
+                        <b><ins>S</ins></b>tatefulSet,
+                        <b><ins>V</ins></b>irtual network
+                      </td>
+                    </tr>
+                  </table>
+                  <table>
+                    <tr>
+                      <td>
+                        <b>Tools</b>
+                      </td>
+                      <td>
+                        <b><ins>m</ins></b>inikube,
+                        <b><ins>k</ins></b>ubectl
+                      </td>
+                    </tr>
+                  </table>
                 </ul>
-            </details></li>
-            <li><details><summary>Kubernetes</summary>
-                <ul>
-                    <li><a href="#fundamentals-kubernetes"><b>Fundamentals</b></a></li>
-                        <ul>
-                            <li><a href="#key-features-kubernetes"><b>Key Features</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>C</ins></b>ontainer orchestration,
-                                        <b><ins>S</ins></b>ervice discovery,
-                                        <b><ins>L</ins></b>oad balancing,
-                                        <b><ins>S</ins></b>elf-healing
-                                    </li>
-                                </ul></ul></ul></ul>
-                            <li><a href="#concepts-kubernetes"><b>Concepts</b></a></li>
-                                <ul>
-                                    <li><b>Architecture</b></li>
-                                        <ul><ul><ul>
-                                            <li><b>Master node</b></li>
-                                                <ul>
-                                                    <li>
-                                                        <b><ins>e</ins></b>tcd,
-                                                        <b><ins>A</ins></b>PI server,
-                                                        <b><ins>S</ins></b>cheduler,
-                                                        <b><ins>C</ins></b>ontroller manager
-                                                    </li>
-                                                </ul>
-                                            <li><b>Worker node</b></li>
-                                                <ul>
-                                                    <li>
-                                                        <b><ins>C</ins></b>ontainer runtime,
-                                                        <b><ins>K</ins></b>ubelet,
-                                                        <b><ins>K</ins></b>ube-proxy
-                                                    </li>
-                                                </ul>
-                                        </ul></ul></ul>
-                                </ul>
-                            <li><a href="#terminologies-kubernetes"><b>Terminologies</b></a></li>
-                                <ul><ul><ul><ul>
-                                    <li>
-                                        <b><ins>P</ins></b>od,
-                                        <b><ins>S</ins></b>ervice,
-                                        <b><ins>I</ins></b>ngress,
-                                        <b><ins>C</ins></b>onfigMap,
-                                        <b><ins>S</ins></b>ecret,
-                                        <b><ins>V</ins></b>olume,
-                                        <b><ins>D</ins></b>eployment,
-                                        <b><ins>S</ins></b>tatefulSet,
-                                        <b><ins>V</ins></b>irtual network
-                                    </li>
-                                    <li><b>Tools:</b></li>
-                                        <ul>
-                                            <li><b>m</b>inikube, <b>k</b>ubectl</li>
-                                        </ul>
-                                </ul></ul></ul></ul>
-                        </ul>
-                </ul>
-            </details></li>
+            </ul>
+            <hr>
+          </details></li>
         </ul>
-    </li>
+        <hr>
+      </details></li>
+      <li><details><summary>Collaboration Approaches</summary>
+        <ul>
+          <li><details><summary>Microservices</summary>
+            <ul>
+              <li><a href="#monolithic"><b>vs Monolithic</b></a></li>
+                <ul>
+                  <li>(Modular/Distributed) Monolithic</li>
+                </ul>
+              <li><b>Common Design Patterns</b></li>
+                <ul>
+                  <li><a href="#backends-for-frontends">Backends for Frontends</a></li>
+                  <li><a href="#strangler-fig-pattern">Strangler Fig pattern</a></li>
+                </ul>
+            </ul>
+            <hr>
+          </details></li>
+          <li><b>Terms:</b> Monorepo vs Polyrepo, Git workflow (feature branch vs trunk based)</li>
+        </ul>
+        <hr>
+      </details></li>
+      <li><details><summary>Testing Approaches</summary>
+        <ul>
+          <li><a href="#testing-approaches"><b>Terms:</b></a> Fuzzy, Chaos, A/B</li>
+        </ul>
+        <hr>
+      </details></li>
+    </ul>
 </ul>
-
-* **Architectural Patterns**
-    * **Distributed System**
-        * [CAP theorem](#cap-theorem)
-        * [PACELC theorem](#pacelc-theorem)
-        * [Scaling Patterns](#scaling-patterns)
-            * [Vertical vs Horizontal](#vertical-vs-horizontal)
-            <!-- * Load Balancing -->
-        <!-- * Consistency Patterns -->
-    <!-- * Microservices -->
-    * [Monolithic](#monolithic)
-        * [Modular Monolith](#modular-monolith)
-        * [Distributed Monolith](#distributed-monolith)
-
-* **[Design Patterns](#design-patterns)**
-    <!-- * Ambassador pattern
-    * Anti-corruption Layer pattern -->
-    * [Backends for Frontends](#backends-for-frontends)
-    <!-- * [Gateway Routing](#gateway-routing) -->
-    <!-- * Gatekeeper pattern
-    * Sequential Convoy pattern -->
-    * [Strangler Fig pattern](#strangler-fig-pattern)
 
 ---
 
@@ -687,56 +850,56 @@
 A standardized framework to conceptualize network data flow into seven layers.
 
 <table>
-    <tr>
-        <td><b>Application<br>Layer</b></td>
-        <td>User facing application, such as a web browser or email.</td>
-    </tr>
-    <tr>
-        <td><b>Presentation<br>Layer</b></td>
-        <td>Preparing data presentable for the application layer. Responsible for translation, (de/en)cryption, and (de)compression of data.</td>
-    </tr>
-    <tr>
-        <td><b>Session<br>Layer</b></td>
-        <td>Opening and closing communication between two devices. Also adds checkpoints for faster crash recovery during a data transfer.</td>
-    </tr>
-    <tr>
-        <td><b>Transport<br>Layer</b></td>
-        <td>Break data into segments and add a header to each of the segments to ensure delivery of data units in the right order, without losses or errors.</td>
-    </tr>
-    <tr>
-        <td><b>Network<br>Layer</b></td>
-        <td>Finds the best physical path for the data to reach its destination. Responsible for speed and error handling of data transfer.<br>IPv4, IPv6</td>
-    </tr>
-    <tr>
-        <td><b>Datalink<br>Layer</b></td>
-        <td>Functions similar to the network layer, except it facilitates data transfer between two devices on the same network. Responsible for smooth inter-network communications.</td>
-    </tr>
-    <tr>
-        <td><b>Physical<br>Layer</b></td>
-        <td>Physical equipment involved in the data transfer, such as the cables and switches. Also responsible for converting the data into a bit stream and specifying the electrical, optical, and radio characteristics of the network.</td>
-    </tr>
+  <tr>
+    <td><b>Application<br>Layer</b></td>
+    <td>User facing application, such as a web browser or email.</td>
+  </tr>
+  <tr>
+    <td><b>Presentation<br>Layer</b></td>
+    <td>Preparing data presentable for the application layer. Responsible for translation, (de/en)cryption, and (de)compression of data.</td>
+  </tr>
+  <tr>
+    <td><b>Session<br>Layer</b></td>
+    <td>Opening and closing communication between two devices. Also adds checkpoints for faster crash recovery during a data transfer.</td>
+  </tr>
+  <tr>
+    <td><b>Transport<br>Layer</b></td>
+    <td>Break data into segments and add a header to each of the segments to ensure delivery of data units in the right order, without losses or errors.</td>
+  </tr>
+  <tr>
+    <td><b>Network<br>Layer</b></td>
+    <td>Finds the best physical path for the data to reach its destination. Responsible for speed and error handling of data transfer.<br>IPv4, IPv6</td>
+  </tr>
+  <tr>
+    <td><b>Datalink<br>Layer</b></td>
+    <td>Functions similar to the network layer, except it facilitates data transfer between two devices on the same network. Responsible for smooth inter-network communications.</td>
+  </tr>
+  <tr>
+    <td><b>Physical<br>Layer</b></td>
+    <td>Physical equipment involved in the data transfer, such as the cables and switches. Also responsible for converting the data into a bit stream and specifying the electrical, optical, and radio characteristics of the network.</td>
+  </tr>
 </table>
 
 #### TCP/IP Model
 Four layers which are ultimately condensed version of the seven layers model.
 
 <table>
-    <tr>
-        <td><b>Application<br>Layer</b></td>
-        <td>The applications that users interact.<br>HTTP, FTP, SMTP, POP3, SSH etc.</td>
-    </tr>
-    <tr>
-        <td><b>Transport<br>Layer</b></td>
-        <td>Establishes the connection between two devices and enables reliable data transmission.<br>TCP, UDP</td>
-    </tr>
-    <tr>
-        <td><b>Internet<br>Layer</b></td>
-        <td>Determines how data finds its path through the network. <br>IPv4, IPv6</td>
-    </tr>
-    <tr>
-        <td><b>Network<br>Access<br>Layer</b></td>
-        <td>How data is physically transmitted, for example via network cables, radio signals, or fiber optics. Ethernet or Wi-Fi</td>
-    </tr>
+  <tr>
+    <td><b>Application<br>Layer</b></td>
+    <td>The applications that users interact.<br>HTTP, FTP, SMTP, POP3, SSH etc.</td>
+  </tr>
+  <tr>
+    <td><b>Transport<br>Layer</b></td>
+    <td>Establishes the connection between two devices and enables reliable data transmission.<br>TCP, UDP</td>
+  </tr>
+  <tr>
+    <td><b>Internet<br>Layer</b></td>
+    <td>Determines how data finds its path through the network. <br>IPv4, IPv6</td>
+  </tr>
+  <tr>
+    <td><b>Network<br>Access<br>Layer</b></td>
+    <td>How data is physically transmitted, for example via network cables, radio signals, or fiber optics. Ethernet or Wi-Fi</td>
+  </tr>
 </table>
 
 <h3 id="key-metrics-networking">Key Metrics</h3>
@@ -767,29 +930,29 @@ A map of how data moves through your network system. The configuration of nodes 
 * **P2P:** Decentralized network. Each node (a router, printer, switch, or computer) acts as both a server and a client by connecting directly with one another to share resources.
 * **MAC (Media Access Control) address:** Hardware identifier assigned to a device's NIC. Acts as a hardware-based address for local network communication and doesn't change, unlike IP addresses.
 
-* **Types by scale:**
-    * **WAN (Wide Area Network):** A large-scale computer network that connects multiple LANs or other networks. Spans beyond a single building or large campus to connect multiple locations spread across a specific geographic area or even the world.
-    * **LAN (Local Area Network):** A small-scale computer network that covers a limited geographical area, such as a home, a small store, or a floor of an office building.
-    * **NFC (Near-field Communication):** Allows devices within a few centimeters of each other to exchange information wirelessly.
+* **Coverage range:**
+  * **WAN (Wide Area Network):** A large-scale computer network that connects multiple LANs or other networks. Spans beyond a single building or large campus to connect multiple locations spread across a specific geographic area or even the world.
+  * **LAN (Local Area Network):** A small-scale computer network that covers a limited geographical area, such as a home, a small store, or a floor of an office building.
+  * **NFC (Near-field Communication):** Allows devices within a few centimeters of each other to exchange information wirelessly.
 
 * **Hardware:**
-    * **Gateway:** An interface providing compatibility between networks to allow data to flow from one discrete network to another.
-    * **Switch:** Connects devices on a local area network and facilitates data exchanges.
-    * **Repeater:** Device that receives a signal and retransmits it at a higher level or higher power
-    * **WAP (Wireless Access Point):** Allows a Wi-Fi device to connect to a wired network. Better than Wi-Fi extender by using an Ethernet cable.
-    * **NIC (Network Interface Controller):** A hardware component that enables network connections (Ethernet or Wi-Fi).
+  * **Gateway:** An interface providing compatibility between networks to allow data to flow from one discrete network to another.
+  * **Switch:** Connects devices on a local area network and facilitates data exchanges.
+  * **Repeater:** Device that receives a signal and retransmits it at a higher level or higher power
+  * **WAP (Wireless Access Point):** Allows a Wi-Fi device to connect to a wired network. Better than Wi-Fi extender by using an Ethernet cable.
+  * **NIC (Network Interface Controller):** A hardware component that enables network connections (Ethernet or Wi-Fi).
 
 * **Tools:**
-    * **Ping:** Tests if a specific IP address or domain is reachable and measures latency between your computer and the destination. Quick check to see if a website is down, if the internet is connected, or if a local network device is active.
-    * **Traceroute:** Provides a map of how data on the internet travels from its source to its destination. Details the precise route info, router by router, as well as the time it took for each hop.
+  * **Ping:** Tests if a specific IP address or domain is reachable and measures latency between your computer and the destination. Quick check to see if a website is down, if the internet is connected, or if a local network device is active.
+  * **Traceroute:** Provides a map of how data on the internet travels from its source to its destination. Details the precise route info, router by router, as well as the time it took for each hop.
 
 * **Real-Time Communication:**
-    * **WebRTC (Web Real-Time Communication):** Enables browser-to-browser applications for voice calling, video chat, and file sharing.
-    * **Webhook:** An integration technique used to handle events or event-based actions. The event source sends an HTTP POST to a pre-registered URL. No persistent connection needed. Use cases: Payment notifications, CI/CD triggers.
-    * **WebSocket:** A bidirectional real-time communication protocol allowing both client and server to send messages at any time. Starts as HTTP, then upgrades to WebSocket protocol.
-    * **SSE (Server-Sent Events):** Enables server to push data to client in real-time over a single, long-lived HTTP connection. No need for the client to constantly ask for updates.
-    * **Short Polling:** Client repeatedly making requests to the server at a fixed interval for updates. The server responds immediately with an empty response or with data if available.
-    * **Long Polling:** Client sends a request, and the server holds the connection open until new data is available or a timeout occurs. Client immediately sends another request to restart the process. Best for: Notifications, simple chat.
+  * **WebRTC (Web Real-Time Communication):** Enables browser-to-browser applications for voice calling, video chat, and file sharing.
+  * **Webhook:** An integration technique used to handle events or event-based actions. The event source sends an HTTP POST to a pre-registered URL. No persistent connection needed. Use cases: Payment notifications, CI/CD triggers.
+  * **WebSocket:** A bidirectional real-time communication protocol allowing both client and server to send messages at any time. Starts as HTTP, then upgrades to WebSocket protocol.
+  * **SSE (Server-Sent Events):** Enables server to push data to client in real-time over a single, long-lived HTTP connection. No need for the client to constantly ask for updates.
+  * **Short Polling:** Client repeatedly making requests to the server at a fixed interval for updates. The server responds immediately with an empty response or with data if available.
+  * **Long Polling:** Client sends a request, and the server holds the connection open until new data is available or a timeout occurs. Client immediately sends another request to restart the process. Best for: Notifications, simple chat.
 
 <h2 id="network-protocols-networking">Network Protocols</h2>
 
@@ -798,42 +961,42 @@ A map of how data moves through your network system. The configuration of nodes 
 * Used to establish a reliable connection between a client and a server before actual data transmission.
 * **3 steps:** SYN, SYN-ACK, and ACK
 
-    1. **SYN:** A client sends a synchronize sequence number (SYN) packet to a server.
+  1. **SYN:** A client sends a synchronize sequence number (SYN) packet to a server.
 
-    2. **SYN-ACK:** The server receives the SYN and sends back a SYNchronize-ACKnowledgement.
+  2. **SYN-ACK:** The server receives the SYN and sends back a SYNchronize-ACKnowledgement.
 
-    3. **ACK:** The client receives the server's SYN-ACK and sends an ACKnowledge.. The server receives ACK and the TCP socket connection is established.
+  3. **ACK:** The client receives the server's SYN-ACK and sends an ACKnowledge.. The server receives ACK and the TCP socket connection is established.
 
 <h3 id="tls-handshake">TLS Handshake</h3>
 
 * To create a secure session between the client and server. Starts after a TCP connection has been opened via a TCP handshake.
 * **Purpose:**
-    * Specify TLS version to use.
-    * Decide which cipher suites to use.
-    * Authenticate the identity of the server via the server’s public key and the SSL certificate authority’s digital signature.
-    * Generate session keys in order to use symmetric encryption after the handshake is complete.
+  * Specify TLS version to use.
+  * Decide which cipher suites to use.
+  * Authenticate the identity of the server via the server’s public key and the SSL certificate authority’s digital signature.
+  * Generate session keys in order to use symmetric encryption after the handshake is complete.
 
 * **Simplified process:**
-    1. **Client Hello:** The client initiates the handshake by sending information such as supported TLS versions, cipher suites, and a random number.
-    2. **Server Hello:** The server responds with its chosen TLS version, cipher suite, and its own random number.
-    3. **Certificate Exchange:** The server presents its digital certificate to the client for authentication.
-    4. **Key Exchange:** The client and server exchange information to establish a shared secret key.
-    5. **Finished Messages:** Both the client and server send “Finished” messages, which are encrypted with the negotiated session keys, to verify that the handshake was successful and that they both have the same shared secret.
-    6. **Secure Communication:** Securely exchange data using the established session keys.
+  1. **Client Hello:** The client initiates the handshake by sending information such as supported TLS versions, cipher suites, and a random number.
+  2. **Server Hello:** The server responds with its chosen TLS version, cipher suite, and its own random number.
+  3. **Certificate Exchange:** The server presents its digital certificate to the client for authentication.
+  4. **Key Exchange:** The client and server exchange information to establish a shared secret key.
+  5. **Finished Messages:** Both the client and server send “Finished” messages, which are encrypted with the negotiated session keys, to verify that the handshake was successful and that they both have the same shared secret.
+  6. **Secure Communication:** Securely exchange data using the established session keys.
 
 <h3 id="communication-protocol-networking">Communication</h3>
 
 * **TCP (Transmission Control Protocol):** Ensures reliable transmission of data by dividing data into packets, numbering them, and reassembling them at the destination.
-    * Connection-oriented. Meaning establishing a connection before data transmission.
-    * Uses sequenced acknowledgments to ensure reliability.
-    * Provides error detection and flow control.
-    * Guarantees data delivery in the correct order. Used when data must be intact (e.g. file share).
+  * Connection-oriented. Meaning establishing a connection before data transmission.
+  * Uses sequenced acknowledgments to ensure reliability.
+  * Provides error detection and flow control.
+  * Guarantees data delivery in the correct order. Used when data must be intact (e.g. file share).
 
 * **UDP (User Datagram Protocol):** Faster than TCP, but doesn't guarantee delivery or order of packets. Used when retaining all packets is less critical (e.g. video streaming).
-    * Does not establish a connection before sending data.
-    * No error recovery, flow control, or reliability mechanisms.
-    * Suitable where speed is more important than accuracy.
-    * Used in video streaming, online gaming, multicasting, and broadcasting.
+  * Does not establish a connection before sending data.
+  * No error recovery, flow control, or reliability mechanisms.
+  * Suitable where speed is more important than accuracy.
+  * Used in video streaming, online gaming, multicasting, and broadcasting.
 
 <h3 id="management-protocol-networking">Management</h3>
 
@@ -894,9 +1057,9 @@ Physical or virtual resources owned by Amazon that can be used and scaled on-dem
 <h5 id="best-practices-aws">AWS Well-Architected Framework</h5>
 
 Design principles and architectural best practices for designing and running workloads in the cloud. Aspects to consider:
-* **Operational Excellence:** Apply software engineering principles to your cloud infrastructure. Make frequent, small, reversible changes while monitoring systems to perform post-mortems on system failures.
 * **Security:** Apply security at all layers and follow security best practices to protect data and systems.
 * **Reliability:** Scale horizontally to avoid a single point of failure and use automation to automatically recover from failure.
+* **Operational Excellence:** Apply software engineering principles to your cloud infrastructure. Make frequent, small, reversible changes while monitoring systems to perform post-mortems on system failures.
 * **Performance Efficiency:** Structure and streamline allocation of IT and computing resources. Select resource types and sizes optimized for workload requirements.
 * **Cost Optimization:** Minimize overspending by selecting resources of the right type and quantity.
 
@@ -923,17 +1086,17 @@ Control access to resources/entities. Create **Users** who use credentials that 
 **Policy document to allow user to create Lambda functions**
 ```
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "CreateFunction",
-            "Effect": "Allow"
-            "Action": [
-                "lambda: CreateFunction",
-            ],
-            "Resource": "*"
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CreateFunction",
+      "Effect": "Allow"
+      "Action": [
+        "lambda: CreateFunction",
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
@@ -943,8 +1106,8 @@ Control access to resources/entities. Create **Users** who use credentials that 
 * Similar to your home network. Home devices are connected to your router, and this creates your private home network as routers have built-in firewalls. Your router also acts as a gateway between the private network and the public network.
 
 * **Subnets:** VPC can be divided into smaller segments called subnets.
-    * **Public subnet:** Allocation of resources to interact with the public internet directly through an internet gateway, which is a digital cloud modem similar to a home modem that allows AWS resources to connect to the internet.
-    * **Private subnet:** Allocation of resources to NOT interact with the public internet directly. Will not have a route to an internet gateway and rely on mechanisms like NAT gateways to access the internet, so resources will be hidden from the outside world.
+  * **Public subnet:** Allocation of resources to interact with the public internet directly through an internet gateway, which is a digital cloud modem similar to a home modem that allows AWS resources to connect to the internet.
+  * **Private subnet:** Allocation of resources to NOT interact with the public internet directly. Will not have a route to an internet gateway and rely on mechanisms like NAT gateways to access the internet, so resources will be hidden from the outside world.
 * **Security groups:** Control inbound and outbound traffic to associated resources using stateful rules based on IP addresses, ports, and protocols.
 * **VPC endpoint:** Allows resources in your VPC to privately connect to AWS services outside of your VPC without using the internet. Enhances security and performance by keeping the traffic within the AWS network.
 
@@ -1040,27 +1203,27 @@ Bucket/Object Lifecycle rules automate the storage class optimization process to
 Speeding up search queries by creating a search optimized data structure to avoid scanning the entire dataset, but will cost additional disk storage and slow down data inserts/updates/deletes.
 
 * **Index Types**
-    * **B-Tree:** Most common index using a self-balancing tree that maintains sorted data. Each node contains an ordered array of keys and pointers, structured to minimize disk reads.
-    * **Geosptail index:** Location data search
-    * **Hash index:** In-memory exact matching
-    * **Inverted index:** Full text search
+  * **B-Tree:** Most common index using a self-balancing tree that maintains sorted data. Each node contains an ordered array of keys and pointers, structured to minimize disk reads.
+  * **Geosptail index:** Location data search
+  * **Hash index:** In-memory exact matching
+  * **Inverted index:** Full text search
 
 #### Sharding
 Splitting data into multiple servers to avoid exponential cost of vertical scaling of a single machine.
 
 * **Sharding Types**
-    * **Range-based sharding:** Using specifics data ranges or intervals to split rows, such as a range of dates, numeric values, or alphanumeric identifiers.
-    * **Hash-based sharding:** Using a hash function to use the hash value as the identifier to allocate data to the appropriate shard.
-    * **Directory-based sharding:** Using a lookup table to map sharding keys to shard locations.
-    * **Geo-based sharding:** Using location or proximity to group data to a single shard. Essentially ranged sharding where the shard key contains geographic information and the shards themselves are geo-located.
+  * **Range-based sharding:** Using specifics data ranges or intervals to split rows, such as a range of dates, numeric values, or alphanumeric identifiers.
+  * **Hash-based sharding:** Using a hash function to use the hash value as the identifier to allocate data to the appropriate shard.
+  * **Directory-based sharding:** Using a lookup table to map sharding keys to shard locations.
+  * **Geo-based sharding:** Using location or proximity to group data to a single shard. Essentially ranged sharding where the shard key contains geographic information and the shards themselves are geo-located.
 
 #### Normalization
 Data organization to minimize data redundancy and improve data integrity by breaking down tables into smaller tables for easier database maintenance. Increasing normalization level improves data integrity, but it is not common to go above 3NF.
 
 * **1NF - First normal form:**
-    * Each row is uniquely identifiable with a primary key.
-    * Each column represents unique characteristic or attribute type of the entity. i.e. For table `Product`, instead of having `Vendor1`, `Vendor2`, `Vendor3` and so on to list vendors for a product, only one `Vendor` column should be used.
-    * Each cell holds a single, indivisible piece of data. i.e. Full name `John Doe` in `Name` column should be broken down into `John` and `Doe` to get saved in `First name` and `Last name` columns respectively.
+  * Each row is uniquely identifiable with a primary key.
+  * Each column represents unique characteristic or attribute type of the entity. i.e. For table `Product`, instead of having `Vendor1`, `Vendor2`, `Vendor3` and so on to list vendors for a product, only one `Vendor` column should be used.
+  * Each cell holds a single, indivisible piece of data. i.e. Full name `John Doe` in `Name` column should be broken down into `John` and `Doe` to get saved in `First name` and `Last name` columns respectively.
 
 * **2NF:**
 Columns must be dependent on the entire primary key.
@@ -1074,20 +1237,20 @@ In certain read-heavy applications, denormalization could be more suitable when 
 #### Relational
 
 * **Key:** What makes the row unique and separates from other rows. Key is a 'type of index'. Key should be:
-    * Unique
-    * Never changing
-    * Never `Null`
-    
+  * Unique
+  * Never changing
+  * Never `Null`
+  
 * **Natural Key:** Unique identifier not artificially generated. i.e. email in User table. No need to have a separate col for keys.
 
 #### ACID vs BASE transaction
 
 * **Transaction:** A single unit of work. A sequence of one or more database operations treated as a single, indivisible unit. Must complete a transaction fully for the database to remain consistent.
 
-|                  |       ACID        |        BASE        |
+|          |     ACID    |    BASE    |
 | ---------------- | ----------------- | ------------------ |
-| **Priority**     | Consistency over availability | Availability & scalability over consistency |
-| **Use cases**    | Financial & healthcare databases for high data integrity & data accuracy. | Social media platforms for high availability |
+| **Priority**   | Consistency over availability | Availability & scalability over consistency |
+| **Use cases**  | Financial & healthcare databases for high data integrity & data accuracy. | Social media platforms for high availability |
 
 ##### ACID
 A set of properties that ensure reliability and integrity in database transactions, guaranteeing that they are executed reliably, consistently, and without interference.
@@ -1100,36 +1263,36 @@ A set of properties that ensure reliability and integrity in database transactio
 A trade-off of consistency vs performance. Higher isolation level reduces the number of concurrency effects, but increases the chances that one transaction will block another.
 
 <table>
-    <tr>
-        <th>Read <ins>Phenomena→</ins><br>Isolation LVL↓</th>
-        <th>Dirty read</th>
-        <th>Non-repeatable read</th>
-        <th>Phantom read</th>
-    </tr>
-    <tr>
-        <td><b>Serializable</b></td>
-        <td>No</td>
-        <td>No</td>
-        <td>No</td>
-    </tr>
-    <tr>
-        <td><b>Repeatable read</b></td>
-        <td>No</td>
-        <td>No</td>
-        <td>Yes</td>
-    </tr>
-    <tr>
-        <td><b>Read committed</b></td>
-        <td>No</td>
-        <td>Yes</td>
-        <td>Yes</td>
-    </tr>
-    <tr>
-        <td><b>Read uncommitted</b></td>
-        <td>Yes</td>
-        <td>Yes</td>
-        <td>Yes</td>
-    </tr>
+  <tr>
+    <th>Read <ins>Phenomena→</ins><br>Isolation LVL↓</th>
+    <th>Dirty read</th>
+    <th>Non-repeatable read</th>
+    <th>Phantom read</th>
+  </tr>
+  <tr>
+    <td><b>Serializable</b></td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><b>Repeatable read</b></td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><b>Read committed</b></td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><b>Read uncommitted</b></td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
 </table>
 
 ###### Read Phenomena
@@ -1152,26 +1315,26 @@ A trade-off of consistency vs performance. Higher isolation level reduces the nu
 <b><ins>M</ins></b>ulti-versioning -->
 
 <table>
-    <tr>
-        <td><b>Write Ahead Logging</b></td>
-        <td>All modifications are written to a log before they are applied. Allow transactions to be reconstructed from the log in case of a crash.</td>
-    </tr>
-    <tr>
-        <td><b>Check-<br>pointing</b></td>
-        <td>Process of saving changes in the buffer cache memory to the disk to create a checkpoint. Also uses transaction logs since the last checkpoint for a quick recovery in the event of a system crash.</td>
-    </tr>
-    <tr>
-        <td><b>Shadow<br>paging</b></td>
-        <td>Creating a copy of the database’s page table and making all changes to the new page. Then, the new page table replaces the old one.</td>
-    </tr>
-    <tr>
-        <td><b>Locking</b></td>
-        <td>A transaction will mark the relevant data as locked, so other transactions will have to wait for the data access. This can create delays when other transactions need to access the affected data.</td>
-    </tr>
-    <tr>
-        <td><b>Multi-<br>versioning</b></td>
-        <td>For writing, deleting, or updating transactions, creating multiple versions of the data for ACID compliance.</td>
-    </tr>
+  <tr>
+    <td><b>Write Ahead Logging</b></td>
+    <td>All modifications are written to a log before they are applied. Allow transactions to be reconstructed from the log in case of a crash.</td>
+  </tr>
+  <tr>
+    <td><b>Check-<br>pointing</b></td>
+    <td>Process of saving changes in the buffer cache memory to the disk to create a checkpoint. Also uses transaction logs since the last checkpoint for a quick recovery in the event of a system crash.</td>
+  </tr>
+  <tr>
+    <td><b>Shadow<br>paging</b></td>
+    <td>Creating a copy of the database’s page table and making all changes to the new page. Then, the new page table replaces the old one.</td>
+  </tr>
+  <tr>
+    <td><b>Locking</b></td>
+    <td>A transaction will mark the relevant data as locked, so other transactions will have to wait for the data access. This can create delays when other transactions need to access the affected data.</td>
+  </tr>
+  <tr>
+    <td><b>Multi-<br>versioning</b></td>
+    <td>For writing, deleting, or updating transactions, creating multiple versions of the data for ACID compliance.</td>
+  </tr>
 </table>
 
 ##### BASE
@@ -1195,8 +1358,8 @@ A trade-off of consistency vs performance. Higher isolation level reduces the nu
 <h5 id="concepts-postgresql">Concepts</h5>
 
 * **Table Inheritance:** Inherits all columns from parent table.
-    * **Big limitation:** Constraints are **not** inherited. Indexes (including unique constraints) and foreign key constraints don't work with inheritance.
-        * i.e. For tables Parent, Child (which inherits Parent), and Foo, and Foo having a foreign key on Parent.id, then adding a row to Child, and trying to insert a row into Foo, referencing Child's ID will fail, even though that ID is in the Parent table. The foreign keys only work on the direct table it references as it'll only find rows in that table exactly.
+  * **Big limitation:** Constraints are **not** inherited. Indexes (including unique constraints) and foreign key constraints don't work with inheritance.
+    * i.e. For tables Parent, Child (which inherits Parent), and Foo, and Foo having a foreign key on Parent.id, then adding a row to Child, and trying to insert a row into Foo, referencing Child's ID will fail, even though that ID is in the Parent table. The foreign keys only work on the direct table it references as it'll only find rows in that table exactly.
 * **User-defined Data Types:** In addition to the native data types, custom data types can be created using `CREATE DOMAIN` or `CREATE TYPE`.
 
 <h5 id="terminologies-postgresql">Terminologies</h5>
@@ -1211,8 +1374,8 @@ A trade-off of consistency vs performance. Higher isolation level reduces the nu
 * **Window function:** Perform a calculation on a set of rows and return multiple rows.
 
 * **Tools**
-    * **psql:** CLI tool to enter SQL queries or commands to PostgreSQL database.
-    * **pgAdmin:** GUI tool to manage PostgreSQL database.
+  * **psql:** CLI tool to enter SQL queries or commands to PostgreSQL database.
+  * **pgAdmin:** GUI tool to manage PostgreSQL database.
 
 <h4 id="sql-syntax">SQL Syntax</h4>
 
@@ -1305,7 +1468,7 @@ $$
 BEGIN
   IF NEW.my_number < 0
   THEN
-    RAISE EXCEPTION 'Number can''t be negative';
+  RAISE EXCEPTION 'Number can''t be negative';
   END IF;
   RETURN NULL;
 END;
@@ -1385,8 +1548,8 @@ FROM my_role;
 * **Partition:** A group of rows saved together to a node that is also replicated to multiple nodes.
 * **Replication factor:** Number of nodes in the cluster that will have copies of the same data.
 * **Consistency levels:** Determines the number of replicas that need to acknowledge the read or write operation to return report to the client application. The write consistency level simply controls how many responses the coordinator waits before responding to the client, so all replicas will eventually get updated.
-    * **One, Two, Three:** 1~3 replica(s) received the request.
-    * **Quorum:** At least half of the replicas received the request.
+  * **One, Two, Three:** 1~3 replica(s) received the request.
+  * **Quorum:** At least half of the replicas received the request.
 * **Primary key:** Uniquely identifies a row. Consists of partition key(s) and optional clustering columns.
 * **Partition key:** Group rows into the same node for optimal read/write and get hashed to distribute partitions across a cluster.
 * **Composite partition key:** Uses two or more columns as partition keys to break the partition into smaller groups to improve data retrieval.
@@ -1495,9 +1658,9 @@ Redis (REmote DIctionary Server) is a data structure server. It is a key-value i
 <!-- <h4 id="concepts-redis">Concepts</h4>
 
 * **Eviction Policies:**
-    * **TTL (Time-to-Live):** 
-    * **LRU (Least Recently Used):** Removes the least recently accessed items.
-    * **LFU (Least Frequently Used):** Removes items based on access frequency. -->
+  * **TTL (Time-to-Live):** 
+  * **LRU (Least Recently Used):** Removes the least recently accessed items.
+  * **LFU (Least Frequently Used):** Removes items based on access frequency. -->
 
 <h4 id="use-cases-redis">Use Cases</h4>
 
@@ -1517,8 +1680,8 @@ NoSQL database storing data in a JSON-like format.
 * **Optional Schema:** Often known as a schema-less db, but a schema can be added to a collection if needed.
 * **Aggregation Pipelines:** Similar to SQL's `GROUP BY`. Select and process multiple documents to get computed results. Operations such as filtering, grouping, and sorting are used to create a data analysis pipeline.
 * **Relationship options: Embed vs. Reference:**
-    * **Embed:** Store related data in the same document (faster reads).
-    * **Reference:** Store ObjectIDs to avoid redundancy (normalized like RDBMS).
+  * **Embed:** Store related data in the same document (faster reads).
+  * **Reference:** Store ObjectIDs to avoid redundancy (normalized like RDBMS).
 
 <h5 id="terminologies-mongodb">Terminologies</h5>
 
@@ -1530,6 +1693,49 @@ NoSQL database storing data in a JSON-like format.
 ---
 
 # System Design
+
+<h2 id="fundamentals-system-design">Fundamentals</h2>
+<h3 id="concepts-system-design">Concepts</h3>
+<h4 id="theorem-system-design">Theorem</h3>
+
+##### CAP theorem
+* A distributed system can prioritize only two of three desired characteristics — consistency, availability, and partition tolerance.
+* The theorem really is about prioritizing consistency or availability. Partitions from a break in communication between nodes are inevitable. So can have CP and AP, but not CA.
+* **Limitations:** Important to note that these properties are continuous spectrum and not strictly binary, so possible to have some levels of each property. The CAP theorem simplifies the complex trade-offs in distributed systems. 
+
+  * **Consistency**
+
+    **All nodes have the same data** at the same time. No divergence in the data observed by different nodes in the system.
+
+  * **Availability**
+
+    **Every request to the system receives a response** even if it is not the most recent data.
+
+  * **Partition tolerance**
+
+    **The system continues to operate from partitions** caused by break in communication between nodes.
+
+##### PACELC theorem
+* Extension of CAP theorem. Theorem stating to consider Latency vs Consistency tradeoff when there is no partition.
+* Acronym for: In the event of a Partition(**P**), choose Availability (**A**) or Consistency (**C**); Else (**E**) if no Partition, choose Latency (**L**) or Consistency (**C**)
+
+#### Scaling Patterns
+##### Vertical vs Horizontal
+|          | Vertical Scaling  | Horizontal Scaling |
+| ---------------- | ----------------- | ------------------ |
+| **Description**  | Increase CPU, RAM. Scale up/down | Increase number of nodes. Scale in/out |
+| **Cost**     | Low initial cost. Exponentially increasing cost | High initial cost. Optimal over time |
+| **Complexity & Maintenance** | Lower  | Higher. Need to add load balancing and extra configuration.  |
+| **Limitation**   | Bounded by capacity of one machine. | Bounded by time, expertise, and effort. |
+| **Availability**  | Single point of failure  | Improved from increased number of nodes  |
+
+#### Consistency Patterns
+##### Strong Consistency
+* All nodes have the same data at all times
+
+##### Eventual Consistency
+* Temporarily inconsistent across nodes but guarantees that all nodes will eventually converge to a consistent state
+
 ## Kafka
 
 <h3 id="fundamentals-kafka">Fundamentals</h3>
@@ -1583,33 +1789,31 @@ Other message queue programs delete messages after consumption. Kafka has a conf
 
 ---
 
-# DevOps
+# Engineering Aspects
+## DevOps
 
 A set of practices, guidelines and culture designed to break down silos in IT development, operations, and security.
 
-<h2 id="terminologies-devops">Terminologies</h2>
+<h3 id="terminologies-devops">Terminologies</h3>
 
 * **GitOps:** Using git as the single source of truth for infrastructure, configuration, and deployment processes.
 * **DevSecOps:** Augmentation of DevOps to allow for security practices to be integrated into the DevOps approach. Making security a shared responsibility of development, security and IT operations teams, rather than the sole responsibility of a security silo.
 * **Platform engineering:** A software engineering discipline focused on the development of self-service toolchains, services, and processes to create an internal developer platform (IDP).
 * **Observability:** Usage of tools & practices to make a system’s internal state more transparent to determine if the system is healthy. Three main types of telemetry data:
-    * **Metrics**<br>
-        Provide quantitative insights into system performance by measuring various network parameters.
+  * **Metrics**<br>
+    Provide quantitative insights into system performance by measuring various network parameters.
+    * **Examples:**
+      * **Host metrics:** Memory, disk and CPU usage
+      * **Network performance metrics:** uptime, latency, throughput
+      * **App metrics:** response times, request and error rates
+  * **Logs**<br>
+    Immutable exhaustive historical records of discrete events that occur within a system.
+  * **Traces**<br>
+  Used to follow the lifecycle of a single request as it flows through services and systems.
 
-        * **Examples:**
-            * **Host metrics:** Memory, disk and CPU usage
-            * **Network performance metrics:** uptime, latency, throughput
-            * **App metrics:** response times, request and error rates
+<h3>SRE</h3>
 
-    * **Logs**<br>
-        Immutable exhaustive historical records of discrete events that occur within a system.
-
-    * **Traces**<br>
-    Used to follow the lifecycle of a single request as it flows through services and systems.
-
-<h2>SRE</h2>
-
-<h3 id="fundamentals-sre">Fundamentals</h3>
+<h4 id="fundamentals-sre">Fundamentals</h4>
 
 ```
 interface DevOps
@@ -1619,9 +1823,9 @@ class SRE implements DevOps
 * Tackling IT operations and infrastructure problems using software engineering techniques.
 * Running large-scale systems scalably, reliably, and efficiently.
 
-<h4 id="concepts-sre">Concepts</h4>
+<h5 id="concepts-sre">Concepts</h5>
 
-##### The 7 principles
+###### The 7 principles
 
 * **Embrace risk:** 100% reliability is unrealistic. Be reliable enough based on risk & on a cost-benefit analysis.
 * **Use SLOs:** Establish measurable target that represents a level of quality.
@@ -1631,7 +1835,7 @@ class SRE implements DevOps
 * **Monitoring:** Monitoring tools will analyze core system performance metrics and alert humans only when SLO is threatened or a system cannot self-heal.
 * **Simplicity:** The simpler the system, the easier it is to manage and scale.
 
-<h4 id="terminologies-sre">Terminologies</h4>
+<h5 id="terminologies-sre">Terminologies</h5>
 
 * **Toil:** Manual repetitive work that should be be automated.
 * **Error budget:** Acceptable amount of downtime or service unreliability over a specified period.
@@ -1640,38 +1844,38 @@ class SRE implements DevOps
 * **Saturation:** A measure of how close to capacity a service is as some services will begin to fail or slow down.
 
 * **Tools:**
-    * **Terraform:** Declarative IaC tool for configuring and deploying cloud infrastructure.
-    * **Argo:** Declarative continuous deployment tool for Kubernetes.
-    * **Puppet:** Configuration management tool for server management automation.
-    * **Prometheus:** Apps and infrastructure monitoring and alerting tool.
-    * **Splunk:** A data (logs, metrics, events) analytics and monitoring platform.
+  * **Terraform:** Declarative IaC tool for configuring and deploying cloud infrastructure.
+  * **Argo:** Declarative continuous deployment tool for Kubernetes.
+  * **Puppet:** Configuration management tool for server management automation.
+  * **Prometheus:** Apps and infrastructure monitoring and alerting tool.
+  * **Splunk:** A data (logs, metrics, events) analytics and monitoring platform.
 
-## Kubernetes
-<h3 id="fundamentals-kubernetes">Fundamentals</h3>
+### Kubernetes
+<h4 id="fundamentals-kubernetes">Fundamentals</h4>
 
 Container orchestration tool to simplify managing containerized apps at scale. Offers high availability & high scalability.
 
-<h4 id="key-features-kubernetes">Key Features</h4>
+<h5 id="key-features-kubernetes">Key Features</h5>
 
 * **Container Orchestration:** Automatically provision, deploy, scale and manage the lifecycle of containerized applications.
 * **Service Discovery:** Applications in separate pods can communicate without knowing hard coded IP addresses.
 * **Load Balancing:** Distribute traffic across the network to improve stability and performance.
 * **Self-Healing:** Automatically replace failed containers.
 
-<h4 id="concepts-kubernetes">Concepts</h4>
+<h5 id="concepts-kubernetes">Concepts</h5>
 
-##### Architecture
+###### Architecture
 * **Master node** controls cluster state & worker nodes. A cluster usually has multiple master nodes.
-    * **etcd:** Cluster brain. Keeps current state of the cluster. Key value store of cluster changes for state restoration.
-    * **API server:** Cluster gateway. Entry point into the cluster. Gatekeeper for authentication.
-    * **Scheduler:** Decides which node will get the new Pod. Sends instruction to the node's kubelet to start the new pod.
-    * **Controller manager:** Keeps overview of the cluster. Detects cluster state changes such as a pod crash and attempts self healing when `current state != desired state`.
+  * **etcd:** Cluster brain. Keeps current state of the cluster. Key value store of cluster changes for state restoration.
+  * **API server:** Cluster gateway. Entry point into the cluster. Gatekeeper for authentication.
+  * **Scheduler:** Decides which node will get the new Pod. Sends instruction to the node's kubelet to start the new pod.
+  * **Controller manager:** Keeps overview of the cluster. Detects cluster state changes such as a pod crash and attempts self healing when `current state != desired state`.
 * **Worker node** does the actual work. Each node can have multiple pods.
-    * **Container runtime:** Docker or other container application
-    * **Kubelet:** Interacts with both the container & node.
-    * **Kubelet proxy:** Forwards requests from services to pods.
+  * **Container runtime:** Docker or other container application
+  * **Kubelet:** Interacts with both the container & node.
+  * **Kubelet proxy:** Forwards requests from services to pods.
 
-<h4 id="terminologies-kubernetes">Terminologies</h4>
+<h5 id="terminologies-kubernetes">Terminologies</h5>
 
 * **Pod:** An abstraction layer for container(s). Smallest unit of K8s. Each pod has an IP. New IP address on re-creation.
 * **Service:** Acts as a load balancer and a static permanent IP address attached for a pod even when the pod gets re-created.
@@ -1684,130 +1888,79 @@ Container orchestration tool to simplify managing containerized apps at scale. O
 * **Virtual network:** Forms the cluster for master & worker nodes to interact.
 
 * **Tools**
-    * **Minikube:** A cluster with one node with both master & worker processes. For testing cluster locally.
-    * **Kubectl:** CLI tool for K8s cluster
+  * **Minikube:** A cluster with one node with both master & worker processes. For testing cluster locally.
+  * **Kubectl:** CLI tool for K8s cluster
 
 ---
 
-# Architectural Patterns
-
-## Distributed System
-
-### CAP theorem
-* A distributed system can prioritize only two of three desired characteristics — consistency, availability, and partition tolerance.
-* The theorem really is about prioritizing consistency or availability. Partitions from a break in communication between nodes are inevitable. So can have CP and AP, but not CA.
-* **Limitations:** Important to note that these properties are continuous spectrum and not strictly binary, so possible to have some levels of each property. The CAP theorem simplifies the complex trade-offs in distributed systems. 
-
-    * **Consistency**
-
-        **All nodes have the same data** at the same time. No divergence in the data observed by different nodes in the system.
-
-    * **Availability**
-
-        **Every request to the system receives a response** even if it is not the most recent data.
-
-    * **Partition tolerance**
-
-        **The system continues to operate from partitions** caused by break in communication between nodes.
-
-### PACELC theorem
-
-* Extension of CAP theorem. Theorem stating to consider Latency vs Consistency tradeoff when there is no partition.
-* Acronym for: In the event of a Partition(**P**), choose Availability (**A**) or Consistency (**C**); Else (**E**) if no Partition, choose Latency (**L**) or Consistency (**C**)
-
-### Scaling Patterns
-
-#### Vertical vs Horizontal
-
-|                  | Vertical Scaling  | Horizontal Scaling |
-| ---------------- | ----------------- | ------------------ |
-| **Description**  | Increase CPU, RAM. Scale up/down | Increase number of nodes. Scale in/out |
-| **Cost**         | Low initial cost. Exponentially increasing cost | High initial cost. Optimal over time |
-| **Complexity & Maintenance** | Lower  | Higher. Need to add load balancing and extra configuration.  |
-| **Limitation**   | Bounded by capacity of one machine. | Bounded by time, expertise, and effort. |
-| **Availability**  | Single point of failure  | Improved from increased number of nodes  |
-
-#### Load Balancing
-
-### Consistency Patterns
-
-#### Strong Consistency
-* All nodes have the same data at all times
-
-#### Eventual Consistency
-* Temporarily inconsistent across nodes but guarantees that all nodes will eventually converge to a consistent state
-
-
-## Microservices
-
-## Monolithic
+## Collaboration Approaches
+### Microservices
+#### Monolithic
 * A traditional software development approach. A single codebase containing all the functionality that is deployed as a single unit.
 * A good choice for a small team and application with little complexity. Consider refactoring into microservices if:
-    * it becomes too complex.
-    * performance is a problem even after scaling horizontally with load-balancing & database sharding.
+  * it becomes too complex.
+  * performance is a problem even after scaling horizontally with load-balancing & database sharding.
 
-### Modular Monolith
-
-* **Improved cohesion:** Monolith divided into distinct modules with specific functionality. Each module will be independent and isolated so each module can be owned by a single team. This supports the separation of concerns, leading to a cleaner and organized codebase.
-
-* **Middle ground of monolithic & microservices.** Provides some advantages of microservices without the complexity of distributed systems. Could serve as the foundation step of microservices. Each module could be an independent microservices candidate in the future.
-
-* **Loose coupling:** A module is never completely independent, but dependencies with other modules should be minimal to enable teams to replace/modify modules without impacting others. To promote loose coupling, data isolation should be achieved by following options:
-
-    - Separate table
-    - Separate schema
-    - Separate database
-    - Different persistence
-
-#### vs Microservices
-
+##### vs Microservices
 * **Simple deployment, but no flexibility.** Deployment is the biggest difference. Modular monolith is deployed as a single unit whereas microservices allow independent deployments & scalability.
 * **No tech stack flexibility.** Different technology stacks per service is possible for microservices.
 * **Less latency between features:** Communication between modules occurs in-process, so no network latency or data serialization/deserialization overhead.
 
-### Distributed Monolith
+##### Modular Monolith
+* **Improved cohesion:** Monolith divided into distinct modules with specific functionality. Each module will be independent and isolated so each module can be owned by a single team. This supports the separation of concerns, leading to a cleaner and organized codebase.
+* **Middle ground of monolithic & microservices.** Provides some advantages of microservices without the complexity of distributed systems. Could serve as the foundation step of microservices. Each module could be an independent microservices candidate in the future.
+* **Loose coupling:** A module is never completely independent, but dependencies with other modules should be minimal to enable teams to replace/modify modules without impacting others. To promote loose coupling, data isolation should be achieved by following options:
+
+  - Separate table
+  - Separate schema
+  - Separate database
+  - Different persistence
+
+##### Distributed Monolith
 * **Antipattern.** Has the complexity of microservices without the benefits of microservices.
 * Low coupling is crucial to get benefits of microservices. Not how small or how many services are there.
 * Some signs of this problem:
-    - Tightly coupled microservices.
-    - The deployment of one service causes downtime for other services.
-    - Services are overly chatty.
+  - Tightly coupled microservices.
+  - The deployment of one service causes downtime for other services.
+  - Services are overly chatty.
 
----
-
-# Design Patterns
-
-## Backends for Frontends
-
-### Problem context
+#### Common Design Patterns
+##### Backends for Frontends
+###### Problem context
 * Desktop & mobile clients can have different data requirements. One backend service being used for both desktop & mobile can become a bottleneck in the development process.
 
-### Solution
+###### Solution
 * Create one backend per user interface. Fine-tune the behavior and performance of each backend to best match the needs of different clients.
 
-### Benefits
+###### Benefits
 * **Less Complexity -** The overall system could become less complex than a generic backend trying to satisfy all different types of clients.
 * **Feature Selection Flexibility -** Each interface team has increased flexibility to prioritize features and autonomy to control their own backend.
 * **Reliability Increase -** Malfunction of desktop backend service might not affect the availability of mobile backend service.
 * **Performance optimization -** Custom optimization for a specific client's constraints and functionality.
 
-### Issues and Considerations
+###### Issues and Considerations
 * **Over-engineering -** Just a single backend will suffice if different clients mostly make the same requests. Building the new backends can create more technical debt.
 * **Code Duplication -** Code duplication across services is highly likely without a proper planning. The new frontend-focused backend services should only contain client specific logics, and general business logics should be managed elsewhere.
 
-## Strangler Fig pattern
-### Problem context
+##### Strangler Fig pattern
+###### Problem context
 * Migrating a monolithic application to microservices application in a single operation introduces transformation risk and business disruption. It is extremely hard or even impossible to add new features while the app is being refactored.
 
-### Solution
+###### Solution
 * Incrementally migrate a monolithic application to a microservices architecture.
 
-### Benefits
+###### Benefits
 * **Minimal End Users Impact -** The features in the monolith are replaced by microservices gradually, and users are able to use the newly migrated features progressively. The monolithic application can be decommissioned safely when all features are moved out to the new system.
 
-### Issues and Considerations
+###### Issues and Considerations
 * **Request Interception -** The request needs to be interceptable. A proxy layer intercepts the requests that go to the monolithic application and routes them to either the legacy system or the new system.
 * **Single Point of Failure -** The above proxy layer can become a single point of failure or a performance bottleneck.
 * **Data synchronization -** Data consistency & redundancy issues can happen from the monolithic system having a data store and the new microservice having it's own data store as well. Sharing or updating data will likely require a synchronizing agent between the two stores for eventual consistency.
 * **Complete refactoring -** For small applications, it might be more efficient to rewrite the whole application in microservices architecture instead of incrementally migrating it.
 
+## Testing Approaches
+* **Fuzz testing:** Using invalid inputs to find bugs and vulnerabilities.
+* **Chaos engineering:** Testing distributed system by deliberately introducing failure and faulty scenarios to verify its resilience in the face of random disruptions.
+* **A/B testing:** A user-experience research method using two versions (A and B) to see which one performs better. 
+
+---
