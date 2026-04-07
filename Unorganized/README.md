@@ -10,11 +10,31 @@ netmask
 ---
 # AuthN
 
-* **Factor:** Element used to verify a user’s identity.
-* **2FA (Two-Factor Authentication):**
-* **MFA (Multi-Factor Authentication):**
+* **Factor:** A category of credential used to verify a user's identity.
+    * **Categories**
+        * **Information:** Requiring information only the user should know.
+        * **Objects:** Using a physical object the user possesses.
+        * **Biometric Traits:** Using unique biological characteristics.
+        * **Location:** Relying on the user’s geographical location.
+        * **Behavior:** Analyze unique behavioral traits to verify a user's identity
 
+* **2FA (Two-Factor Authentication):** Need verification of two separate authentication factors.
+* **MFA (Multi-Factor Authentication):** Need verification of two or more authentication factors.
+
+* **SSO (Single Sign-On):**
 * **JWT (JSON Web Token):** 
+
+* Maintaining authentication
+    * **Session-based:** The client stores session ID and the server
+        1. The client sends a login request.
+        2. The server returns a session ID if valid and stores the session ID.
+        3. The client stores the session ID and sends it in subsequent requests.
+        4. The server uses the session ID to process the request if valid.
+    * **Token-based:** The server simply checks whether the token from the request is valid or not. No need to check session ID in the database for authentication. Stateless and highly scalable.
+        1. The client sends a login request.
+        2. The server returns a signed token if valid credentials.
+        3. The client stores the signed token and sends it in subsequent requests.
+        4. The server decodes the signed token and processes the request if valid.
 
 ---
 # Proxy
@@ -52,9 +72,19 @@ Servers that sit between clients and servers to improve security, privacy and pe
         Cloudflare’s global content caching caches static and dynamic content at over 200 data centers around the world, storing frequently accessed files (like images, CSS, and JavaScript) closer to users. This significantly reduces load times and latency, as requests don’t always need to travel to the origin server.
 
 ---
+# CDN
+* **Push CDN:** Asset updates from the origin server gets propagated to CDNs.
+* **Pull CDN:** Lazily updated. If cache doesn't exist, CDN fetches the asset from the origin server. Stale cache possible.
+
+---
 # IP
 
 * **IP masking:** hiding true IP address and replacing it with a different one.
+
+---
+# Privacy
+General Data Protection Regulation (GDPR): 
+California Consumer Privacy Act (CCPA): 
 
 ---
 * Databases
@@ -82,9 +112,6 @@ Servers that sit between clients and servers to improve security, privacy and pe
         * Backpressure
         * Loadshifting
         * Circuit Breaker
-    * CDN
-        * Pull CDNs
-        * Push CDNs
     * Load Balancer
         * LB vs Reverse Proxy
         * Algorithms
