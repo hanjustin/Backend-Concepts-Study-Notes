@@ -21,11 +21,18 @@ netmask
 * **2FA (Two-Factor Authentication):** Need verification of two separate authentication factors.
 * **MFA (Multi-Factor Authentication):** Need verification of two or more authentication factors.
 
-* **SSO (Single Sign-On):**
-* **JWT (JSON Web Token):** 
+* **SSO (Single Sign-On):** Accessing multiple applications through one set of credentials.
+* **IdP (Identity Provider):** A dedicated service that manages user identities and handles authentication.
+* **JWT (JSON Web Token):** Standard for securely sharing JSON data between parties. Carries all necessary user information within the token itself for local verification without needing a database call. Used for stateless authentication. Encoded, but not encrypted by default.
+    * **Structure:**
+        * **Header:** Consists token type, signing algorithm (SHA256, RSA, HMAC).
+        * **Payload:** Contains the actual claims - such as user ID, expiration time, and roles.
+        * **Signature:** Ensures integrity by signing the header and payload using a secret or public/private key pair.
+
+* **HTTP Basic Auth:** Authentication using HTTP protocol. Each request must transmit a username and password.
 
 * Maintaining authentication
-    * **Session-based:** The client stores session ID and the server
+    * **Session-based:** The client stores session ID and the server stores the session info.
         1. The client sends a login request.
         2. The server returns a session ID if valid and stores the session ID.
         3. The client stores the session ID and sends it in subsequent requests.
@@ -35,7 +42,10 @@ netmask
         2. The server returns a signed token if valid credentials.
         3. The client stores the signed token and sends it in subsequent requests.
         4. The server decodes the signed token and processes the request if valid.
-
+    * **Key differences:**
+        * **Storage Location:** Sessions are stored on the server, while tokens (JWTs) are stored on the client side.
+        * **Stateful vs Stateless:** Sessions are stateful, while tokens are stateless, allowing for better scalability
+        * **Expiry Handling:** Session expiry is managed by the server, whereas token expiry is handled by the token itself.
 ---
 # Proxy
 Servers that sit between clients and servers to improve security, privacy and performance. Think of proxy server as a middleman that sits between a private network and the public internet. A Proxy acts on behalf of clients; a Reverse Proxy acts on behalf of servers.
@@ -98,10 +108,6 @@ California Consumer Privacy Act (CCPA):
     * Authentication
         * JWT
         * OAuth
-* Server-side rendering
-    * vs Client-side rendering
-    * vs Single-page app
-    * SEO
 * System Design
     * Availability Patterns
         * Replication - Master & Slave
