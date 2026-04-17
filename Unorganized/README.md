@@ -21,6 +21,8 @@ netmask
 * **2FA (Two-Factor Authentication):** Need verification of two separate authentication factors.
 * **MFA (Multi-Factor Authentication):** Need verification of two or more authentication factors.
 
+* **Zero Trust security:** Approach where not relying on network perimeter nor firewall for verification and instead requiring every request to have a verification. User requests will be granted minimal permission/access to resources.
+
 * **SSO (Single Sign-On):** Accessing multiple applications through one set of credentials.
 * **IdP (Identity Provider):** A dedicated service that manages user identities and handles authentication.
 * **JWT (JSON Web Token):** Standard for securely sharing JSON data between parties. Carries all necessary user information within the token itself for local verification without needing a database call. Used for stateless authentication. Encoded, but not encrypted by default.
@@ -28,8 +30,6 @@ netmask
         * **Header:** Consists token type, signing algorithm (SHA256, RSA, HMAC).
         * **Payload:** Contains the actual claims - such as user ID, expiration time, and roles.
         * **Signature:** Ensures integrity by signing the header and payload using a secret or public/private key pair.
-
-* **HTTP Basic Auth:** Authentication using HTTP protocol. Each request must transmit a username and password.
 
 * Maintaining authentication
     * **Session-based:** The client stores session ID and the server stores the session info.
@@ -46,6 +46,26 @@ netmask
         * **Storage Location:** Sessions are stored on the server, while tokens (JWTs) are stored on the client side.
         * **Stateful vs Stateless:** Sessions are stateful, while tokens are stateless, allowing for better scalability
         * **Expiry Handling:** Session expiry is managed by the server, whereas token expiry is handled by the token itself.
+
+* Authentication Methods
+    * **HTTP Basic:** Client sends base64-encoded credentials (username/pw) with every request.
+    * **API Key:** Client sends a unique string of randomly generated characters.
+    * **JWT:** Client sends a signed token where the signature can be used to validate identity.
+
+* **OIDC (OpenID Connect):** Getting JWT with user information from a third-party IdP. An authentication layer built on top of OAuth.
+* **OAuth:** Industry-standard authorization protocol for gaining access to user's resources with limited scopes on third-party application. Allows developers to use an access token as a valet key to gain delegated access without knowing user's identity nor user's credentials.
+    * **Roles:**
+        * **Resource Owner:** User that owns the protected resources.
+        * **Client:** The system that requires access to the protected resources.
+        * **Authorization Server:** The server that authenticates the resource owner and sends an access token to the client.
+        * **Resource Server:** The server with the protected resources. Accepts access token.
+    * **Tokens:**
+        * **Access Token:** A credential used by the client to access protected resources. Represents the authorization of a specific client to access specific resources.
+        * **Refresh Token:** Long-lived token for obtaining a new access token when the current one expires.
+    * **Flows:**
+        * **Authorization Code Flow:** An authorization code exchanged for an access token. The client receives an authorization code from the authorization server when the user grants permissions. The client sends the code along with the Client ID & Client Secret to get an access token.
+        * **PKCE Flow (Proof Key for Code Exchange):** Enhanced security version of authorization code flow. Additional secret key ("code verifier") is used to guarantee that the system redeeming an authorization code is the same one that requested it. The request for authorization code will contain a hashed value of the secret key and info about used hashing algorithm. Then, the request for redeeming the authorization code will contain the secret key for the authorization server to verify by comparing the received hashed value and generated hashed value from the received secret key.
+
 ---
 # Proxy
 Servers that sit between clients and servers to improve security, privacy and performance. Think of proxy server as a middleman that sits between a private network and the public internet. A Proxy acts on behalf of clients; a Reverse Proxy acts on behalf of servers.
