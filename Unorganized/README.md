@@ -21,15 +21,22 @@ netmask
 * **2FA (Two-Factor Authentication):** Need verification of two separate authentication factors.
 * **MFA (Multi-Factor Authentication):** Need verification of two or more authentication factors.
 
-* **Zero Trust security:** Approach where not relying on network perimeter nor firewall for verification and instead requiring every request to have a verification. User requests will be granted minimal permission/access to resources.
+* **Zero Trust security:** "Never trust, always verify" principle. Users will be continuously re-verified and granted least privilege access to complete a task. Not relying on network perimeter nor firewall for verification.
 
 * **SSO (Single Sign-On):** Accessing multiple applications through one set of credentials.
 * **IdP (Identity Provider):** A dedicated service that manages user identities and handles authentication.
 * **JWT (JSON Web Token):** Standard for securely sharing JSON data between parties. Carries all necessary user information within the token itself for local verification without needing a database call. Used for stateless authentication. Encoded, but not encrypted by default.
-    * **Structure:**
+    * **Format:**
+        * Has three parts separated by dots. `header.payload.signature`
         * **Header:** Consists token type, signing algorithm (SHA256, RSA, HMAC).
         * **Payload:** Contains the actual claims - such as user ID, expiration time, and roles.
         * **Signature:** Ensures integrity by signing the header and payload using a secret or public/private key pair.
+        ```
+        Hash_Algo(
+            base64UrlEncode(header) + "." +
+            base64UrlEncode(payload),
+            secret)
+        ```
 
 * Maintaining authentication
     * **Session-based:** The client stores session ID and the server stores the session info.
@@ -62,6 +69,7 @@ netmask
     * **Tokens:**
         * **Access Token:** A credential used by the client to access protected resources. Represents the authorization of a specific client to access specific resources.
         * **Refresh Token:** Long-lived token for obtaining a new access token when the current one expires.
+            * **Best practice:** Short-lived access tokens and long-lived refresh tokens. Short expiration times reduce the impact of access token theft. Refresh token has less chance of being stolen as used less frequently.
     * **Flows:**
         * **Authorization Code Flow:** An authorization code exchanged for an access token. The client receives an authorization code from the authorization server when the user grants permissions. The client sends the code along with the Client ID & Client Secret to get an access token.
         * **PKCE Flow (Proof Key for Code Exchange):** Enhanced security version of authorization code flow. Additional secret key ("code verifier") is used to guarantee that the system redeeming an authorization code is the same one that requested it. The request for authorization code will contain a hashed value of the secret key and info about used hashing algorithm. Then, the request for redeeming the authorization code will contain the secret key for the authorization server to verify by comparing the received hashed value and generated hashed value from the received secret key.
